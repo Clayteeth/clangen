@@ -924,6 +924,50 @@ class Pregnancy_Events:
             blood_parent.outside = True
             clan.unknown_cats.append(blood_parent.ID)
 
+        # check for more extended family members to create relationships with
+        for kit in all_kitten:
+            for cat_id in kit.get_relatives():
+                relative_cat = Cat.fetch_cat(cat_id)
+                if relative_cat.dead or relative_cat.outside:
+                    continue
+                parents = kit.get_parents()
+                if cat_id in parents:
+                    continue
+                rel_reflection = game.config["new_cat"]["ext_relative_modifier"]
+                y = random.randrange(-10, 10)
+
+                # this finds what the relative's relationship is toward each parent and applies a reflection of that
+                # relationship to the kit. reflection values will be divided in half by default and then modified
+                # by the random y value
+                for parent_id in parents:
+                    try:
+                        relation_toward_parent = relative_cat.relationships[parent_id]
+                    except KeyError:
+                        continue
+                    relation_toward_kit = relative_cat.relationships[kit.ID]
+                    relation_toward_kit.platonic_like += int(relation_toward_parent.platonic_like / rel_reflection)
+                    relation_toward_kit.comfortable += int(relation_toward_parent.comfortable / rel_reflection)
+                    relation_toward_kit.admiration += int(relation_toward_parent.admiration / rel_reflection)
+                    relation_toward_kit.trust += int(relation_toward_parent.trust / rel_reflection)
+                    relation_toward_kit.dislike += int(relation_toward_parent.dislike / rel_reflection)
+                    relation_toward_kit.jealousy += int(relation_toward_parent.jealousy / rel_reflection)
+
+                    # we won't add a y value to rels that are zero, to avoid making cats dislike kits they shouldn't
+                    if relation_toward_kit.platonic_like != 0:
+                        relation_toward_kit.platonic_like += y
+                    if relation_toward_kit.comfortable != 0:
+                        relation_toward_kit.comfortable += y
+                    if relation_toward_kit.admiration != 0:
+                        relation_toward_kit.admiration += y
+                    if relation_toward_kit.trust != 0:
+                        relation_toward_kit.trust += y
+                    if relation_toward_kit.dislike != 0:
+                        relation_toward_kit.dislike += y
+                    if relation_toward_kit.jealousy != 0:
+                        relation_toward_kit.jealousy += y
+                        
+                    relative_cat.relationships[kit.ID] = relation_toward_kit
+
         return all_kitten
 
     @staticmethod
