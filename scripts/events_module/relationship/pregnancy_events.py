@@ -1005,9 +1005,11 @@ class Pregnancy_Events:
                     # feeling, then we just null it out. Otherwise, relatives can take a small negative toward a parent
                     # into weird extremes toward the kits.
                     relation_toward_kit.dislike += (int(relation_toward_parent.dislike / rel_reflection)
-                                                    if int(relation_toward_parent.dislike / rel_reflection) >= 15
+                                                    if relation_toward_parent.dislike >= 15
                                                     else 0)
-                    relation_toward_kit.jealousy += int(relation_toward_parent.jealousy / rel_reflection) if int(relation_toward_parent.jealousy / rel_reflection) >= 15 else 0
+                    relation_toward_kit.jealousy += (int(relation_toward_parent.jealousy / rel_reflection)
+                                                     if relation_toward_parent.jealousy >= 15
+                                                     else 0)
 
                     neg = False
                     pos = False
