@@ -985,7 +985,7 @@ class Pregnancy_Events:
                 if cat_id in parents:
                     continue
                 rel_reflection = game.config["new_cat"]["ext_relative_modifier"]
-                y = random.randrange(-10, 10)
+                y = random.randrange(-5, 10)
 
                 # this finds what the relative's relationship is toward each parent and applies a reflection of that
                 # relationship to the kit. reflection values will be divided by 4 by default and then modified
@@ -1000,8 +1000,14 @@ class Pregnancy_Events:
                     relation_toward_kit.comfortable += int(relation_toward_parent.comfortable / rel_reflection)
                     relation_toward_kit.admiration += int(relation_toward_parent.admiration / rel_reflection)
                     relation_toward_kit.trust += int(relation_toward_parent.trust / rel_reflection)
-                    relation_toward_kit.dislike += int(relation_toward_parent.dislike / rel_reflection)
-                    relation_toward_kit.jealousy += int(relation_toward_parent.jealousy / rel_reflection)
+
+                    # these two are a little different, if a relative is going to have a teeny amount of negative
+                    # feeling, then we just null it out. Otherwise, relatives can take a small negative toward a parent
+                    # into weird extremes toward the kits.
+                    relation_toward_kit.dislike += (int(relation_toward_parent.dislike / rel_reflection)
+                                                    if int(relation_toward_parent.dislike / rel_reflection) >= 15
+                                                    else 0)
+                    relation_toward_kit.jealousy += int(relation_toward_parent.jealousy / rel_reflection) if int(relation_toward_parent.jealousy / rel_reflection) >= 15 else 0
 
                     neg = False
                     pos = False
@@ -1011,39 +1017,33 @@ class Pregnancy_Events:
                     if relation_toward_kit.platonic_like:
                         pos = True
                         relation_toward_kit.platonic_like += y
-                        big_pos = True if relation_toward_kit.platonic_like >= 50 else False
                     if relation_toward_kit.comfortable:
                         pos = True
                         relation_toward_kit.comfortable += y
-                        big_pos = True if relation_toward_kit.comfortable >= 50 else False
                     if relation_toward_kit.admiration:
                         pos = True
                         relation_toward_kit.admiration += y
-                        big_pos = True if relation_toward_kit.admiration >= 50 else False
                     if relation_toward_kit.trust:
                         pos = True
                         relation_toward_kit.trust += y
-                        big_pos = True if relation_toward_kit.trust >= 50 else False
                     if relation_toward_kit.dislike:
                         neg = True
                         relation_toward_kit.dislike += y
-                        big_neg = True if relation_toward_kit.dislike >= 50 else False
                     if relation_toward_kit.jealousy:
                         neg = True
                         relation_toward_kit.jealousy += y
-                        big_neg = True if relation_toward_kit.jealousy >= 50 else False
+
+                    # a little fallback, if no relationship was made at all then we just toss a teeny platonic like in
+                    if not pos and not neg:
+                        pos = True
+                        relation_toward_kit.platonic_like += 5
 
                     if pos and neg:
                         rel_type = "neutral"
                     elif pos:
                         rel_type = "positive"
-                    elif neg:
-                        rel_type = "negative"
                     else:
-                        rel_type = None
-
-                    if not rel_type:
-                        continue
+                        rel_type = "negative"
 
                     # adds reaction text to type postscript and age postscript
                     log = event_text_adjust(
