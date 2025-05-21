@@ -29,7 +29,7 @@ class Pregnancy_Events:
 
     biggest_family = {}
     PREGNANT_STRINGS: Optional[Dict[str, Union[List, Dict[str, List]]]] = {}
-    NEWBORN_REL_REACTIONS: Dict[str, list[str]] = {}
+    NEWBORN_REL_REACTIONS: Dict = {}
     currently_loaded_lang: str = None
 
     @staticmethod
