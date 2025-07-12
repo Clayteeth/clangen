@@ -131,10 +131,10 @@ class Events:
 
         # Calling of "one_moon" functions.
         for cat in Cat.all_cats.copy().values():
-            if cat.status.alive_in_player_clan:
-                self.one_moon_cat(cat)
-            else:
+            if not cat.status.group:
                 self.one_moon_outside_cat(cat)
+            elif cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
+                self.one_moon_cat(cat)
 
         # keeping this commented out till disasters are more polished
         # self.disaster_events.handle_disasters()
@@ -322,7 +322,8 @@ class Events:
             if event.moon_delay <= -12:
                 removals.append(event)
             if event.moon_delay <= 0:
-                handle_short_events.trigger_future_event(event)
+                if not handle_short_events.trigger_future_event(event):
+                    removals.append(event)
 
         for event in removals:
             if event in game.clan.future_events:
@@ -519,19 +520,6 @@ class Events:
 
     def mediator_events(self, cat):
         """Check for mediator events"""
-        # If the cat is a mediator, check if they visited other clans
-        if cat.status.rank.is_any_mediator_rank and not cat.not_working():
-            # 1/10 chance
-            if not int(random.random() * 10):
-                random_cat = get_random_moon_cat(Cat, main_cat=cat)
-                handle_short_events.handle_event(
-                    event_type="misc",
-                    main_cat=cat,
-                    random_cat=random_cat,
-                    sub_type=["mediator"],
-                    freshkill_pile=game.clan.freshkill_pile,
-                )
-
         if get_clan_setting("become_mediator"):
             # Note: These chances are large since it triggers every moon.
             # Checking every moon has the effect giving older cats more chances to become a mediator

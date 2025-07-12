@@ -646,7 +646,9 @@ class Cat:
                 fetched_cat.update_mentor()
         self.update_mentor()
 
-        if game.clan and self.status.alive_in_player_clan:
+        # handle grief
+        # since we just yeeted them to their afterlife, we gotta check their previous group affiliation, not current
+        if game.clan and self.status.get_last_living_group() == CatGroup.PLAYER_CLAN:
             self.grief(body)
 
         # mark the sprite as outdated
@@ -1106,6 +1108,7 @@ class Cat:
         try:
             with open(cat_history_directory, "r", encoding="utf-8") as read_file:
                 history_data = ujson.loads(read_file.read())
+
                 self._history = History(
                     beginning=(
                         history_data["beginning"] if "beginning" in history_data else {}
