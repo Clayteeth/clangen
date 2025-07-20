@@ -846,6 +846,7 @@ class ProfileScreen(Screens):
                 0
             ].name
         # otherwise, assume the cat takes the player clan's name
+        # it's okay if this is an outsider, if they don't actually have a group to refer to then they won't use this variable
         else:
             name = game.clan.name
 
