@@ -217,7 +217,8 @@ class Status:
             self.standing_history = [
                 {"group": self.group, "standing": [CatStanding.MEMBER], "near": True}
             ]
-        else:
+
+        if not self.get_standing_with_group(CatGroup.PLAYER_CLAN):
             self.standing_history = [
                 {
                     "group": CatGroup.PLAYER_CLAN,
@@ -312,6 +313,12 @@ class Status:
         """
         return (
             CatSocial.CLANCAT in self.all_socials and self.social != CatSocial.CLANCAT
+        )
+
+    @property
+    def is_other_clancat(self) -> bool:
+        return (
+            self.social == CatSocial.CLANCAT and not self.group == CatGroup.PLAYER_CLAN
         )
 
     @property

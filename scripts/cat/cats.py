@@ -472,7 +472,7 @@ class Cat:
 
     @property
     def dead(self) -> bool:
-        return self.status.group and self.status.group.is_afterlife()
+        return bool(self.status.group and self.status.group.is_afterlife())
 
     @dead.setter
     def dead(self, die: bool):
@@ -3513,13 +3513,23 @@ class Cat:
             the Cat object. Takes a function which takes in a Cat instance and
             returns a boolean.
         """
+
         sorted_specific_list = [
             check_cat
             for check_cat in Cat.all_cats_list
             if check_cat.dead == self.dead
-            and check_cat.status.is_outsider == self.status.is_outsider
+            and check_cat.status.alive_in_player_clan
+            == self.status.alive_in_player_clan
             and not check_cat.faded
         ]
+
+        # we're doing this separately so that we don't fuck up other clan cats and cats with no group
+        if self.dead:
+            sorted_specific_list = [
+                check_cat
+                for check_cat in sorted_specific_list
+                if check_cat.status.group == self.status.group
+            ]
 
         if filter_func is not None:
             sorted_specific_list = [
