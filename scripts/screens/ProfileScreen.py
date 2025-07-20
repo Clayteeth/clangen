@@ -1279,8 +1279,6 @@ class ProfileScreen(Screens):
         else:
             text = i18n.t("cat.backstories.unknown", name=self.the_cat.name)
 
-
-
         if self.the_cat.status.alive_in_player_clan:
             beginning = self.the_cat.history.beginning
             if beginning:
@@ -1301,10 +1299,14 @@ class ProfileScreen(Screens):
                     )
 
         if self.the_cat.status.is_lost():
-            text += f" {i18n.t('cat.backstories.currently_lost', name=self.the_cat.name)}"
+            text += (
+                f" {i18n.t('cat.backstories.currently_lost', name=self.the_cat.name)}"
+            )
 
         if self.the_cat.status.is_exiled():
-            text += f" {i18n.t('cat.backstories.currently_exiled', name=self.the_cat.name)}"
+            text += (
+                f" {i18n.t('cat.backstories.currently_exiled', name=self.the_cat.name)}"
+            )
 
         text = process_text(text, cat_dict)
         return text
