@@ -1257,17 +1257,29 @@ class ProfileScreen(Screens):
                 status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
             )
         # if cat is living outsider
-        elif self.the_cat.status.is_outsider:
+        elif (
+            self.the_cat.status.is_outsider
+            and not self.the_cat.status.is_lost()
+            and not self.the_cat.status.is_exiled()
+        ):
             bs_blurb = i18n.t(
                 "cat.backstories.cats_outside_the_clan",
                 status=i18n.t(f"general.{self.the_cat.status.rank}", count=1),
             )
-
+        elif self.the_cat.status.is_other_clancat:
+            clan = [
+                clan
+                for clan in game.clan.all_clans
+                if clan.enum == self.the_cat.status.group
+            ]
+            bs_blurb = i18n.t("cat.backstories.other_clan_cat", clan=clan[0])
         if bs_blurb is not None:
             adjust_text = str(bs_blurb).replace("This cat", str(self.the_cat.name))
             text = adjust_text
         else:
             text = i18n.t("cat.backstories.unknown", name=self.the_cat.name)
+
+
 
         if self.the_cat.status.alive_in_player_clan:
             beginning = self.the_cat.history.beginning
@@ -1287,6 +1299,12 @@ class ProfileScreen(Screens):
                         moon=beginning["moon"],
                         join_age=i18n.t("general.moons_age", count=beginning["age"]),
                     )
+
+        if self.the_cat.status.is_lost():
+            text += f" {i18n.t('cat.backstories.currently_lost', name=self.the_cat.name)}"
+
+        if self.the_cat.status.is_exiled():
+            text += f" {i18n.t('cat.backstories.currently_exiled', name=self.the_cat.name)}"
 
         text = process_text(text, cat_dict)
         return text
