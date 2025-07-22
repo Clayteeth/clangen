@@ -1512,7 +1512,14 @@ class Cat:
         """
         all_cats = self.all_cats.copy()
         all_cats.pop(self.ID)
-        other_cat = choice(list(all_cats.keys()))
+        # this makes sure other_clan cats don't think about player_clan cats
+        if not self.dead and self.status.is_other_clancat:
+            all_cats = {
+                ID: c
+                for ID, c in all_cats.items()
+                if c.status.group == self.status.group
+            }
+
         game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
         camp = switch_get_value(Switch.camp_bg)
@@ -1538,43 +1545,46 @@ class Cat:
 
         # get other cat
         i = 0
-        # for cats inside the clan
-        if where_kitty == "inside":
-            dead_chance = getrandbits(4)
-            while (
-                other_cat == self.ID
-                and len(all_cats) > 1
-                or (all_cats.get(other_cat).dead and dead_chance != 1)
-                or (other_cat not in self.relationships)
-            ):
-                other_cat = choice(list(all_cats.keys()))
-                i += 1
-                if i > 100:
-                    other_cat = None
-                    break
-        # for dead cats
-        elif where_kitty in ("starclan", "hell", "UR"):
-            while other_cat == self.ID and len(all_cats) > 1:
-                other_cat = choice(list(all_cats.keys()))
-                i += 1
-                if i > 100:
-                    other_cat = None
-                    break
-        # for cats currently outside
-        # it appears as for now, kittypets and loners can only think about outsider cats
-        elif where_kitty == "outside":
-            while (
-                other_cat == self.ID
-                and len(all_cats) > 1
-                or (other_cat not in self.relationships)
-            ):
-                other_cat = choice(list(all_cats.keys()))
-                i += 1
-                if i > 100:
-                    other_cat = None
-                    break
+        other_cat = None
+        if all_cats:
+            other_cat = choice(list(all_cats.keys()))
+            # for cats inside the clan
+            if where_kitty == "inside":
+                dead_chance = getrandbits(4)
+                while (
+                    other_cat == self.ID
+                    and len(all_cats) > 1
+                    or (all_cats.get(other_cat).dead and dead_chance != 1)
+                    or (other_cat not in self.relationships)
+                ):
+                    other_cat = choice(list(all_cats.keys()))
+                    i += 1
+                    if i > 100:
+                        other_cat = None
+                        break
+            # for dead cats
+            elif where_kitty in ("starclan", "hell", "UR"):
+                while other_cat == self.ID and len(all_cats) > 1:
+                    other_cat = choice(list(all_cats.keys()))
+                    i += 1
+                    if i > 100:
+                        other_cat = None
+                        break
+            # for cats currently outside
+            # it appears as for now, kittypets and loners can only think about outsider cats
+            elif where_kitty == "outside":
+                while (
+                    other_cat == self.ID
+                    and len(all_cats) > 1
+                    or (other_cat not in self.relationships)
+                ):
+                    other_cat = choice(list(all_cats.keys()))
+                    i += 1
+                    if i > 100:
+                        other_cat = None
+                        break
 
-        other_cat = all_cats.get(other_cat)
+            other_cat = all_cats.get(other_cat)
 
         # get chosen thought
         if just_died:

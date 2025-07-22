@@ -130,10 +130,8 @@ class Events:
 
         # Calling of "one_moon" functions.
         for cat in Cat.all_cats.copy().values():
-            if not cat.status.group:
+            if not cat.status.group or cat.status.is_other_clancat:
                 self.one_moon_outside_cat(cat)
-            elif cat.status.group.is_other_clan_group():
-                self.one_moon_other_clan_cat(cat)
             elif cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
                 self.one_moon_cat(cat)
 

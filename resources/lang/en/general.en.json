@@ -91,6 +91,10 @@
             "one": "former Clancat",
             "many": "former Clancats"
         },
+        "clancat": {
+            "one": "Clancat",
+            "many": "Clancats"
+        },
         "exiled": {
             "one": "exiled from",
             "many": "exiled from"
