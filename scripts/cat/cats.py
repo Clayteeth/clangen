@@ -1556,10 +1556,7 @@ class Cat:
             # for cats currently outside
             # it appears as for now, kittypets and loners can only think about outsider cats
             elif self.status.is_outsider:
-                while (
-                    len(all_cats) > 1
-                    or (other_cat not in self.relationships)
-                ):
+                while len(all_cats) > 1 or (other_cat not in self.relationships):
                     all_cats.remove(other_cat)
                     if not all_cats:
                         other_cat = None
