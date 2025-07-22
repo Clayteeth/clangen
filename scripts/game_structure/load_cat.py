@@ -300,6 +300,7 @@ def json_load():
             raise
 
     # replace cat ids with cat objects and add other needed variables
+    other_clan_cats = [c for c in Cat.all_cats_list if c.status.is_other_clancat]
     for cat in all_cats:
         cat.load_conditions()
 
@@ -332,7 +333,7 @@ def json_load():
 
         try:
             # initialization of thoughts
-            cat.thoughts()
+            cat.thoughts(other_clan_cats=other_clan_cats)
         except Exception as e:
             logger.exception(
                 f"There was an error when thoughts for cat #{cat} are created."

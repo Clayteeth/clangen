@@ -1474,7 +1474,7 @@ class Cat:
     #                              moon skip functions                             #
     # ---------------------------------------------------------------------------- #
 
-    def one_moon(self):
+    def one_moon(self, other_clan_cats: list = None):
         """Handles a moon skip for an alive cat."""
         old_age = self.age
         self.moons += 1
@@ -1485,7 +1485,7 @@ class Cat:
         if not self.status.alive_in_player_clan:
             # this is handled in events.py
             self.personality.set_kit(self.age.is_baby())
-            self.thoughts()
+            self.thoughts(other_clan_cats=other_clan_cats)
             return
 
         if self.dead and not self.faded:
@@ -1504,21 +1504,16 @@ class Cat:
         if self.status.rank.is_any_apprentice_rank():
             self.update_mentor()
 
-    def thoughts(self, just_died=False, lives_left: int = 0):
+    def thoughts(
+        self, just_died=False, lives_left: int = 0, other_clan_cats: list = None
+    ):
         """
         Generates a thought for the cat, which displays on their profile.
         :param just_died: Set True if the cat is generating a death thought
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
-        all_cats = self.all_cats.copy()
-        all_cats.pop(self.ID)
-        # this makes sure other_clan cats don't think about player_clan cats
-        if not self.dead and self.status.is_other_clancat:
-            all_cats = {
-                ID: c
-                for ID, c in all_cats.items()
-                if c.status.group == self.status.group
-            }
+        all_cats = self.all_cats_list.copy()
+        all_cats.remove(self)
 
         game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
@@ -1528,63 +1523,54 @@ class Cat:
         except Exception:
             season = None
 
-        # this figures out where the cat is
-        where_kitty = None
-        if self.dead:
-            if self.status.group == CatGroup.DARK_FOREST:
-                where_kitty = "hell"
-            elif self.status.group == CatGroup.UNKNOWN_RESIDENCE:
-                where_kitty = "UR"
-            else:
-                where_kitty = "starclan"
-
-        elif self.status.is_outsider:
-            where_kitty = "outside"
-        else:
-            where_kitty = "inside"
-
         # get other cat
         i = 0
         other_cat = None
         if all_cats:
-            other_cat = choice(list(all_cats.keys()))
+            other_cat = choice(all_cats)
             # for cats inside the clan
-            if where_kitty == "inside":
-                dead_chance = getrandbits(4)
+            if self.status.is_clancat:
+                # we want to limit how often dead cats are thought about
+                thinking_of_dead_cat = getrandbits(4) != 1
                 while (
-                    other_cat == self.ID
-                    and len(all_cats) > 1
-                    or (all_cats.get(other_cat).dead and dead_chance != 1)
-                    or (other_cat not in self.relationships)
+                    len(all_cats) > 1
+                    or (other_cat.dead and thinking_of_dead_cat)
+                    or other_cat.ID not in self.relationships
                 ):
-                    other_cat = choice(list(all_cats.keys()))
-                    i += 1
-                    if i > 100:
+                    all_cats.remove(other_cat)
+                    if not all_cats:
                         other_cat = None
                         break
-            # for dead cats
-            elif where_kitty in ("starclan", "hell", "UR"):
-                while other_cat == self.ID and len(all_cats) > 1:
-                    other_cat = choice(list(all_cats.keys()))
-                    i += 1
-                    if i > 100:
-                        other_cat = None
-                        break
-            # for cats currently outside
-            # it appears as for now, kittypets and loners can only think about outsider cats
-            elif where_kitty == "outside":
-                while (
-                    other_cat == self.ID
-                    and len(all_cats) > 1
-                    or (other_cat not in self.relationships)
-                ):
-                    other_cat = choice(list(all_cats.keys()))
+
+                    other_cat = choice(all_cats)
+
                     i += 1
                     if i > 100:
                         other_cat = None
                         break
 
-            other_cat = all_cats.get(other_cat)
+            # for dead cats, they can think about whoever they want
+            elif self.status.group and self.status.group.is_afterlife():
+                other_cat = choice(all_cats)
+
+            # for cats currently outside
+            # it appears as for now, kittypets and loners can only think about outsider cats
+            elif self.status.is_outsider:
+                while (
+                    len(all_cats) > 1
+                    or (other_cat not in self.relationships)
+                ):
+                    all_cats.remove(other_cat)
+                    if not all_cats:
+                        other_cat = None
+                        break
+
+                    other_cat = choice(all_cats)
+
+                    i += 1
+                    if i > 100:
+                        other_cat = None
+                        break
 
         # get chosen thought
         if just_died:
