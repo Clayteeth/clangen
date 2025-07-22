@@ -1015,7 +1015,7 @@ class Cat:
     def manage_outside_trait(self):
         """To be run every moon on outside cats
         to keep trait and skills making sense."""
-        if not self.status.is_outsider:
+        if not self.status.is_outsider and not self.status.is_other_clancat:
             return
 
         self.personality.set_kit(self.age.is_baby())  # Update kit trait stuff

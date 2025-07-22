@@ -132,6 +132,8 @@ class Events:
         for cat in Cat.all_cats.copy().values():
             if not cat.status.group:
                 self.one_moon_outside_cat(cat)
+            elif cat.status.group.is_other_clan_group():
+                self.one_moon_other_clan_cat(cat)
             elif cat.status.alive_in_player_clan or cat.status.group.is_afterlife():
                 self.one_moon_cat(cat)
 
@@ -1731,7 +1733,7 @@ class Events:
     # This gives outsiders exp. There may be a better spot for it to go,
     # but I put it here to keep the exp functions together
     def handle_outside_EX(self, cat):
-        if cat.status.is_outsider:
+        if cat.status.is_outsider or cat.status.is_other_clancat:
             if cat.not_working() and int(random.random() * 3):
                 return
 

@@ -855,7 +855,7 @@ def create_new_cat(
         ):
             # babies change name, in case their initial name isn't clan-ish
             new_cat.change_name()
-        elif not original_group.is_other_clan_group():
+        elif not original_group or not original_group.is_other_clan_group():
             # give kittypets a kittypet name
             if original_social == CatSocial.KITTYPET:
                 name = choice(names.names_dict["loner_names"])
