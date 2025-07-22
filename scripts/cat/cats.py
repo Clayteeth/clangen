@@ -1513,6 +1513,9 @@ class Cat:
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
         all_cats = self.all_cats_list.copy()
+        if self.status.is_other_clancat and other_clan_cats:
+            all_cats = other_clan_cats.copy()
+
         all_cats.remove(self)
 
         game_mode = switch_get_value(Switch.game_mode)
