@@ -1163,7 +1163,8 @@ def filter_relationship_type(
 
     # keeping this list here just for quick reference of what tags are handled here
     possible_rel_types = [
-        "strangers" "siblings",
+        "strangers",
+        "siblings",
         "not_siblings",
         "littermates",
         "not_littermates",

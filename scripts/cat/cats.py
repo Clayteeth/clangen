@@ -1587,7 +1587,7 @@ class Cat:
                 self, other_cat, game_mode, biome, season, camp, afterlife, lives_left
             )
         else:
-            chosen_thought = Thoughts.get_chosen_thought(
+            chosen_thought = Thoughts.new_thought(
                 self, other_cat, game_mode, biome, season, camp
             )
 

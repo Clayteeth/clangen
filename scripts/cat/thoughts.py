@@ -13,7 +13,109 @@ if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
 
-def cats_fulfill_thought_constraints(
+def create_list(
+    inter_list: list, main_cat: "Cat", other_cat: "Cat", biome, season, camp
+) -> list:
+    created_list = []
+    for inter in inter_list:
+        if constraints_fulfilled(
+            main_cat, other_cat, inter, biome, season, camp
+        ):
+            created_list.append(inter)
+    return created_list
+
+
+def load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
+    rank = main_cat.status.rank
+    rank = rank.replace(" ", "_")
+
+    if not main_cat.dead:
+        life_dir = "alive"
+    else:
+        life_dir = "dead"
+
+    if main_cat.dead:
+        if main_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+            spec_dir = "/unknownresidence"
+        elif main_cat.status.group == CatGroup.DARK_FOREST:
+            spec_dir = "/darkforest"
+        else:
+            spec_dir = "/starclan"
+    elif main_cat.status.is_outsider:
+        spec_dir = "/alive_outside"
+    else:
+        spec_dir = ""
+
+    try:
+        # newborns only pull from their status thoughts. this is done for convenience
+        if main_cat.age == "newborn":
+            loaded_thoughts = load_lang_resource(
+                f"thoughts/{life_dir}{spec_dir}/newborn.json"
+            )
+        else:
+            thoughts = load_lang_resource(f"thoughts/{life_dir}{spec_dir}/{rank}.json")
+            genthoughts = load_lang_resource(
+                f"thoughts/{life_dir}{spec_dir}/general.json"
+            )
+            loaded_thoughts = thoughts + genthoughts
+
+        final_thoughts = create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
+
+        return final_thoughts
+    except IOError:
+        print("ERROR: loading thoughts")
+
+
+def new_thought(main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, camp):
+    # get possible thoughts
+    try:
+        # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
+        if (main_cat.name.prefix + main_cat.name.suffix).replace(
+            " ", ""
+        ).lower() == "rickastley":
+            return i18n.t("defaults.rickroll")
+        else:
+            chosen_thought_group = choice(
+                load_group(main_cat, other_cat, game_mode, biome, season, camp)
+            )
+            chosen_thought = choice(chosen_thought_group["thoughts"])
+    except IndexError:
+        traceback.print_exc()
+        chosen_thought = i18n.t("defaults.thought")
+
+    return chosen_thought
+
+
+def new_death_thought(
+    main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, camp, afterlife, lives_left
+):
+    THOUGHTS: []
+    try:
+        if main_cat.status.is_leader and lives_left > 0:
+            loaded_thoughts = load_lang_resource(
+                f"thoughts/on_death/{afterlife}/leader_life.json"
+            )
+        elif main_cat.status.is_leader and lives_left == 0:
+            loaded_thoughts = load_lang_resource(
+                f"thoughts/on_death/{afterlife}/leader_death.json"
+            )
+        else:
+            loaded_thoughts = load_lang_resource(
+                f"thoughts/on_death/{afterlife}/general.json"
+            )
+        thought_group = choice(
+            create_list(
+                loaded_thoughts, main_cat, other_cat, biome, season, camp
+            )
+        )
+        chosen_thought = choice(thought_group["thoughts"])
+        return chosen_thought
+
+    except IndexError:
+        traceback.print_exc()
+        return i18n.t("defaults.thought")
+
+def constraints_fulfilled(
     main_cat: "Cat", random_cat: "Cat", thought, biome, season, camp
 ) -> bool:
     """Check if the two cats fulfills the thought constraints."""
@@ -223,112 +325,3 @@ def cats_fulfill_thought_constraints(
                     return False
 
     return True
-
-
-# ---------------------------------------------------------------------------- #
-#                            BUILD MASTER DICTIONARY                           #
-# ---------------------------------------------------------------------------- #
-
-
-def create_thoughts(
-    inter_list, main_cat, other_cat, game_mode, biome, season, camp
-) -> list:
-    created_list = []
-    for inter in inter_list:
-        if cats_fulfill_thought_constraints(
-            main_cat, other_cat, inter, game_mode, biome, season, camp
-        ):
-            created_list.append(inter)
-    return created_list
-
-
-def load_thoughts(main_cat, other_cat, game_mode, biome, season, camp):
-    rank = main_cat.status.rank
-    rank = rank.replace(" ", "_")
-
-    if not main_cat.dead:
-        life_dir = "alive"
-    else:
-        life_dir = "dead"
-
-    if main_cat.dead:
-        if main_cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
-            spec_dir = "/unknownresidence"
-        elif main_cat.status.group == CatGroup.DARK_FOREST:
-            spec_dir = "/darkforest"
-        else:
-            spec_dir = "/starclan"
-    elif main_cat.status.is_outsider:
-        spec_dir = "/alive_outside"
-    else:
-        spec_dir = ""
-
-    # newborns only pull from their status thoughts. this is done for convenience
-    try:
-        if main_cat.age == "newborn":
-            loaded_thoughts = load_lang_resource(
-                f"thoughts/{life_dir}{spec_dir}/newborn.json"
-            )
-        else:
-            thoughts = load_lang_resource(f"thoughts/{life_dir}{spec_dir}/{rank}.json")
-            genthoughts = load_lang_resource(
-                f"thoughts/{life_dir}{spec_dir}/general.json"
-            )
-            loaded_thoughts = thoughts + genthoughts
-
-        final_thoughts = create_thoughts(
-            loaded_thoughts, main_cat, other_cat, game_mode, biome, season, camp
-        )
-        return final_thoughts
-    except IOError:
-        print("ERROR: loading thoughts")
-
-
-def get_chosen_thought(main_cat, other_cat, game_mode, biome, season, camp):
-    # get possible thoughts
-    try:
-        # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
-        if (main_cat.name.prefix + main_cat.name.suffix).replace(
-            " ", ""
-        ).lower() == "rickastley":
-            return i18n.t("defaults.rickroll")
-        else:
-            chosen_thought_group = choice(
-                load_thoughts(main_cat, other_cat, game_mode, biome, season, camp)
-            )
-            chosen_thought = choice(chosen_thought_group["thoughts"])
-    except IndexError:
-        traceback.print_exc()
-        chosen_thought = i18n.t("defaults.thought")
-
-    return chosen_thought
-
-
-def new_death_thought(
-    main_cat, other_cat, game_mode, biome, season, camp, afterlife, lives_left
-):
-    THOUGHTS: []
-    try:
-        if main_cat.status.is_leader and lives_left > 0:
-            loaded_thoughts = load_lang_resource(
-                f"thoughts/on_death/{afterlife}/leader_life.json"
-            )
-        elif main_cat.status.is_leader and lives_left == 0:
-            loaded_thoughts = load_lang_resource(
-                f"thoughts/on_death/{afterlife}/leader_death.json"
-            )
-        else:
-            loaded_thoughts = load_lang_resource(
-                f"thoughts/on_death/{afterlife}/general.json"
-            )
-        thought_group = choice(
-            create_thoughts(
-                loaded_thoughts, main_cat, other_cat, game_mode, biome, season, camp
-            )
-        )
-        chosen_thought = choice(thought_group["thoughts"])
-        return chosen_thought
-
-    except IndexError:
-        traceback.print_exc()
-        return i18n.t("defaults.thought")

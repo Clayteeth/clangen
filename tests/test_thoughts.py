@@ -29,7 +29,7 @@ class TestNotWorkingThoughts(unittest.TestCase):
         possible = [
             thought
             for thought in self.thoughts
-            if Thoughts.cats_fulfill_thought_constraints(
+            if Thoughts.constraints_fulfilled(
                 self.main,
                 self.other,
                 thought,
@@ -100,7 +100,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_thoughts(
+        thoughts = Thoughts.load_group(
             medicine, warrior, "expanded", biome, season, camp
         )
 
@@ -124,7 +124,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_thoughts(cat, None, "expanded", biome, season, camp)
+        thoughts = Thoughts.load_group(cat, None, "expanded", biome, season, camp)
 
     def test_lost_thoughts(self):
         # given
@@ -135,7 +135,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_thoughts(cat, None, "expanded", biome, season, camp)
+        thoughts = Thoughts.load_group(cat, None, "expanded", biome, season, camp)
 
 
 class TestFamilyThoughts(unittest.TestCase):
@@ -148,10 +148,10 @@ class TestFamilyThoughts(unittest.TestCase):
         camp = "camp2"
 
         # when
-        function_thoughts1 = Thoughts.load_thoughts(
+        function_thoughts1 = Thoughts.load_group(
             parent, kit, "expanded", biome, season, camp
         )
-        function_thoughts2 = Thoughts.load_thoughts(
+        function_thoughts2 = Thoughts.load_group(
             kit, parent, "expanded", biome, season, camp
         )
 
