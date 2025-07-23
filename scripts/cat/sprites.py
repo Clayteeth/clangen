@@ -122,25 +122,22 @@ class Sprites:
         # first we create an array of our palette map
         full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
         map_array = pygame.PixelArray(full_map)
-
         # then create a dictionary associating the palette name with its row of the array
         color_palettes = {}
+        palettes = palettes.copy()
         palettes.insert(0, "BASE")
-        for row in range(0, map_array.shape[1] - 1):
+        for row in range(0, map_array.shape[1]):
             color_name = palettes[row]
             color_palettes.update(
                 {color_name: [full_map.unmap_rgb(px) for px in map_array[::, row]]}
             )
 
-        # then take the first row as our base colors
         base_palette = color_palettes["BASE"]
 
         # now we recolor the sprite
         for color_name, palette in color_palettes.items():
             if color_name == "BASE":
                 continue
-
-            # convert the sprite to a pixel array
             recolor_sprite = pygame.PixelArray(new_sprite)
             # we replace each base_palette color with it's matching index from the color_palette
             for color_i, color in enumerate(palette):
@@ -746,14 +743,14 @@ class Sprites:
                 "BLUE",
                 "YELLOW",
                 "CYAN",
-                "RED",
+                "ORANGE",
                 "LIME",
-                "GREEN",
-                "BLACK",
                 "WHITE",
+                "BLACK",
+                "GREEN",
                 "PINK",
                 "PURPLE",
-                "MULTI",
+                "ROSE",
                 "INDIGO",
             ],
             "DOTBOW": [
