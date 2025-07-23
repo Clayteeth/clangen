@@ -123,30 +123,34 @@ class Sprites:
         full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
         map_array = pygame.PixelArray(full_map)
 
-        # then take the first row as our base colors
-        base_palette = [full_map.unmap_rgb(px) for px in map_array[::, 0]]
-
         # then create a dictionary associating the palette name with its row of the array
         color_palettes = {}
+        palettes.insert(0, "BASE")
         for row in range(0, map_array.shape[1] - 1):
             color_name = palettes[row]
             color_palettes.update(
                 {color_name: [full_map.unmap_rgb(px) for px in map_array[::, row]]}
             )
 
+        # then take the first row as our base colors
+        base_palette = color_palettes["BASE"]
+
         # now we recolor the sprite
         for color_name, palette in color_palettes.items():
+            if color_name == "BASE":
+                continue
+
             # convert the sprite to a pixel array
             recolor_sprite = pygame.PixelArray(new_sprite)
             # we replace each base_palette color with it's matching index from the color_palette
             for color_i, color in enumerate(palette):
                 recolor_sprite.replace(base_palette[color_i], color)
-                # convert back into a surface
-                new_sprite = recolor_sprite.make_surface()
-            # close the pixel array now that we're done
-            recolor_sprite.close()
+            # convert back into a surface
+            new_sprite = recolor_sprite.make_surface()
             # add it to our sprite dict!
             self.sprites[f"{name}_{color_name}{sprite_index}"] = new_sprite
+            # close the pixel array now that we're done
+            recolor_sprite.close()
 
         map_array.close()
 
@@ -753,12 +757,7 @@ class Sprites:
                 "INDIGO",
             ],
             "DOTBOW": [
-                "CRIMSON_GOLD",
-                "BLUE_CYAN",
-                "YELLOW_WHITE",
-                "CYAN_GOLD",
-                "RED_YELLOW",
-                "LIME_BLUE",
+                "BLACK_GOLD",
             ],
             "GRADIENTBOW": ["RAINBOW"],
         }
