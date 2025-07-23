@@ -616,17 +616,17 @@ class Cat:
         if self.status.is_leader:
             if game.clan.leader_lives > 0:
                 lives_left = game.clan.leader_lives
-                self.thoughts(just_died=True, lives_left=lives_left)
+                self.get_new_thought(just_died=True, lives_left=lives_left)
                 return
             elif game.clan.leader_lives <= 0:
                 self.dead = True
                 game.just_died.append(self.ID)
                 game.clan.leader_lives = 0
-                self.thoughts(just_died=True, lives_left=0)
+                self.get_new_thought(just_died=True, lives_left=0)
         else:
             self.dead = True
             game.just_died.append(self.ID)
-            self.thoughts(just_died=True)
+            self.get_new_thought(just_died=True)
 
         for app in self.apprentice.copy():
             fetched_cat = Cat.fetch_cat(app)
@@ -1489,11 +1489,11 @@ class Cat:
         if not self.status.alive_in_player_clan:
             # this is handled in events.py
             self.personality.set_kit(self.age.is_baby())
-            self.thoughts(other_clan_cats=other_clan_cats)
+            self.get_new_thought(other_clan_cats=other_clan_cats)
             return
 
         if self.dead and not self.faded:
-            self.thoughts()
+            self.get_new_thought()
             return
 
         if old_age != self.age:
@@ -1508,7 +1508,7 @@ class Cat:
         if self.status.rank.is_any_apprentice_rank():
             self.update_mentor()
 
-    def thoughts(
+    def get_new_thought(
         self, just_died=False, lives_left: int = 0, other_clan_cats: list = None
     ):
         """
@@ -1517,7 +1517,7 @@ class Cat:
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
         other_cat = get_other_cat_for_thought(
-            other_clan_cats.copy() if other_clan_cats else self.all_cats_list.copy()
+            cat_list=other_clan_cats.copy() if other_clan_cats else self.all_cats_list.copy(), main_cat=self
         )
 
         biome = switch_get_value(Switch.biome)

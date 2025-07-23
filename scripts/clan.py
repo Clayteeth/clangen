@@ -229,7 +229,7 @@ class Clan:
             Cat.all_cats.get(cat_id).backstory = "clan_founder"
             if Cat.all_cats.get(cat_id).status.rank == CatRank.APPRENTICE:
                 Cat.all_cats.get(cat_id).rank_change(CatRank.APPRENTICE)
-            Cat.all_cats.get(cat_id).thoughts()
+            Cat.all_cats.get(cat_id).get_new_thought()
 
         save_cats(game.clan.name, Cat, game)
         number_other_clans = randint(3, 5)
