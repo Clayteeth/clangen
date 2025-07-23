@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from scripts.cat import thoughts
+from scripts.events_module.thoughts import generate_thoughts
 from scripts.cat.enums import CatRank, CatGroup
 
 os.environ["SDL_VIDEODRIVER"] = "dummy"
@@ -29,7 +29,7 @@ class TestNotWorkingThoughts(unittest.TestCase):
         possible = [
             thought
             for thought in self.thoughts
-            if thoughts._constraints_fulfilled(
+            if generate_thoughts._constraints_fulfilled(
                 self.main,
                 self.other,
                 thought,
@@ -99,7 +99,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = thoughts._load_group(medicine, warrior, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(medicine, warrior, biome, season, camp)
 
         # when
 
@@ -120,7 +120,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = thoughts._load_group(cat, None, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(cat, None, biome, season, camp)
 
     def test_lost_thoughts(self):
         # given
@@ -131,7 +131,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = thoughts._load_group(cat, None, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(cat, None, biome, season, camp)
 
 
 class TestFamilyThoughts(unittest.TestCase):
@@ -144,8 +144,8 @@ class TestFamilyThoughts(unittest.TestCase):
         camp = "camp2"
 
         # when
-        function_thoughts1 = thoughts._load_group(parent, kit, biome, season, camp)
-        function_thoughts2 = thoughts._load_group(kit, parent, biome, season, camp)
+        function_thoughts1 = generate_thoughts._load_group(parent, kit, biome, season, camp)
+        function_thoughts2 = generate_thoughts._load_group(kit, parent, biome, season, camp)
 
         # then
         """
