@@ -18,9 +18,7 @@ def create_list(
 ) -> list:
     created_list = []
     for inter in inter_list:
-        if constraints_fulfilled(
-            main_cat, other_cat, inter, biome, season, camp
-        ):
+        if constraints_fulfilled(main_cat, other_cat, inter, biome, season, camp):
             created_list.append(inter)
     return created_list
 
@@ -59,7 +57,9 @@ def load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
             )
             loaded_thoughts = thoughts + genthoughts
 
-        final_thoughts = create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
+        final_thoughts = create_list(
+            loaded_thoughts, main_cat, other_cat, biome, season, camp
+        )
 
         return final_thoughts
     except IOError:
@@ -87,7 +87,14 @@ def new_thought(main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, cam
 
 
 def new_death_thought(
-    main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, camp, afterlife, lives_left
+    main_cat: "Cat",
+    other_cat: "Cat",
+    game_mode,
+    biome,
+    season,
+    camp,
+    afterlife,
+    lives_left,
 ):
     THOUGHTS: []
     try:
@@ -104,9 +111,7 @@ def new_death_thought(
                 f"thoughts/on_death/{afterlife}/general.json"
             )
         thought_group = choice(
-            create_list(
-                loaded_thoughts, main_cat, other_cat, biome, season, camp
-            )
+            create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
         )
         chosen_thought = choice(thought_group["thoughts"])
         return chosen_thought
@@ -114,6 +119,7 @@ def new_death_thought(
     except IndexError:
         traceback.print_exc()
         return i18n.t("defaults.thought")
+
 
 def constraints_fulfilled(
     main_cat: "Cat", random_cat: "Cat", thought, biome, season, camp
