@@ -23,7 +23,7 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
 from scripts.cat.skills import CatSkills
 from scripts.cat.status import Status, StatusDict
-from scripts.cat.thoughts import Thoughts
+from scripts.cat.thoughts import new_death_thought, new_thought
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat_relations.relationship import Relationship
 from scripts.clan_package.settings import get_clan_setting
@@ -1583,12 +1583,12 @@ class Cat:
                 if self.status.group and self.status.group.is_afterlife()
                 else game.clan.instructor.status.group
             )
-            chosen_thought = Thoughts.new_death_thought(
-                self, other_cat, game_mode, biome, season, camp, afterlife, lives_left
+            chosen_thought = new_death_thought(
+                self, other_cat, biome, season, camp, afterlife, lives_left
             )
         else:
-            chosen_thought = Thoughts.new_thought(
-                self, other_cat, game_mode, biome, season, camp
+            chosen_thought = new_thought(
+                self, other_cat, biome, season, camp
             )
 
         chosen_thought = event_text_adjust(

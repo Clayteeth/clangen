@@ -66,7 +66,7 @@ def load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
         print("ERROR: loading thoughts")
 
 
-def new_thought(main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, camp):
+def new_thought(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
     # get possible thoughts
     try:
         # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
@@ -76,7 +76,7 @@ def new_thought(main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, cam
             return i18n.t("defaults.rickroll")
         else:
             chosen_thought_group = choice(
-                load_group(main_cat, other_cat, game_mode, biome, season, camp)
+                load_group(main_cat, other_cat, biome, season, camp)
             )
             chosen_thought = choice(chosen_thought_group["thoughts"])
     except IndexError:
@@ -89,7 +89,6 @@ def new_thought(main_cat: "Cat", other_cat: "Cat", game_mode, biome, season, cam
 def new_death_thought(
     main_cat: "Cat",
     other_cat: "Cat",
-    game_mode,
     biome,
     season,
     camp,
