@@ -9,6 +9,7 @@ TODO: Docs
 import logging
 import os
 import re
+import traceback
 from copy import copy
 from itertools import combinations
 from math import floor
@@ -3052,6 +3053,7 @@ def generate_sprite(
             new_sprite = pygame.transform.flip(new_sprite, True, False)
 
     except (TypeError, KeyError):
+        traceback.print_exc()
         logger.exception("Failed to load sprite")
 
         # Placeholder image

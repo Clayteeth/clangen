@@ -366,7 +366,7 @@ class Pelt:
         "PURPLEBELL",
         "MULTIBELL",
         "INDIGOBELL",
-        "CRIMSONBOW",
+        "PLAINBOW_CRIMSON",
         "BLUEBOW",
         "YELLOWBOW",
         "CYANBOW",

@@ -4,6 +4,7 @@ from copy import copy
 
 import pygame
 import ujson
+from pygame import Surface, PixelArray
 
 from scripts.game_structure import constants
 from scripts.game_structure.game.settings import game_setting_get
@@ -59,7 +60,14 @@ class Sprites:
         self.spritesheets[name] = pygame.image.load(a_file).convert_alpha()
 
     def make_group(
-        self, spritesheet, pos, name, sprites_x=3, sprites_y=7, no_index=False
+        self,
+        spritesheet,
+        pos,
+        name,
+        sprites_x=3,
+        sprites_y=7,
+        no_index=False,
+        palettes: list = None,
     ):  # pos = ex. (2, 3), no single pixels
         """
         Divide sprites on a spritesheet into groups of sprites that are easily accessible
@@ -101,7 +109,30 @@ class Sprites:
                         )
                     new_sprite = self.blank_sprite
 
-                self.sprites[full_name] = new_sprite
+                if palettes:
+                    full_map = pygame.image.load(f"sprites/{spritesheet}_palette.png")
+                    map_array = pygame.PixelArray(full_map)
+                    base_palette = [full_map.unmap_rgb(px) for px in map_array[::, 0]]
+                    color_palettes = {}
+                    for row in range(0, map_array.shape[1] - 1):
+                        color_name = palettes[row]
+                        color_palettes.update(
+                            {
+                                color_name: [
+                                    full_map.unmap_rgb(px) for px in map_array[::, row]
+                                ]
+                            }
+                        )
+                    for color_name, palette in color_palettes.items():
+                        recolor_sprite = pygame.PixelArray(new_sprite)
+                        for color_i, color in enumerate(palette):
+                            recolor_sprite.replace(base_palette[color_i], color)
+                            new_sprite = recolor_sprite.make_surface()
+                        recolor_sprite.close()
+                        self.sprites[f"{name}_{color_name}{i}"] = new_sprite
+                    map_array.close()
+                else:
+                    self.sprites[full_name] = new_sprite
                 i += 1
 
     def load_all(self):
@@ -654,11 +685,7 @@ class Sprites:
             ["PINKBELL", "PURPLEBELL", "MULTIBELL", "INDIGOBELL"],
         ]
 
-        bowcollars_data = [
-            ["CRIMSONBOW", "BLUEBOW", "YELLOWBOW", "CYANBOW", "REDBOW", "LIMEBOW"],
-            ["GREENBOW", "RAINBOWBOW", "BLACKBOW", "SPIKESBOW", "WHITEBOW"],
-            ["PINKBOW", "PURPLEBOW", "MULTIBOW", "INDIGOBOW"],
-        ]
+        bowcollars_data = [["PLAINBOW", "DOTBOW", ["GRADIENTBOW"]]]
 
         nyloncollars_data = [
             [
@@ -696,10 +723,31 @@ class Sprites:
             for col, bellcollar in enumerate(bellcollars):
                 self.make_group("bellcollars", (col, row), f"collars{bellcollar}")
 
+        bowcollars_palettes = [
+            "CRIMSON",
+            "BLUE",
+            "YELLOW",
+            "CYAN",
+            "RED",
+            "LIME",
+            "GREEN",
+            "BLACK",
+            "WHITE",
+            "PINK",
+            "PURPLE",
+            "MULTI",
+            "INDIGO",
+        ]
+
         # bowcollars
         for row, bowcollars in enumerate(bowcollars_data):
             for col, bowcollar in enumerate(bowcollars):
-                self.make_group("bowcollars", (col, row), f"collars{bowcollar}")
+                self.make_group(
+                    "bowcollars",
+                    (col, row),
+                    f"collars{bowcollar}",
+                    palettes=bowcollars_palettes,
+                )
 
         # nyloncollars
         for row, nyloncollars in enumerate(nyloncollars_data):
