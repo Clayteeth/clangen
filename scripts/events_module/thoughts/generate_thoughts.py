@@ -254,7 +254,7 @@ def _constraints_fulfilled(
     if not event_for_cat(main_info_dict, main_cat):
         return False
 
-    if r_c_in_text and not event_for_cat(random_info_dict, random_cat):
+    if random_cat and not event_for_cat(random_info_dict, random_cat):
         return False
 
     # Filter for the living status of the random cat. The living status of the main cat
@@ -291,14 +291,6 @@ def _constraints_fulfilled(
     if random_cat and "random_outside_status" in thought:
         if outside_status not in thought["random_outside_status"]:
             return False
-    else:
-        if (
-            main_cat.status.is_outsider
-        ):  # makes sure that outsiders can get thoughts all the time
-            pass
-        else:
-            if outside_status and outside_status != "clancat" and len(r_c_in_text) > 0:
-                return False
 
     if "has_injuries" in thought:
         if "m_c" in thought["has_injuries"]:
