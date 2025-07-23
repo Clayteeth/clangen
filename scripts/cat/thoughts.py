@@ -45,6 +45,8 @@ def get_other_cat_for_thought(
                 other_cat = None
                 break
 
+            other_cat = choice(cat_list)
+
     return other_cat
 
 
