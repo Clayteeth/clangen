@@ -1,13 +1,13 @@
 import os
 import unittest
 
+from scripts.cat import thoughts
 from scripts.cat.enums import CatRank, CatGroup
 
 os.environ["SDL_VIDEODRIVER"] = "dummy"
 os.environ["SDL_AUDIODRIVER"] = "dummy"
 
 from scripts.cat.cats import Cat
-from scripts.cat.thoughts import Thoughts
 
 
 class TestNotWorkingThoughts(unittest.TestCase):
@@ -29,11 +29,10 @@ class TestNotWorkingThoughts(unittest.TestCase):
         possible = [
             thought
             for thought in self.thoughts
-            if Thoughts.constraints_fulfilled(
+            if thoughts._constraints_fulfilled(
                 self.main,
                 self.other,
                 thought,
-                "expanded",
                 self.biome,
                 self.season,
                 self.camp,
@@ -100,12 +99,9 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_group(
-            medicine, warrior, "expanded", biome, season, camp
-        )
+        function_thoughts = thoughts._load_group(medicine, warrior, biome, season, camp)
 
         # when
-        function_thoughts = thoughts
 
     def test_exiled_thoughts(self):
         # given
@@ -124,7 +120,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_group(cat, None, "expanded", biome, season, camp)
+        function_thoughts = thoughts._load_group(cat, None, biome, season, camp)
 
     def test_lost_thoughts(self):
         # given
@@ -135,7 +131,7 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        thoughts = Thoughts.load_group(cat, None, "expanded", biome, season, camp)
+        function_thoughts = thoughts._load_group(cat, None, biome, season, camp)
 
 
 class TestFamilyThoughts(unittest.TestCase):
@@ -148,12 +144,8 @@ class TestFamilyThoughts(unittest.TestCase):
         camp = "camp2"
 
         # when
-        function_thoughts1 = Thoughts.load_group(
-            parent, kit, "expanded", biome, season, camp
-        )
-        function_thoughts2 = Thoughts.load_group(
-            kit, parent, "expanded", biome, season, camp
-        )
+        function_thoughts1 = thoughts._load_group(parent, kit, biome, season, camp)
+        function_thoughts2 = thoughts._load_group(kit, parent, biome, season, camp)
 
         # then
         """

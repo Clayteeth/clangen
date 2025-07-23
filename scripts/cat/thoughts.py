@@ -48,17 +48,17 @@ def get_other_cat_for_thought(
     return other_cat
 
 
-def create_list(
+def _create_list(
     inter_list: list, main_cat: "Cat", other_cat: "Cat", biome, season, camp
 ) -> list:
     created_list = []
     for inter in inter_list:
-        if constraints_fulfilled(main_cat, other_cat, inter, biome, season, camp):
+        if _constraints_fulfilled(main_cat, other_cat, inter, biome, season, camp):
             created_list.append(inter)
     return created_list
 
 
-def load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
+def _load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
     rank = main_cat.status.rank
     rank = rank.replace(" ", "_")
 
@@ -92,7 +92,7 @@ def load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
             )
             loaded_thoughts = thoughts + genthoughts
 
-        final_thoughts = create_list(
+        final_thoughts = _create_list(
             loaded_thoughts, main_cat, other_cat, biome, season, camp
         )
 
@@ -111,7 +111,7 @@ def new_thought(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
             return i18n.t("defaults.rickroll")
         else:
             chosen_thought_group = choice(
-                load_group(main_cat, other_cat, biome, season, camp)
+                _load_group(main_cat, other_cat, biome, season, camp)
             )
             chosen_thought = choice(chosen_thought_group["thoughts"])
     except IndexError:
@@ -145,7 +145,7 @@ def new_death_thought(
                 f"thoughts/on_death/{afterlife}/general.json"
             )
         thought_group = choice(
-            create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
+            _create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
         )
         chosen_thought = choice(thought_group["thoughts"])
         return chosen_thought
@@ -155,7 +155,7 @@ def new_death_thought(
         return i18n.t("defaults.thought")
 
 
-def constraints_fulfilled(
+def _constraints_fulfilled(
     main_cat: "Cat", random_cat: "Cat", thought, biome, season, camp
 ) -> bool:
     """Check if the two cats fulfills the thought constraints."""
