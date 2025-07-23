@@ -38,7 +38,7 @@ def get_other_cat_for_thought(
     other_cat = choice(cat_list)
 
     # sometimes cats can think about a dead cat
-    thinking_of_dead_cat = getrandbits(4) != 1
+    thinking_of_dead_cat = getrandbits(4) == 1
 
     # dead cats think of anyone
     if main_cat.status.group and main_cat.status.group.is_afterlife():
