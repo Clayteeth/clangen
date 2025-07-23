@@ -23,7 +23,11 @@ from scripts.cat.pelts import Pelt
 from scripts.cat.personality import Personality
 from scripts.cat.skills import CatSkills
 from scripts.cat.status import Status, StatusDict
-from scripts.cat.thoughts import new_death_thought, new_thought
+from scripts.cat.thoughts import (
+    new_death_thought,
+    new_thought,
+    get_other_cat_for_thought,
+)
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat_relations.relationship import Relationship
 from scripts.clan_package.settings import get_clan_setting
@@ -1512,69 +1516,16 @@ class Cat:
         :param just_died: Set True if the cat is generating a death thought
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
-        if self.status.is_other_clancat:
-            if not other_clan_cats:
-                all_cats = []
-            else:
-                all_cats = other_clan_cats.copy()
-                all_cats.remove(self)
-        else:
-            all_cats = self.all_cats_list.copy()
-            all_cats.remove(self)
+        other_cat = get_other_cat_for_thought(
+            other_clan_cats.copy() if other_clan_cats else self.all_cats_list.copy()
+        )
 
-        game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
         camp = switch_get_value(Switch.camp_bg)
         try:
             season = game.clan.current_season
         except Exception:
             season = None
-
-        # get other cat
-        i = 0
-        other_cat = None
-        if all_cats:
-            other_cat = choice(all_cats)
-            # for cats inside the clan
-            if self.status.is_clancat:
-                # we want to limit how often dead cats are thought about
-                thinking_of_dead_cat = getrandbits(4) != 1
-                while (
-                    len(all_cats) > 1
-                    or (other_cat.dead and thinking_of_dead_cat)
-                    or other_cat.ID not in self.relationships
-                ):
-                    all_cats.remove(other_cat)
-                    if not all_cats:
-                        other_cat = None
-                        break
-
-                    other_cat = choice(all_cats)
-
-                    i += 1
-                    if i > 100:
-                        other_cat = None
-                        break
-
-            # for dead cats, they can think about whoever they want
-            elif self.status.group and self.status.group.is_afterlife():
-                other_cat = choice(all_cats)
-
-            # for cats currently outside
-            # it appears as for now, kittypets and loners can only think about outsider cats
-            elif self.status.is_outsider:
-                while len(all_cats) > 1 or (other_cat not in self.relationships):
-                    all_cats.remove(other_cat)
-                    if not all_cats:
-                        other_cat = None
-                        break
-
-                    other_cat = choice(all_cats)
-
-                    i += 1
-                    if i > 100:
-                        other_cat = None
-                        break
 
         # get chosen thought
         if just_died:
@@ -1587,9 +1538,7 @@ class Cat:
                 self, other_cat, biome, season, camp, afterlife, lives_left
             )
         else:
-            chosen_thought = new_thought(
-                self, other_cat, biome, season, camp
-            )
+            chosen_thought = new_thought(self, other_cat, biome, season, camp)
 
         chosen_thought = event_text_adjust(
             self.__class__,

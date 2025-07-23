@@ -1,6 +1,6 @@
 import traceback
-from random import choice
-from typing import TYPE_CHECKING
+from random import choice, getrandbits
+from typing import TYPE_CHECKING, Optional
 
 import i18n
 
@@ -11,6 +11,41 @@ from scripts.utility import filter_relationship_type
 
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
+
+
+def get_other_cat_for_thought(
+    cat_list: list["Cat"], main_cat: "Cat"
+) -> Optional["Cat"]:
+    if main_cat in cat_list:
+        cat_list.remove(main_cat)
+
+    if not cat_list:
+        return None
+
+    other_cat = choice(cat_list)
+
+    # sometimes cats can think about a dead cat
+    thinking_of_dead_cat = getrandbits(4) != 1
+
+    # dead cats think of anyone
+    if main_cat.status.group and main_cat.status.group.is_afterlife():
+        return other_cat
+
+    else:
+        # count and give up if we don't find a suitable cat within 100 checks
+        i = 0
+        while cat_list and (
+            (other_cat.dead and not thinking_of_dead_cat)
+            or other_cat.ID not in main_cat.relationships
+        ):
+            cat_list.remove(other_cat)
+
+            i += 1
+            if i > 100 or not cat_list:
+                other_cat = None
+                break
+
+    return other_cat
 
 
 def create_list(
