@@ -140,5 +140,65 @@
         "LITTLECREAMY": "LITTLE",
         "VANCREAMY": "VAN",
         "TUXEDOCREAMY": "TUXEDO"
-}
+},
+    "collar_map": {
+        "CRIMSON": "LEATHER_CRIMSON",
+        "BLUE": "LEATHER_BLUE",
+        "YELLOW": "LEATHER_YELLOW",
+        "CYAN": "LEATHER_CYAN",
+        "RED": "LEATHER_ORANGE",
+        "LIME": "LEATHER_LIME",
+        "GREEN": "LEATHER_GREEN",
+        "WHITE": "LEATHER_WHITE",
+        "BLACK": "DOTLEATHER_MIDNIGHT_GOLD",
+        "PINK": "LEATHER_PINK",
+        "PURPLE": "LEATHER_PURPLE",
+        "MULTI": "LEATHER_ROSE",
+        "INDIGO": "LEATHER_INDIGO",
+        "RAINBOW": "GRADIENTLEATHER_RAINBOW"
+    },
+    "bellcollar_map": {
+        "CRIMSONBELL": "BELL_CRIMSON",
+        "BLUEBELL": "BELL_BLUE",
+        "YELLOWBELL": "BELL_YELLOW",
+        "REDBELL": "BELL_ORANGE",
+        "LIMEBELL": "BELL_LIME",
+        "GREENBELL": "BELL_GREEN",
+        "WHITEBELL": "BELL_WHITE",
+        "BLACKBELL": "DOTBELL_BLACK_GOLD",
+        "PINKBELL": "BELL_PINK",
+        "PURPLEBELL": "BELL_PURPLE",
+        "MULTIBELL": "BELL_ROSE",
+        "INDIGOBELL": "BELL_INDIGO",
+        "RAINBOWBELL": "GRADIENTBELL_RAINBOW"
+    },
+    "bowcollars_map": {
+        "CRIMSONBOW": "BOW_CRIMSON",
+        "BLUEBOW": "BOW_BLUE",
+        "YELLOWBOW": "BOW_YELLOW",
+        "REDBOW": "BOW_ORANGE",
+        "LIMEBOW": "BOW_LIME",
+        "GREENBOW": "BOW_GREEN",
+        "WHITEBOW": "BOW_WHITE",
+        "BLACKBOW": "DOTBOW_BLACK_GOLD",
+        "PINKBOW": "BOW_PINK",
+        "PURPLEBOW": "BOW_PURPLE",
+        "MULTIBOW": "BOW_ROSE",
+        "INDIGOBOW": "BOW_INDIGO",
+        "RAINBOWBOW": "GRADIENTBOW_RAINBOW"
+    },
+    "nyloncollars_map": {
+        "CRIMSONNYLON": "NYLON_CRIMSON",
+        "BLUENYLON": "NYLON_BLUE",
+        "YELLOWNYLON": "NYLON_YELLOW",
+        "REDNYLON": "NYLON_ORANGE",
+        "LIMENYLON": "NYLON_LIME",
+        "GREENNYLON": "NYLON_GREEN",
+        "WHITENYLON": "NYLON_WHITE",
+        "BLACKNYLON": "DOTNYLON_BLACK_GOLD",
+        "PINKNYLON": "NYLON_PINK",
+        "PURPLENYLON": "NYLON_PURPLE",
+        "MULTINYLON": "NYLON_ROSE",
+        "INDIGONYLON": "NYLON_INDIGO"
+    }
 }

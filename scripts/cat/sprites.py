@@ -110,7 +110,7 @@ class Sprites:
                     new_sprite = self.blank_sprite
 
                 if palettes:
-                    full_map = pygame.image.load(f"sprites/{spritesheet}_palette.png")
+                    full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
                     map_array = pygame.PixelArray(full_map)
                     base_palette = [full_map.unmap_rgb(px) for px in map_array[::, 0]]
                     color_palettes = {}
@@ -685,8 +685,6 @@ class Sprites:
             ["PINKBELL", "PURPLEBELL", "MULTIBELL", "INDIGOBELL"],
         ]
 
-        bowcollars_data = [["PLAINBOW", "DOTBOW", ["GRADIENTBOW"]]]
-
         nyloncollars_data = [
             [
                 "CRIMSONNYLON",
@@ -723,31 +721,41 @@ class Sprites:
             for col, bellcollar in enumerate(bellcollars):
                 self.make_group("bellcollars", (col, row), f"collars{bellcollar}")
 
-        bowcollars_palettes = [
-            "CRIMSON",
-            "BLUE",
-            "YELLOW",
-            "CYAN",
-            "RED",
-            "LIME",
-            "GREEN",
-            "BLACK",
-            "WHITE",
-            "PINK",
-            "PURPLE",
-            "MULTI",
-            "INDIGO",
-        ]
+        bowcollars_data = {
+            "BOW": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "RED",
+                "LIME",
+                "GREEN",
+                "BLACK",
+                "WHITE",
+                "PINK",
+                "PURPLE",
+                "MULTI",
+                "INDIGO",
+            ],
+            "DOTBOW": [
+                "CRIMSON_GOLD",
+                "BLUE_CYAN",
+                "YELLOW_WHITE",
+                "CYAN_GOLD",
+                "RED_YELLOW",
+                "LIME_BLUE",
+            ],
+            "GRADIENTBOW": ["RAINBOW"],
+        }
 
         # bowcollars
-        for row, bowcollars in enumerate(bowcollars_data):
-            for col, bowcollar in enumerate(bowcollars):
-                self.make_group(
-                    "bowcollars",
-                    (col, row),
-                    f"collars{bowcollar}",
-                    palettes=bowcollars_palettes,
-                )
+        for col, style in enumerate(bowcollars_data):
+            self.make_group(
+                "bowcollars",
+                (col, 0),
+                f"collars{style}",
+                palettes=bowcollars_data[style],
+            )
 
         # nyloncollars
         for row, nyloncollars in enumerate(nyloncollars_data):
