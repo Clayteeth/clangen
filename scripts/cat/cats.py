@@ -1523,7 +1523,7 @@ class Cat:
             cat_list = self.all_cats_list.copy()
 
         other_cat = get_other_cat_for_thought(
-            cat_list=other_clan_cats.copy() if other_clan_cats else cat_list,
+            cat_list=cat_list,
             main_cat=self,
         )
 
