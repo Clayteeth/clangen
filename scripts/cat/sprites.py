@@ -110,30 +110,47 @@ class Sprites:
                     new_sprite = self.blank_sprite
 
                 if palettes:
-                    full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
-                    map_array = pygame.PixelArray(full_map)
-                    base_palette = [full_map.unmap_rgb(px) for px in map_array[::, 0]]
-                    color_palettes = {}
-                    for row in range(0, map_array.shape[1] - 1):
-                        color_name = palettes[row]
-                        color_palettes.update(
-                            {
-                                color_name: [
-                                    full_map.unmap_rgb(px) for px in map_array[::, row]
-                                ]
-                            }
-                        )
-                    for color_name, palette in color_palettes.items():
-                        recolor_sprite = pygame.PixelArray(new_sprite)
-                        for color_i, color in enumerate(palette):
-                            recolor_sprite.replace(base_palette[color_i], color)
-                            new_sprite = recolor_sprite.make_surface()
-                        recolor_sprite.close()
-                        self.sprites[f"{name}_{color_name}{i}"] = new_sprite
-                    map_array.close()
+                    new_sprite = self.apply_palettes(i, name, new_sprite, palettes)
+
                 else:
                     self.sprites[full_name] = new_sprite
                 i += 1
+
+    def apply_palettes(self, sprite_index, name, new_sprite, palettes):
+        """
+        Creates sprites for each color palette variation
+        """
+        # first we create an array of our palette map
+        full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
+        map_array = pygame.PixelArray(full_map)
+        # then take the first row as our base colors
+        base_palette = [full_map.unmap_rgb(px) for px in map_array[::, 0]]
+        # then create a dictionary associating the palette name with its row of the array
+        color_palettes = {}
+        for row in range(0, map_array.shape[1] - 1):
+            color_name = palettes[row]
+            color_palettes.update(
+                {
+                    color_name: [
+                        full_map.unmap_rgb(px) for px in map_array[::, row]
+                    ]
+                }
+            )
+        # now we recolor the sprite
+        for color_name, palette in color_palettes.items():
+            recolor_sprite = pygame.PixelArray(new_sprite)
+            # we replace each base_palette color with it's matching index from the color_palette
+            for color_i, color in enumerate(palette):
+                recolor_sprite.replace(base_palette[color_i], color)
+                # convert back into a surface
+                new_sprite = recolor_sprite.make_surface()
+            # close the pixel array now that we're done
+            recolor_sprite.close()
+            # add it to our sprite dict!
+            self.sprites[f"{name}_{color_name}{sprite_index}"] = new_sprite
+
+            map_array.close()
+        return new_sprite
 
     def load_all(self):
         # get the width and height of the spritesheet
