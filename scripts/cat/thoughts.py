@@ -172,22 +172,18 @@ def _constraints_fulfilled(
 ) -> bool:
     """Check if the two cats fulfills the thought constraints."""
 
-    # This is for checking biome
     if "biome" in thought:
         if biome not in thought["biome"]:
             return False
 
-    # This is checking for season
     if "season" in thought:
         if season not in thought["season"]:
             return False
 
-    # This is for checking camp
     if "camp" in thought:
         if camp not in thought["camp"]:
             return False
 
-    # This is for checking the 'not_working' status
     if "not_working" in thought:
         if thought["not_working"] != main_cat.not_working():
             return False
@@ -200,7 +196,6 @@ def _constraints_fulfilled(
         if r_c_in_text or r_c_constraint:
             return False
 
-    # This is for filtering certain relationship types between the main cat and random cat.
     if "relationship_constraint" in thought and random_cat:
         if not filter_relationship_type(
             group=[main_cat, random_cat],
@@ -211,15 +206,12 @@ def _constraints_fulfilled(
     main_info_dict = {}
     random_info_dict = {}
 
-    # Constraints for the status of the main cat
     if "main_status_constraint" in thought:
         main_info_dict["status"] = thought["main_status_constraint"]
 
-    # Constraints for the status of the random cat
     if "random_status_constraint" in thought and random_cat:
         random_info_dict["status"] = thought["random_status_constraint"]
 
-    # main cat age constraint
     if "main_age_constraint" in thought:
         main_info_dict["age"] = thought["main_age_constraint"]
 
