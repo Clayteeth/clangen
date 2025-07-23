@@ -12,6 +12,16 @@ from scripts.utility import filter_relationship_type
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
+random_cat_constraints = [
+    "random_backstory_constraint",
+    "random_status_constraint",
+    "random_age_constraint",
+    "random_trait_constraint",
+    "random_skill_constraint",
+    "random_living_status",
+    "random_outside_status",
+]
+
 
 def get_other_cat_for_thought(
     cat_list: list["Cat"], main_cat: "Cat"
@@ -182,12 +192,13 @@ def _constraints_fulfilled(
         if thought["not_working"] != main_cat.not_working():
             return False
 
-    # This is for checking if another cat is needed and there is another cat
-    r_c_in = [
-        thought_str for thought_str in thought["thoughts"] if "r_c" in thought_str
-    ]
-    if len(r_c_in) > 0 and not random_cat:
-        return False
+    if not random_cat:
+        r_c_in_text = [
+            thought_str for thought_str in thought["thoughts"] if "r_c" in thought_str
+        ]
+        r_c_constraint = set(random_cat_constraints).intersection(set(thought.keys()))
+        if r_c_in_text or r_c_constraint:
+            return False
 
     # This is for filtering certain relationship types between the main cat and random cat.
     if "relationship_constraint" in thought and random_cat:
@@ -236,7 +247,7 @@ def _constraints_fulfilled(
     if not event_for_cat(main_info_dict, main_cat):
         return False
 
-    if r_c_in and not event_for_cat(random_info_dict, random_cat):
+    if r_c_in_text and not event_for_cat(random_info_dict, random_cat):
         return False
 
     # Filter for the living status of the random cat. The living status of the main cat
@@ -279,7 +290,7 @@ def _constraints_fulfilled(
         ):  # makes sure that outsiders can get thoughts all the time
             pass
         else:
-            if outside_status and outside_status != "clancat" and len(r_c_in) > 0:
+            if outside_status and outside_status != "clancat" and len(r_c_in_text) > 0:
                 return False
 
     if "has_injuries" in thought:
