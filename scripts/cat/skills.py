@@ -361,25 +361,19 @@ class CatSkills:
         return f"<CatSkills: Primary: |{self.primary}|, Secondary: |{self.secondary}|, Hidden: |{self.hidden}|>"
 
     @staticmethod
-    def generate_new_catskills(rank, age, hidden_skill: HiddenSkillEnum = None):
+    def generate_new_catskills(
+        rank: CatRank, age: CatAge, hidden_skill: HiddenSkillEnum = None
+    ):
         """Generates a new skill"""
         new_skill = CatSkills()
 
         new_skill.hidden = hidden_skill
 
-        if rank == CatRank.NEWBORN or CatAge.NEWBORN:
+        if rank == CatRank.NEWBORN or age == CatAge.NEWBORN:
             pass
-        elif rank == CatRank.KITTEN or CatAge.KITTEN:
+        elif rank == CatRank.KITTEN or age == CatAge.KITTEN:
             new_skill.primary = Skill.get_random_skill(points=0, interest_only=True)
-        elif (
-            rank
-            in [
-                CatRank.APPRENTICE,
-                CatRank.MEDICINE_APPRENTICE,
-                CatRank.MEDIATOR_APPRENTICE,
-            ]
-            or CatAge.ADOLESCENT
-        ):
+        elif rank.is_any_apprentice_rank() or age == CatAge.ADOLESCENT:
             new_skill.primary = Skill.get_random_skill(point_tier=1, interest_only=True)
             if random.randint(1, 3) == 1:
                 new_skill.secondary = Skill.get_random_skill(
@@ -388,15 +382,18 @@ class CatSkills:
         else:
             primary_tier = 1
             secondary_tier = 1
-            if age < 50:
+            if age == CatAge.YOUNG_ADULT:
                 primary_tier += random.randint(0, 1)
                 secondary_tier += random.randint(0, 1)
-            elif age < 100:
+            elif age == CatAge.ADULT:
                 primary_tier += random.randint(0, 2)
                 secondary_tier += random.randint(0, 1)
-            elif age < 150:
+            elif age == CatAge.SENIOR_ADULT:
                 primary_tier += random.randint(1, 2)
                 secondary_tier += random.randint(0, 1)
+            elif age == CatAge.SENIOR:
+                primary_tier -= random.randint(0, 1)
+
             new_skill.primary = Skill.get_random_skill(point_tier=primary_tier)
             if random.randint(1, 2) == 1:
                 new_skill.secondary = Skill.get_random_skill(
@@ -665,7 +662,7 @@ class CatSkills:
         return skills_meet
 
     @staticmethod
-    def get_skills_from_old(old_skill, rank, moons):
+    def get_skills_from_old(old_skill, rank: CatRank, age: CatAge):
         """Generates a CatSkill object"""
         new_skill = CatSkills()
         conversion = {
@@ -715,6 +712,6 @@ class CatSkills:
             new_skill.primary = Skill(conversion[old_skill][0])
             new_skill.primary.set_points_to_tier(conversion[old_skill][1])
         else:
-            new_skill = CatSkills.generate_new_catskills(rank, moons)
+            new_skill = CatSkills.generate_new_catskills(rank, age)
 
         return new_skill
