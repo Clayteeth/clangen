@@ -1512,14 +1512,15 @@ class Cat:
         :param just_died: Set True if the cat is generating a death thought
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
-        all_cats = self.all_cats_list.copy()
         if self.status.is_other_clancat:
             if not other_clan_cats:
                 all_cats = []
             else:
                 all_cats = other_clan_cats.copy()
-
-        all_cats.remove(self)
+                all_cats.remove(self)
+        else:
+            all_cats = self.all_cats_list.copy()
+            all_cats.remove(self)
 
         game_mode = switch_get_value(Switch.game_mode)
         biome = switch_get_value(Switch.biome)
