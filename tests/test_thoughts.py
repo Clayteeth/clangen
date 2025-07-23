@@ -99,7 +99,9 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = generate_thoughts._load_group(medicine, warrior, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(
+            medicine, warrior, biome, season, camp
+        )
 
         # when
 
@@ -120,7 +122,9 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = generate_thoughts._load_group(cat, None, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(
+            cat, None, biome, season, camp
+        )
 
     def test_lost_thoughts(self):
         # given
@@ -131,7 +135,9 @@ class TestsGetStatusThought(unittest.TestCase):
         camp = "camp2"
 
         # load thoughts
-        function_thoughts = generate_thoughts._load_group(cat, None, biome, season, camp)
+        function_thoughts = generate_thoughts._load_group(
+            cat, None, biome, season, camp
+        )
 
 
 class TestFamilyThoughts(unittest.TestCase):
@@ -144,8 +150,12 @@ class TestFamilyThoughts(unittest.TestCase):
         camp = "camp2"
 
         # when
-        function_thoughts1 = generate_thoughts._load_group(parent, kit, biome, season, camp)
-        function_thoughts2 = generate_thoughts._load_group(kit, parent, biome, season, camp)
+        function_thoughts1 = generate_thoughts._load_group(
+            parent, kit, biome, season, camp
+        )
+        function_thoughts2 = generate_thoughts._load_group(
+            kit, parent, biome, season, camp
+        )
 
         # then
         """

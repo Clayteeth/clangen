@@ -26,6 +26,9 @@ random_cat_constraints = [
 def get_other_cat_for_thought(
     cat_list: list["Cat"], main_cat: "Cat"
 ) -> Optional["Cat"]:
+    """
+    Returns a cat object selected from the given cat_list. This will be a cat acceptable as the subject of main_cat's thought.
+    """
     if main_cat in cat_list:
         cat_list.remove(main_cat)
 
@@ -60,9 +63,12 @@ def get_other_cat_for_thought(
     return other_cat
 
 
-def _create_list(
+def _filter_list(
     inter_list: list, main_cat: "Cat", other_cat: "Cat", biome, season, camp
 ) -> list:
+    """
+    Filters thoughts in the inter_list per their constraints and returns a list of allowed thoughts.
+    """
     created_list = []
     for inter in inter_list:
         if _constraints_fulfilled(main_cat, other_cat, inter, biome, season, camp):
@@ -71,6 +77,9 @@ def _create_list(
 
 
 def _load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
+    """
+    Loads and returns thoughts appropriate for the given args.
+    """
     rank = main_cat.status.rank
     rank = rank.replace(" ", "_")
 
@@ -104,7 +113,7 @@ def _load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
             )
             loaded_thoughts = thoughts + genthoughts
 
-        final_thoughts = _create_list(
+        final_thoughts = _filter_list(
             loaded_thoughts, main_cat, other_cat, biome, season, camp
         )
 
@@ -114,6 +123,9 @@ def _load_group(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
 
 
 def new_thought(main_cat: "Cat", other_cat: "Cat", biome, season, camp):
+    """
+    Finds a thought appropriate for the given args.
+    """
     # get possible thoughts
     try:
         # checks if the cat is Rick Astley to give the rickroll thought, otherwise proceed as usual
@@ -142,6 +154,9 @@ def new_death_thought(
     afterlife,
     lives_left,
 ):
+    """
+    Finds an on_death thought appropriate for the given args.
+    """
     THOUGHTS: []
     try:
         if main_cat.status.is_leader and lives_left > 0:
@@ -157,7 +172,7 @@ def new_death_thought(
                 f"thoughts/on_death/{afterlife}/general.json"
             )
         thought_group = choice(
-            _create_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
+            _filter_list(loaded_thoughts, main_cat, other_cat, biome, season, camp)
         )
         chosen_thought = choice(thought_group["thoughts"])
         return chosen_thought
@@ -170,7 +185,7 @@ def new_death_thought(
 def _constraints_fulfilled(
     main_cat: "Cat", random_cat: "Cat", thought, biome, season, camp
 ) -> bool:
-    """Check if the two cats fulfills the thought constraints."""
+    """Check if thought constraints are fulfilled"""
 
     if "biome" in thought:
         if biome not in thought["biome"]:
