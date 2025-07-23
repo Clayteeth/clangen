@@ -1517,7 +1517,10 @@ class Cat:
         :param lives_left: If a leader is generating a death thought, include their lives left here
         """
         other_cat = get_other_cat_for_thought(
-            cat_list=other_clan_cats.copy() if other_clan_cats else self.all_cats_list.copy(), main_cat=self
+            cat_list=other_clan_cats.copy()
+            if other_clan_cats
+            else self.all_cats_list.copy(),
+            main_cat=self,
         )
 
         biome = switch_get_value(Switch.biome)
