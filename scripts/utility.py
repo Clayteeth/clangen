@@ -1163,7 +1163,7 @@ def filter_relationship_type(
 
     # keeping this list here just for quick reference of what tags are handled here
     possible_rel_types = [
-        "siblings",
+        "strangers" "siblings",
         "not_siblings",
         "littermates",
         "not_littermates",
@@ -1199,7 +1199,9 @@ def filter_relationship_type(
     testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
 
     if "strangers" in filter_types:
-        if not all([inter_cat.ID in test_cat.relationships for inter_cat in testing_cats]):
+        if not all(
+            [inter_cat.ID in test_cat.relationships for inter_cat in testing_cats]
+        ):
             return False
 
     if "siblings" in filter_types:

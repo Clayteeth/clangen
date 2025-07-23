@@ -13,22 +13,8 @@ if TYPE_CHECKING:
     from scripts.cat.cats import Cat
 
 
-def thought_fulfill_rel_constraints(main_cat, random_cat, constraint) -> bool:
-    """Check if the relationship fulfills the interaction relationship constraints."""
-    if not random_cat or not constraint:
-        return False
-
-    if not filter_relationship_type(
-        group=[main_cat, random_cat],
-        filter_types=constraint,
-    ):
-        return False
-
-    return True
-
-
 def cats_fulfill_thought_constraints(
-    main_cat: "Cat", random_cat: "Cat", thought, game_mode, biome, season, camp
+    main_cat: "Cat", random_cat: "Cat", thought, biome, season, camp
 ) -> bool:
     """Check if the two cats fulfills the thought constraints."""
 
@@ -61,8 +47,9 @@ def cats_fulfill_thought_constraints(
 
     # This is for filtering certain relationship types between the main cat and random cat.
     if "relationship_constraint" in thought and random_cat:
-        if not thought_fulfill_rel_constraints(
-            main_cat, random_cat, thought["relationship_constraint"]
+        if not filter_relationship_type(
+            group=[main_cat, random_cat],
+            filter_types=thought["relationship_constraint"],
         ):
             return False
 
@@ -310,7 +297,7 @@ def get_chosen_thought(main_cat, other_cat, game_mode, biome, season, camp):
                 load_thoughts(main_cat, other_cat, game_mode, biome, season, camp)
             )
             chosen_thought = choice(chosen_thought_group["thoughts"])
-    except Exception:
+    except IndexError:
         traceback.print_exc()
         chosen_thought = i18n.t("defaults.thought")
 
@@ -342,6 +329,6 @@ def new_death_thought(
         chosen_thought = choice(thought_group["thoughts"])
         return chosen_thought
 
-    except Exception:
+    except IndexError:
         traceback.print_exc()
         return i18n.t("defaults.thought")
