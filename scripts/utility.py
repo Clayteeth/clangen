@@ -1195,31 +1195,26 @@ def filter_relationship_type(
             group.remove(patrol_leader)
         group.insert(0, patrol_leader)
 
-    if "siblings" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
+    test_cat = group[0]
+    testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
 
+    if "strangers" in filter_types:
+        if not all([inter_cat.ID in test_cat.relationships for inter_cat in testing_cats]):
+            return False
+
+    if "siblings" in filter_types:
         if not all([test_cat.is_sibling(inter_cat) for inter_cat in testing_cats]):
             return False
 
     if "not_siblings" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([test_cat.is_sibling(inter_cat) for inter_cat in testing_cats]):
             return False
 
     if "littermates" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if not all([test_cat.is_littermate(inter_cat) for inter_cat in testing_cats]):
             return False
 
     if "not_littermates" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([test_cat.is_littermate(inter_cat) for inter_cat in testing_cats]):
             return False
 
@@ -1268,9 +1263,6 @@ def filter_relationship_type(
             return False
 
     if "not_parent" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([test_cat.is_parent(inter_cat) for inter_cat in testing_cats]):
             return False
 
@@ -1283,9 +1275,6 @@ def filter_relationship_type(
             return False
 
     if "not_child" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([inter_cat.is_parent(test_cat) for inter_cat in testing_cats]):
             return False
 
@@ -1298,9 +1287,6 @@ def filter_relationship_type(
             return False
 
     if "not_mentor" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([inter_cat in test_cat.apprentice for inter_cat in testing_cats]):
             return False
 
@@ -1313,9 +1299,6 @@ def filter_relationship_type(
             return False
 
     if "not_app" in filter_types:
-        test_cat = group[0]
-        testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
-
         if any([inter_cat in test_cat.mentor for inter_cat in testing_cats]):
             return False
 
