@@ -843,6 +843,15 @@ class Pelt:
         elif isinstance(self.accessory, str):
             self.accessory = [self.accessory]
 
+        new_acc_list = []
+        for acc in self.accessory:
+            if acc in convert_dict["collar_map"]:
+                new_acc_list.append(convert_dict["collar_map"][acc])
+            else:
+                new_acc_list.append(acc)
+        self.accessory = new_acc_list
+
+
     def init_eyes(self, parents):
         """Sets eye color for this cat's pelt. Takes parents' eye colors into account.
         Heterochromia is possible based on the white-ness of the pelt, so the pelt color and white_patches must be
