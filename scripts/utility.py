@@ -2974,7 +2974,7 @@ def generate_sprite(
         if not acc_hidden and cat.pelt.accessory:
             cat_accessories = cat.pelt.accessory
             categories = [
-                "collars",
+                "collar_accessories",
                 "tail_accessories",
                 "body_accessories",
                 "head_accessories",

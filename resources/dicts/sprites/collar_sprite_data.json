@@ -25,7 +25,7 @@
             ]
         },
         {
-            "COLLAR_LEATHER": [
+            "LEATHER": [
                 "CRIMSON",
                 "BLUE",
                 "YELLOW",
@@ -40,13 +40,25 @@
                 "ROSE",
                 "INDIGO"
             ],
-            "COLLAR_LEATHER_SPIKE": [
-                "BLACK_GOLD"
+            "LEATHER_SPIKE": [
+                "CRIMSON_GOLD",
+                "BLUE_GOLD",
+                "YELLOW_SILVER",
+                "CYAN_GOLD",
+                "ORANGE_SILVER",
+                "LIME_SILVER",
+                "WHITE_GOLD",
+                "BLACK_GOLD",
+                "GREEN_SILVER",
+                "PINK_GOLD",
+                "PURPLE_GOLD",
+                "ROSE_GOLD",
+                "INDIGO_GOLD"
             ],
-            "COLLAR_LEATHER_GRADIENT": [
+            "LEATHER_GRADIENT": [
                 "RAINBOW"
             ],
-            "COLLAR_LEATHER_BELL": [
+            "LEATHER_BELL": [
                 "CRIMSON",
                 "BLUE",
                 "YELLOW",
@@ -61,15 +73,27 @@
                 "ROSE",
                 "INDIGO"
             ],
-            "COLLAR_LEATHER_BELL_SPIKE": [
-                "BLACK_GOLD"
+            "LEATHER_BELL_SPIKE": [
+                "CRIMSON_GOLD",
+                "BLUE_GOLD",
+                "YELLOW_SILVER",
+                "CYAN_GOLD",
+                "ORANGE_SILVER",
+                "LIME_SILVER",
+                "WHITE_GOLD",
+                "BLACK_GOLD",
+                "GREEN_SILVER",
+                "PINK_GOLD",
+                "PURPLE_GOLD",
+                "ROSE_GOLD",
+                "INDIGO_GOLD"
             ],
-            "COLLAR_LEATHER_BELL_GRADIENT": [
+            "LEATHER_BELL_GRADIENT": [
                 "RAINBOW"
             ]
         },
         {
-            "COLLAR_NYLON": [
+            "NYLON": [
                 "CRIMSON",
                 "BLUE",
                 "YELLOW",
@@ -78,19 +102,17 @@
                 "LIME",
                 "WHITE",
                 "BLACK",
+                "BLACK_GOLD",
                 "GREEN",
                 "PINK",
                 "PURPLE",
                 "ROSE",
                 "INDIGO"
             ],
-            "COLLAR_NYLON_SPIKE": [
-                "BLACK_GOLD"
-            ],
-            "COLLAR_NYLON_GRADIENT": [
+            "NYLON_GRADIENT": [
                 "RAINBOW"
             ],
-            "COLLAR_NYLON_BELL": [
+            "NYLON_BELL": [
                 "CRIMSON",
                 "BLUE",
                 "YELLOW",
@@ -99,16 +121,14 @@
                 "LIME",
                 "WHITE",
                 "BLACK",
+                "BLACK_GOLD",
                 "GREEN",
                 "PINK",
                 "PURPLE",
                 "ROSE",
                 "INDIGO"
             ],
-            "COLLAR_NYLON_BELL_SPIKE": [
-                "BLACK_GOLD"
-            ],
-            "COLLAR_NYLON_BELL_GRADIENT": [
+            "NYLON_BELL_GRADIENT": [
                 "RAINBOW"
             ]
         }

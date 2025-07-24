@@ -142,14 +142,14 @@ class Sprites:
         for color_name, palette in color_palettes.items():
             if color_name == "BASE":
                 continue
-            recolor_sprite = pygame.PixelArray(new_sprite)
+            recolor_sprite = pygame.PixelArray(new_sprite.copy())
             # we replace each base_palette color with it's matching index from the color_palette
             for color_i, color in enumerate(palette):
                 recolor_sprite.replace(base_palette[color_i], color)
             # convert back into a surface
-            new_sprite = recolor_sprite.make_surface()
+            _sprite = recolor_sprite.make_surface()
             # add it to our sprite dict!
-            self.sprites[f"{name}_{color_name}{sprite_index}"] = new_sprite
+            self.sprites[f"{name}_{color_name}{sprite_index}"] = _sprite
             # close the pixel array now that we're done
             recolor_sprite.close()
 
@@ -707,7 +707,7 @@ class Sprites:
             for col, style in enumerate(style_type):
                 self.make_group(
                     "collars",
-                    (col, 0),
+                    (col, row),
                     f"{prefix}{style}",
                     palettes=style_type[style],
                 )
