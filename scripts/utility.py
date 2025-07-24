@@ -865,7 +865,7 @@ def create_new_cat(
                     # TODO: refactor this entire function to remove this call amongst other things
                     from scripts.cat.pelts import Pelt
 
-                    new_cat.pelt.accessory.append(choice(Pelt.collars))
+                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories))
 
             # try to give name from full loner name list
             elif original_social in (CatSocial.LONER, CatSocial.ROGUE) and bool(
@@ -3002,7 +3002,7 @@ def generate_sprite(
                                 ),
                                 (0, 0),
                             )
-                        elif accessory in cat.pelt.collars:
+                        elif accessory in cat.pelt.collar_accessories:
                             new_sprite.blit(
                                 _recolor_lineart(
                                     sprites.sprites["collars" + accessory + cat_sprite],

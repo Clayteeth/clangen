@@ -1,0 +1,116 @@
+{
+    "prefix": "collars",
+    "style_data": [
+        {
+            "BOW": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "ORANGE",
+                "LIME",
+                "WHITE",
+                "BLACK",
+                "GREEN",
+                "PINK",
+                "PURPLE",
+                "ROSE",
+                "INDIGO"
+            ],
+            "BOW_FOIL": [
+                "BLACK_GOLD"
+            ],
+            "BOW_GRADIENT": [
+                "RAINBOW"
+            ]
+        },
+        {
+            "COLLAR_LEATHER": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "ORANGE",
+                "LIME",
+                "WHITE",
+                "BLACK",
+                "GREEN",
+                "PINK",
+                "PURPLE",
+                "ROSE",
+                "INDIGO"
+            ],
+            "COLLAR_LEATHER_SPIKE": [
+                "BLACK_GOLD"
+            ],
+            "COLLAR_LEATHER_GRADIENT": [
+                "RAINBOW"
+            ],
+            "COLLAR_LEATHER_BELL": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "ORANGE",
+                "LIME",
+                "WHITE",
+                "BLACK",
+                "GREEN",
+                "PINK",
+                "PURPLE",
+                "ROSE",
+                "INDIGO"
+            ],
+            "COLLAR_LEATHER_BELL_SPIKE": [
+                "BLACK_GOLD"
+            ],
+            "COLLAR_LEATHER_BELL_GRADIENT": [
+                "RAINBOW"
+            ]
+        },
+        {
+            "COLLAR_NYLON": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "ORANGE",
+                "LIME",
+                "WHITE",
+                "BLACK",
+                "GREEN",
+                "PINK",
+                "PURPLE",
+                "ROSE",
+                "INDIGO"
+            ],
+            "COLLAR_NYLON_SPIKE": [
+                "BLACK_GOLD"
+            ],
+            "COLLAR_NYLON_GRADIENT": [
+                "RAINBOW"
+            ],
+            "COLLAR_NYLON_BELL": [
+                "CRIMSON",
+                "BLUE",
+                "YELLOW",
+                "CYAN",
+                "ORANGE",
+                "LIME",
+                "WHITE",
+                "BLACK",
+                "GREEN",
+                "PINK",
+                "PURPLE",
+                "ROSE",
+                "INDIGO"
+            ],
+            "COLLAR_NYLON_BELL_SPIKE": [
+                "BLACK_GOLD"
+            ],
+            "COLLAR_NYLON_BELL_GRADIENT": [
+                "RAINBOW"
+            ]
+        }
+    ]
+}

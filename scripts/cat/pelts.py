@@ -7,7 +7,6 @@ import i18n
 import scripts.game_structure.screen_settings
 from scripts.cat.sprites import sprites
 from scripts.game_structure import constants
-from scripts.game_structure.game_essentials import game
 from scripts.game_structure.localization import get_lang_config
 from scripts.utility import adjust_list_text
 
@@ -336,75 +335,18 @@ class Pelt:
         "ROAD RUNNER FEATHER",
     ]
 
-    collars = [
-        "CRIMSON",
-        "BLUE",
-        "YELLOW",
-        "CYAN",
-        "ORANGE",
-        "LIME",
-        "GREEN",
-        "RAINBOW",
-        "BLACK",
-        "SPIKES",
-        "WHITE",
-        "PINK",
-        "PURPLE",
-        "MULTI",
-        "INDIGO",
-        "CRIMSONBELL",
-        "BLUEBELL",
-        "YELLOWBELL",
-        "CYANBELL",
-        "REDBELL",
-        "LIMEBELL",
-        "GREENBELL",
-        "RAINBOWBELL",
-        "BLACKBELL",
-        "SPIKESBELL",
-        "WHITEBELL",
-        "PINKBELL",
-        "PURPLEBELL",
-        "MULTIBELL",
-        "INDIGOBELL",
-        "BOW_CRIMSON",
-        "BOW_BLUE",
-        "BOW_YELLOW",
-        "BOW_CYAN",
-        "BOW_ORANGE",
-        "BOW_LIME",
-        "BOW_GREEN",
-        "GRADIENTBOW_RAINBOW",
-        "BOW_BLACK",
-        "DOTBOW_BLACK_GOLD",
-        "BOW_WHITE",
-        "BOW_PINK",
-        "BOW_PURPLE",
-        "BOW_ROSE",
-        "BOW_INDIGO",
-        "CRIMSONNYLON",
-        "BLUENYLON",
-        "YELLOWNYLON",
-        "CYANNYLON",
-        "REDNYLON",
-        "LIMENYLON",
-        "GREENNYLON",
-        "RAINBOWNYLON",
-        "BLACKNYLON",
-        "SPIKESNYLON",
-        "WHITENYLON",
-        "PINKNYLON",
-        "PURPLENYLON",
-        "MULTINYLON",
-        "INDIGONYLON",
-    ]
+    collar_accessories = []
+    for style in sprites.COLLAR_DATA["style_data"]:
+        for style_type, color_list in style.items():
+            for color in color_list:
+                collar_accessories.append(f"{style_type}_{color}")
 
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options
     acc_categories = {
         "PLANT": plant_accessories,
         "WILD": wild_accessories,
-        "COLLAR": collars,
+        "COLLAR": collar_accessories,
     }
 
     tail_accessories = [

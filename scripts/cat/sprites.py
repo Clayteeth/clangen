@@ -4,7 +4,6 @@ from copy import copy
 
 import pygame
 import ujson
-from pygame import Surface, PixelArray
 
 from scripts.game_structure import constants
 from scripts.game_structure.game.settings import game_setting_get
@@ -17,6 +16,11 @@ class Sprites:
     cat_tints = {}
     white_patches_tints = {}
     clan_symbols = []
+
+    with open(
+        "resources/dicts/sprites/collar_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        COLLAR_DATA = ujson.loads(read_file.read())
 
     def __init__(self):
         """Class that handles and hold all spritesheets.
@@ -520,6 +524,7 @@ class Sprites:
                 self.make_group("skin", (col, row), f"skin{color}")
 
         self.load_scars()
+        self.load_accs()
         self.load_symbols()
 
     def load_scars(self):
@@ -608,6 +613,7 @@ class Sprites:
             for col, missing_part in enumerate(missing_parts):
                 self.make_group("missingscars", (col, row), f"scars{missing_part}")
 
+    def load_accs(self):
         # accessories
         # to my beloved modders, im very sorry for reordering everything <333 -clay
         medcatherbs_data = [
@@ -682,38 +688,6 @@ class Sprites:
             ],
         ]
 
-        collars_data = [
-            ["CRIMSON", "BLUE", "YELLOW", "CYAN", "RED", "LIME"],
-            ["GREEN", "RAINBOW", "BLACK", "SPIKES", "WHITE"],
-            ["PINK", "PURPLE", "MULTI", "INDIGO"],
-        ]
-
-        bellcollars_data = [
-            [
-                "CRIMSONBELL",
-                "BLUEBELL",
-                "YELLOWBELL",
-                "CYANBELL",
-                "REDBELL",
-                "LIMEBELL",
-            ],
-            ["GREENBELL", "RAINBOWBELL", "BLACKBELL", "SPIKESBELL", "WHITEBELL"],
-            ["PINKBELL", "PURPLEBELL", "MULTIBELL", "INDIGOBELL"],
-        ]
-
-        nyloncollars_data = [
-            [
-                "CRIMSONNYLON",
-                "BLUENYLON",
-                "YELLOWNYLON",
-                "CYANNYLON",
-                "REDNYLON",
-                "LIMENYLON",
-            ],
-            ["GREENNYLON", "RAINBOWNYLON", "BLACKNYLON", "SPIKESNYLON", "WHITENYLON"],
-            ["PINKNYLON", "PURPLENYLON", "MULTINYLON", "INDIGONYLON"],
-        ]
-
         # medcatherbs
         for row, herbs in enumerate(medcatherbs_data):
             for col, herb in enumerate(herbs):
@@ -728,50 +702,15 @@ class Sprites:
                 self.make_group("wild", (col, row), f"acc_wild{wild}")
 
         # collars
-        for row, collars in enumerate(collars_data):
-            for col, collar in enumerate(collars):
-                self.make_group("collars", (col, row), f"collars{collar}")
-
-        # bellcollars
-        for row, bellcollars in enumerate(bellcollars_data):
-            for col, bellcollar in enumerate(bellcollars):
-                self.make_group("bellcollars", (col, row), f"collars{bellcollar}")
-
-        bowcollars_data = {
-            "BOW": [
-                "CRIMSON",
-                "BLUE",
-                "YELLOW",
-                "CYAN",
-                "ORANGE",
-                "LIME",
-                "WHITE",
-                "BLACK",
-                "GREEN",
-                "PINK",
-                "PURPLE",
-                "ROSE",
-                "INDIGO",
-            ],
-            "FOILBOW": [
-                "BLACK_GOLD",
-            ],
-            "GRADIENTBOW": ["RAINBOW"],
-        }
-
-        # bowcollars
-        for col, style in enumerate(bowcollars_data):
-            self.make_group(
-                "bowcollars",
-                (col, 0),
-                f"collars{style}",
-                palettes=bowcollars_data[style],
-            )
-
-        # nyloncollars
-        for row, nyloncollars in enumerate(nyloncollars_data):
-            for col, nyloncollar in enumerate(nyloncollars):
-                self.make_group("nyloncollars", (col, row), f"collars{nyloncollar}")
+        prefix = self.COLLAR_DATA["prefix"]
+        for row, style_type in enumerate(self.COLLAR_DATA["style_data"]):
+            for col, style in enumerate(style_type):
+                self.make_group(
+                    "collars",
+                    (col, 0),
+                    f"{prefix}{style}",
+                    palettes=style_type[style],
+                )
 
     def load_symbols(self):
         """
