@@ -753,7 +753,7 @@ class Sprites:
                 "ROSE",
                 "INDIGO",
             ],
-            "DOTBOW": [
+            "FOILBOW": [
                 "BLACK_GOLD",
             ],
             "GRADIENTBOW": ["RAINBOW"],
