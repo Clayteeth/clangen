@@ -47,7 +47,7 @@ To add the new `style` to the `collar_sprite_data.json`, you'll add a new list t
 You'll also need to do some additional work to ensure the `style` name displays correctly on cat profiles! Head to the `resources/lang/en/cat/accessories.en.json` file. At the end of this file you'll add a new dict for your `style` formatted like this example:
 
 ```json
-        "LEATHER_BELL_GRADIENT": {
+        "NYLON_BELL_GRADIENT": {
             "zero": "colorful belled nylon collar",
             "many": "colorful belled nylon collars",
             "one": "colorful belled nylon collar"

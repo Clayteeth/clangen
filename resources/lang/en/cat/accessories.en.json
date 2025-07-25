@@ -354,5 +354,10 @@
             "many": "belled nylon collars",
             "one": "belled nylon collar"
         },
+        "NYLON_BELL_GRADIENT": {
+            "zero": "colorful belled nylon collar",
+            "many": "colorful belled nylon collars",
+            "one": "colorful belled nylon collar"
+        }
     }
 }
