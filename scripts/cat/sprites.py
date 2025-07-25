@@ -120,7 +120,9 @@ class Sprites:
                     self.sprites[full_name] = new_sprite
                 i += 1
 
-    def apply_palettes(self, sprite_index: int, name: str, new_sprite, palette_names: list):
+    def apply_palettes(
+        self, sprite_index: int, name: str, new_sprite, palette_names: list
+    ):
         """
         Creates sprites for each color palette variation
         :param sprite_index: index of sprite
