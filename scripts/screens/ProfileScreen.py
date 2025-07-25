@@ -29,6 +29,7 @@ from scripts.utility import (
     ui_scale_offset,
     adjust_list_text,
 )
+from scripts.cat.pelts import Pelt
 from .Screens import Screens
 from ..cat.enums import CatAge, CatRank, CatGroup
 from ..clan_package.settings import get_clan_setting
@@ -751,7 +752,7 @@ class ProfileScreen(Screens):
                 potential_collar = "".join([x for x in acc if not x.islower()]).strip(
                     "_"
                 )
-                for style in the_cat.pelt.collar_styles:
+                for style in Pelt.collar_styles:
                     if style == potential_collar:
                         acc_list.append(
                             i18n.t(f"cat.accessories.{potential_collar}", count=0)
