@@ -336,10 +336,12 @@ class Pelt:
     ]
 
     collar_accessories = []
-    for style in sprites.COLLAR_DATA["style_data"]:
-        for style_type, color_list in style.items():
+    collar_styles = []
+    for style_type in sprites.COLLAR_DATA["style_data"]:
+        for style, color_list in style_type.items():
+            collar_styles.append(style)
             for color in color_list:
-                collar_accessories.append(f"{style_type}_{color}")
+                collar_accessories.append(f"{style}_{color}")
 
     # this is used for acc-giving events, only change if you're adding a new category tag to the event filter
     # adding a category here will automatically update the event editor's options

@@ -745,15 +745,29 @@ class ProfileScreen(Screens):
 
         # ACCESSORY
         if the_cat.pelt.accessory:
+            cats_accs = the_cat.pelt.accessory.copy()
+            acc_list = []
+            for acc in the_cat.pelt.accessory:
+                potential_collar = "".join([x for x in acc if not x.islower()]).strip(
+                    "_"
+                )
+                for style in the_cat.pelt.collar_styles:
+                    if style == potential_collar:
+                        acc_list.append(
+                            i18n.t(f"cat.accessories.{potential_collar}", count=0)
+                        )
+                        cats_accs.remove(acc)
+                        break
+                if acc_list:
+                    break
+
+            acc_list.extend(
+                [i18n.t(f"cat.accessories.{acc}", count=0) for acc in cats_accs]
+            )
             output += "\n"
             output += i18n.t(
                 "screens.profile.accessory_label",
-                accessory=adjust_list_text(
-                    [
-                        i18n.t(f"cat.accessories.{acc}", count=0)
-                        for acc in the_cat.pelt.accessory
-                    ]
-                ),
+                accessory=adjust_list_text(acc_list),
             )
             # NEWLINE ----------
 
