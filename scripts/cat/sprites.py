@@ -80,7 +80,8 @@ class Sprites:
         :param name: Name of group being made
         :param sprites_x: default 3, number of sprites horizontally
         :param sprites_y: default 3, number of sprites vertically
-        :param no_index: default False, set True if sprite name does not require cat pose index
+        :param no_index: default False, set True if sprite name does not require cat pose index:
+        :param palettes: list of palette names
         """
 
         group_x_ofs = pos[0] * sprites_x * self.size
@@ -119,21 +120,25 @@ class Sprites:
                     self.sprites[full_name] = new_sprite
                 i += 1
 
-    def apply_palettes(self, sprite_index, name, new_sprite, palettes):
+    def apply_palettes(self, sprite_index: int, name: str, new_sprite, palette_names: list):
         """
         Creates sprites for each color palette variation
+        :param sprite_index: index of sprite
+        :param name: name of sprite
+        :param new_sprite: the sprite object to create variations of
+        :param palette_names: list of palette names
         """
         # first we create an array of our palette map
         full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
         map_array = pygame.PixelArray(full_map)
         # then create a dictionary associating the palette name with its row of the array
         color_palettes = {}
-        palettes = palettes.copy()
-        palettes.insert(0, "BASE")
+        palette_names = palette_names.copy()
+        palette_names.insert(0, "BASE")
         for row in range(
             0, map_array.shape[1]  # pylint: disable=unsubscriptable-object
         ):
-            color_name = palettes[row]
+            color_name = palette_names[row]
             color_palettes.update(
                 {color_name: [full_map.unmap_rgb(px) for px in map_array[::, row]]}
             )
