@@ -131,8 +131,8 @@ class Sprites:
         palettes = palettes.copy()
         palettes.insert(0, "BASE")
         for row in range(
-            0, map_array.shape[1]
-        ):  # pylint: disable=unsubscriptable-object
+            0, map_array.shape[1]  # pylint: disable=unsubscriptable-object
+        ):
             color_name = palettes[row]
             color_palettes.update(
                 {color_name: [full_map.unmap_rgb(px) for px in map_array[::, row]]}
