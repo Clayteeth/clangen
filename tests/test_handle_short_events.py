@@ -27,7 +27,7 @@ class TestHandleAccessories(unittest.TestCase):
             dict(
                 wild_accessories=["WILD1", "WILD2"],
                 plant_accessories=["PLANT1", "PLANT2"],
-                collars=["COLLAR1", "COLLAR2"],
+                collar_accessories=["COLLAR1", "COLLAR2"],
                 head_accessories=["HEAD1", "HEAD2"],
                 body_accessories=["BODY1", "BODY2"],
                 tail_accessories=["TAIL1", "TAIL2"],
