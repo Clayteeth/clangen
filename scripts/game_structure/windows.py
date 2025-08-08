@@ -56,6 +56,7 @@ from scripts.housekeeping.update import (
     get_latest_version_number,
 )
 from scripts.housekeeping.version import get_version_info
+from scripts.screens.enums import GameScreen
 from scripts.ui.generate_box import BoxStyles, get_box
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.icon import Icon

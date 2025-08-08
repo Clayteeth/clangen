@@ -23,8 +23,6 @@ status_dict = {
     GameScreen.PATROL: "On a patrol",
     GameScreen.PROFILE: "Viewing a cat's profile",
     GameScreen.CEREMONY: "Holding a ceremony",
-    "starclan screen": "Viewing StarClan",
-    "dark forest screen": "Viewing the Dark Forest",
     GameScreen.MED_DEN: "In the medicine den",
 }
 

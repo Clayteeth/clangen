@@ -76,7 +76,6 @@ class Screens:
             GameScreen.CHOOSE_MENTOR,
             GameScreen.CHOOSE_ADOPTIVE_PARENT,
             GameScreen.RELATIONSHIP,
-            "see kits screen",
             GameScreen.MEDIATION,
             GameScreen.CHANGE_GENDER,
         ]:

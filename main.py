@@ -383,7 +383,6 @@ while 1:
                     GameScreen.START,
                     GameScreen.SWITCH_CLAN,
                     GameScreen.SETTINGS,
-                    "info screen",
                     GameScreen.MAKE_CLAN,
                 )
                 or not game.clan
