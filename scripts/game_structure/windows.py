@@ -75,46 +75,6 @@ if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
 
 
-class EditorMissingInfo(UIWindow):
-    def __init__(self, alert_text):
-        super().__init__(
-            ui_scale(pygame.Rect((200, 200), (400, 200))),
-            window_display_title="Info Missing",
-            object_id="#editor_missing_info_window",
-            resizable=False,
-            always_on_top=True,
-        )
-
-        text = "windows.editor_missing_info" if not alert_text else alert_text
-        self.missing_info = UITextBoxTweaked(
-            text,
-            ui_scale(pygame.Rect((0, 30), (360, -1))),
-            line_spacing=1,
-            object_id="#text_box_30_horizcenter",
-            container=self,
-            anchors={
-                "centerx": "centerx",
-            },
-        )
-
-        self.back_button = UIImageButton(
-            ui_scale(pygame.Rect((370, 5), (22, 22))),
-            "",
-            object_id="#exit_window_button",
-            container=self,
-        )
-
-        self.back_button.enable()
-        self.set_blocking(True)
-
-    def process_event(self, event):
-        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-            if event.ui_element == self.back_button:
-                self.kill()
-
-        return super().process_event(event)
-
-
 class DeleteCheck(UIWindow):
     def __init__(self, reloadscreen, clan_name):
         super().__init__(

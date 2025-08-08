@@ -1,26 +1,14 @@
-import i18n
 import pygame
 import pygame_gui
 import ujson
 
-from scripts.cat.cats import Cat
-from scripts.cat.save_load import save_cats
-from scripts.game_structure import image_cache
-from scripts.game_structure.game.switches import (
-    switch_get_value,
-    Switch,
-    switch_set_value,
-)
-from scripts.game_structure.game_essentials import game
-from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
     UITextBoxTweaked,
 )
-from scripts.screens.enums import GameScreen
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.windows.base_window import GameWindow
-from scripts.utility import ui_scale, ui_scale_dimensions
+from scripts.utility import ui_scale
 
 
 class EditorSaveCheck(GameWindow):
