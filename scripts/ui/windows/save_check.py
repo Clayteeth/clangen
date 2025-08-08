@@ -140,6 +140,7 @@ class SaveCheck(GameWindow):
                     self.save_button_saving_state.hide()
                     self.save_button_saved_state.show()
             elif event.ui_element == self.back_button:
+                game.is_close_menu_open = False
                 if self.isMainMenu:
                     self.mm_btn.enable()
 
