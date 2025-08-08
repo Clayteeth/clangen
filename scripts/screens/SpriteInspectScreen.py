@@ -22,7 +22,7 @@ from ..game_structure.game.settings import game_setting_get
 from ..game_structure.game.switches import switch_set_value, switch_get_value, Switch
 from ..cat.enums import CatGroup
 from ..game_structure.screen_settings import MANAGER
-from ..game_structure.windows import SaveAsImage
+from ..ui.windows.save_as_image import SaveAsImage
 from ..ui.generate_button import get_button_dict, ButtonStyles
 
 

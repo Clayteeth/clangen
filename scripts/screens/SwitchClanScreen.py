@@ -12,7 +12,7 @@ from scripts.game_structure.game_essentials import (
     game,
 )
 from scripts.game_structure.ui_elements import UIImageButton, UISurfaceImageButton
-from scripts.game_structure.windows import DeleteCheck
+from scripts.ui.windows.delete_check import DeleteCheck
 from scripts.utility import (
     get_text_box_theme,
     ui_scale,

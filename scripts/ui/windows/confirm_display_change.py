@@ -12,6 +12,7 @@ from scripts.utility import ui_scale, ui_scale_offset
 if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
 
+
 class ConfirmDisplayChanges(GameWindow):
     def __init__(self, source_screen: "Screens"):
         super().__init__(
