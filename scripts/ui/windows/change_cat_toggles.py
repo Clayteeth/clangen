@@ -9,6 +9,7 @@ from scripts.screens.enums import GameScreen
 from scripts.ui.windows.base_window import GameWindow
 from scripts.utility import ui_scale
 
+
 class ChangeCatToggles(GameWindow):
     """This window allows the user to edit various cat behavior toggles"""
 
