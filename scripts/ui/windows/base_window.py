@@ -31,13 +31,14 @@ class GameWindow(UIWindow):
         self.back_button = None
         if back_button:
             scale_rect = ui_scale(pygame.Rect((0, 0), (22, 22)))
-            scale_rect.topright = ui_scale_offset((-5, 5))
+            scale_rect.topright = ui_scale_offset((-5, 7))
             self.back_button = UIImageButton(
                 scale_rect,
                 "",
                 object_id="#exit_window_button",
                 starting_height=10,
                 container=self,
+                anchors={"top": "top", "right": "right"},
             )
 
     def process_event(self, event):
