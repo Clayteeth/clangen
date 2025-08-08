@@ -55,4 +55,3 @@ class UpdateWindow(GameWindow):
             ),
         )
         self.update_thread.start()
-
