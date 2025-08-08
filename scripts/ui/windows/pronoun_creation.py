@@ -1,17 +1,8 @@
 from collections import namedtuple
 
-import i18n
 import pygame
 import pygame_gui
 
-from scripts.cat.cats import Cat
-from scripts.cat.save_load import save_cats
-from scripts.game_structure import image_cache
-from scripts.game_structure.game.switches import (
-    switch_get_value,
-    Switch,
-    switch_set_value,
-)
 from scripts.game_structure.game_essentials import game
 from scripts.game_structure.localization import (
     get_custom_pronouns,
@@ -21,14 +12,13 @@ from scripts.game_structure.localization import (
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
     UISurfaceImageButton,
-    UITextBoxTweaked,
     UIDropDown,
 )
 from scripts.screens.enums import GameScreen
-from scripts.ui.generate_box import get_box
+from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.windows.base_window import GameWindow
-from scripts.utility import ui_scale, ui_scale_dimensions
+from scripts.utility import ui_scale
 
 
 class PronounCreation(GameWindow):
