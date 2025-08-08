@@ -29,7 +29,7 @@ def game_settings_save(currentscreen=None):
 
         SaveError(traceback.format_exc())
         if currentscreen is not None:
-            currentscreen.change_screen("start screen")
+            currentscreen.change_screen(GameScreen.START)
 
 
 def game_settings_load():
