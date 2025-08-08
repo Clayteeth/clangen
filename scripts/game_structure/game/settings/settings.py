@@ -6,6 +6,7 @@ import ujson
 
 from scripts.game_structure.game.save_load import safe_save
 from scripts.housekeeping.datadir import get_save_dir
+from scripts.screens.enums import GameScreen
 
 settings_changed: bool = False
 settings = {"moon_and_seasons_open": False}
