@@ -27,6 +27,7 @@ class GameWindow(UIWindow):
             resizable=resizable,
             always_on_top=always_on_top,
         )
+        self.set_blocking(True)
         self.back_button = None
         if back_button:
             scale_rect = ui_scale(pygame.Rect((0, 0), (22, 22)))

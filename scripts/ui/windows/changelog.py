@@ -94,4 +94,3 @@ class ChangelogPopup(GameWindow):
             container=self,
             manager=MANAGER,
         )
-
