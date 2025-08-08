@@ -6,10 +6,11 @@ from scripts.game_structure.ui_elements import UIImageButton
 from scripts.utility import ui_scale, ui_scale_offset
 
 
-class Window(UIWindow):
+class GameWindow(UIWindow):
     """
     Basic window class, this sets blocking, creates an exit button, and handles the exit event
     """
+
     def __init__(
         self, relative_rect, window_display_title: str = None, object_id: str = None
     ):
