@@ -69,4 +69,3 @@ class DeleteCheck(GameWindow):
             elif event.ui_element == self.go_back_button:
                 self.kill()
         return super().process_event(event)
-
