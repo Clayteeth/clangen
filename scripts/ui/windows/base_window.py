@@ -12,9 +12,12 @@ class GameWindow(UIWindow):
     """
 
     def __init__(
-        self, relative_rect, window_display_title: str = None, object_id: str = None,
-            resizable: bool=False,
-            always_on_top: bool=True,
+        self,
+        relative_rect,
+        window_display_title: str = None,
+        object_id: str = None,
+        resizable: bool = False,
+        always_on_top: bool = True,
     ):
         super().__init__(
             relative_rect,
