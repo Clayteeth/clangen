@@ -19,4 +19,3 @@ class SaveError(GameWindow):
             container=self,
             text_kwargs={"error": error_text},
         )
-
