@@ -75,38 +75,6 @@ if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
 
 
-class SaveError(UIWindow):
-    def __init__(self, error_text):
-        super().__init__(
-            ui_scale(pygame.Rect((150, 150), (500, 400))),
-            window_display_title="Changelog",
-            object_id="#game_over_window",
-            resizable=False,
-        )
-        self.set_blocking(True)
-        self.changelog_popup_title = pygame_gui.elements.UITextBox(
-            "windows.save_failed_title",
-            ui_scale(pygame.Rect((20, 10), (445, 375))),
-            object_id="#text_box_30",
-            container=self,
-            text_kwargs={"error": error_text},
-        )
-
-        self.close_button = UIImageButton(
-            ui_scale(pygame.Rect((470, 5), (22, 22))),
-            "",
-            object_id="#exit_window_button",
-            starting_height=2,
-            container=self,
-        )
-
-    def process_event(self, event):
-        if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-            if event.ui_element == self.close_button:
-                self.kill()
-        return super().process_event(event)
-
-
 class SaveAsImage(UIWindow):
     def __init__(self, image_to_save, file_name):
         super().__init__(
