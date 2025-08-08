@@ -12,15 +12,17 @@ class GameWindow(UIWindow):
     """
 
     def __init__(
-        self, relative_rect, window_display_title: str = None, object_id: str = None
+        self, relative_rect, window_display_title: str = None, object_id: str = None,
+            resizable: bool=False,
+            always_on_top: bool=True,
     ):
         super().__init__(
             relative_rect,
             window_display_title=window_display_title,
             object_id=object_id,
+            resizable=resizable,
+            always_on_top=always_on_top,
         )
-
-        self.set_blocking(True)
 
         scale_rect = ui_scale(pygame.Rect((0, 0), (22, 22)))
         scale_rect.topright = ui_scale_offset((-5, 5))
