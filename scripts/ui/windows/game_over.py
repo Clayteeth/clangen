@@ -71,4 +71,3 @@ class GameOver(GameWindow):
             elif event.ui_element == self.not_yet_button:
                 self.kill()
         return super().process_event(event)
-
