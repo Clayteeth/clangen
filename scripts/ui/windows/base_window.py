@@ -18,7 +18,7 @@ class GameWindow(UIWindow):
         object_id: str = None,
         resizable: bool = False,
         always_on_top: bool = True,
-            back_button: bool = True,
+        back_button: bool = True,
     ):
         super().__init__(
             relative_rect,
