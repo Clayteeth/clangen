@@ -1,97 +1,24 @@
-import os
-import shutil
-import subprocess
-import threading
-import time
-from collections import namedtuple
-from platform import system
-from random import choice
-from re import search as re_search
-from re import sub
 from typing import TYPE_CHECKING
 
-import i18n
 import pygame
 import pygame_gui
-import ujson
-from pygame_gui.elements import UIWindow
-from pygame_gui.windows import UIMessageWindow
 
-from scripts.cat.cats import Cat
-from scripts.cat.history import History
-from scripts.cat.names import Name
-from scripts.cat.save_load import save_cats
-from scripts.game_structure import image_cache
-from scripts.game_structure.game.switches import (
-    Switch,
-    switch_get_value,
-    switch_set_value,
-    switch_append_list_value,
-    switch_remove_list_value,
-)
-from scripts.game_structure.game_essentials import game
-from scripts.game_structure.localization import (
-    get_lang_config,
-    get_custom_pronouns,
-    add_custom_pronouns,
-)
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UITextBoxTweaked,
-    UISurfaceImageButton,
-    UIDropDown,
-    UIModifiedScrollingContainer,
-)
-from scripts.housekeeping.datadir import (
-    get_save_dir,
-    get_cache_dir,
-    get_saved_images_dir,
-    open_data_dir,
-)
-from scripts.housekeeping.progress_bar_updater import UIUpdateProgressBar
-from scripts.housekeeping.update import (
-    self_update,
-    UpdateChannel,
-    get_latest_version_number,
-)
-from scripts.housekeeping.version import get_version_info
-from scripts.screens.enums import GameScreen
-from scripts.ui.generate_box import BoxStyles, get_box
-from scripts.ui.generate_button import ButtonStyles, get_button_dict
-from scripts.ui.icon import Icon
-from scripts.utility import (
-    ui_scale,
-    quit,
-    update_sprite,
-    logger,
-    process_text,
-    ui_scale_dimensions,
-    ui_scale_offset,
-    shorten_text_to_fit,
-)
+from scripts.game_structure.ui_elements import UISurfaceImageButton
+from scripts.ui.generate_button import get_button_dict, ButtonStyles
+from scripts.ui.windows.base_window import GameWindow
+from scripts.utility import ui_scale, ui_scale_offset
 
 if TYPE_CHECKING:
     from scripts.screens.Screens import Screens
 
-
-class ConfirmDisplayChanges(UIMessageWindow):
+class ConfirmDisplayChanges(GameWindow):
     def __init__(self, source_screen: "Screens"):
         super().__init__(
             ui_scale(pygame.Rect((275, 270), (250, 160))),
-            "This is a test!",
-            MANAGER,
             object_id="#confirm_display_changes_window",
-            always_on_top=True,
         )
-        self.set_blocking(True)
-
-        self.dismiss_button.kill()
-        self.text_block.kill()
-
-        button_size = (-1, 30)
         button_spacing = 10
-        button_vertical_space = (button_spacing * 2) + button_size[1]
 
         dismiss_button_rect = ui_scale(pygame.Rect((0, 0), (140, 30)))
         dismiss_button_rect.bottomright = ui_scale_offset(
@@ -127,17 +54,6 @@ class ConfirmDisplayChanges(UIMessageWindow):
                 "left": "left",
                 "bottom": "bottom",
             },
-        )
-
-        rect = ui_scale(pygame.Rect((0, 0), (22, 22)))
-        rect.topright = ui_scale_offset((-5, 7))
-        self.back_button = UIImageButton(
-            rect,
-            "",
-            object_id="#exit_window_button",
-            container=self,
-            visible=True,
-            anchors={"top": "top", "right": "right"},
         )
 
         text_block_rect = pygame.Rect(
@@ -183,10 +99,7 @@ class ConfirmDisplayChanges(UIMessageWindow):
 
     def process_event(self, event: pygame.event.Event) -> bool:
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
-            if (
-                event.ui_element == self.back_button
-                or event.ui_element == self.dismiss_button
-            ):
+            if event.ui_element == self.dismiss_button:
                 self.kill()
             elif event.ui_element == self.revert_button:
                 self.revert_changes()
