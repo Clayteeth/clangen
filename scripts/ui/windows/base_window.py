@@ -41,3 +41,5 @@ class GameWindow(UIWindow):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element == self.back_button:
                 self.kill()
+
+        return super().process_event(event)
