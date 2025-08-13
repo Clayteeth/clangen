@@ -9,7 +9,7 @@ import random
 import ujson
 
 from scripts.game_structure import constants
-from scripts.cat.enums import CatRank, CatGroup
+from scripts.cat.enums import CatRank, CatGroup, CatAge
 from scripts.housekeeping.datadir import get_save_dir
 
 
@@ -268,9 +268,22 @@ class Name:
         if (
             self.cat.status.is_lost(CatGroup.PLAYER_CLAN)
             and not self.cat.status.is_former_clancat
+            and self.suffix
         ):
-            # these are cats who were born to a parent who'd been lost frm their clan.
-            pass
+            # these are cats who were born to a parent who'd been lost frm their clan, and who's parent decided to keep with traditional naming
+            age_to_rank = {
+                CatAge.NEWBORN: CatRank.NEWBORN,
+                CatAge.KITTEN: CatRank.KITTEN,
+                CatAge.ADOLESCENT: CatRank.APPRENTICE,
+            }
+            rank = None
+            if self.cat.age in age_to_rank:
+                rank = age_to_rank[self.cat.age]
+            if rank:
+                return self.prefix + self.names_dict["special_suffixes"][rank]
+            else:
+                return self.prefix + self.suffix
+
         if self.cat.status.is_former_clancat:
             old_rank = self.cat.status.find_prior_clan_rank()
 
