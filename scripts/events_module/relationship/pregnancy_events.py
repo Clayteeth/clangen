@@ -7,6 +7,7 @@ import i18n
 from scripts.cat.cats import Cat
 from scripts.cat.enums import CatAge, CatGroup, CatRank, CatSocial
 from scripts.cat.names import names, Name
+from scripts.cat.status import StatusDict
 from scripts.cat_relations.relationship import Relationship, RelType
 from scripts.clan_package.settings import get_clan_setting
 from scripts.event_class import Single_Event
@@ -808,6 +809,15 @@ class Pregnancy_Events:
 
         #### GENERATE THE KITS ######
         for kit in range(kits_amount):
+            # should have to use this initial assignment, but just in case, we'll set it as newborn
+            kitten_status = {"age": CatAge.NEWBORN}
+
+            if cat:
+                kitten_status: StatusDict = {
+                    "rank": cat.status.social,
+                    "group": cat.status.group,
+                }
+
             if not cat:
                 # No parents provided, give a blood parent - this is an adoption.
                 if not blood_parent:
@@ -829,19 +839,45 @@ class Pregnancy_Events:
                     )[0]
                     blood_parent.thought = thought
 
-                kit = Cat(parent1=blood_parent.ID, moons=0, backstory=backstory)
+                kitten_status: StatusDict = {
+                    "rank": blood_parent.status.social,
+                    "group": blood_parent.status.group,
+                }
+
+                kit = Cat(
+                    parent1=blood_parent.ID,
+                    moons=0,
+                    backstory=backstory,
+                    status=kitten_status,
+                )
 
             elif cat and other_cat:
                 # Two parents provided
                 # The cat that gave birth is always parent1 so there is no need to check gender
-                kit = Cat(parent1=cat.ID, parent2=other_cat.ID, moons=0)
+                kit = Cat(
+                    parent1=cat.ID,
+                    parent2=other_cat.ID,
+                    moons=0,
+                    status_dict=kitten_status,
+                )
                 kit.thought = i18n.t("hardcoded.new_kit_thought", name=str(cat.name))
                 kit.thought = event_text_adjust(Cat, kit.thought, random_cat=cat)
             else:
                 # A one blood parent litter is the only option left.
-                kit = Cat(parent1=cat.ID, moons=0, backstory=backstory)
+                kit = Cat(
+                    parent1=cat.ID,
+                    moons=0,
+                    backstory=backstory,
+                    status_dict=kitten_status,
+                )
                 kit.thought = i18n.t("hardcoded.new_kit_thought", name=str(cat.name))
                 kit.thought = event_text_adjust(Cat, kit.thought, random_cat=cat)
+
+            # make lost status match parent
+            if cat.status.is_lost():
+                kit.status.become_lost(
+                    cat.status.social, specific_group=CatGroup.PLAYER_CLAN
+                )
 
             # Prevent duplicate prefixes in the same litter
             while kit.name.prefix in [kitty.name.prefix for kitty in all_kitten]:
