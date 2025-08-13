@@ -1987,7 +1987,7 @@ class Events:
             constants.CONFIG["death_related"]["base_random_murder_chance"]
         )
         random_murder_chance -= 0.5 * (
-            (cat.personality.aggression) + (16 - cat.personality.stability)
+            cat.personality.aggression + (16 - cat.personality.stability)
         )
 
         # Check to see if random murder is triggered.
