@@ -265,6 +265,12 @@ class Name:
         # then suffixes based on ages (fixes #2004, just trust me)
 
         # Handles suffix assignment with outside cats
+        if (
+            self.cat.status.is_lost(CatGroup.PLAYER_CLAN)
+            and not self.cat.status.is_former_clancat
+        ):
+            # these are cats who were born to a parent who'd been lost frm their clan.
+            pass
         if self.cat.status.is_former_clancat:
             old_rank = self.cat.status.find_prior_clan_rank()
 

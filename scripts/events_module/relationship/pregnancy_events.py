@@ -392,11 +392,13 @@ class Pregnancy_Events:
         kits = Pregnancy_Events.get_kits(kits_amount, cat, other_cat, clan)
         kits_amount = len(kits)
         Pregnancy_Events.set_biggest_family()
+        extra_naming_text = None
 
         # delete the cat out of the pregnancy dictionary
         del clan.pregnancy_data[cat.ID]
 
         if cat.status.is_outsider:
+            keep_clan_tradition = choice([True, False])
             for kit in kits:
                 # should already match their parents, but just in case
                 if not kit.status.is_outsider:
@@ -408,12 +410,28 @@ class Pregnancy_Events:
                 if cat.status.is_exiled(CatGroup.PLAYER_CLAN):
                     name = choice(names.names_dict["normal_prefixes"])
                     kit.name = Name(prefix=name, suffix="", cat=kit)
+                    extra_naming_text = i18n.t(
+                        "conditions.pregnancy.lost_not_keep_clan_tradition",
+                        name=cat.name,
+                    )
 
                 if other_cat and not other_cat.status.is_outsider:
                     kit.backstory = "outsider2"
 
                 if cat.status.is_lost(CatGroup.PLAYER_CLAN):
                     kit.backstory = "outsider3"
+                    if not keep_clan_tradition:
+                        name = choice(names.names_dict["normal_prefixes"])
+                        kit.name = Name(prefix=name, suffix="", cat=kit)
+                        extra_naming_text = i18n.t(
+                            "conditions.pregnancy.lost_not_keep_clan_tradition",
+                            name=cat.name,
+                        )
+                    else:
+                        extra_naming_text = i18n.t(
+                            "conditions.pregnancy.lost_keep_clan_tradition",
+                            name=cat.name,
+                        )
 
         insert = i18n.t("conditions.pregnancy.kit_amount", count=kits_amount)
 
@@ -430,6 +448,8 @@ class Pregnancy_Events:
             event_list.append(choice(events["birth"]["unmated_parent"]))
         elif cat.status.is_outsider:
             adding_text = choice(events["birth"]["outside_alone"])
+            if cat.status.is_lost(CatGroup.PLAYER_CLAN):
+                adding_text = choice(events["birth"]["outside_lost"])
             if other_cat and not other_cat.status.is_outsider:
                 adding_text = choice(events["birth"]["outside_in_clan"])
             event_list.append(adding_text)
@@ -462,6 +482,10 @@ class Pregnancy_Events:
                 event_list.append(choice(events["birth"]["affair_mated"]))
         else:
             event_list.append(choice(events["birth"]["unmated_parent"]))
+
+        # add naming choice text here
+        if extra_naming_text:
+            event_list.append(extra_naming_text)
 
         involved_cats += [k.ID for k in kits]
 
