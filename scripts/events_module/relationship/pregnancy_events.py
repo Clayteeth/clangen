@@ -398,9 +398,11 @@ class Pregnancy_Events:
 
         if cat.status.is_outsider:
             for kit in kits:
-                kit.status.generate_new_status(
-                    age=kit.age, social=cat.status.social, group=cat.status.group
-                )
+                # should already match their parents, but just in case
+                if not kit.status.is_outsider:
+                    kit.status.generate_new_status(
+                        age=kit.age, social=cat.status.social, group=cat.status.group
+                    )
                 kit.backstory = "outsider1"
 
                 if cat.status.is_exiled(CatGroup.PLAYER_CLAN):
@@ -410,12 +412,8 @@ class Pregnancy_Events:
                 if other_cat and not other_cat.status.is_outsider:
                     kit.backstory = "outsider2"
 
-                if cat.status.is_outsider and not cat.status.is_exiled(
-                    CatGroup.PLAYER_CLAN
-                ):
+                if cat.status.is_lost(CatGroup.PLAYER_CLAN):
                     kit.backstory = "outsider3"
-                kit.relationships = {}
-                kit.create_one_relationship(cat)
 
         insert = i18n.t("conditions.pregnancy.kit_amount", count=kits_amount)
 
@@ -814,7 +812,8 @@ class Pregnancy_Events:
 
             if cat:
                 kitten_status: StatusDict = {
-                    "rank": cat.status.social,
+                    "social": cat.status.social,
+                    "age": CatAge.NEWBORN,
                     "group": cat.status.group,
                 }
 
@@ -840,7 +839,8 @@ class Pregnancy_Events:
                     blood_parent.thought = thought
 
                 kitten_status: StatusDict = {
-                    "rank": blood_parent.status.social,
+                    "social": blood_parent.status.social,
+                    "age": CatAge.NEWBORN,
                     "group": blood_parent.status.group,
                 }
 
@@ -904,11 +904,22 @@ class Pregnancy_Events:
                 Condition_Events.handle_already_disabled(kit)
 
             # create and update relationships
-            for cat_id in clan.clan_cats:
+
+            # if kits are in a clan, the whole clan gets to know
+            if cat.status.alive_in_player_clan:
+                relationships_to_update = clan.clan_cats
+            # if they aren't, then they only know parents, sibling rels will be added later
+            else:
+                relationships_to_update = [cat.ID]
+                # other parent only knows if they're in the same group
+                if other_cat and other_cat.status.group == cat.status.group:
+                    relationships_to_update.append(other_cat.ID)
+
+            for cat_id in relationships_to_update:
                 if cat_id == kit.ID:
                     continue
                 the_cat = Cat.all_cats.get(cat_id)
-                if the_cat.dead or the_cat.status.is_outsider:
+                if the_cat.dead:
                     continue
                 if the_cat.ID in kit.get_parents():
                     parent_to_kit = constants.CONFIG["new_cat"]["parent_buff"][
@@ -938,7 +949,8 @@ class Pregnancy_Events:
 
             #### REMOVE ACCESSORY ######
             kit.pelt.accessory = []
-            clan.add_cat(kit)
+            if not kit.status.is_outsider:
+                clan.add_cat(kit)
 
             #### GIVE HISTORY ######
             kit.history.add_beginning(clan_born=bool(cat))
@@ -950,9 +962,11 @@ class Pregnancy_Events:
                 y = random.randrange(0, 10)
                 if second_kitten.ID == kitten.ID:
                     continue
-                kitten.relationships[second_kitten.ID].like += 20 + y
-                kitten.relationships[second_kitten.ID].comfort += 10 + y
-                kitten.relationships[second_kitten.ID].trust += 10 + y
+                start_relation = Relationship(kitten, second_kitten, False, True)
+                start_relation.like += 20 + y
+                start_relation.comfort += 10 + y
+                start_relation.trust += 10 + y
+                kitten.relationships[second_kitten.ID] = start_relation
 
             kitten.create_inheritance_new_cat()  # Calculate inheritance.
 
@@ -964,31 +978,32 @@ class Pregnancy_Events:
                 final_adoptive_parents.append(adoptive_p)
 
         # Add the adoptive parents.
-        for kit in all_kitten:
-            kit.adoptive_parents = final_adoptive_parents
-            kit.inheritance.update_inheritance()
-            kit.inheritance.update_all_related_inheritance()
+        if final_adoptive_parents:
+            for kit in all_kitten:
+                kit.adoptive_parents = final_adoptive_parents
+                kit.inheritance.update_inheritance()
+                kit.inheritance.update_all_related_inheritance()
 
-            # update relationship for adoptive parents
-            for parent_id in final_adoptive_parents:
-                parent = Cat.fetch_cat(parent_id)
-                if parent:
-                    kit_to_parent = constants.CONFIG["new_cat"]["parent_buff"][
-                        "kit_to_parent"
-                    ]
-                    parent_to_kit = constants.CONFIG["new_cat"]["parent_buff"][
-                        "parent_to_kit"
-                    ]
-                    change_relationship_values(
-                        cats_from=[kit],
-                        cats_to=[parent],
-                        **kit_to_parent,
-                    )
-                    change_relationship_values(
-                        cats_from=[parent],
-                        cats_to=[kit],
-                        **parent_to_kit,
-                    )
+                # update relationship for adoptive parents
+                for parent_id in final_adoptive_parents:
+                    parent = Cat.fetch_cat(parent_id)
+                    if parent:
+                        kit_to_parent = constants.CONFIG["new_cat"]["parent_buff"][
+                            "kit_to_parent"
+                        ]
+                        parent_to_kit = constants.CONFIG["new_cat"]["parent_buff"][
+                            "parent_to_kit"
+                        ]
+                        change_relationship_values(
+                            cats_from=[kit],
+                            cats_to=[parent],
+                            **kit_to_parent,
+                        )
+                        change_relationship_values(
+                            cats_from=[parent],
+                            cats_to=[kit],
+                            **parent_to_kit,
+                        )
 
         return all_kitten
 
