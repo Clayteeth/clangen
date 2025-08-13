@@ -1148,7 +1148,7 @@ def filter_relationship_type(
     filter_list = filter_types.copy()
 
     # keeping this list here just for quick reference of what tags are handled here
-    possible_rel_types = [
+    all_possible_tags = [
         "strangers",
         "siblings",
         "not_siblings",
@@ -1166,9 +1166,11 @@ def filter_relationship_type(
         "app/mentor",
         "not_app",
     ]
+
     for tier_list in rel_type_tiers.values():
         all_possible_tags.extend(tier_list)
         all_possible_tags.extend([f"{l}_only" for l in tier_list])
+
     if not set(filter_list).issubset(set(all_possible_tags)):
         print(
             f"WARNING: {[tag for tag in filter_list if tag not in all_possible_tags]} is not a valid relationship_status tag!"
