@@ -790,9 +790,6 @@ class Events:
 
             cat_IDs.append(lost_cat.ID)
 
-            additional_cats = lost_cat.add_to_clan()
-            cat_IDs.extend(additional_cats)
-
             if lost_cat.status.is_former_clancat:
                 text = i18n.t(f"hardcoded.event_lost{random.choice(range(1,5))}")
             else:
@@ -801,6 +798,9 @@ class Events:
                     "hardcoded.event_returning_child_of_lost",
                     parent_name=Cat.fetch_cat(lost_cat.parent1).name,
                 )
+
+            additional_cats = lost_cat.add_to_clan()
+            cat_IDs.extend(additional_cats)
 
             if additional_cats:
                 text += i18n.t("hardcoded.event_lost_kits", count=len(additional_cats))

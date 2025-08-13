@@ -431,6 +431,16 @@ class Status:
             {"group": group, "standing": [new_standing], "near": True}
         )
 
+    def make_standing_unknown(self, group):
+        """
+        Erases standing with a group and replaces it with UNKNOWN. Best used when generating a new cat.
+        """
+        record = [r for r in self.standing_history if r["group"] == group]
+        if not record:
+            self.change_standing(new_standing=CatStanding.UNKNOWN, group=group)
+        else:
+            record[0]["standing"] = [CatStanding.UNKNOWN]
+
     def become_lost(
         self,
         new_social_status: CatSocial = CatSocial.KITTYPET,

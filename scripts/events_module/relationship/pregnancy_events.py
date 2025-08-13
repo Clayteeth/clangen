@@ -899,6 +899,7 @@ class Pregnancy_Events:
 
             # make lost status match parent
             if cat.status.is_lost():
+                kit.status.make_standing_unknown(CatGroup.PLAYER_CLAN)
                 kit.status.become_lost(
                     cat.status.social, specific_group=CatGroup.PLAYER_CLAN
                 )
