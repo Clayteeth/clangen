@@ -403,7 +403,9 @@ class Pregnancy_Events:
                 # should already match their parents, but just in case
                 if not kit.status.is_outsider:
                     kit.status.generate_new_status(
-                        age=kit.age, social=cat.status.social, group_ID=cat.status.group_ID
+                        age=kit.age,
+                        social=cat.status.social,
+                        group_ID=cat.status.group_ID,
                     )
                 kit.backstory = "outsider1"
 
