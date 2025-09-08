@@ -421,7 +421,7 @@ class Status:
         they didn't have a group
         """
         if standing_with_past_group:
-            self.change_standing(standing_with_past_group, forced_old_group)
+            self.change_standing(standing_with_past_group, forced_old_group_ID)
 
         self.group_history.append(
             {"group": new_group_ID, "rank": new_rank, "moons_as": 0}
@@ -455,20 +455,20 @@ class Status:
             {"group": group_ID, "standing": [new_standing], "near": True}
         )
 
-    def make_standing_unknown(self, group):
+    def make_standing_unknown(self, group_ID: str):
         """
         Erases standing with a group and replaces it with UNKNOWN. Best used when generating a new cat.
         """
-        record = [r for r in self.standing_history if r["group"] == group]
+        record = [r for r in self.standing_history if r["group"] == group_ID]
         if not record:
-            self.change_standing(new_standing=CatStanding.UNKNOWN, group=group)
+            self.change_standing(new_standing=CatStanding.UNKNOWN, group_ID=group_ID)
         else:
             record[0]["standing"] = [CatStanding.UNKNOWN]
 
     def become_lost(
         self,
         new_social_status: CatSocial = CatSocial.KITTYPET,
-        specific_group: CatGroup = None,
+        specific_group: str = None,
     ):
         """
         Removes from previous group and sets standing with that group to Lost.
@@ -482,7 +482,7 @@ class Status:
         self._modify_group(
             rank,
             standing_with_past_group=CatStanding.LOST,
-            forced_old_group=specific_group,
+            forced_old_group_ID=specific_group,
         )
 
     def exile_from_group(self):
