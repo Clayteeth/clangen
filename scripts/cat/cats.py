@@ -739,12 +739,18 @@ class Cat:
             # find what tier of rel they had for each type
             tiers: list[RelTier] = rel_with_dead.get_reltype_tiers()
             for tier in tiers:
-                rel_type = [k for k in rel_type_tiers if tier in k]
+                rel_type = [k for k in rel_type_tiers if tier in rel_type_tiers[k]]
                 if tier.is_extreme_pos:
                     very_high_types.extend(rel_type)
+                elif tier.is_mid_pos:
+                    # 50/50 if this will cause major grief
+                    if randint(1, 2) == 1:
+                        very_high_types.extend(rel_type)
+                    else:
+                        very_low_types.extend(rel_type)
                 elif tier.is_low_pos:
                     high_types.extend(rel_type)
-                elif tier.is_extreme_neg:
+                elif tier.is_extreme_neg or tier.is_mid_neg:
                     very_low_types.extend(rel_type)
                 continue
 
@@ -769,7 +775,7 @@ class Cat:
                     )
 
                 if body_treated:
-                    major_chance -= 1
+                    major_chance += 1
 
             # If major_chance is not 0, there is a chance for major grief
             grief_type = None
