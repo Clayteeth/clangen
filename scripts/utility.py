@@ -1187,6 +1187,7 @@ def filter_relationship_type(
             [inter_cat.ID in test_cat.relationships for inter_cat in testing_cats]
         ):
             return False
+        filter_list.remove("strangers")
 
     if "siblings" in filter_types:
         if not all([test_cat.is_sibling(inter_cat) for inter_cat in testing_cats]):
