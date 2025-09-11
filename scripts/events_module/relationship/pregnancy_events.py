@@ -840,7 +840,7 @@ class Pregnancy_Events:
                 kitten_status: StatusDict = {
                     "social": cat.status.social,
                     "age": CatAge.NEWBORN,
-                    "group": cat.status.group,
+                    "group_ID": cat.status.group_ID,
                 }
 
             if not cat:
@@ -867,7 +867,7 @@ class Pregnancy_Events:
                 kitten_status: StatusDict = {
                     "social": blood_parent.status.social,
                     "age": CatAge.NEWBORN,
-                    "group": blood_parent.status.group,
+                    "group_ID": blood_parent.status.group_ID,
                 }
 
                 kit = Cat(
@@ -900,7 +900,7 @@ class Pregnancy_Events:
                 kit.thought = event_text_adjust(Cat, kit.thought, random_cat=cat)
 
             # make lost status match parent
-            if cat.status.is_lost():
+            if cat and cat.status.is_lost():
                 kit.status.make_standing_unknown(CatGroup.PLAYER_CLAN)
                 kit.status.become_lost(
                     cat.status.social, specific_group=CatGroup.PLAYER_CLAN
@@ -933,10 +933,10 @@ class Pregnancy_Events:
             # create and update relationships
 
             # if kits are in a clan, the whole clan gets to know
-            if cat.status.alive_in_player_clan:
+            if cat and cat.status.alive_in_player_clan:
                 relationships_to_update = clan.clan_cats
             # if they aren't, then they only know parents, sibling rels will be added later
-            else:
+            elif cat:
                 relationships_to_update = [cat.ID]
                 # other parent only knows if they're in the same group
                 if other_cat and other_cat.status.group == cat.status.group:
