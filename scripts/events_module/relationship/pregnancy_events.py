@@ -942,37 +942,37 @@ class Pregnancy_Events:
                 if other_cat and other_cat.status.group == cat.status.group:
                     relationships_to_update.append(other_cat.ID)
 
-            for cat_id in relationships_to_update:
-                if cat_id == kit.ID:
-                    continue
-                the_cat = Cat.all_cats.get(cat_id)
-                if the_cat.dead:
-                    continue
-                if the_cat.ID in kit.get_parents():
-                    parent_to_kit = constants.CONFIG["new_cat"]["parent_buff"][
-                        "parent_to_kit"
-                    ]
-                    y = random.randrange(0, 15)
-                    start_relation = Relationship(the_cat, kit, False, True)
-                    start_relation.like = parent_to_kit[RelType.LIKE] + y
-                    start_relation.comfort = parent_to_kit[RelType.COMFORT] + y
-                    start_relation.respect = parent_to_kit[RelType.RESPECT] + y
-                    start_relation.trust = parent_to_kit[RelType.TRUST] + y
-                    the_cat.relationships[kit.ID] = start_relation
+                for cat_id in relationships_to_update:
+                    if cat_id == kit.ID:
+                        continue
+                    the_cat = Cat.all_cats.get(cat_id)
+                    if the_cat.dead:
+                        continue
+                    if the_cat.ID in kit.get_parents():
+                        parent_to_kit = constants.CONFIG["new_cat"]["parent_buff"][
+                            "parent_to_kit"
+                        ]
+                        y = random.randrange(0, 15)
+                        start_relation = Relationship(the_cat, kit, False, True)
+                        start_relation.like = parent_to_kit[RelType.LIKE] + y
+                        start_relation.comfort = parent_to_kit[RelType.COMFORT] + y
+                        start_relation.respect = parent_to_kit[RelType.RESPECT] + y
+                        start_relation.trust = parent_to_kit[RelType.TRUST] + y
+                        the_cat.relationships[kit.ID] = start_relation
 
-                    kit_to_parent = constants.CONFIG["new_cat"]["parent_buff"][
-                        "kit_to_parent"
-                    ]
-                    y = random.randrange(0, 15)
-                    start_relation = Relationship(kit, the_cat, False, True)
-                    start_relation.like += kit_to_parent[RelType.LIKE] + y
-                    start_relation.comfort = kit_to_parent[RelType.COMFORT] + y
-                    start_relation.respect = kit_to_parent[RelType.RESPECT] + y
-                    start_relation.trust = kit_to_parent[RelType.TRUST] + y
-                    kit.relationships[the_cat.ID] = start_relation
-                else:
-                    the_cat.relationships[kit.ID] = Relationship(the_cat, kit)
-                    kit.relationships[the_cat.ID] = Relationship(kit, the_cat)
+                        kit_to_parent = constants.CONFIG["new_cat"]["parent_buff"][
+                            "kit_to_parent"
+                        ]
+                        y = random.randrange(0, 15)
+                        start_relation = Relationship(kit, the_cat, False, True)
+                        start_relation.like += kit_to_parent[RelType.LIKE] + y
+                        start_relation.comfort = kit_to_parent[RelType.COMFORT] + y
+                        start_relation.respect = kit_to_parent[RelType.RESPECT] + y
+                        start_relation.trust = kit_to_parent[RelType.TRUST] + y
+                        kit.relationships[the_cat.ID] = start_relation
+                    else:
+                        the_cat.relationships[kit.ID] = Relationship(the_cat, kit)
+                        kit.relationships[the_cat.ID] = Relationship(kit, the_cat)
 
             #### REMOVE ACCESSORY ######
             kit.pelt.accessory = []
