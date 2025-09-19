@@ -20,7 +20,7 @@ from scripts.events_module.generate_events import GenerateEvents
 from scripts.events_module.relationship.relation_events import Relation_Events
 from scripts.game_structure import localization, constants
 from scripts.game_structure.game.switches import switch_get_value, Switch
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.utility import (
     event_text_adjust,
     change_clan_relations,
@@ -127,7 +127,7 @@ class HandleShortEvents:
             self.sub_types.append("war")
         else:
             self.other_clan = choice(
-                game.clan.all_clans if game.clan.all_clans else None
+                game.clan.all_other_clans if game.clan.all_other_clans else None
             )
             self.other_clan_name = f"{self.other_clan.name}Clan"
 
@@ -478,7 +478,7 @@ class HandleShortEvents:
         if "PLANT" in possible_accs:
             acc_list.extend(pelts.plant_accessories)
         if "COLLAR" in possible_accs:
-            acc_list.extend(pelts.collars)
+            acc_list.extend(pelts.collar_accessories)
 
         for acc in possible_accs:
             if acc not in ("WILD", "PLANT", "COLLAR"):
@@ -494,7 +494,7 @@ class HandleShortEvents:
                         acc_list.remove(acc)
 
         accessory_groups = [
-            pelts.collars,
+            pelts.collar_accessories,
             pelts.head_accessories,
             pelts.tail_accessories,
             pelts.body_accessories,
@@ -564,7 +564,7 @@ class HandleShortEvents:
                 if "all_lives" in self.chosen_event.tags:
                     game.clan.leader_lives -= 10
                 elif "some_lives" in self.chosen_event.tags:
-                    game.clan.leader_lives -= randrange(2, self.current_lives - 1)
+                    game.clan.leader_lives -= randrange(2, self.current_lives)
                 else:
                     game.clan.leader_lives -= 1
 

@@ -12,7 +12,7 @@ from scripts.cat_relations.interaction import (
 from scripts.cat_relations.enums import RelTier, RelType
 from scripts.event_class import Single_Event
 from scripts.events_module.event_filters import event_for_location, event_for_season
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 from scripts.utility import get_personality_compatibility, process_text
 import scripts.cat_relations.interaction as interactions
 
@@ -296,7 +296,6 @@ class Relationship:
         """
         amount = self.get_value_change_amount(value_change, intensity)
 
-        buffs = []
         # only high intensity gives passive buffs
         if intensity == "high":
             passive_buff = int(
@@ -308,14 +307,23 @@ class Relationship:
             # so a negative interaction will affect all values to a negative degree
             # and a positive interaction will affect all values to a positive degree
 
+            if rel_type == RelType.ROMANCE:
+                self.romance += amount
+
             for rel_out in (
                 RelType.LIKE,
                 RelType.RESPECT,
                 RelType.TRUST,
                 RelType.COMFORT,
             ):
-                setattr(self, rel_out, choice(buffs) if rel_type != rel_out else amount)
-
+                setattr(
+                    self,
+                    rel_out,
+                    getattr(self, rel_out)
+                    + (choice(buffs) if rel_type != rel_out else amount),
+                )
+        else:
+            setattr(self, rel_type, getattr(self, rel_type) + amount)
         # influence the opposite relationship
         if self.opposite_relationship is None:
             return

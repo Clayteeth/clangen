@@ -5,7 +5,8 @@ from copy import copy
 import pygame
 import ujson
 
-from scripts.game_structure import constants
+from scripts.cat.enums import CatGroup
+from scripts.game_structure import constants, image_cache
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.special_dates import SpecialDate, is_today
 
@@ -16,6 +17,11 @@ class Sprites:
     cat_tints = {}
     white_patches_tints = {}
     clan_symbols = []
+
+    with open(
+        "resources/dicts/sprites/collar_sprite_data.json", "r", encoding="utf-8"
+    ) as read_file:
+        COLLAR_DATA = ujson.loads(read_file.read())
 
     def __init__(self):
         """Class that handles and hold all spritesheets.
@@ -59,7 +65,14 @@ class Sprites:
         self.spritesheets[name] = pygame.image.load(a_file).convert_alpha()
 
     def make_group(
-        self, spritesheet, pos, name, sprites_x=3, sprites_y=7, no_index=False
+        self,
+        spritesheet,
+        pos,
+        name,
+        sprites_x=3,
+        sprites_y=7,
+        no_index=False,
+        palettes: list = None,
     ):  # pos = ex. (2, 3), no single pixels
         """
         Divide sprites on a spritesheet into groups of sprites that are easily accessible
@@ -68,7 +81,8 @@ class Sprites:
         :param name: Name of group being made
         :param sprites_x: default 3, number of sprites horizontally
         :param sprites_y: default 3, number of sprites vertically
-        :param no_index: default False, set True if sprite name does not require cat pose index
+        :param no_index: default False, set True if sprite name does not require cat pose index:
+        :param palettes: list of palette names
         """
 
         group_x_ofs = pos[0] * sprites_x * self.size
@@ -101,8 +115,55 @@ class Sprites:
                         )
                     new_sprite = self.blank_sprite
 
-                self.sprites[full_name] = new_sprite
+                if palettes:
+                    self.apply_palettes(i, name, new_sprite, palettes)
+                else:
+                    self.sprites[full_name] = new_sprite
                 i += 1
+
+    def apply_palettes(
+        self, sprite_index: int, name: str, new_sprite, palette_names: list
+    ):
+        """
+        Creates sprites for each color palette variation
+        :param sprite_index: index of sprite
+        :param name: name of sprite
+        :param new_sprite: the sprite object to create variations of
+        :param palette_names: list of palette names
+        """
+        # first we create an array of our palette map
+        full_map = pygame.image.load(f"sprites/palettes/{name}_palette.png")
+        map_array = pygame.PixelArray(full_map)
+        # then create a dictionary associating the palette name with its row of the array
+        color_palettes = {}
+        palette_names = palette_names.copy()
+        palette_names.insert(0, "BASE")
+        for row in range(
+            0, map_array.shape[1]  # pylint: disable=unsubscriptable-object
+        ):
+            color_name = palette_names[row]
+            color_palettes.update(
+                {color_name: [full_map.unmap_rgb(px) for px in map_array[::, row]]}
+            )
+
+        base_palette = color_palettes["BASE"]
+
+        # now we recolor the sprite
+        for color_name, palette in color_palettes.items():
+            if color_name == "BASE":
+                continue
+            recolor_sprite = pygame.PixelArray(new_sprite.copy())
+            # we replace each base_palette color with it's matching index from the color_palette
+            for color_i, color in enumerate(palette):
+                recolor_sprite.replace(base_palette[color_i], color)
+            # convert back into a surface
+            _sprite = recolor_sprite.make_surface()
+            # add it to our sprite dict!
+            self.sprites[f"{name}_{color_name}{sprite_index}"] = _sprite
+            # close the pixel array now that we're done
+            recolor_sprite.close()
+
+        map_array.close()
 
     def load_all(self):
         # get the width and height of the spritesheet
@@ -129,7 +190,11 @@ class Sprites:
             "lineart",
             "lineartdf",
             "lineartdead",
+            "lineartur",
             "line_sc_overlay",
+            "line_ur_underlay",
+            "line_ur_overlay",
+            "gradient_ur",
             "eyes",
             "eyes2",
             "skin",
@@ -138,9 +203,6 @@ class Sprites:
             "medcatherbs",
             "wild",
             "collars",
-            "bellcollars",
-            "bowcollars",
-            "nyloncollars",
             "singlecolours",
             "speckledcolours",
             "tabbycolours",
@@ -162,11 +224,16 @@ class Sprites:
             "fademask",
             "fadestarclan",
             "fadedarkforest",
+            "fadeunknownresidence",
             "symbols",
         ):
-            if "lineart" in x and (
-                constants.CONFIG["fun"]["april_fools"]
-                or is_today(SpecialDate.APRIL_FOOLS)
+            if (
+                "lineart" in x
+                and (
+                    constants.CONFIG["fun"]["april_fools"]
+                    or is_today(SpecialDate.APRIL_FOOLS)
+                )
+                and x != "lineartur"
             ):
                 self.spritesheet(f"sprites/aprilfools{x}.png", x)
             else:
@@ -179,13 +246,18 @@ class Sprites:
 
         self.make_group("lineartdead", (0, 0), "lineartdead")
         self.make_group("lineartdf", (0, 0), "lineartdf")
+        self.make_group("lineartur", (0, 0), "lineartur")
         self.make_group("line_sc_overlay", (0, 0), "sc_overlay")
+        self.make_group("line_ur_underlay", (0, 0), "ur_underlay")
+        self.make_group("line_ur_overlay", (0, 0), "ur_overlay")
+        self.make_group("gradient_ur", (0, 0), "gradient_ur")
 
         # Fading Fog
         for i in range(0, 3):
             self.make_group("fademask", (i, 0), f"fademask{i}")
             self.make_group("fadestarclan", (i, 0), f"fadestarclan{i}")
             self.make_group("fadedarkforest", (i, 0), f"fadedf{i}")
+            self.make_group("fadeunknownresidence", (i, 0), f"fadeur{i}")
 
         # Define eye colors
         eye_colors = [
@@ -473,6 +545,7 @@ class Sprites:
                 self.make_group("skin", (col, row), f"skin{color}")
 
         self.load_scars()
+        self.load_accs()
         self.load_symbols()
 
     def load_scars(self):
@@ -561,6 +634,7 @@ class Sprites:
             for col, missing_part in enumerate(missing_parts):
                 self.make_group("missingscars", (col, row), f"scars{missing_part}")
 
+    def load_accs(self):
         # accessories
         # to my beloved modders, im very sorry for reordering everything <333 -clay
         medcatherbs_data = [
@@ -635,44 +709,6 @@ class Sprites:
             ],
         ]
 
-        collars_data = [
-            ["CRIMSON", "BLUE", "YELLOW", "CYAN", "RED", "LIME"],
-            ["GREEN", "RAINBOW", "BLACK", "SPIKES", "WHITE"],
-            ["PINK", "PURPLE", "MULTI", "INDIGO"],
-        ]
-
-        bellcollars_data = [
-            [
-                "CRIMSONBELL",
-                "BLUEBELL",
-                "YELLOWBELL",
-                "CYANBELL",
-                "REDBELL",
-                "LIMEBELL",
-            ],
-            ["GREENBELL", "RAINBOWBELL", "BLACKBELL", "SPIKESBELL", "WHITEBELL"],
-            ["PINKBELL", "PURPLEBELL", "MULTIBELL", "INDIGOBELL"],
-        ]
-
-        bowcollars_data = [
-            ["CRIMSONBOW", "BLUEBOW", "YELLOWBOW", "CYANBOW", "REDBOW", "LIMEBOW"],
-            ["GREENBOW", "RAINBOWBOW", "BLACKBOW", "SPIKESBOW", "WHITEBOW"],
-            ["PINKBOW", "PURPLEBOW", "MULTIBOW", "INDIGOBOW"],
-        ]
-
-        nyloncollars_data = [
-            [
-                "CRIMSONNYLON",
-                "BLUENYLON",
-                "YELLOWNYLON",
-                "CYANNYLON",
-                "REDNYLON",
-                "LIMENYLON",
-            ],
-            ["GREENNYLON", "RAINBOWNYLON", "BLACKNYLON", "SPIKESNYLON", "WHITENYLON"],
-            ["PINKNYLON", "PURPLENYLON", "MULTINYLON", "INDIGONYLON"],
-        ]
-
         # medcatherbs
         for row, herbs in enumerate(medcatherbs_data):
             for col, herb in enumerate(herbs):
@@ -687,24 +723,15 @@ class Sprites:
                 self.make_group("wild", (col, row), f"acc_wild{wild}")
 
         # collars
-        for row, collars in enumerate(collars_data):
-            for col, collar in enumerate(collars):
-                self.make_group("collars", (col, row), f"collars{collar}")
-
-        # bellcollars
-        for row, bellcollars in enumerate(bellcollars_data):
-            for col, bellcollar in enumerate(bellcollars):
-                self.make_group("bellcollars", (col, row), f"collars{bellcollar}")
-
-        # bowcollars
-        for row, bowcollars in enumerate(bowcollars_data):
-            for col, bowcollar in enumerate(bowcollars):
-                self.make_group("bowcollars", (col, row), f"collars{bowcollar}")
-
-        # nyloncollars
-        for row, nyloncollars in enumerate(nyloncollars_data):
-            for col, nyloncollar in enumerate(nyloncollars):
-                self.make_group("nyloncollars", (col, row), f"collars{nyloncollar}")
+        prefix = self.COLLAR_DATA["prefix"]
+        for row, style_type in enumerate(self.COLLAR_DATA["style_data"]):
+            for col, style in enumerate(style_type):
+                self.make_group(
+                    "collars",
+                    (col, row),
+                    f"{prefix}{style}",
+                    palettes=style_type[style],
+                )
 
     def load_symbols(self):
         """
@@ -802,6 +829,65 @@ class Sprites:
         del var
 
         return recolored_symbol
+
+    @staticmethod
+    def get_platform(biome, season, show_nest, group: CatGroup) -> pygame.Surface:
+        """
+        Returns the relevant platform
+        :param biome: The current game biome
+        :param season: The current game season
+        :param show_nest: If true, displays the nest
+        :param group: Used to determine appropriate afterlife platform
+        :return: pygame.Surface containing the desired platform
+        """
+        offset = 0 if game_setting_get("dark mode") else 80
+        """Used to choose the dark mode version of platforms"""
+
+        available_biome = ["Forest", "Mountainous", "Plains", "Beach"]
+
+        if biome not in available_biome:
+            biome = available_biome[0]
+        if show_nest:
+            biome = "nest"
+
+        biome = biome.lower()
+
+        platformsheet = image_cache.load_image(
+            "resources/images/platforms.png"
+        ).convert_alpha()
+
+        order = ["beach", "forest", "mountainous", "nest", "plains", "dead"]
+
+        if group and group.is_afterlife():
+            biome_platforms = platformsheet.subsurface(
+                pygame.Rect(0, order.index("dead") * 70, 640, 70)
+            )
+
+            if group == CatGroup.DARK_FOREST:
+                return biome_platforms.subsurface(pygame.Rect(0 + offset, 0, 80, 70))
+            elif group == CatGroup.STARCLAN:
+                return biome_platforms.subsurface(pygame.Rect(160 + offset, 0, 80, 70))
+            elif group == CatGroup.UNKNOWN_RESIDENCE:
+                return biome_platforms.subsurface(pygame.Rect(320 + offset, 0, 80, 70))
+
+        biome_platforms = platformsheet.subsurface(
+            pygame.Rect(0, order.index(biome) * 70, 640, 70)
+        ).convert_alpha()
+        season_x = {
+            "greenleaf": 0 + offset,
+            "leaf-bare": 160 + offset,
+            "leaf-fall": 320 + offset,
+            "newleaf": 480 + offset,
+        }
+
+        return biome_platforms.subsurface(
+            pygame.Rect(
+                season_x[season.lower()],
+                0,
+                80,
+                70,
+            )
+        )
 
 
 # CREATE INSTANCE

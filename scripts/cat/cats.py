@@ -26,7 +26,7 @@ from scripts.cat.status import Status, StatusDict
 from scripts.cat.thoughts import Thoughts
 from scripts.cat_relations.inheritance import Inheritance
 from scripts.cat_relations.relationship import Relationship
-from scripts.cat_relations.enums import RelType
+from scripts.cat_relations.enums import RelType, RelTier, rel_type_tiers
 from scripts.clan_package.settings import get_clan_setting
 from scripts.conditions import (
     Illness,
@@ -37,11 +37,10 @@ from scripts.conditions import (
 )
 from scripts.event_class import Single_Event
 from scripts.events_module.generate_events import GenerateEvents
-from scripts.game_structure import image_cache, constants
+from scripts.game_structure import image_cache, constants, game
 from scripts.game_structure.game.save_load import safe_save
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.game_structure.game.switches import switch_get_value, Switch
-from scripts.game_structure.game_essentials import game
 from scripts.game_structure.localization import load_lang_resource
 from scripts.game_structure.screen_settings import screen
 from scripts.housekeeping.datadir import get_save_dir
@@ -134,6 +133,8 @@ class Cat:
         skill_dict=None,
         pelt: Pelt = None,
         loading_cat=False,  # Set to true if you are loading a cat at start-up.
+        *,
+        disable_random=False,
         **kwargs,
     ):
         """Initialise the cat.
@@ -153,6 +154,7 @@ class Cat:
         :param skill_dict: TODO find a good definition for this
         :param pelt: Body details, default None
         :param loading_cat: If loading a cat rather than generating a new one, default False
+        :param disable_random: If True, disables as much random generation junk as possible
         :param kwargs: TODO what are the possible args here? ["biome", ]
         """
 
@@ -175,7 +177,7 @@ class Cat:
         self.gender = gender
         self.status: Status = Status(**status_dict) if status_dict else Status()
         self.backstory = backstory
-        self.age = None
+        self.age: Optional[CatAge] = None
         self.skills = CatSkills(skill_dict=skill_dict)
         self.personality = Personality(
             trait="troublesome", lawful=0, aggress=0, stable=0, social=0
@@ -204,6 +206,8 @@ class Cat:
         self.also_got = False
         self.permanent_condition = {}
         self.experience_level = None
+        self.dark_forest_affinity = 0
+        self.starclan_affinity = 0
 
         # Various behavior toggles
         self.no_kits = False
@@ -241,8 +245,8 @@ class Cat:
 
         # age and status
         if status_dict is None and moons is None:
-            self.age = choice(list(CatAge))
-            self.status.generate_new_status(age=self.age)
+            self.age = CatAge.NEWBORN if disable_random else choice([*CatAge])
+            self.status.generate_new_status(age=self.age, disable_random=disable_random)
         elif moons is not None:
             self.moons = moons
             if moons > 300:
@@ -258,9 +262,11 @@ class Cat:
                     ):
                         self.age = key_age
             if status_dict is None:
-                self.status.generate_new_status(age=self.age)
+                self.status.generate_new_status(
+                    age=self.age, disable_random=disable_random
+                )
         else:
-            if self.status.rank == CatRank.NEWBORN:
+            if disable_random or self.status.rank == CatRank.NEWBORN:
                 self.age = CatAge.NEWBORN
             elif self.status.rank == CatRank.KITTEN:
                 self.age = CatAge.KITTEN
@@ -278,26 +284,29 @@ class Cat:
                     ]
                 )
         if moons is None:
-            self.moons = randint(
-                self.age_moons[self.age][0], self.age_moons[self.age][1]
-            )
+            if disable_random:
+                self.moons = 0
+            else:
+                self.moons = randint(
+                    self.age_moons[self.age][0], self.age_moons[self.age][1]
+                )
 
         # backstory
         if self.backstory is None:
             self.backstory = "clanborn"
         else:
-            self.backstory = self.backstory
+            self.backstory = self.backstory  # fixme why does this exist
 
         # sex!?!??!?!?!??!?!?!?!??
         if self.gender is None:
-            self.gender = choice(["female", "male"])
+            self.gender = "female" if disable_random else choice(["female", "male"])
 
         """if self.genderalign == "":
             self.genderalign = self.gender"""
 
         # These things should only run when generating a new cat, rather than loading one in.
         if not loading_cat:
-            self.init_generate_cat(skill_dict)
+            self.init_generate_cat(skill_dict, disable_random)
 
         # In camp status
         self.in_camp = 1
@@ -392,10 +401,11 @@ class Cat:
                 ):
                     self.age = key_age
 
-    def init_generate_cat(self, skill_dict):
+    def init_generate_cat(self, skill_dict, disable_random):
         """
         Used to roll a new cat
         :param skill_dict: TODO what is a skill dict exactly
+        :param disable_random: If true, disable randomisation code
         :return: None
         """
         # trans cat chances
@@ -404,7 +414,7 @@ class Cat:
         nb_chance = randint(0, 75)
 
         # GENDER IDENTITY
-        if self.age.is_baby():
+        if self.age.is_baby() or disable_random:
             # newborns can't be trans, sorry babies
             pass
         elif nb_chance == 1:
@@ -425,10 +435,15 @@ class Cat:
         )
 
         # Personality
-        self.personality = Personality(kit_trait=self.age.is_baby())
+        if disable_random:
+            self.personality = Personality(
+                lawful=8, social=8, aggress=8, stable=8, kit_trait=self.age.is_baby()
+            )
+        else:
+            self.personality = Personality(kit_trait=self.age.is_baby())
 
         # experience and current patrol status
-        if self.age.is_baby():
+        if self.age.is_baby() or disable_random:
             self.experience = 0
         elif self.age == CatAge.ADOLESCENT:
             m = self.moons
@@ -473,16 +488,49 @@ class Cat:
 
     @property
     def dead(self) -> bool:
-        return bool(self.status.group and self.status.group.is_afterlife())
+        return bool(self.status.group.is_afterlife())
 
     @dead.setter
     def dead(self, die: bool):
         if die:
-            if self.status.group and self.status.group.is_afterlife():
+            if self.status.group.is_afterlife():
                 print(
                     f"WARNING: Tried to kill {self.name} ID: {self.ID} but this cat is already dead!"
                 )
                 return
+
+            # kits are auto-accepted
+            if self.age in (CatAge.KITTEN, CatAge.NEWBORN):
+                self.history.add_afterlife_acceptance(
+                    game.clan.instructor.status.group,
+                    is_kit=True,
+                )
+            else:
+                if game.clan.instructor.status.group == CatGroup.STARCLAN:
+                    affinity = self.starclan_affinity
+                    afterlife_group = CatGroup.STARCLAN
+                    rejected_ID = CatGroup.DARK_FOREST_ID
+                else:
+                    affinity = self.dark_forest_affinity
+                    afterlife_group = CatGroup.DARK_FOREST
+                    rejected_ID = CatGroup.STARCLAN_ID
+
+                # afterlife does not like this cat
+                if affinity < 0:
+                    # might send them to the opposite afterlife instead
+                    if random() < abs(affinity / 100):
+                        self.history.add_afterlife_acceptance(
+                            afterlife_group, rejected=True
+                        )
+                        self.status.send_to_afterlife(rejected_ID)
+                        return
+                    # fine, they can go to afterlife, but some cats don't like it
+                    self.history.add_afterlife_acceptance(
+                        afterlife_group, contentious=True
+                    )
+                # afterlife thinks this cat is ok
+                else:
+                    self.history.add_afterlife_acceptance(afterlife_group)
             self.status.send_to_afterlife()
 
     @property
@@ -491,7 +539,11 @@ class Cat:
             entry.get("moons_as")
             for entry in self.status.group_history
             if entry.get("group")
-            in (CatGroup.STARCLAN, CatGroup.UNKNOWN_RESIDENCE, CatGroup.DARK_FOREST)
+            in (
+                CatGroup.STARCLAN_ID,
+                CatGroup.UNKNOWN_RESIDENCE_ID,
+                CatGroup.DARK_FOREST_ID,
+            )
         )
 
     @dead_for.setter
@@ -633,7 +685,7 @@ class Cat:
 
         # handle grief
         # since we just yeeted them to their afterlife, we gotta check their previous group affiliation, not current
-        if game.clan and self.status.get_last_living_group() == CatGroup.PLAYER_CLAN:
+        if game.clan and self.status.get_last_living_group() == CatGroup.PLAYER_CLAN_ID:
             self.grief(body)
             Cat.dead_cats.append(self)
 
@@ -680,23 +732,30 @@ class Cat:
                 continue
 
             family_relation = self.familial_grief(living_cat=cat)
-            very_high_values = []
-            high_values = []
-            very_low_values = []
+            very_high_types = []
+            high_types = []
+            very_low_types = []
 
-            # find what level of rel they had for each value
-            levels = rel_with_dead.get_reltype_tiers()
-            for level in levels:
-                if level.is_extreme_pos():
-                    very_high_values.append(level.get_rel_value)
-                elif level.is_low_pos():
-                    high_values.append(level.get_rel_value)
-                elif level.is_extrem_neg():
-                    very_low_values.append(level.get_rel_value)
+            # find what tier of rel they had for each type
+            tiers: list[RelTier] = rel_with_dead.get_reltype_tiers()
+            for tier in tiers:
+                rel_type = [k for k in rel_type_tiers if tier in rel_type_tiers[k]]
+                if tier.is_extreme_pos:
+                    very_high_types.extend(rel_type)
+                elif tier.is_mid_pos:
+                    # 50/50 if this will cause major grief
+                    if randint(1, 2) == 1:
+                        very_high_types.extend(rel_type)
+                    else:
+                        high_types.extend(rel_type)
+                elif tier.is_low_pos:
+                    high_types.extend(rel_type)
+                elif tier.is_extreme_neg or tier.is_mid_neg:
+                    very_low_types.extend(rel_type)
                 continue
 
             major_chance = 0
-            if very_high_values:
+            if very_high_types:
                 # major grief eligible cats.
 
                 major_chance = 3
@@ -716,7 +775,7 @@ class Cat:
                     )
 
                 if body_treated:
-                    major_chance -= 1
+                    major_chance += 1
 
             # If major_chance is not 0, there is a chance for major grief
             grief_type = None
@@ -724,7 +783,7 @@ class Cat:
                 grief_type = "major"
 
                 possible_strings = []
-                for x in very_high_values:
+                for x in very_high_types:
                     possible_strings.extend(
                         self.generate_events.possible_death_reactions(
                             family_relation, x, cat.personality.trait, body_status
@@ -743,7 +802,7 @@ class Cat:
 
             # If major grief fails, but there are still very_high or high values,
             # it can fail to to minor grief. If they have a family relation, bypass the roll.
-            elif (very_high_values or high_values) and (
+            elif (very_high_types or high_types) and (
                 family_relation != "general" or not int(random() * 5)
             ):
                 grief_type = "minor"
@@ -806,10 +865,10 @@ class Cat:
                 continue
 
             # Negative "grief" messages are just for flavor.
-            if very_low_values:
+            if very_low_types:
                 # Generate the event:
                 possible_strings = []
-                for x in very_low_values:
+                for x in very_low_types:
                     value = f"neg_{x}"
                     possible_strings.extend(
                         self.generate_events.possible_death_reactions(
@@ -861,10 +920,10 @@ class Cat:
         """Makes an "outside cat" a Clan cat. Returns a list of IDs for any additional cats that
         are coming with them."""
 
-        if not self.status.is_exiled(CatGroup.PLAYER_CLAN):
+        if not self.status.is_exiled(CatGroup.PLAYER_CLAN_ID):
             self.history.add_beginning()
 
-        self.status.add_to_group(new_group=CatGroup.PLAYER_CLAN, age=self.age)
+        self.status.add_to_group(new_group_ID=CatGroup.PLAYER_CLAN_ID, age=self.age)
 
         game.clan.add_to_clan(self)
 
@@ -875,10 +934,12 @@ class Cat:
             child = Cat.all_cats[child_id]
             if (
                 not child.dead
-                and not child.status.is_exiled(CatGroup.PLAYER_CLAN)
+                and not child.status.is_exiled(CatGroup.PLAYER_CLAN_ID)
                 and child.moons < 12
             ):
-                child.status.add_to_group(new_group=CatGroup.PLAYER_CLAN, age=self.age)
+                child.status.add_to_group(
+                    new_group_ID=CatGroup.PLAYER_CLAN_ID, age=self.age
+                )
                 child.add_to_clan()
                 child.history.add_beginning()
                 ids.append(child_id)
@@ -1099,6 +1160,11 @@ class Cat:
                         else []
                     ),
                     murder=history_data["murder"] if "murder" in history_data else {},
+                    afterlife_acceptance=(
+                        history_data["afterlife_acceptance"]
+                        if "afterlife_acceptance" in history_data
+                        else None
+                    ),
                     cat=self,
                 )
         except Exception:
@@ -1535,7 +1601,7 @@ class Cat:
                     i += 1
 
             # for dead cats, they can think about whoever they want
-            elif self.status.group and self.status.group.is_afterlife():
+            elif self.status.group.is_afterlife():
                 other_cat = choice(all_cats)
 
             # for cats currently outside
@@ -1558,7 +1624,7 @@ class Cat:
         if just_died:
             afterlife = (
                 self.status.group
-                if self.status.group and self.status.group.is_afterlife()
+                if self.status.group.is_afterlife()
                 else game.clan.instructor.status.group
             )
             chosen_thought = Thoughts.new_death_thought(
@@ -2258,7 +2324,7 @@ class Cat:
             return False
 
         # App and mentor must be members of the same clan
-        if self.status.group != potential_mentor.status.group:
+        if self.status.group_ID != potential_mentor.status.group_ID:
             return False
 
         # Match jobs
@@ -2605,8 +2671,8 @@ class Cat:
             # if they dead (dead cats have no relationships)
             if self.dead or inter_cat.dead:
                 continue
-            # if they are not outside of the Clan at the same time
-            if self.status.group != inter_cat.status.group:
+            # if they are not within the same group
+            if self.status.group_ID != inter_cat.status.group_ID:
                 continue
             inter_cat.relationships[self.ID] = Relationship(inter_cat, self)
             self.relationships[inter_cat.ID] = Relationship(self, inter_cat)
@@ -2852,13 +2918,8 @@ class Cat:
         if allow_romantic and (mates or cat1.is_potential_mate(cat2)):
             rel_values.append(RelType.ROMANCE)
 
-        # Determine the number of positive traits to effect, and choose the traits
-        chosen_pos = sample(rel_values, k=randint(2, len(rel_values)))
-
-        # Determine negative trains effected
-        chosen_neg = sample(
-            [v for v in rel_values if v not in chosen_pos], k=randint(1, 2)
-        )
+        # Determine the number of traits to effect, and choose the traits
+        chosen_rel = sample(rel_values, k=randint(2, len(rel_values)))
 
         if compat is True:
             personality_bonus = 2
@@ -2868,7 +2929,7 @@ class Cat:
             personality_bonus = 0
 
         # Effects on traits
-        for rel_type in chosen_pos + chosen_neg:
+        for rel_type in chosen_rel:
             # The EX bonus in not applied upon a fail.
             if apply_bonus:
                 if mediator.experience_level == "very low":
@@ -2887,22 +2948,17 @@ class Cat:
             else:
                 bonus = 0
 
-            if sabotage or rel_type in chosen_neg:
-                decrease = True
-            else:
-                decrease = sabotage or rel_type in chosen_neg
-
             ran = (5, 10) if rel_type == RelType.ROMANCE and mates else (4, 6)
 
             amount = ((randint(ran[0], ran[1]) + bonus) + personality_bonus) * (
                 -1 if sabotage else 1
             )
 
-            setattr(rel1, rel_type, amount)
-            setattr(rel2, rel_type, amount)
+            setattr(rel1, rel_type, getattr(rel1, rel_type) + amount)
+            setattr(rel2, rel_type, getattr(rel2, rel_type) + amount)
 
             output += i18n.t(
-                f"screens.mediation.output_{'decrease' if decrease else 'increase'}",
+                f"screens.mediation.output_{'decrease' if sabotage else 'increase'}",
                 trait=i18n.t(f"screens.mediation.{rel_type}"),
             )
 
@@ -2930,6 +2986,8 @@ class Cat:
 
         if self.status.group == CatGroup.DARK_FOREST:
             file_name += "_df"
+        elif self.status.group == CatGroup.UNKNOWN_RESIDENCE:
+            file_name += "_ur"
 
         file_name += ".png"
 
@@ -3015,9 +3073,9 @@ class Cat:
         cat_ob.faded = True
 
         if cat_info.get("df"):
-            cat_ob.status.send_to_afterlife(target=CatGroup.DARK_FOREST)
+            cat_ob.status.send_to_afterlife(target_ID=CatGroup.DARK_FOREST_ID)
         elif isinstance(cat_info["status"], str):
-            cat_ob.status.send_to_afterlife(target=CatGroup.STARCLAN)
+            cat_ob.status.send_to_afterlife(target_ID=CatGroup.STARCLAN_ID)
 
         cat_ob.dead_for = cat_info["dead_for"] if "dead_for" in cat_info else 1
 
@@ -3275,6 +3333,8 @@ class Cat:
                 ),
                 "birth_cooldown": self.birth_cooldown,
                 "status": self.status.get_status_dict(),
+                "dark_forest_affinity": self.dark_forest_affinity,
+                "starclan_affinity": self.starclan_affinity,
                 "backstory": self.backstory or None,
                 "moons": self.moons,
                 "trait": self.personality.trait,
@@ -3308,10 +3368,10 @@ class Cat:
                 "vitiligo": self.pelt.vitiligo,
                 "points": self.pelt.points,
                 "white_patches_tint": self.pelt.white_patches_tint,
-                "pattern": self.pelt.pattern,
-                "tortie_base": self.pelt.tortiebase,
-                "tortie_color": self.pelt.tortiecolour,
-                "tortie_pattern": self.pelt.tortiepattern,
+                "tortie_marking": self.pelt.tortie_marking,
+                "tortie_base": self.pelt.tortie_base,
+                "tortie_color": self.pelt.tortie_colour,
+                "tortie_pattern": self.pelt.tortie_pattern,
                 "skin": self.pelt.skin,
                 "tint": self.pelt.tint,
                 "skill_dict": self.skills.get_skill_dict(),
@@ -3351,7 +3411,7 @@ class Cat:
             sorted_specific_list = [
                 check_cat
                 for check_cat in sorted_specific_list
-                if check_cat.status.group == self.status.group
+                if check_cat.status.group_ID == self.status.group_ID
             ]
 
         if filter_func is not None:
@@ -3451,10 +3511,10 @@ def create_option_preview_cat(scar: str = None, acc: str = None):
             white_patches=None,
             vitiligo=None,
             points=None,
-            pattern=None,
-            tortiebase=None,
-            tortiepattern=None,
-            tortiecolour=None,
+            tortie_marking=None,
+            tortie_base=None,
+            tortie_pattern=None,
+            tortie_colour=None,
             tint="gray",
             skin="BLUE",
             scars=[scar] if scar else [],

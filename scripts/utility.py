@@ -9,6 +9,7 @@ TODO: Docs
 import logging
 import os
 import re
+import traceback
 from itertools import combinations
 from math import floor
 from random import choice, choices, randint, random, sample, randrange, getrandbits
@@ -35,7 +36,7 @@ from scripts.game_structure import image_cache, localization, constants
 from scripts.cat.enums import CatAge, CatRank, CatSocial, CatGroup, CatStanding
 from scripts.cat.names import names
 from scripts.cat.sprites import sprites
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure import game
 import scripts.game_structure.screen_settings  # must be done like this to get updates when we change screen size etc
 
 if TYPE_CHECKING:
@@ -198,7 +199,7 @@ def get_warring_clan():
     """
     enemy_clan = None
     if game.clan.war.get("at_war", False):
-        for other_clan in game.clan.all_clans:
+        for other_clan in game.clan.all_other_clans:
             if other_clan.name == game.clan.war["enemy"]:
                 enemy_clan = other_clan
 
@@ -249,8 +250,8 @@ def change_clan_relations(other_clan, difference):
     # grab the clan that has been indicated
     other_clan = other_clan
     # grab the relation value for that clan
-    y = game.clan.all_clans.index(other_clan)
-    clan_relations = int(game.clan.all_clans[y].relations)
+    y = game.clan.all_other_clans.index(other_clan)
+    clan_relations = int(game.clan.all_other_clans[y].relations)
     # change the value
     clan_relations += difference
     # making sure it doesn't exceed the bounds
@@ -259,7 +260,7 @@ def change_clan_relations(other_clan, difference):
     elif clan_relations < 0:
         clan_relations = 0
     # setting it in the Clan save
-    game.clan.all_clans[y].relations = clan_relations
+    game.clan.all_other_clans[y].relations = clan_relations
 
 
 def create_new_cat_block(
@@ -435,9 +436,9 @@ def create_new_cat_block(
     elif "clancat" in attribute_list or "former Clancat" in attribute_list:
         cat_social = CatSocial.CLANCAT
         if other_clan:
-            cat_group = other_clan.enum
+            cat_group = other_clan.group_ID
         else:
-            cat_group = choice(game.clan.other_clans)
+            cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
         cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former Clancat"])
 
@@ -559,7 +560,7 @@ def create_new_cat_block(
             elif outside:
                 # updates so that the clan is marked as knowing of this cat
                 current_standing = chosen_cat.status.get_standing_with_group(
-                    CatGroup.PLAYER_CLAN
+                    CatGroup.PLAYER_CLAN_ID
                 )
                 if (
                     CatStanding.KNOWN not in current_standing
@@ -581,7 +582,7 @@ def create_new_cat_block(
                     chosen_cat.name.give_suffix(
                         pelt=chosen_cat.pelt,
                         biome=game.clan.biome,
-                        tortiepattern=chosen_cat.pelt.tortiepattern,
+                        tortie_pattern=chosen_cat.pelt.tortie_pattern,
                     )
                 else:  # completely new name
                     chosen_cat.name.give_prefix(
@@ -592,7 +593,7 @@ def create_new_cat_block(
                     chosen_cat.name.give_suffix(
                         pelt=chosen_cat.pelt.colour,
                         biome=game.clan.biome,
-                        tortiepattern=chosen_cat.pelt.tortiepattern,
+                        tortie_pattern=chosen_cat.pelt.tortie_pattern,
                     )
 
             new_cats = [chosen_cat]
@@ -702,7 +703,7 @@ def get_other_clan(clan_name):
     """
     returns the clan object of given clan name
     """
-    for clan in game.clan.all_clans:
+    for clan in game.clan.all_other_clans:
         if clan.name == clan_name:
             return clan
 
@@ -761,7 +762,7 @@ def create_new_cat(
         )
         and not original_group
     ):
-        original_group = choice(game.clan.other_clans)
+        original_group = choice([x.group_ID for x in game.clan.all_other_clans])
 
     created_cats = []
 
@@ -824,7 +825,7 @@ def create_new_cat(
             status_dict={
                 "social": original_social,
                 "age": age,
-                "group": original_group,
+                "group_ID": original_group,
             },
             gender=_gender,
             backstory=backstory,
@@ -852,12 +853,10 @@ def create_new_cat(
         # NAMES and accs
         # clancat adults should have already generated with a clan-ish name, thus they skip all of this re-naming
         # little babies will take a clancat name, we love indoctrination
-        if (kit or litter or moons < 12) and (
-            not original_group or not original_group.is_other_clan_group()
-        ):
+        if (kit or litter or moons < 12) and original_group != CatGroup.OTHER_CLAN:
             # babies change name, in case their initial name isn't clan-ish
             new_cat.change_name()
-        elif not original_group or not original_group.is_other_clan_group():
+        elif original_group != CatGroup.OTHER_CLAN:
             # give kittypets a kittypet name
             if original_social == CatSocial.KITTYPET:
                 name = choice(names.names_dict["loner_names"])
@@ -866,7 +865,7 @@ def create_new_cat(
                     # TODO: refactor this entire function to remove this call amongst other things
                     from scripts.cat.pelts import Pelt
 
-                    new_cat.pelt.accessory.append(choice(Pelt.collars))
+                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories))
 
             # try to give name from full loner name list
             elif original_social in (CatSocial.LONER, CatSocial.ROGUE) and bool(
@@ -2677,21 +2676,21 @@ def generate_sprite(
         else:
             # Base Coat
             new_sprite.blit(
-                sprites.sprites[cat.pelt.tortiebase + cat.pelt.colour + cat_sprite],
+                sprites.sprites[cat.pelt.tortie_base + cat.pelt.colour + cat_sprite],
                 (0, 0),
             )
 
             # Create the patch image
-            if cat.pelt.tortiepattern == "Single":
+            if cat.pelt.tortie_pattern == "Single":
                 tortie_pattern = "SingleColour"
             else:
-                tortie_pattern = cat.pelt.tortiepattern
+                tortie_pattern = cat.pelt.tortie_pattern
 
             patches = sprites.sprites[
-                tortie_pattern + cat.pelt.tortiecolour + cat_sprite
+                tortie_pattern + cat.pelt.tortie_colour + cat_sprite
             ].copy()
             patches.blit(
-                sprites.sprites["tortiemask" + cat.pelt.pattern + cat_sprite],
+                sprites.sprites["tortiemask" + cat.pelt.tortie_marking + cat_sprite],
                 (0, 0),
                 special_flags=pygame.BLEND_RGBA_MULT,
             )
@@ -2701,7 +2700,7 @@ def generate_sprite(
 
         # TINTS
         if (
-            cat.pelt.tint != "none"
+            cat.pelt.tint is not None
             and cat.pelt.tint in sprites.cat_tints["tint_colours"]
         ):
             # Multiply with alpha does not work as you would expect - it just lowers the alpha of the
@@ -2711,7 +2710,7 @@ def generate_sprite(
             tint.fill(tuple(sprites.cat_tints["tint_colours"][cat.pelt.tint]))
             new_sprite.blit(tint, (0, 0), special_flags=pygame.BLEND_RGB_MULT)
         if (
-            cat.pelt.tint != "none"
+            cat.pelt.tint is not None
             and cat.pelt.tint in sprites.cat_tints["dilute_tint_colours"]
         ):
             tint = pygame.Surface((sprites.size, sprites.size)).convert_alpha()
@@ -2726,7 +2725,7 @@ def generate_sprite(
 
             # Apply tint to white patches.
             if (
-                cat.pelt.white_patches_tint != "none"
+                cat.pelt.white_patches_tint is not None
                 and cat.pelt.white_patches_tint
                 in sprites.white_patches_tints["tint_colours"]
             ):
@@ -2747,7 +2746,7 @@ def generate_sprite(
         if cat.pelt.points:
             points = sprites.sprites["white" + cat.pelt.points + cat_sprite].copy()
             if (
-                cat.pelt.white_patches_tint != "none"
+                cat.pelt.white_patches_tint is not None
                 and cat.pelt.white_patches_tint
                 in sprites.white_patches_tints["tint_colours"]
             ):
@@ -2787,25 +2786,53 @@ def generate_sprite(
                     )
 
         # setting the lineart color to override on accessories & missing bits
-        lineart_color = pygame.Color(
-            constants.CONFIG["cat_sprites"]["lineart_color_df"]
-            if cat.status.group == CatGroup.DARK_FOREST
-            else constants.CONFIG["cat_sprites"]["lineart_color_sc"]
+        lineart_color = (
+            pygame.Color(
+                constants.CONFIG["cat_sprites"]["lineart_color_sc"]
+                if cat.status.group == CatGroup.STARCLAN
+                else constants.CONFIG["cat_sprites"]["lineart_color_df"]
+            )
+            if cat.status.group != CatGroup.UNKNOWN_RESIDENCE
+            else None
         )
 
-        def _recolor_lineart(sprite, color) -> pygame.Surface:
+        gradient_surface = (
+            sprites.sprites["gradient_ur" + cat_sprite]
+            if dead and cat.status.group == CatGroup.UNKNOWN_RESIDENCE
+            else None
+        )
+
+        def _recolor_lineart(
+            sprite, color=None, source: pygame.Surface = None
+        ) -> pygame.Surface:
             """
             Helper function to set the appropriate lineart color for the living status of the cat
             :param sprite: lineart to recolor
-            :param color: color to apply
+            :param color: color to apply to all pixels
+            :param source: source surface of same size as sprite to use instead of color
             :return:
             """
             if not dead:
                 return sprite
+
+            if color is None and source is None:
+                raise ValueError(
+                    "Must provide either `color` or `source` for _recolor_lineart"
+                )
+
             out = sprite.copy()
-            pixel_array = pygame.PixelArray(out)
-            pixel_array.replace((0, 0, 0), color, distance=0)
-            del pixel_array
+            if color:
+                pixel_array = pygame.PixelArray(out)
+                pixel_array.replace((0, 0, 0), color, distance=0)
+                del pixel_array
+                return out
+
+            width, height = sprite.get_size()
+            for x in range(width):
+                for y in range(height):
+                    if sprite.get_at((x, y)) == pygame.Color(0, 0, 0):
+                        color = source.get_at((x, y))
+                        sprite.set_at((x, y), color)
             return out
 
         # draw line art
@@ -2819,6 +2846,8 @@ def generate_sprite(
 
         if not dead:
             new_sprite.blit(sprites.sprites["lines" + cat_sprite], (0, 0))
+        elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+            new_sprite.blit(sprites.sprites["lineartur" + cat_sprite], (0, 0))
         elif cat.status.group == CatGroup.DARK_FOREST:
             new_sprite.blit(sprites.sprites["lineartdf" + cat_sprite], (0, 0))
         elif dead:
@@ -2832,7 +2861,9 @@ def generate_sprite(
                 if scar in cat.pelt.scars2:
                     new_sprite.blit(
                         _recolor_lineart(
-                            sprites.sprites["scars" + scar + cat_sprite], lineart_color
+                            sprites.sprites["scars" + scar + cat_sprite],
+                            lineart_color,
+                            gradient_surface,
                         ),
                         (0, 0),
                         special_flags=blendmode,
@@ -2844,7 +2875,7 @@ def generate_sprite(
         if not acc_hidden and cat.pelt.accessory:
             cat_accessories = cat.pelt.accessory
             categories = [
-                "collars",
+                "collar_accessories",
                 "tail_accessories",
                 "body_accessories",
                 "head_accessories",
@@ -2859,6 +2890,7 @@ def generate_sprite(
                                         "acc_herbs" + accessory + cat_sprite
                                     ],
                                     lineart_color,
+                                    gradient_surface,
                                 ),
                                 (0, 0),
                             )
@@ -2869,24 +2901,19 @@ def generate_sprite(
                                         "acc_wild" + accessory + cat_sprite
                                     ],
                                     lineart_color,
+                                    gradient_surface,
                                 ),
                                 (0, 0),
                             )
-                        elif accessory in cat.pelt.collars:
+                        elif accessory in cat.pelt.collar_accessories:
                             new_sprite.blit(
                                 _recolor_lineart(
                                     sprites.sprites["collars" + accessory + cat_sprite],
                                     lineart_color,
+                                    gradient_surface,
                                 ),
                                 (0, 0),
                             )
-
-        # apply experimental sparkle layer
-        if dead and cat.status.group == CatGroup.STARCLAN:
-            new_sprite.blit(
-                sprites.sprites["sc_overlay" + cat_sprite],
-                (0, 0),
-            )
 
         # Apply fading fog
         if (
@@ -2909,20 +2936,67 @@ def generate_sprite(
                 special_flags=pygame.BLEND_RGBA_MULT,
             )
 
-            if cat.status.group == CatGroup.DARK_FOREST:
-                temp = sprites.sprites["fadedf" + stage + cat_sprite].copy()
-                temp.blit(new_sprite, (0, 0))
-                new_sprite = temp
-            else:
+            if cat.status.group == CatGroup.STARCLAN:
                 temp = sprites.sprites["fadestarclan" + stage + cat_sprite].copy()
                 temp.blit(new_sprite, (0, 0))
                 new_sprite = temp
+            elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+                temp = sprites.sprites["fadeur" + stage + cat_sprite].copy()
+                temp.blit(new_sprite, (0, 0))
+                new_sprite = temp
+            else:
+                temp = sprites.sprites["fadedf" + stage + cat_sprite].copy()
+                temp.blit(new_sprite, (0, 0))
+                new_sprite = temp
+
+        # ok! we have the sprite! now, do some layer things if the cat's already dead
+        if dead:
+            temp_sprite = pygame.Surface(
+                (sprites.size, sprites.size), pygame.HWSURFACE | pygame.SRCALPHA
+            )
+
+            if cat.status.group == CatGroup.STARCLAN:
+                # no underlay
+
+                # cat sprite
+                temp_sprite.blit(new_sprite, (0, 0))
+
+                # overlay
+                temp_sprite.blit(
+                    sprites.sprites["sc_overlay" + cat_sprite],
+                    (0, 0),
+                )
+            elif cat.status.group == CatGroup.UNKNOWN_RESIDENCE:
+                # underlay
+                temp_sprite.blit(
+                    sprites.sprites["ur_underlay" + cat_sprite],
+                    (0, 0),
+                )
+
+                # cat sprite
+                temp_sprite.blit(new_sprite, (0, 0))
+
+                # overlay
+                temp_sprite.blit(
+                    sprites.sprites["ur_overlay" + cat_sprite],
+                    (0, 0),
+                )
+            elif cat.status.group == CatGroup.DARK_FOREST:
+                # no underlay
+
+                # cat sprite
+                temp_sprite.blit(new_sprite, (0, 0))
+
+                # no overlay
+
+            new_sprite = temp_sprite
 
         # reverse, if assigned so
         if cat.pelt.reverse:
             new_sprite = pygame.transform.flip(new_sprite, True, False)
 
     except (TypeError, KeyError):
+        traceback.print_exc()
         logger.exception("Failed to load sprite")
 
         # Placeholder image
