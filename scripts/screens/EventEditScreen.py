@@ -33,6 +33,7 @@ from scripts.game_structure.ui_elements import (
 from scripts.game_structure.windows import EditorSaveCheck, EditorMissingInfo
 from scripts.screens.RelationshipScreen import RelationshipScreen
 from scripts.screens.Screens import Screens
+from scripts.screens.enums import GameScreen
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.icon import Icon
@@ -796,7 +797,7 @@ class EventEditScreen(Screens):
 
             # MAIN MENU RETURN
             if event.ui_element == self.main_menu_button:
-                self.change_screen("start screen")
+                self.change_screen(GameScreen.START)
                 return
 
             # SELECT TYPE
