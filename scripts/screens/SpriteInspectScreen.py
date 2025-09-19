@@ -16,6 +16,7 @@ from scripts.utility import (
 )
 from scripts.utility import ui_scale
 from .Screens import Screens
+from .enums import GameScreen
 from ..cat.sprites import sprites
 from .enums import GameScreen
 from ..clan_package.settings import get_clan_setting

@@ -79,6 +79,7 @@ class Screens:
             GameScreen.RELATIONSHIP,
             GameScreen.MEDIATION,
             GameScreen.CHANGE_GENDER,
+            GameScreen.FAMILY_TREE,
         ]:
             game.last_list_forProfile = None
             self.current_group = "your_clan"
