@@ -443,7 +443,8 @@ class GenerateEvents:
                         supply["adjust"] in ["reduce_half", "reduce_full"]
                         and random.randint(1, avoidance_chance) != 1
                     ):
-                        continue
+                        discard = True
+                        break
 
                     if supply_type == "freshkill":
                         if not freshkill_active:
