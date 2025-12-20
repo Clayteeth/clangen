@@ -716,15 +716,13 @@ class PatrolOutcome:
             return ""
 
         list_of_herb_strs = []
+        found_herbs = {}
 
         large_bonus = False
         if "many_herbs" in self.herbs:
             large_bonus = True
 
-        if len(patrol.patrol_cats) > 2:
-            patrol_size_modifier = int(len(patrol.patrol_cats) * 0.5)
-        else:
-            patrol_size_modifier = 1
+        patrol_size_modifier = int(len(patrol.patrol_cats))
 
         if "random_herbs" in self.herbs:
             # get random herbs, add to storage, and get patrol outcome msg
@@ -733,24 +731,33 @@ class PatrolOutcome:
                 general_amount_bonus=large_bonus,
                 specific_quantity_bonus=patrol_size_modifier,
             )
-        else:
-            # get the correct herbs for this patrol
-            found_herbs = {}
-            for herb in [
-                x for x in self.herbs if x not in ["many_herbs", "random_herbs"]
-            ]:
-                amount = choices([2, 3, 4], weights=[2, 1, 1], k=1)[0]
-                amount *= patrol_size_modifier
-                if large_bonus:
-                    amount *= 2
 
-                found_herbs[herb] = amount
+        # now we grab any other herbs that were tagged
+        additional_herbs = {}
+        for herb in [x for x in self.herbs if x not in ["many_herbs", "random_herbs"]]:
+            amount = choices([2, 3, 4], weights=[2, 1, 1], k=1)[0]
+            amount *= patrol_size_modifier
+            if large_bonus:
+                amount *= 2
 
-            # add found_herbs to storage and get patrol outcome msg
-            (
-                list_of_herb_strs,
-                found_herbs,
-            ) = game.clan.herb_supply.handle_found_herbs_outcomes(found_herbs)
+            additional_herbs[herb] = amount
+
+        # add found_herbs to storage and get patrol outcome msg
+        (
+            additional_strs,
+            additional_herbs,
+        ) = game.clan.herb_supply.handle_found_herbs_outcomes(additional_herbs)
+
+        # extend this list in case we already grabbed a bunch of random herbs
+        list_of_herb_strs.extend(
+            [x for x in additional_strs if x not in list_of_herb_strs]
+        )
+        # update the original found_herbs dict, again just in case we've already grabbed a bunch of random herbs
+        for _h in additional_herbs:
+            if _h not in found_herbs:
+                found_herbs[_h] = additional_herbs[_h]
+            else:
+                found_herbs[_h] += additional_herbs[_h]
 
         herb_string = adjust_list_text(list_of_herb_strs).capitalize()
 
