@@ -7,6 +7,7 @@ import i18n
 
 import scripts.cat_relations.interaction as interactions
 from scripts.cat.cats import Cat
+from scripts.cat.enums import CatCompatibility
 from scripts.cat_relations.relationship import RelType, Relationship
 from scripts.event_class import Single_Event
 from scripts.game_structure import constants
