@@ -142,11 +142,11 @@ dev_tools = false
       comfort = 10
       respect = 10
     [mates.breakup.reactions.lost_feelings]
-      romance = -40
+      romance = -30
       like = -10
       comfort = -10
     [mates.breakup.reactions.bad_breakup]
-      romance = -30
+      romance = -20
       like = -10
       trust = -30
       comfort = -20
