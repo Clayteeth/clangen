@@ -17,6 +17,7 @@ from scripts.utility import (
     event_text_adjust,
     get_personality_compatibility,
     process_text,
+    change_relationship_values,
 )
 
 
@@ -450,14 +451,32 @@ class RomanticEvents:
         breakup_changes = constants.CONFIG["mates"]["breakup"]["reactions"][
             breakup_type
         ]
-        for change in breakup_changes:
-            adjust_by = constants.CONFIG["mates"]["breakup"]["variability"]
-            change += random.randint(adjust_by[0], adjust_by[1])
 
-        breakup_changes["cats_from"] = cat_from
-        breakup_changes["cats_to"] = cat_to
-        breakup_changes["mutual"] = True
-        breakup_changes["log"] = text
+        # reaction of cat_from
+        cat_from_change = breakup_changes.copy()
+        for change in cat_from_change:
+            adjust_by = constants.CONFIG["mates"]["breakup"]["variability"]
+            cat_from_change[change] += random.randint(adjust_by[0], adjust_by[1])
+        cat_from_change["cats_from"] = [cat_from]
+        cat_from_change["cats_to"] = [cat_to]
+        cat_from_change["log"] = text
+
+        # reaction of cat_to
+        cat_to_change = breakup_changes.copy()
+        for change in cat_to_change:
+            adjust_by = constants.CONFIG["mates"]["breakup"]["variability"]
+            cat_to_change[change] += random.randint(adjust_by[0], adjust_by[1])
+
+        cat_to_change["cats_from"] = [cat_to]
+        cat_to_change["cats_to"] = [cat_from]
+        cat_to_change["log"] = text
+
+        change_relationship_values(
+            **cat_from_change,
+        )
+        change_relationship_values(
+            **cat_to_change,
+        )
 
         game.cur_events_list.append(
             Single_Event(
@@ -944,7 +963,7 @@ class RomanticEvents:
             relationship_to: Relationship = cat_to.create_one_relationship(cat_from)
 
         # No breakup chance if the cat is above the breakup threshold.
-        threshold = constants.CONFIG["mates"]["breakup_threshold"]
+        threshold = constants.CONFIG["mates"]["breakup"]["threshold"]
         if (
             relationship_from.total_relationship_value > threshold
             or relationship_to.total_relationship_value > threshold
@@ -952,16 +971,16 @@ class RomanticEvents:
             return 0
 
         chance_number = 30
-        chance_number += int(relationship_from.romance / 20)
-        chance_number += int(relationship_to.romance / 20)
-        chance_number += int(relationship_from.like / 20)
-        chance_number += int(relationship_to.like / 20)
-        chance_number += int(relationship_from.respect / 20)
-        chance_number += int(relationship_to.respect / 20)
-        chance_number += int(relationship_from.trust / 20)
-        chance_number += int(relationship_to.trust / 20)
-        chance_number += int(relationship_from.comfort / 20)
-        chance_number += int(relationship_to.comfort / 20)
+        chance_number += int(relationship_from.romance / 10)
+        chance_number += int(relationship_to.romance / 10)
+        chance_number += int(relationship_from.like / 10)
+        chance_number += int(relationship_to.like / 10)
+        chance_number += int(relationship_from.respect / 10)
+        chance_number += int(relationship_to.respect / 10)
+        chance_number += int(relationship_from.trust / 10)
+        chance_number += int(relationship_to.trust / 10)
+        chance_number += int(relationship_from.comfort / 10)
+        chance_number += int(relationship_to.comfort / 10)
 
         # change the change based on the personality
         get_along = get_personality_compatibility(cat_from, cat_to)
