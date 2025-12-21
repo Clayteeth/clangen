@@ -124,6 +124,13 @@ dev_tools = false
   [mates.breakup]
     threshold = 120
     variability = [-10, 10]
+    [mates.breakup.default_weights]
+      had_fight = 3
+      decided_to_be_friends = 3
+      lost_feelings = 2
+      bad_breakup = 5
+      chill_breakup = 5
+
     [mates.breakup.reactions.had_fight]
       romance = -20
       like = -10

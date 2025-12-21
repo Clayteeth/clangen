@@ -432,16 +432,37 @@ class RomanticEvents:
 
         # Determine if this is a nice breakup or a fight breakup
         # TODO - make this better
-        breakup_type = random.choices(
-            [
-                "had_fight",
-                "decided_to_be_friends",
-                "lost_feelings",
-                "bad_breakup",
-                "chill_breakup",
-            ],
-            [3, 3, 2, 5, 5],
-        )[0]
+        if cat_to.ID in cat_from.relationships:
+            relationship_from: Relationship = cat_from.relationships[cat_to.ID]
+        else:
+            relationship_from: Relationship = cat_from.create_one_relationship(cat_to)
+        if cat_from.ID in cat_to.relationships:
+            relationship_to: Relationship = cat_to.relationships[cat_from.ID]
+        else:
+            relationship_to: Relationship = cat_to.create_one_relationship(cat_from)
+
+        possible_breakups = constants.CONFIG["mates"]["breakup"]["default_weights"]
+
+        if relationship_from.romance < 40 or relationship_to.romance < 40:
+            possible_breakups["chill_breakup"] += 2
+        if relationship_from.romance < 20 or relationship_to.romance < 20:
+            possible_breakups["lost_feelings"] += 5
+        if (
+            relationship_from.total_relationship_value < 80
+            or relationship_to.total_relationship_value < 80
+        ):
+            possible_breakups["had_fight"] += 3
+            possible_breakups["bad_breakup"] += 2
+        if relationship_from.like > 40 and relationship_to.like > 40:
+            possible_breakups["decided_to_be_friends"] += 5
+
+        _b_types = []
+        _b_weights = []
+        for breakup in possible_breakups:
+            _b_types.append(breakup)
+            _b_weights.append(possible_breakups[breakup])
+
+        breakup_type = random.choices(_b_types, weights=_b_weights)[0]
 
         cat_from.unset_mate(cat_to, breakup=False)
 
