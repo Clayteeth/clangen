@@ -413,7 +413,7 @@ class Pregnancy_Events:
                     name = choice(names.names_dict["normal_prefixes"])
                     kit.name = Name(prefix=name, suffix="", cat=kit)
                     extra_naming_text = i18n.t(
-                        "conditions.pregnancy.not_keep_clan_tradition",
+                        "conditions.pregnancy.reject_clan_tradition",
                         name=cat.name,
                     )
 
@@ -426,7 +426,7 @@ class Pregnancy_Events:
                         name = choice(names.names_dict["normal_prefixes"])
                         kit.name = Name(prefix=name, suffix="", cat=kit)
                         extra_naming_text = i18n.t(
-                            "conditions.pregnancy.not_keep_clan_tradition",
+                            "conditions.pregnancy.reject_clan_tradition",
                             name=cat.name,
                         )
                     else:
