@@ -362,7 +362,7 @@ class ShortEvent:
         )
 
         if self.chosen_herb:
-            game.herb_events_list.append(f"{self} {self.herb_notice}.")
+            game.herb_events_list.append(f"{self.text} {self.herb_notice}")
 
         self.gather_future_event()
 
