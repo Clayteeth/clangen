@@ -513,7 +513,7 @@ class PatrolOutcome:
                         )
                     )
                 elif "some_lives" in self.dead_cats:
-                    lives_lost = random.randint(1, max(1, game.clan.leader_lives - 1))
+                    lives_lost = random.randint(2, max(1, game.clan.leader_lives - 1))
                     game.clan.leader_lives -= lives_lost
                     for i in range(lives_lost - 1):
                         _cat.history.add_death("multi_lives")
