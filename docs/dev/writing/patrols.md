@@ -16,13 +16,13 @@ When considering patrols, keep in mind challenge vs reward. That isn't to say ce
 ### Replacement Text
 When writing the text for patrol events, we use a variety of abbreviations that will later be replaced automatically before displaying to the player.  These are things like names and pronouns.  Pronoun Tagging is discussed in the basic guidelines.
 
-| string      |                                                                                                                                                                                                                                                                                                                                 |
-|-------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| p_l         | Random cat, a (mostly) randomly selected cat in the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                        |
-| s_c         | Stat cat, a cat with one of the indicated outcome stats.    When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                      |
-| app1        | The first apprentice on the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                                             |
-| app2        | The second apprentice on the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                                             |
-| n_c:{index} | The newly generated cat specified in list index {index}. The list is 0-indexed, so the first entry is 0. If more than one cat is generated in a single list entry (for example, a litter), this will use the first generated cat. Currently, there is no way to retrieve the name's or pronouns of other members of a litter.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.
+| string      |                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| p_l         | Random cat, a (mostly) randomly selected cat in the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                   |
+| s_c         | Stat cat, a cat with one of the indicated outcome stats.    When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                    |
+| app1        | The first apprentice on the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                                           |
+| app2        | The second apprentice on the patrol.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns.                                                                                                                                                                                                                                                                                          |
+| n_c:{index} | The newly generated cat specified in list index {index}. The list is 0-indexed, so the first entry is 0. If more than one cat is generated in a single list entry (for example, a litter), this will use the first generated cat. Currently, there is no way to retrieve the name's or pronouns of other members of a litter.  When used on it's own this will generate the cat's name, when used in a pronoun tag this will generate that cat's pronouns. |
 
 !!! todo "TODO"
     look over patrol code and find the other abbreviations, i know this ain't all of it
@@ -30,76 +30,100 @@ When writing the text for patrol events, we use a variety of abbreviations that 
 ## Formatting
 
 !!! tip
-	If you are new to patrol writing, I recommend going through the [Full Featured Patrol Example](#full-featured-patrol-example) line by line and reading the following parameter explanations as you do.
+    If you are new to patrol writing, I recommend going through the [Full Featured Patrol Example](#full-featured-patrol-example) line by line and reading the following parameter explanations as you do.
 
-	Likewise, before beginning, be sure to at least read the first section of [Coding Terms for Writers to Know](index.md#coding-terms-for-writers-to-know). This explains much of the terminology used here.
+    Likewise, before beginning, be sure to at least read the first section of [Coding Terms for Writers to Know](index.md#coding-terms-for-writers-to-know). This explains much of the terminology used here.
 
 ### Patrol Template
 This is a good starting point for writing your own patrols. 
 
-```py
+```json
 {
-	"patrol_id": "some_unique_id",
-	"biome": [],
-	"season": [],
-	"types": [],
-	"tags": [],
-	"patrol_art": null,
-	"patrol_art_clean": null,
-	"min_cats": 1,
-	"max_cats": 6,
-	"min_max_status": {
-		"apprentice": [0, 6],
-		"medicine cat apprentice": [0, 6],
-		"medicine cat": [0, 6],
-		"deputy": [0, 6],
-		"warrior": [0, 6],
-		"leader": [0, 6],
-		"healer cats": [0, 6],
-		"normal adult": [0, 6],
-		"all apprentices": [0, 6]
-	},
-	"weight": 20,
-	"chance_of_success": 50,
-	"relationship_constraint": [],
-	"pl_skill_constraint": [],
-	"intro_text": "The patrol heads out.",
-	"decline_text": "And they head right back!",
-	"success_outcomes": [
-		{
-			SEE OUTCOME BLOCK TEMPLATE
-},
-{
-			SEE OUTCOME BLOCK TEMPLATE
-		},
-	],
-	"fail_outcomes": [
-		{
-			SEE OUTCOME BLOCK TEMPLATE
-},
-{
-			SEE OUTCOME BLOCK TEMPLATE
-		},
-	],
-
-	"antag_success_outcomes": [
-		{
-			SEE OUTCOME BLOCK TEMPLATE
-},
-{
-			SEE OUTCOME BLOCK TEMPLATE
-		},
-	],
-
-	"antag_fail_outcomes": [
-		{
-			SEE OUTCOME BLOCK TEMPLATE
-},
-{
-			SEE OUTCOME BLOCK TEMPLATE
-		},
-	],
-
+    "patrol_id": "some_unique_id",
+    "biome": [],
+    "season": [],
+    "types": [],
+    "tags": [],
+    "patrol_art": null,
+    "patrol_art_clean": null,
+    "min_cats": 1,
+    "max_cats": 6,
+    "min_max_status": {
+        "apprentice": [
+            0,
+            6
+        ],
+        "medicine cat apprentice": [
+            0,
+            6
+        ],
+        "medicine cat": [
+            0,
+            6
+        ],
+        "deputy": [
+            0,
+            6
+        ],
+        "warrior": [
+            0,
+            6
+        ],
+        "leader": [
+            0,
+            6
+        ],
+        "healer cats": [
+            0,
+            6
+        ],
+        "normal adult": [
+            0,
+            6
+        ],
+        "all apprentices": [
+            0,
+            6
+        ]
+    },
+    "weight": 20,
+    "chance_of_success": 50,
+    "relationship_constraint": [],
+    "pl_skill_constraint": [],
+    "intro_text": "The patrol heads out.",
+    "decline_text": "And they head right back!",
+    "success_outcomes": [
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        },
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        }
+    ],
+    "fail_outcomes": [
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        },
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        }
+    ],
+    "antag_success_outcomes": [
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        },
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        }
+    ],
+    "antag_fail_outcomes": [
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        },
+        {
+            SEE OUTCOME BLOCK TEMPLATE
+        }
+    ]
 }
 ```
 
@@ -183,7 +207,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 
 
 !!! tip
-	There are two further subtypes of patrols which occur as isolated events within the four main types. These are other_clan and new_cat patrols. Other clan patrols deal with the Clans neighboring the player Clan and are discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#other_clan_rep). New cat patrols deal with patrols where a new cat joins the player Clan. The chance of finding a new_cat patrol is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#outsider_rep), the new_cat tag is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#tags-liststr), and the code to generate a new_cat is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#new_cat-listliststr). A patrol is firstly one of the four types, e.g herb gathering, and then can also be a other_clan or new_cat (or both!) patrol in addition to the four basic types. 
+    There are two further subtypes of patrols which occur as isolated events within the four main types. These are other_clan and new_cat patrols. Other clan patrols deal with the Clans neighboring the player Clan and are discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#other_clan_rep). New cat patrols deal with patrols where a new cat joins the player Clan. The chance of finding a new_cat patrol is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#outsider_rep), the new_cat tag is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#tags-liststr), and the code to generate a new_cat is discussed [here](https://github.com/ClanGenOfficial/clangen/wiki/%5BWriting%5D-%E2%80%90-Patrols#new_cat-listliststr). A patrol is firstly one of the four types, e.g herb gathering, and then can also be a other_clan or new_cat (or both!) patrol in addition to the four basic types. 
 
 
 ***
@@ -195,6 +219,8 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "romantic"      | Marks the patrol as a romance patrol. Romance patrols are special, and are filtered to require patrol leader (p_l) and random cat (r_c) to to be potential mates or current mates. If any outcomes have effects on romantic-like, make sure this tag has been added, and the romantic-like is applied to p_l and r_c. |
 | "rom_two_apps" | Does nothing on its own. When "romance" present, check for potential mate or current mate between app1 and app2, rather than p_l and r_c                                                                                                                                                                              |
+| "all_mentored"     | Checks if all apprentices (no matter if medicine cat or warrior) within a patrol has a mentor.                                                                                                                                                                                |
+| "app{index}_mentored"     | First checks if the app number (IE: app1, app2, app3, and so forth) is mentioned in patrol text, then checks if the specific apprentice assigned to the abbreviation has a mentor.                                                                                                                                                                                |
 | "disaster"     | These patrols are only possible when mass extinction is turned ON. Used to mark patrols where the entire patrol can die or become lost.                                                                                                                                                                               |
 | "new_cat"      | Used to mark when a new cat can join during this patrol. Marking these patrols allows for better balancing.                                                                                                                                                                                                           |
 | "halloween"    | Used to mark patrols that should only occur around halloween                                                                                                                                                                                                                                                          |
@@ -264,7 +290,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 > The general hunting and border jsons have balancing patrols in them. These have very low weights (between 1-5) and aren't very interesting patrols, but they are made so that no matter what biome and season it is, the game has a pool of valid hunting and border patrols to choose from. 
 
 !!! tip
-	Hunting patrols have an additional level of filtering active above the patrol weights. First the game decides what prey reward the patrol should give (based on chances that change depending on the biome and season), and then, from the patrols that give that prey reward _as a non-stat success_, the acceptable patrols are weighed against each other. This naturally makes patrols that give huge prey rewards rare, no matter how many of those patrols you write. Don't worry about weighing hunting patrols according to their prey reward. Instead make each hunting patrol give roughly the same prey reward for all non-stat successes. The hunting filtering code will make sure the appropriate amount of prey is given. 
+    Hunting patrols have an additional level of filtering active above the patrol weights. First the game decides what prey reward the patrol should give (based on chances that change depending on the biome and season), and then, from the patrols that give that prey reward _as a non-stat success_, the acceptable patrols are weighed against each other. This naturally makes patrols that give huge prey rewards rare, no matter how many of those patrols you write. Don't worry about weighing hunting patrols according to their prey reward. Instead make each hunting patrol give roughly the same prey reward for all non-stat successes. The hunting filtering code will make sure the appropriate amount of prey is given. 
 
 
 ***
@@ -486,22 +512,7 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 ***
 
 #### relationship_constraint: List[str]
->Optional. Only allows the patrol if the cats meet relationship constraints
-
-| relationship          |                                                                                                                                   |
-|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------|
-| "siblings"            | All cats on the patrol must be siblings                                                                                           |
-| "mates"               | All cats on the patrol must be mates with each-other                                                                              |
-| "mates_with_pl"       | All cats on the patrol must be mates with p_l, but don't necessarily have to be mates with each-other.                            |
-| "parent/child"        | p_l must be the parent of r_c                                                                                                     |
-| "child/parent"        | r_c must be the parent of p_l                                                                                                     |
-| "romantic_{value}"    | Value is an integer between 0 and 100. Every patrol member must have more than {value} romantic-like to all other patrol members. |
-| "platonic_{value}"    | Value is an integer between 0 and 100. Every patrol member must have more than {value} platonic-like to all other patrol members. |
-| "dislike_{value}"     | Value is an integer between 0 and 100. Every patrol member must have more than {value} dislike to all other patrol members.       |
-| "comfortable_{value}" | Value is an integer between 0 and 100. Every patrol member must have more than {value} comfort to all other patrol members.       |
-| "jealousy_{value}"    | Value is an integer between 0 and 100. Every patrol member must have more than {value} jealousy to all other patrol members.      |
-| "trust_{value}"       | Value is an integer between 0 and 100. Every patrol member must have more than {value} trust to all other patrol members.         |
-
+>Optional. Only allows the patrol if the cats meet relationship constraints. You can include any tags in [Relationship Levels](reference/tag-lists.md#relationship-levels) and [Relationship Types](reference/tag-lists.md#relationship-types).
 
 ***
 
@@ -528,61 +539,46 @@ Please have a look at the [full biome differences list](index.md#clangen-biomes)
 ### Outcome Block Template
 This is a good starting point for writing your own outcomes.
 
-```py
+```json
 {
-	"text": "The raw displayed outcome text.",
-	"exp": 0,
-"weight": 20,
-"stat_skill": [],
-"stat_trait": [],
-"can_have_stat": [],
-"prey": [],
-        "herbs": [],
-"lost_cats": [],
-	"dead_cats": [],
-	"outsider_rep": null,
-	"other_clan_rep": null,
-	"injury": [
-{
-			"cats": [],
-			"injuries": [],
-			"scars": [],
-			"no_results": false
-},
-{
-			"cats": [],
-			"injuries": [],
-			"scars": [],
-			"no_results": false
-}
-],
-	"history_text": {
-		"reg_death": "m_c died while on a patrol.",
-		"lead_death": "died on patrol",
-		"scars": "m_c was scarred on patrol",
-	}
-	"relationships": [
-{
-			"cats_to": [],
-			"cats_from": [],
-			"mutual": false,
-			"values": [],
-			"amount": 5
-},	
-{
-			"cats_to": [],
-			"cats_from": [],
-			"mutual": false,
-			"values": [],
-			"amount": 5
-		}
-],
-"new_cat" [
-	[],
-	[]
-],
-"art": "patrol_outcome_art",
-"art_clean": "non_gore_outcome_art"
+    "text": "The raw displayed outcome text.",
+    "exp": 0,
+    "weight": 20,
+    "stat_skill": [],
+    "stat_trait": [],
+    "can_have_stat": [],
+    "prey": [],
+    "herbs": [],
+    "lost_cats": [],
+    "dead_cats": [],
+    "outsider_rep": null,
+    "other_clan_rep": null,
+    "injury": [
+        {
+            "cats": [],
+            "injuries": [],
+            "scars": [],
+            "no_results": false
+        }
+    ],
+    "history_text": {
+        "reg_death": "m_c died while on a patrol.",
+        "lead_death": "died on patrol",
+        "scars": "m_c was scarred on patrol"
+    },
+    "relationships": [
+        {
+            "cats_to": [],
+            "cats_from": [],
+            "mutual": false,
+            "values": [],
+            "amount": 5
+        }
+    ],
+    "new_cat": [],
+    "art": "patrol_outcome_art",
+    "art_clean": "non_gore_outcome_art",
+    "future_event": []
 }
 ```
 
@@ -625,13 +621,15 @@ What each parameter does, and what the options are for outcomes.
 
 >To override default behavior:
 
-| string         | new behavior                                                                                                                                                                                                                                                 |
+| string      | new behavior                                                                                                                                                                                                                                                 |
 |-------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | "p_l"       | Patrol leader (p_l) can be stat cat                                                                                                                                                                                                                          |
 | "r_c"       | Random cat can be stat cat                                                                                                                                                                                                                                   |
 | "app1"      | app1 (the first apprentice) can be stat cat                                                                                                                                                                                                                  |
 | "app2"      | app2 (the second apprentice) can be stat cat                                                                                                                                                                                                                 |
 | "not_pl_rc" | Any cat but p_l or r_c can be stat_cat. This is the default behavior for 3 + cat patrols. This allows that requirement to be applied to 2 and 1 cat patrols. Note that, with this constraint, no cats will be allowed to be stat_cat on 1 and 2 cat patrols. |
+| "not_pl"    | Any cat but p_l can be stat cat                                                                                                                                                                                                                              |
+| "not_rc"    | Any cat but r_c can be stat cat                                                                                                                                                                                                                              |
 | "any"       | Any cat can be stat_cat. Still subject to the additional requirement tags below, if present. Be careful with using s_c's name when this is used - it might lead to self-interaction                                                                          |
 
 >To add additional requirements to stat_cat:
@@ -693,12 +691,12 @@ What each parameter does, and what the options are for outcomes.
 #### injury: List[Dict[str, various]]
 >Optional. Indicates which cats get injured, and how. In classic mode, there are no conditions, so you can include a "scars" line to scar the cat instead. You can include as many of the following blocks (in a list) as you want. 
 >
->```py
+>```json
 >{
->	 "cats": [],
->	 "injuries": [],
->	 "scars": [],
->	 "no_results": false
+>     "cats": [],
+>     "injuries": [],
+>     "scars": [],
+>     "no_results": false
 >}
 >```
 >
@@ -706,26 +704,26 @@ What each parameter does, and what the options are for outcomes.
 >
 >**cats: List[str]:** Which cats are injured
 
-| string   |                                                   |
-|----------|---------------------------------------------------|
-| "p_l"    | Patrol leader (p_l) become injured                  |
-| "r_c"    | Random cat become injured                           |
-| "s_c"    | stat cat (s_c) become injured                       |
-| "app1"   | app1 (the first apprentice) become injured          |
-| "app2"   | app2 (the second apprentice) become injured         |
+| string   |                                                      |
+|----------|------------------------------------------------------|
+| "p_l"    | Patrol leader (p_l) become injured                   |
+| "r_c"    | Random cat become injured                            |
+| "s_c"    | stat cat (s_c) become injured                        |
+| "app1"   | app1 (the first apprentice) become injured           |
+| "app2"   | app2 (the second apprentice) become injured          |
 | "patrol" | The entire patrol becomes injured                    |
 | "multi"  | Multiple, but not all, of the patrol becomes injured |
 
 >**injuries: List[str]:** Pool of injures to draw from
 >
->[Injury List](reference/index.md#__tabbed_1_1)
+>[Injury List](reference/tag-lists.md#__tabbed_1_1)
 >
 >The above list includes both singular injuries and injury pools.  Adding an injury pool will allow for any of the injuries within that pool to be possible.  One will be chosen at random.  You don't have to pick just one injury or injury pool, you can include as many as you like!
 
 >**scars: List[str]:** 
 >Optional. If in classic mode, a scar is chosen from this pool to be given instead of an injury.  If in expanded mode, a scar is chosen from this pool to possibly be given upon healing their injury.
 >
->[Scar List](reference/index.md#__tabbed_1_5)
+>[Scar List](reference/tag-lists.md#__tabbed_1_5)
 
 >**no_results: bool:** 
 >Optional. Controls if the injury "got" message shows up in patrol results, as well as potential history text.
@@ -759,73 +757,8 @@ What each parameter does, and what the options are for outcomes.
 ***
 
 #### relationships: List[Dict[str, various]]
->Optional. Indicates effect on cat relationships. You can include as many of the following blocks as you want, in a list
->
->```
->{
->	 "cats_from": [],
->   "cats_to": [],
->	 "mutual": false
->	 "values" [],
->	 "amount": 5
->}
->```
->
->Parameter for each:
-
->**cats_from: List[str] :** The cat's whose relationship values are being edited. You are changing how the "cats_from" feels. 
-
-| string        |                                                                     |
-|---------------|---------------------------------------------------------------------|
-| "p_l"         | Patrol leader (p_l)'s feeling are effected                          |
-| "r_c"         | Random cat's feeling are effected                                   |
-| "s_c"         | stat cat (s_c)'s feeling are effected                               |
-| "app1"        | app1 (the first apprentice)'s feeling are effected                  |
-| "app2"        | app2 (the second apprentice)'s feeling are effected                 |
-| "patrol"      | The entire patrol's feeling are effected                            |
-| "clan"        | The entire clan's feeling are effected                              |
-| "n_c:{index}" | The new cat(s) with the index number {index}'s feeling are effected |
-
->**cats_to: List[str] :** The target of the relationship. You can changing how "cats_from" feel about "cats_to"
-
-| string        |                                                                           |
-|---------------|---------------------------------------------------------------------------|
-| "p_l"         | Feelings toward patrol leader (p_l) are effected                          |
-| "r_c"         | Feelings toward random cat's feeling are effected                         |
-| "s_c"         | Feelings toward stat cat (s_c) are effected                               |
-| "app1"        | Feelings toward app1 (the first apprentice) are effected                  |
-| "app2"        | Feelings toward app2 (the second apprentice) are effected                 |
-| "patrol"      | Feelings toward the entire patrol are effected                            |
-| "clan"        | Feelings toward the entire clan are effected                              |
-| "n_c:{index}" | Feelings toward the new cat(s) with the index number {index} are effected |
-
->**mutual: bool :** Optional. Controls if the relation effect will be applied in both directions. 
-
-| bool  |                                                                                                                                              |
-|-------|----------------------------------------------------------------------------------------------------------------------------------------------|
-| true  | Relationship effects will be applied in both directions. Equivalent to repeating the relation block with "cats_from" and "cats_to" swapped.  |
-| false | Default. Relationship effects will be applied in a single direction.                                                                         |
-
->**values: bool :** Controls which relationship values are affected.
-
-| string     |                                                                                                                                                                                                                            |
-|------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| "romantic" | Romantic-like is affected. Be careful with this one! There is no automatic check to ensure the cats are potential mates. See "tags" and ensure that the correct tags are added, and "cats_to" and "cats_from" are correct. |
-| "platonic" | Platonic like is effected                                                                                                                                                                                                  |
-| "dislike"  | Dislike (hate) is effected                                                                                                                                                                                                 |
-| "comfort"  | Comfort (comfortable) is effected                                                                                                                                                                                          |
-| "jealous"  | Jealousy is effected                                                                                                                                                                                                       |
-| "trust"    | Trust (reliance) is effected                                                                                                                                                                                               |
-| "respect"  | Respect (admiration) is affected.                                                                                                                                                                                          |
-
->**amount: int :** Exact amount the relationship value will be affected. Can be positive or negative. 
-
-| int           |                                                                                                                                |
-|---------------|--------------------------------------------------------------------------------------------------------------------------------|
-| {any integer} | The amount the relationship will be affected. 5 is a normal amount, and 15 is a large amount. Try to stay within those bounds. |
-
->
-
+>Optional. Indicates effect on cat relationships. Check [Writing Relationship Changes](reference/index.md#writing-relationship-changes) for full parameters.
+> 
 ***
 
 #### new_cat: List[List[str]]
@@ -835,8 +768,8 @@ What each parameter does, and what the options are for outcomes.
 >
 >```
 >[
->	[cat details],
->	[cat 2 details]
+>    [cat details],
+>    [cat 2 details]
 >]
 >```
 >
@@ -844,24 +777,24 @@ What each parameter does, and what the options are for outcomes.
 >
 >You can include the following details:
 
-| string                                      | effect                                                                                                                                                                                                                                                                                                                                                               |
-|---------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| "male"                                      | Makes the cat male                                                                                                                                                                                                                                                                                                                                                   |
-| "female"                                    | Makes the cat female                                                                                                                                                                                                                                                                                                                                                 |
-| "can_birth"                                 | If same-sex breeding is OFF, make the cat female. Otherwise, 50 - 50 gender-roll.                                                                                                                                                                                                                                                                                    |
-| "new_name"                                  | Ensure the cat takes on a clan-like name                                                                                                                                                                                                                                                                                                                             |
-| "old_name"                                  | Ensure the cat keeps their old (maybe loner or kittypet) name. Doesn't work for kittens or litters.                                                                                                                                                                                                                                                                  |
-| "kittypet"                                  | Gives the cat a kitty-pet type backstory. If "meeting" is also included, this tag will make the cat an kittypet outsider                                                                                                                                                                                                                                             |
-| "loner"                                     | Gives the cat a loner type backstory. If "meeting" is also included, this tag will make the cat an loner outsider                                                                                                                                                                                                                                                    |
-| "clancat"                                   | Gives the cat a former-clancat type backstory. If "meeting" is also included, this tag will make the cat a former Clancat outsider.                                                                                                                                                                                                                                  |
-| "meeting"                                   | Make the cat an outsider (the patrol just met them, but they didn't join). That cat will never take a new clan-like name.                                                                                                                                                                                                                                            |
-| "litter"                                    | Turns a single cat generation into a litter of kittens or newborns. Make sure to have a parent for them!                                                                                                                                                                                                                                                             |
-| "status:{some_status}"                      | Cats will join with this status. Include "medicine cat", "apprentice", "mediator", "kitten", "newborn", "medicine cat apprentice", etc, but not leader or deputy. Default for not-litters is warrior. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.                                                   |
-| "age:{some_age}"                            | Cats are "newborn", "kitten", "adolescent", "young adult", "adult", "senior adult", "senior". You can also specify "mate" to put them in the same age-category as the first specified mate, or "has_kits" to generate an age between 14 and 120 moons. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.  |
-| "backstory:{some}, {backstories},{another}" | Comma-separated exact backstories to pick from. Overrides "kittypet", "loner", "clancat"                                                                                                                                                                                                                                                                             |
-| "parent:{index},{index}"                    | You can include one or two biological parents. Parents must be created BEFORE children, so the parent details must be listed before the children. If you mark parents, and the child(ren) are young enough, one will be given the "recovering from birth" condition.   
-| "adoptive:{index},{index}"                    | You can include multiple adoptive parents. Parents must be created BEFORE children, so the parent details must be listed before the children. You can denote any cat included in the event as being an adoptive parent by using their abbreviation (`m_c`, `p_l`, ect).  The mates of the adoptive parent will automatically be included as adoptive parents.                                                                                         |                                                                                              |
-| "mate:{index},{index}"                      | Indexes of mates. Mates must be created BEFORE the cat with this tag. You can also specify patrol-cats (p_l, r_c, or s_c)                                                                                                                                                                                                                                            |
+| string                                      | effect                                                                                                                                                                                                                                                                                                                                                              |
+|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| "male"                                      | Makes the cat male                                                                                                                                                                                                                                                                                                                                                  |
+| "female"                                    | Makes the cat female                                                                                                                                                                                                                                                                                                                                                |
+| "can_birth"                                 | If same-sex breeding is OFF, make the cat female. Otherwise, 50 - 50 gender-roll.                                                                                                                                                                                                                                                                                   |
+| "new_name"                                  | Ensure the cat takes on a clan-like name                                                                                                                                                                                                                                                                                                                            |
+| "old_name"                                  | Ensure the cat keeps their old (maybe loner or kittypet) name. Doesn't work for kittens or litters.                                                                                                                                                                                                                                                                 |
+| "kittypet"                                  | Gives the cat a kitty-pet type backstory. If "meeting" is also included, this tag will make the cat an kittypet outsider                                                                                                                                                                                                                                            |
+| "loner"                                     | Gives the cat a loner type backstory. If "meeting" is also included, this tag will make the cat an loner outsider                                                                                                                                                                                                                                                   |
+| "clancat"                                   | Gives the cat a former-clancat type backstory. If "meeting" is also included, this tag will make the cat a former Clancat outsider.                                                                                                                                                                                                                                 |
+| "meeting"                                   | Make the cat an outsider (the patrol just met them, but they didn't join). That cat will never take a new clan-like name.                                                                                                                                                                                                                                           |
+| "litter"                                    | Turns a single cat generation into a litter of kittens or newborns. Make sure to have a parent for them!                                                                                                                                                                                                                                                            |
+| "status:{some_status}"                      | Cats will join with this status. Include "medicine cat", "apprentice", "mediator", "kitten", "newborn", "medicine cat apprentice", etc, but not leader or deputy. Default for not-litters is warrior. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together.                                                  |
+| "age:{some_age}"                            | Cats are "newborn", "kitten", "adolescent", "young adult", "adult", "senior adult", "senior". You can also specify "mate" to put them in the same age-category as the first specified mate, or "has_kits" to generate an age between 14 and 120 moons. Be very careful specifying both age and status-  there is no extra check to ensure they make sense together. |
+| "backstory:{some}, {backstories},{another}" | Comma-separated exact backstories to pick from. Overrides "kittypet", "loner", "clancat"                                                                                                                                                                                                                                                                            |
+| "parent:{index},{index}"                    | You can include one or two biological parents. Parents must be created BEFORE children, so the parent details must be listed before the children. If you mark parents, and the child(ren) are young enough, one will be given the "recovering from birth" condition.                                                                                                |
+| "adoptive:{index},{index}"                  | You can include multiple adoptive parents. Parents must be created BEFORE children, so the parent details must be listed before the children. You can denote any cat included in the event as being an adoptive parent by using their abbreviation (`m_c`, `p_l`, ect).  The mates of the adoptive parent will automatically be included as adoptive parents.       |                                                                                              |
+| "mate:{index},{index}"                      | Indexes of mates. Mates must be created BEFORE the cat with this tag. You can also specify patrol-cats (p_l, r_c, or s_c)                                                                                                                                                                                                                                           |
 
 >
 
@@ -878,6 +811,8 @@ What each parameter does, and what the options are for outcomes.
 >
 > Example: "art_clean": "bord_general_intro",
 >
+
+***
 
 #### outsider_rep
 > This parameter is used for **all** patrols that involve new_cats, loners, and rogues (regardless of if the new cat joins, or if the loner or rogue is even open to joining the clan). It changes the reputation the player Clan has among outsiders, those who don't belong to any Clan. 
@@ -904,6 +839,7 @@ Outsider reputation changes
 >
 > Please check with the other developers before changing from these defaults. However, there are lots of reasons why outsider_rep might be effected more or less than these defaults. For example, rescuing a mother cats and her newborn kittens may have a greater positive effect on a Clan's reputation than allowing random loner number 27 to join the Clan.
 
+***
 
 #### other_clan_rep
 > This parameter is used for **all** patrols that involve the other Clans that border the player Clan. It changes the reputation the player Clan has among it neighbors. 
@@ -932,37 +868,49 @@ Other clan reputation changes
 
 ***
 
+### future_event:list[dict{str, various}]
+
+ [Using Future Events](future.md)
+
+***
+
 ## Minimal Patrol Example
 This is a perfectly good patrol, with the bare minimum features needed!
 
-```py
+```json
 {
-	"patrol_id": "some_unique_id",
-	"biome": ["Any"],
-	"season": ["Any"],
-	"types": ["hunting"],
-	"tags": [],
-	"patrol_art": "hunt_general_intro",
-	"min_cats": 1,
-	"max_cats": 6,
-	"weight": 20,
-	"chance_of_success": 50,
-	"intro_text": "The patrol heads out.",
-	"decline_text": "And they head right back!",
-	"success_outcomes": [
-		{
-			"text": "Wow! The patrol did great!",
-			"exp": 10,
-			"weight": 20,
-		}
-	],
-	"fail_outcomes": [
-		{
-			"text": "Oof. The patrol didn't do so hot.",
-			"exp": 0,
-			"weight": 20,
-		}
-	]
+    "patrol_id": "some_unique_id",
+    "biome": [
+        "Any"
+    ],
+    "season": [
+        "Any"
+    ],
+    "types": [
+        "hunting"
+    ],
+    "tags": [],
+    "patrol_art": "hunt_general_intro",
+    "min_cats": 1,
+    "max_cats": 6,
+    "weight": 20,
+    "chance_of_success": 50,
+    "intro_text": "The patrol heads out.",
+    "decline_text": "And they head right back!",
+    "success_outcomes": [
+        {
+            "text": "Wow! The patrol did great!",
+            "exp": 10,
+            "weight": 20
+        }
+    ],
+    "fail_outcomes": [
+        {
+            "text": "Oof. The patrol didn't do so hot.",
+            "exp": 0,
+            "weight": 20
+        }
+    ]
 }
 ```
 
@@ -970,138 +918,201 @@ This is a perfectly good patrol, with the bare minimum features needed!
 This uses almost all features somewhere. Yes, it is long. Most patrols are not this long. 
 
 !!! tip
-	If you are new to patrol writing, I recommend going through this example line by line and reading the parameter explanation from above alongside it.
+    If you are new to patrol writing, I recommend going through this example line by line and reading the parameter explanation from above alongside it.
 
-```py
+```json
 {
-	"patrol_id": "some_unique_id",
-	"biome": ["Any"],
-	"season": ["Any"],
-	"types": ["hunting"],
-	"tags": ["disaster", "new_cat"],
-	"patrol_art": "explict_art_name"
-	"patrol_art_clean": "hunt_general_intro",
-	"min_cats": 3,
-	"max_cats": 6,
-	"min_max_status": {
-		"warrior": [1, 6],
-		"leader": [1, 6],
-		"normal adult": [1, 6],
-		"apprentice": [-1, -1]
-	},
-	"weight": 20,
-	"chance_of_success": 50,
-	"relationship_constraint": ["siblings", "platonic_20"],
-	"pl_skill_constraint": ["FIGHTER,1"],
-	"intro_text": "The patrol heads out.",
-	"decline_text": "And they head right back!",
-	"success_outcomes": [
-		{
-			"text": "Wow! The patrol did great!",
-			"exp": 10,
-			"weight": 20,
-			"relationships": [
-				{
-					"cat_to": ["p_l"],
-					"cat_from": ["r_c"],
-					"values": ["platonic", "comfort"],
-					"amount": 5
-				},
-				{
-					"cat_to": ["p_l"],
-					"cat_from": ["r_c"],
-					"values": ["dislike"],
-					"amount": -5
-				}
-				
-			],
-			"prey": ["medium"],
-			"art": "patrol_outcome_art",
-			"art_clean": "patrol_outcome_art_clean"
-		},
-{
-			"text": "Wow! This is an uncommon outcome, and someone new joined!",
-			"exp": 2,
-"weight": 10,
-			"new_cat": [
-				["can_birth", "age:has_kits"],
-				["litter", "parent:0"]
-			],
-"art": "patrol_outcome_art",
-			
-		},
-
-{
-			"text": "Wow! s_c did extra great!",
-			"exp": 10,
-			"weight": 20,
-			"stat_trait": ["loving", "cold"],
-			"stat_skill": ["TEACHER,1"],
-			"can_have_stat": ["p_l", "adult"],
-		}
-	],
-	"fail_outcomes": [
-		{
-			"text": "Oof. The patrol didn't do so hot. They also all died.",
-			"exp": 0,
-			"weight": 20,
-			"dead_cats": ["patrol"],
-			"history_text": {
-				"reg_death": "m_c died while on a patrol.",
-				"lead_death": "died on patrol"
-			},
-			"art": "patrol_outcome_art",
-			"art_clean": "patrol_outcome_art_clean"
-		},
-{
-			"text": "Wow, a fail-stat outcome. Cool.",
-			"exp": 0,
-			"weight": 20,
-			"stat_trait": ["grumpy", "nervous"],
-			"stat_skill": ["SPEAKER,1"],
-			"art": "patrol_outcome_art",
-		},
-
-{
-			"text": "They didn't die.. , but they got hurt and lost!",
-			"exp": 0,
-			"weight": 20,
-			"lost_cats": ["r_c"],
-			"injury": [
-{
-					"cats": ["p_l"],
-					"injuries": ["battle_injury"],
-					"scars": ["ONE"]
-				}
-			],
-			"history_text": {
-				"reg_death": "m_c died from an patrol.",
-				"lead_death": "died from a patrol",
-				"scar": "m_c was scarred on patrol"
-			}
-
-		}
-
-	],
-	"antag_success_outcomes": [
-		{
-			"text": "Wow, you did the antagonize!",
-			"exp": 0,
-			"weight": 20,
-			"outsider_rep": -1,
-			"other_clan_rep": -2,
-"art": "patrol_outcome_art",
-		},
-	],
-	"antag_fail_outcomes": [
-{
-			"text": "Wow, you did the antagonize, and failed!",
-			"exp": 0,
-			"weight": 20,
-			"outsider_rep": 0,
-			"other_clan_rep": -2
-		},
-	]
+    "patrol_id": "some_unique_id",
+    "biome": [
+        "Any"
+    ],
+    "season": [
+        "Any"
+    ],
+    "types": [
+        "hunting"
+    ],
+    "tags": [
+        "disaster",
+        "new_cat"
+    ],
+    "patrol_art": "explict_art_name",
+    "patrol_art_clean": "hunt_general_intro",
+    "min_cats": 3,
+    "max_cats": 6,
+    "min_max_status": {
+        "warrior": [
+            1,
+            6
+        ],
+        "leader": [
+            1,
+            6
+        ],
+        "normal adult": [
+            1,
+            6
+        ],
+        "apprentice": [
+            -1,
+            -1
+        ]
+    },
+    "weight": 20,
+    "chance_of_success": 50,
+    "relationship_constraint": [
+        "siblings",
+        "platonic_20"
+    ],
+    "pl_skill_constraint": [
+        "FIGHTER,1"
+    ],
+    "intro_text": "The patrol heads out.",
+    "decline_text": "And they head right back!",
+    "success_outcomes": [
+        {
+            "text": "Wow! The patrol did great!",
+            "exp": 10,
+            "weight": 20,
+            "relationships": [
+                {
+                    "cat_to": [
+                        "p_l"
+                    ],
+                    "cat_from": [
+                        "r_c"
+                    ],
+                    "values": [
+                        "platonic",
+                        "comfort"
+                    ],
+                    "amount": 5
+                },
+                {
+                    "cat_to": [
+                        "p_l"
+                    ],
+                    "cat_from": [
+                        "r_c"
+                    ],
+                    "values": [
+                        "dislike"
+                    ],
+                    "amount": -5
+                }
+            ],
+            "prey": [
+                "medium"
+            ],
+            "art": "patrol_outcome_art",
+            "art_clean": "patrol_outcome_art_clean"
+        },
+        {
+            "text": "Wow! This is an uncommon outcome, and someone new joined!",
+            "exp": 2,
+            "weight": 10,
+            "new_cat": [
+                [
+                    "can_birth",
+                    "age:has_kits"
+                ],
+                [
+                    "litter",
+                    "parent:0"
+                ]
+            ],
+            "art": "patrol_outcome_art"
+        },
+        {
+            "text": "Wow! s_c did extra great!",
+            "exp": 10,
+            "weight": 20,
+            "stat_trait": [
+                "loving",
+                "cold"
+            ],
+            "stat_skill": [
+                "TEACHER,1"
+            ],
+            "can_have_stat": [
+                "p_l",
+                "adult"
+            ]
+        }
+    ],
+    "fail_outcomes": [
+        {
+            "text": "Oof. The patrol didn't do so hot. They also all died.",
+            "exp": 0,
+            "weight": 20,
+            "dead_cats": [
+                "patrol"
+            ],
+            "history_text": {
+                "reg_death": "m_c died while on a patrol.",
+                "lead_death": "died on patrol"
+            },
+            "art": "patrol_outcome_art",
+            "art_clean": "patrol_outcome_art_clean"
+        },
+        {
+            "text": "Wow, a fail-stat outcome. Cool.",
+            "exp": 0,
+            "weight": 20,
+            "stat_trait": [
+                "grumpy",
+                "nervous"
+            ],
+            "stat_skill": [
+                "SPEAKER,1"
+            ],
+            "art": "patrol_outcome_art"
+        },
+        {
+            "text": "They didn't die.. , but they got hurt and lost!",
+            "exp": 0,
+            "weight": 20,
+            "lost_cats": [
+                "r_c"
+            ],
+            "injury": [
+                {
+                    "cats": [
+                        "p_l"
+                    ],
+                    "injuries": [
+                        "battle_injury"
+                    ],
+                    "scars": [
+                        "ONE"
+                    ]
+                }
+            ],
+            "history_text": {
+                "reg_death": "m_c died from an patrol.",
+                "lead_death": "died from a patrol",
+                "scar": "m_c was scarred on patrol"
+            }
+        }
+    ],
+    "antag_success_outcomes": [
+        {
+            "text": "Wow, you did the antagonize!",
+            "exp": 0,
+            "weight": 20,
+            "outsider_rep": -1,
+            "other_clan_rep": -2,
+            "art": "patrol_outcome_art"
+        }
+    ],
+    "antag_fail_outcomes": [
+        {
+            "text": "Wow, you did the antagonize, and failed!",
+            "exp": 0,
+            "weight": 20,
+            "outsider_rep": 0,
+            "other_clan_rep": -2
+        }
+    ]
 }
-
 ```

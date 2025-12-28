@@ -5,13 +5,16 @@ import i18n
 import i18n.translations
 import ujson
 
-from scripts.game_structure.game_essentials import game
+from scripts.game_structure.game.settings import game_setting_get
+from scripts.game_structure import game
 
 lang_config: Optional[Dict] = None
 _lang_config_directory = os.path.join("resources", "lang", "{locale}", "config.json")
 _directory_changed: bool = False
 
 default_pronouns: Dict[str, Dict[str, Dict[str, Union[str, int]]]] = {}
+
+additional_lang_list: Optional[Dict] = None
 
 
 def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
@@ -21,7 +24,7 @@ def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
     :return: The default list of pronouns for the cat's genderalign in the selected lang
     """
     config = get_lang_config()["pronouns"]
-    if game.settings["they them default"]:
+    if game_setting_get("they them default"):
         pronouns = config["sets"].get("default")
     else:
         pronouns = config["sets"].get(genderalign, config["sets"].get("default"))
@@ -44,15 +47,15 @@ def get_new_pronouns(genderalign: str) -> List[Dict[str, Union[str, int]]]:
 def determine_plural_pronouns(cat_list: List[Dict[str, Union[str, int]]]):
     """
     Returns the correct plural pronoun for the provided list
-    :param cat_list: The cats in question (or their *pronoun* genders)
+    :param cat_list: The pronouns for every cat in the plural
     :return: the correct plural pronoun
     """
 
     genders = [str(pronoun["gender"]) for pronoun in cat_list]
 
     config = get_lang_config()["pronouns"]
-    for order, group in config["plural_rules"]["order"].items():
-        if order in genders:
+    for gender_code, group in config["plural_rules"]["order"].items():
+        if gender_code in genders:
             return get_new_pronouns(group)[0]
     return get_new_pronouns("plural default")[0]
 
@@ -110,6 +113,18 @@ def get_lang_config() -> Dict:
             lang_config = ujson.loads(lang_file.read())
         _directory_changed = False
     return lang_config
+
+
+def get_additional_lang_list() -> Dict:
+    global additional_lang_list, _directory_changed
+    if additional_lang_list is None:
+        with open(
+            os.path.join("resources", "lang", "additional_lang_list.json"),
+            "r",
+            encoding="utf-8",
+        ) as lang_file:
+            additional_lang_list = ujson.loads(lang_file.read())
+    return additional_lang_list
 
 
 def set_lang_config_directory(directory: str):
