@@ -47,8 +47,6 @@ class Pregnancy_Events:
 
         Pregnancy_Events.currently_loaded_lang = i18n.config.get("locale")
 
-
-
     @staticmethod
     def set_biggest_family():
         """Gets the biggest family of the clan."""
@@ -964,97 +962,98 @@ class Pregnancy_Events:
                     )
 
         # check for more extended family members to create relationships with
+        all_relatives: list = all_kitten[
+            0
+        ].get_relatives()  # we only need this for one kit, since they all share relatives
+        parents = all_kitten[0].get_parents()
+        # getting the cat objects
+        all_relatives = [
+            Cat.fetch_cat(c)
+            for c in all_relatives
+            if c not in parents and c not in all_kitten
+        ]
+        all_relatives = [c for c in all_relatives if c.status.alive_in_player_clan]
+
         for kit in all_kitten:
-            for cat_id in kit.get_relatives():
-                relative_cat = Cat.fetch_cat(cat_id)
-                if relative_cat.dead or relative_cat.outside:
-                    continue
-                parents = kit.get_parents()
-                if cat_id in parents:
-                    continue
-                rel_reflection = game.config["new_cat"]["ext_relative_modifier"]
-                y = random.randrange(-5, 10)
+            for c in all_relatives:
+                rel_reflection = constants.CONFIG["new_cat"]["ext_relative_modifier"]
+                y = random.randrange(-10, 10)
 
                 # this finds what the relative's relationship is toward each parent and applies a reflection of that
                 # relationship to the kit. reflection values will be divided by 4 by default and then modified
                 # by the random y value
+                new_relationship = {
+                    "cats_to": [kit],
+                    "cats_from": [c],
+                    "like": 0,
+                    "comfort": 0,
+                    "respect": 0,
+                    "trust": 0,
+                }
                 for parent_id in parents:
                     try:
-                        relation_toward_parent = relative_cat.relationships[parent_id]
+                        relation_toward_parent: Relationship = c.relationships[
+                            parent_id
+                        ]
                     except KeyError:
+                        # cat had no relationship toward parent
                         continue
-                    relation_toward_kit = relative_cat.relationships[kit.ID]
-                    relation_toward_kit.platonic_like += int(relation_toward_parent.platonic_like / rel_reflection)
-                    relation_toward_kit.comfortable += int(relation_toward_parent.comfortable / rel_reflection)
-                    relation_toward_kit.admiration += int(relation_toward_parent.admiration / rel_reflection)
-                    relation_toward_kit.trust += int(relation_toward_parent.trust / rel_reflection)
 
-                    # these two are a little different, if a relative is going to have a teeny amount of negative
-                    # feeling, then we just null it out. Otherwise, relatives can take a small negative toward a parent
-                    # into weird extremes toward the kits.
-                    relation_toward_kit.dislike += (int(relation_toward_parent.dislike / rel_reflection)
-                                                    if relation_toward_parent.dislike >= 15
-                                                    else 0)
-                    relation_toward_kit.jealousy += (int(relation_toward_parent.jealousy / rel_reflection)
-                                                     if relation_toward_parent.jealousy >= 15
-                                                     else 0)
-
-                    neg = False
-                    pos = False
-
-                    # we won't add a y value to rels that are zero, to avoid adding rel values that have no basis in
-                    # existing relationships
-                    if relation_toward_kit.platonic_like:
-                        pos = True
-                        relation_toward_kit.platonic_like += y
-                    if relation_toward_kit.comfortable:
-                        pos = True
-                        relation_toward_kit.comfortable += y
-                    if relation_toward_kit.admiration:
-                        pos = True
-                        relation_toward_kit.admiration += y
-                    if relation_toward_kit.trust:
-                        pos = True
-                        relation_toward_kit.trust += y
-                    if relation_toward_kit.dislike:
-                        neg = True
-                        relation_toward_kit.dislike += y
-                    if relation_toward_kit.jealousy:
-                        neg = True
-                        relation_toward_kit.jealousy += y
-
-                    # a little fallback, if no relationship was made at all then we just toss a teeny platonic like in
-                    if not pos and not neg:
-                        pos = True
-                        relation_toward_kit.platonic_like += 5
-
-                    if pos and neg:
-                        rel_type = "neutral"
-                    elif pos:
-                        rel_type = "positive"
-                    else:
-                        rel_type = "negative"
-
-                    # adds reaction text to type postscript and age postscript
-                    log = event_text_adjust(
-                        cat,
-                        choice(Pregnancy_Events.NEWBORN_REL_REACTIONS[f"{rel_type}_log"]),
-                        main_cat=relative_cat,
-                        random_cat=kit,
-                        clan=game.clan
-                    ) + i18n.t(
-                        f"relationships.{rel_type}_postscript"
-                    ) + i18n.t(
-                        "relationships.age_postscript",
-                        name=str(relative_cat.name),
-                        count=relative_cat.moons
+                    new_relationship["like"] += (
+                        int(relation_toward_parent.like / rel_reflection) + y
+                        if relation_toward_parent.like
+                        else 5
+                    )
+                    new_relationship["comfort"] += (
+                        int(relation_toward_parent.comfort / rel_reflection) + y
+                        if relation_toward_parent.comfort
+                        else 0
+                    )
+                    new_relationship["respect"] += (
+                        int(relation_toward_parent.respect / rel_reflection) + y
+                        if relation_toward_parent.respect
+                        else 0
+                    )
+                    new_relationship["trust"] += (
+                        int(relation_toward_parent.trust / rel_reflection) + y
+                        if relation_toward_parent.trust
+                        else 0
                     )
 
-                    # adding log message
-                    if not relation_toward_kit.log:
-                        relation_toward_kit.log.append(log)
+                # determine what sort of relationship we've ended up with
+                rel_amounts = [
+                    new_relationship["like"],
+                    new_relationship["comfort"],
+                    new_relationship["respect"],
+                    new_relationship["trust"],
+                ]
+                neg = False
+                pos = False
+                for digit in rel_amounts:
+                    if digit < 0:
+                        neg = True
+                    else:
+                        pos = True
+                    if neg and pos:
+                        break
 
-                    relative_cat.relationships[kit.ID] = relation_toward_kit
+                if pos and neg:
+                    rel_type = "neutral"
+                elif pos:
+                    rel_type = "positive"
+                else:
+                    rel_type = "negative"
+
+                # adds reaction text to type postscript and age postscript
+                new_relationship["log"] = event_text_adjust(
+                    cat,
+                    choice(Pregnancy_Events.NEWBORN_REL_REACTIONS[f"{rel_type}_log"]),
+                    main_cat=c,
+                    random_cat=kit,
+                    clan=game.clan,
+                ) + i18n.t(f"relationships.{rel_type}_postscript")
+
+                change_relationship_values(**new_relationship)
 
         return all_kitten
 
