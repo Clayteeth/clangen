@@ -2013,7 +2013,7 @@ def handle_murder(cat):
     negative_relation = [
         i
         for i in relationships
-        if i.has_extreme_negative
+        if (i.has_mid_negative or i.has_extreme_negative)
         and Cat.fetch_cat(i.cat_to).status.alive_in_player_clan
     ]
     targets.extend(negative_relation)
@@ -2027,15 +2027,10 @@ def handle_murder(cat):
         extreme_neg = len(
             [l for l in chosen_target.get_reltype_tiers() if l.is_extreme_neg]
         )
-        neg = len(
-            [
-                l
-                for l in chosen_target.get_reltype_tiers()
-                if (l.is_low_neg or l.is_mid_neg)
-            ]
-        )
+        mid_neg = len([t for t in chosen_target.get_reltype_tiers() if t.is_mid_neg])
+        neg = len([t for t in chosen_target.get_reltype_tiers() if t.is_low_neg])
 
-        relation_modifier = (extreme_neg * 10) + (neg * 5)
+        relation_modifier = (extreme_neg * 20) + (mid_neg * 10) + (neg * 5)
 
         kill_chance -= relation_modifier
 
@@ -2043,13 +2038,13 @@ def handle_murder(cat):
             len(chosen_target.log) > 0
             and "(high negative effect)" in chosen_target.log[-1]
         ):
-            kill_chance -= 50
+            kill_chance -= 20
 
         if (
             len(chosen_target.log) > 0
             and "(medium negative effect)" in chosen_target.log[-1]
         ):
-            kill_chance -= 20
+            kill_chance -= 10
 
         # little easter egg just for fun
         if (
@@ -2058,6 +2053,9 @@ def handle_murder(cat):
         ):
             kill_chance -= 10
 
+        kill_chance -= cat.personality.aggression
+        kill_chance -= 16 - cat.personality.stability
+        kill_chance -= 16 - cat.personality.lawfulness
         kill_chance = max(1, int(kill_chance))
 
         if not int(random.random() * kill_chance):
@@ -2069,6 +2067,14 @@ def handle_murder(cat):
                 main_cat=Cat.fetch_cat(chosen_target.cat_to),
                 random_cat=cat,
                 sub_type=["murder"],
+            )
+
+        elif kill_chance <= 20:
+            create_short_event(
+                event_type="misc",
+                main_cat=cat,
+                random_cat=Cat.fetch_cat(chosen_target.cat_to),
+                sub_type=["failed_murder"],
             )
 
 
