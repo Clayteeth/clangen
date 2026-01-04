@@ -1,8 +1,10 @@
+from math import ceil
 from typing import Dict
 
 import i18n
 import pygame
 import pygame_gui
+from pygame_gui.core import ObjectID
 
 from scripts.cat.cats import Cat
 from scripts import events
@@ -45,6 +47,11 @@ class EventsScreen(Screens):
     current_display = "all events"
     selected_display = "all events"
 
+    EVENTS_PER_PAGE = 20
+    current_page = 1
+    current_page_amount = 0
+    page_chunks = []
+
     all_events = ""
     ceremony_events = ""
     birth_death_events = ""
@@ -77,6 +84,7 @@ class EventsScreen(Screens):
         self.full_event_display_container = None
         self.events_frame = None
         self.event_buttons = {}
+        self.page_control = {}
         self.alert = {}
 
         self.event_display = None
@@ -355,6 +363,95 @@ class EventsScreen(Screens):
         self.update_heading_text(f"{game.clan.displayname}Clan")
         self.show_menu_buttons()
 
+    def reset_page_buttons(self):
+        """
+        Resets page button and page counter states
+        """
+        if self.page_control:
+            for ele in self.page_control.values():
+                ele.kill()
+
+        if self.current_page_amount == 1:
+            # we don't need any page controls if there's only one page
+            return
+
+        x_pos = -14
+        self.page_control["first"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((370, x_pos), (34, 34))),
+            Icon.ARROW_DOUBLELEFT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            starting_height=1,
+            container=self.event_screen_container,
+            anchors={"top_target": self.events_frame},
+            manager=MANAGER,
+        )
+        self.page_control["previous"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-10, x_pos), (34, 34))),
+            Icon.ARROW_LEFT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            starting_height=1,
+            container=self.event_screen_container,
+            anchors={
+                "top_target": self.events_frame,
+                "left_target": self.page_control["first"],
+            },
+            manager=MANAGER,
+        )
+
+        # page number
+        self.page_control["number"] = pygame_gui.elements.UITextBox(
+            f"{self.current_page}/{self.current_page_amount}",
+            ui_scale(pygame.Rect((10, x_pos + 2), (-1, -1))),
+            starting_height=1,
+            container=self.event_screen_container,
+            object_id=(
+                get_text_box_theme("#text_box_30_horizleft")
+                if not game_setting_get("dark mode")
+                else "#text_box_30_horizleft_light"
+            ),
+            anchors={
+                "top_target": self.events_frame,
+                "left_target": self.page_control["previous"],
+            },
+            manager=MANAGER,
+        )  # Text will be filled in later
+
+        self.page_control["next"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((10, x_pos), (34, 34))),
+            Icon.ARROW_RIGHT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            starting_height=2,
+            container=self.event_screen_container,
+            anchors={
+                "top_target": self.events_frame,
+                "left_target": self.page_control["number"],
+            },
+            manager=MANAGER,
+        )
+
+        self.page_control["last"] = UISurfaceImageButton(
+            ui_scale(pygame.Rect((-10, x_pos), (34, 34))),
+            Icon.ARROW_DOUBLERIGHT,
+            get_button_dict(ButtonStyles.ICON, (34, 34)),
+            object_id="@buttonstyles_icon",
+            starting_height=1,
+            container=self.event_screen_container,
+            anchors={
+                "top_target": self.events_frame,
+                "left_target": self.page_control["next"],
+            },
+            manager=MANAGER,
+        )
+        if self.current_page == 1:
+            self.page_control["first"].disable()
+            self.page_control["previous"].disable()
+        if self.current_page == self.current_page_amount:
+            self.page_control["next"].disable()
+            self.page_control["last"].disable()
+
     def display_change_save(self) -> Dict:
         self.save_scroll_position()
         variable_dict = super().display_change_save()
@@ -577,6 +674,24 @@ class EventsScreen(Screens):
             "screens.events.age", text_kwargs={"count": game.clan.age}
         )
 
+        # SET UP PAGES
+        self.current_page_amount = (
+            int(ceil(len(self.display_events) / self.EVENTS_PER_PAGE))
+            if len(self.display_events)
+            else 1
+        )
+        if self.current_page > self.current_page_amount:
+            self.current_page = self.current_page_amount
+        elif self.current_page < 1:
+            self.current_page = 1
+
+        self.reset_page_buttons()
+
+        self.page_chunks = [
+            self.display_events[x : x + self.EVENTS_PER_PAGE]
+            for x in range(0, len(self.display_events), self.EVENTS_PER_PAGE)
+        ]
+
         self.make_event_scrolling_container()
 
         for ele in self.event_display_containers:
@@ -597,6 +712,9 @@ class EventsScreen(Screens):
 
         # Stop if Clan is new, so that events from previously loaded Clan don't show up
         if game.clan.age == 0:
+            return
+        # if no events, return early
+        if not self.display_events:
             return
 
         default_rect = pygame.Rect(
@@ -620,7 +738,7 @@ class EventsScreen(Screens):
             else pygame.Color(167, 148, 111)
         )
 
-        for i, event_object in enumerate(self.display_events):
+        for i, event_object in enumerate(self.page_chunks[self.current_page - 1]):
             if not isinstance(event_object.text, str):
                 print(
                     f"Incorrectly Formatted Event: {event_object.text}, {type(event_object)}"
