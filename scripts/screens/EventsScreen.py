@@ -1,16 +1,14 @@
 from math import ceil
-from opcode import is_pseudo
 from typing import Dict
 
 import i18n
 import pygame
 import pygame_gui
-from pygame_gui.core import ObjectID
 
 from scripts.cat.cats import Cat
 from scripts import events
 from scripts.events import Single_Event
-from scripts.game_structure import image_cache
+from scripts.game_structure import image_cache, constants
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.game_structure.game.switches import (
     Switch,
@@ -48,7 +46,6 @@ class EventsScreen(Screens):
     current_display = "all events"
     selected_display = "all events"
 
-    EVENTS_PER_PAGE = 10
     current_page = 1
     current_page_amount = 0
     page_chunks = []
@@ -708,7 +705,7 @@ class EventsScreen(Screens):
         # SET UP PAGES
         if not is_page_update:
             self.current_page_amount = (
-                int(ceil(len(self.display_events) / self.EVENTS_PER_PAGE))
+                int(ceil(len(self.display_events) / constants.EVENTS_PER_PAGE))
                 if len(self.display_events)
                 else 1
             )
@@ -724,8 +721,8 @@ class EventsScreen(Screens):
                 self.current_page = 1
 
             self.page_chunks = [
-                self.display_events[x : x + self.EVENTS_PER_PAGE]
-                for x in range(0, len(self.display_events), self.EVENTS_PER_PAGE)
+                self.display_events[x : x + constants.EVENTS_PER_PAGE]
+                for x in range(0, len(self.display_events), constants.EVENTS_PER_PAGE)
             ]
         else:
             switch_set_value(Switch.saved_scroll_positions, {})
