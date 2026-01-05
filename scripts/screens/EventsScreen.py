@@ -382,6 +382,7 @@ class EventsScreen(Screens):
     def reset_page_buttons(self, is_page_update=False):
         """
         Resets page button and page counter states
+        :param is_page_update: Set True if page buttons do not need to be recreated.
         """
         if self.page_control and not is_page_update:
             for ele in self.page_control.values():
