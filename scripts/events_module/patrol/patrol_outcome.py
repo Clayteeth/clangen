@@ -876,7 +876,7 @@ class PatrolOutcome:
             for cat in patrol.new_cats[-1]:
                 if cat.dead:
                     dead.append(str(cat.name))
-                elif cat.status.is_outsider:
+                elif cat.status.is_outsider or cat.status.is_other_clancat:
                     outside.append(str(cat.name))
                 else:
                     new.append(str(cat.name))
