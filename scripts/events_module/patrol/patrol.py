@@ -261,7 +261,7 @@ class Patrol:
         # Find random cat
         if len(patrol_cats) > 1:
             # prioritize grabbing an adult as the random cat
-            if self.patrol_statuses.get("normal adult") > 1:
+            if self.patrol_statuses.get("normal adult", []) > 1:
                 self.random_cat = choice(
                     [
                         i
