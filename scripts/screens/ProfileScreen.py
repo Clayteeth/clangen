@@ -1641,11 +1641,18 @@ class ProfileScreen(Screens):
                     else:
                         lives = [i18n.t(f"utility.{life_names[index]}").capitalize()]
 
-                    life_text = i18n.t(
-                        "cat.history.leader_death_cardinal",
-                        cardinal=adjust_list_text(lives),
-                        count=len(lives),
-                    )
+                    if len(lives) > 2:
+                        life_text = i18n.t(
+                            "cat.history.leader_death_many_lives",
+                            first_cardinal=lives[0],
+                            last_cardinal=lives[-1],
+                        )
+                    else:
+                        life_text = i18n.t(
+                            "cat.history.leader_death_cardinal",
+                            cardinal=adjust_list_text(lives),
+                            count=len(lives),
+                        )
                     text = f"{life_text} {text}"
 
                 if "is_victim" in murder_history:
