@@ -29,7 +29,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was washed out to sea.",
-                "death": "{VERB/m_c/were/was} washed out to sea"
+                "lead_death": "{VERB/m_c/were/was} washed out to sea"
             }
         ]
     },
@@ -53,7 +53,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was killed by a poisonous sea creature.",
-                "death": "{VERB/m_c/were/was} killed by a poisonous sea creature"
+                "lead_death": "{VERB/m_c/were/was} killed by a poisonous sea creature"
             }
         ]
     },
@@ -116,7 +116,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was lost to the sea while trying to save r_c.",
-                "death": "{VERB/m_c/were/was} washed out to sea while trying to save r_c"
+                "lead_death": "{VERB/m_c/were/was} washed out to sea while trying to save r_c"
             }
         ],
         "relationships": [
@@ -177,7 +177,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was taken by a sea creature.",
-                "death": "{VERB/m_c/were/was} taken by a sea creature"
+                "lead_death": "{VERB/m_c/were/was} taken by a sea creature"
             }
         ]
     },
@@ -214,7 +214,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was pushed out to sea by enemy warriors.",
-                "death": "{VERB/m_c/were/was} pushed out to sea by enemy warriors"
+                "lead_death": "{VERB/m_c/were/was} pushed out to sea by enemy warriors"
             }
         ],
         "other_clan": {
@@ -437,7 +437,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died when {PRONOUN/m_c/subject} {VERB/m_c/were/was} shoved off a cliff by r_c",
-                "death": "{VERB/m_c/were/was} shoved off a cliff by r_c"
+                "lead_death": "{VERB/m_c/were/was} shoved off a cliff by r_c"
             }
         ],
         "relationships": [
@@ -545,7 +545,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died when {PRONOUN/m_c/subject} {VERB/m_c/were/was} shoved off a cliff by r_c",
-                "death": "{VERB/m_c/were/was} shoved off a cliff by r_c"
+                "lead_death": "{VERB/m_c/were/was} shoved off a cliff by r_c"
             }
         ],
         "relationships": [
@@ -640,7 +640,7 @@
                 "cats": [
                     "m_c"
                 ],
-                "death": "{VERB/m_c/were/was} trapped in the tides by r_c"
+                "lead_death": "{VERB/m_c/were/was} trapped in the tides by r_c"
             }
         ],
         "relationships": [

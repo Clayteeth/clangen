@@ -35,7 +35,7 @@
                 ],
                 "scar": "m_c was scarred after falling from a tree.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after falling from a tree.",
-                "death": ""
+                "lead_death": ""
             }
         ]
     },
@@ -74,7 +74,7 @@
                 ],
                 "scar": "m_c was scarred after an owl tried to carry {PRONOUN/m_c/object} off.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after an owl tried to carry {PRONOUN/m_c/object} off.",
-                "death": ""
+                "lead_death": ""
             }
         ]
     },
@@ -138,7 +138,7 @@
                 ],
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after falling from a tall tree and breaking {PRONOUN/m_c/poss} back.",
                 "scar": "",
-                "death": ""
+                "lead_death": ""
             }
         ],
         "relationships": [
@@ -247,7 +247,7 @@
                 ],
                 "scar": "m_c was scarred by a falling tree.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a tree fell on {PRONOUN/m_c/object}.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a tree fell on {PRONOUN/m_c/object}"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a tree fell on {PRONOUN/m_c/object}"
             }
         ]
     },
@@ -294,7 +294,7 @@
                 ],
                 "scar": "m_c's pelt was burned by a forest fire.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} burns after a forest fire.",
-                "death": "died from {PRONOUN/m_c/poss} burns after a forest fire"
+                "lead_death": "died from {PRONOUN/m_c/poss} burns after a forest fire"
             }
         ]
     },
@@ -366,7 +366,7 @@
                 ],
                 "scar": "m_c's pelt was burned by a forest fire.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} burns after a forest fire.",
-                "death": "died from {PRONOUN/m_c/poss} burns after a forest fire"
+                "lead_death": "died from {PRONOUN/m_c/poss} burns after a forest fire"
             }
         ],
         "relationships": [
@@ -461,7 +461,7 @@
                 ],
                 "scar": "m_c got frostbitten after falling into a frozen pond.",
                 "reg_death": "m_c died from the cold after falling into a frozen pond.",
-                "death": ""
+                "lead_death": ""
             }
         ],
         "relationships": [

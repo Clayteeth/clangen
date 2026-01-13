@@ -747,7 +747,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was cursed to die from prophecy.",
-                "death": "died from a prophecy"
+                "lead_death": "died from a prophecy"
             }
         ]
     },
@@ -820,7 +820,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died from wounds taken while defending the nursery from fire.",
-                "death": "died from wounds taken while defending the nursery from fire"
+                "lead_death": "died from wounds taken while defending the nursery from fire"
             }
         ],
         "relationships": [
@@ -907,7 +907,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died from wounds taken while defending the nursery from fire.",
-                "death": "died from wounds taken while defending the nursery from fire"
+                "lead_death": "died from wounds taken while defending the nursery from fire"
             }
         ],
         "relationships": [
@@ -1201,7 +1201,7 @@
                 ],
                 "scar": "m_c was scarred saving r_c from a scorpion.",
                 "reg_death": "m_c died from a scorpion's sting.",
-                "death": "died from a scorpion's sting"
+                "lead_death": "died from a scorpion's sting"
             }
         ],
         "relationships": [
@@ -1295,14 +1295,14 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died from complications after inhaling dust from a sandstorm.",
-                "death": "died after inhaling dust from a sandstorm"
+                "lead_death": "died after inhaling dust from a sandstorm"
             },
             {
                 "cats": [
                     "r_c"
                 ],
                 "reg_death": "m_c died from complications after inhaling dust from a sandstorm.",
-                "death": "died after inhaling dust from a sandstorm"
+                "lead_death": "died after inhaling dust from a sandstorm"
             }
         ],
         "relationships": [
@@ -1363,7 +1363,7 @@
                 ],
                 "scar": "m_c was scarred in a fight against o_c_n.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n"
             }
         ],
         "other_clan": {
@@ -1414,7 +1414,7 @@
                 ],
                 "scar": "m_c was scarred in a fight against o_c_n.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a battle with o_c_n"
             }
         ],
         "other_clan": {
@@ -1505,7 +1505,7 @@
                 ],
                 "scar": "m_c was scarred from starting a fight with o_c_n.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after starting a battle with o_c_n.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after starting a battle with o_c_n"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after starting a battle with o_c_n"
             }
         ],
         "other_clan": {
@@ -1602,7 +1602,7 @@
                 ],
                 "scar": "m_c was scarred defending the nursery against o_c_n.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds defending the nursery from o_c_n.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after defending the nursery from o_c_n"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after defending the nursery from o_c_n"
             }
         ],
         "relationships": [
@@ -1812,7 +1812,7 @@
                 ],
                 "scar": "m_c was scarred while persuading a hawk that cats make bad prey.",
                 "reg_death": "The wounds from a hawk attack eventually killed m_c.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a hawk attack"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a hawk attack"
             }
         ]
     },
@@ -1855,7 +1855,7 @@
                 ],
                 "scar": "m_c slipped from a high rocky trail during the leaf-bare rains and still carries the marks of that fall on {PRONOUN/m_c/poss} pelt.",
                 "reg_death": "Slipping off a high rocky trail killed m_c.",
-                "death": "had a bad fall off a high rocky trail"
+                "lead_death": "had a bad fall off a high rocky trail"
             }
         ]
     },
@@ -2107,7 +2107,7 @@
                 ],
                 "scar": "m_c was scarred when {PRONOUN/m_c/subject} fell off a cliff.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after falling off a cliff.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after falling off a cliff"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after falling off a cliff"
             }
         ]
     },
@@ -2472,7 +2472,7 @@
                 ],
                 "scar": "m_c was scarred by a coyote, but {PRONOUN/m_c/poss} life was saved.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a coyote attack.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a coyote attack"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a coyote attack"
             }
         ],
         "relationships": [
@@ -2578,7 +2578,7 @@
                 ],
                 "scar": "m_c was scarred as the result of tricking a coyote into a cacti cluster.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after tricking a coyote into a cacti cluster.",
-                "death": "died after tricking a coyote into a cacti cluster"
+                "lead_death": "died after tricking a coyote into a cacti cluster"
             }
         ],
         "relationships": [
@@ -2707,7 +2707,7 @@
                 ],
                 "scar": "m_c was scarred by a dingo while rescuing r_c.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after saving r_c from a dingo.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after saving r_c from a dingo"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after saving r_c from a dingo"
             },
             {
                 "cats": [
@@ -2715,7 +2715,7 @@
                 ],
                 "scar": "m_c was scarred by a dingo.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after a dingo attack.",
-                "death": "died from {PRONOUN/m_c/poss} wounds after a dingo attack"
+                "lead_death": "died from {PRONOUN/m_c/poss} wounds after a dingo attack"
             }
         ],
         "relationships": [
@@ -2787,7 +2787,7 @@
                 ],
                 "scar": "m_c was scarred by a burrowing owl.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after fighting a burrowing owl.",
-                "death": "died after fighting a burrowing owl"
+                "lead_death": "died after fighting a burrowing owl"
             }
         ]
     },
@@ -2854,7 +2854,7 @@
                 ],
                 "scar": "m_c was scarred by a hawk while rescuing r_c.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after saving r_c from a hawk.",
-                "death": "died after protecting r_c from a hawk"
+                "lead_death": "died after protecting r_c from a hawk"
             }
         ],
         "relationships": [
@@ -2984,7 +2984,7 @@
                 ],
                 "scar": "",
                 "reg_death": "m_c became dehydrated during greenleaf patrols and died.",
-                "death": "became too dehydrated during greenleaf patrols"
+                "lead_death": "became too dehydrated during greenleaf patrols"
             }
         ]
     },
@@ -3380,7 +3380,7 @@
                 ],
                 "scar": "m_c's eyes were scarred up by stumbling into thorns at night as a adventurous apprentice.",
                 "reg_death": "m_c died after {PRONOUN/m_c/poss} eyes were damaged by thorns.",
-                "death": "after {PRONOUN/m_c/poss} eyes were damaged by thorns"
+                "lead_death": "after {PRONOUN/m_c/poss} eyes were damaged by thorns"
             }
         ]
     },
@@ -3428,7 +3428,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died after pushing {PRONOUN/m_c/poss} limits too far in the hot sun.",
-                "death": "pushing {PRONOUN/m_c/poss} limits too far in the hot sun"
+                "lead_death": "pushing {PRONOUN/m_c/poss} limits too far in the hot sun"
             }
         ]
     },
@@ -3474,7 +3474,7 @@
                 ],
                 "scar": "m_c was scarred by a snake bite.",
                 "reg_death": "m_c died after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake.",
-                "death": "after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake"
+                "lead_death": "after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake"
             }
         ]
     },
@@ -3498,7 +3498,7 @@
                 "cats": ["m_c"],
                 "scar": "m_c was scarred by a snake bite.",
                 "reg_death": "m_c died after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake.",
-                "death": "after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake"
+                "lead_death": "after {PRONOUN/m_c/subject} {VERB/m_c/were/was} bitten by a snake"
             }
         ]
     },
@@ -3582,7 +3582,7 @@
                 ],
                 "scar": "A snake bite from an unknown species left a momentum on m_c's coat.",
                 "reg_death": "The bite from an unknown species of snake took m_c's life.",
-                "death": "a bite from an unknown species of snake"
+                "lead_death": "a bite from an unknown species of snake"
             }
         ]
     },
@@ -3633,7 +3633,7 @@
                 ],
                 "scar": "Spiky spinifex is well named, and has left little scars cutting across m_c's pelt.",
                 "reg_death": "Infected cuts, even small ones, can be deadly.",
-                "death": "an infected cut went bad"
+                "lead_death": "an infected cut went bad"
             }
         ]
     },
@@ -3728,7 +3728,7 @@
                 ],
                 "scar": "Spiky spinifex started a fire that burned m_c.",
                 "reg_death": "Infected burns can be deadly.",
-                "death": "an infected burn went bad"
+                "lead_death": "an infected burn went bad"
             },
             {
                 "cats": [
@@ -3736,7 +3736,7 @@
                 ],
                 "scar": "Spiky spinifex started a fire that burned m_c.",
                 "reg_death": "Infected burns can be deadly.",
-                "death": "an infected burn went bad"
+                "lead_death": "an infected burn went bad"
             }
         ],
         "relationships": [
@@ -3807,7 +3807,7 @@
                 ],
                 "scar": "The heavy hooves of a roaming camel broke m_c's tail.",
                 "reg_death": "A camel trampled m_c, killing {PRONOUN/m_c/object}.",
-                "death": "a camel trampling {PRONOUN/m_c/object}"
+                "lead_death": "a camel trampling {PRONOUN/m_c/object}"
             }
         ]
     },
@@ -4180,7 +4180,7 @@
                 ],
                 "scar": "A roving dingo tried to kill m_c, and {PRONOUN/m_c/subject} still {VERB/m_c/carry/carries} the scars.",
                 "reg_death": "A roving dingo tried to kill m_c, and the wounds eventually took {PRONOUN/m_c/poss} life.",
-                "death": "a roving dingo tried to kill m_c and the wounds eventually took {PRONOUN/m_c/poss} life"
+                "lead_death": "a roving dingo tried to kill m_c and the wounds eventually took {PRONOUN/m_c/poss} life"
             }
         ],
         "relationships": [
@@ -4254,7 +4254,7 @@
                 ],
                 "scar": "m_c was scarred by a great horn owl's ambush.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after {PRONOUN/m_c/subject} {VERB/m_c/were/was} hurt by a great horn owl's ambush.",
-                "death": "m_c died from {PRONOUN/m_c/poss} wounds after being hurt by a great horn owl's ambush"
+                "lead_death": "m_c died from {PRONOUN/m_c/poss} wounds after being hurt by a great horn owl's ambush"
             }
         ]
     },
@@ -4355,7 +4355,7 @@
                 ],
                 "scar": "Termite bites are surprisingly painful, m_c would know, see?",
                 "reg_death": "m_c died from complications from termite bites.",
-                "death": "died from complications from termite bites"
+                "lead_death": "died from complications from termite bites"
             },
             {
                 "cats": [
@@ -4363,7 +4363,7 @@
                 ],
                 "scar": "Termite bites are surprisingly painful, m_c would know, see?",
                 "reg_death": "m_c died from complications from termite bites.",
-                "death": "died from complications from termite bites"
+                "lead_death": "died from complications from termite bites"
             }
         ]
     },
@@ -4434,7 +4434,7 @@
                 ],
                 "scar": "m_c, unbelievably, was scarred when {PRONOUN/m_c/subject} tried to eat a wasp.",
                 "reg_death": "m_c died from complications caused by a wasp sting.",
-                "death": "died from complications caused by a wasp sting"
+                "lead_death": "died from complications caused by a wasp sting"
             }
         ]
     },
@@ -4477,7 +4477,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died to sunstroke after o_c_n refused {PRONOUN/m_c/object} water.",
-                "death": "sunstroke after o_c_n refused {PRONOUN/m_c/object} water"
+                "lead_death": "sunstroke after o_c_n refused {PRONOUN/m_c/object} water"
             }
         ],
         "other_clan": {
@@ -4531,7 +4531,7 @@
                 ],
                 "scar": "m_c's ear was torn by a thorn bush on the border.",
                 "reg_death": "m_c died after an ear injury turned bad.",
-                "death": "after an ear injury turned bad"
+                "lead_death": "after an ear injury turned bad"
             }
         ],
         "other_clan": {
@@ -4595,7 +4595,7 @@
                 ],
                 "scar": "A mob of meerkats attacked m_c, leaving scars.",
                 "reg_death": "While the mob of meekats didn't directly kill m_c, the wounds they left on {PRONOUN/m_c/object} eventually did.",
-                "death": "couldn't survive {PRONOUN/m_c/poss} injuries after {PRONOUN/m_c/subject} {VERB/m_c/were/was} attacked by a mob of meerkets"
+                "lead_death": "couldn't survive {PRONOUN/m_c/poss} injuries after {PRONOUN/m_c/subject} {VERB/m_c/were/was} attacked by a mob of meerkets"
             }
         ]
     },
@@ -4683,7 +4683,7 @@
                 ],
                 "scar": "A funnel web spider set up a home near m_c's nest, and left m_c with a scar.",
                 "reg_death": "m_c died from complications caused by a funnel web spider bite.",
-                "death": "died from complications caused by a funnel web spider bite"
+                "lead_death": "died from complications caused by a funnel web spider bite"
             }
         ]
     },
@@ -4730,7 +4730,7 @@
                 ],
                 "scar": "A copperhead snake scarred m_c's pelt, though {PRONOUN/m_c/subject} overcame the venom.",
                 "reg_death": "The venom of a copperhead snake killed m_c.",
-                "death": "the venom of a copperhead snake"
+                "lead_death": "the venom of a copperhead snake"
             }
         ]
     },
@@ -4795,7 +4795,7 @@
                 ],
                 "scar": "m_c was scarred after pouncing on a Clanmate's tail only to discover it was a bandy-bandy snake.",
                 "reg_death": "m_c died after pouncing on a Clanmate's tail only to discover it was a bandy-bandy snake.",
-                "death": "pounced on a Clanmate's tail only to discover it was a bandy-bandy snake"
+                "lead_death": "pounced on a Clanmate's tail only to discover it was a bandy-bandy snake"
             }
         ]
     },
@@ -4834,7 +4834,7 @@
                 ],
                 "scar": "m_c was scarred after stepping on an unfortunate shovel-nosed coral snake.",
                 "reg_death": "m_c died after stepping on an unfortunate shovel-nosed coral snake.",
-                "death": "stepped on an unfortunate shovel-nosed coral snake"
+                "lead_death": "stepped on an unfortunate shovel-nosed coral snake"
             }
         ]
     },
@@ -4937,7 +4937,7 @@
                 ],
                 "scar": "m_c was scarred after falling into a o_c_n trap.",
                 "reg_death": "m_c died after falling into a o_c_n trap.",
-                "death": "died after falling into a o_c_n trap"
+                "lead_death": "died after falling into a o_c_n trap"
             }
         ],
         "other_clan": {
@@ -5021,7 +5021,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c died from sunstroke after raiding in unfamiliar ground.",
-                "death": "got sunstroke after raiding in unfamiliar ground"
+                "lead_death": "got sunstroke after raiding in unfamiliar ground"
             }
         ],
         "relationships": [
@@ -5102,7 +5102,7 @@
                 ],
                 "scar": "m_c was hurt while defending the fresh-kill pile from ants.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after defending the fresh-kill pile from ants.",
-                "death": "{VERB/m_c/were/was} killed by ants while defending the fresh-kill pile"
+                "lead_death": "{VERB/m_c/were/was} killed by ants while defending the fresh-kill pile"
             }
         ],
         "supplies": [
@@ -5154,7 +5154,7 @@
                 ],
                 "scar": "m_c was hurt while defending the fresh-kill pile from meerkats.",
                 "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after defending the fresh-kill pile from meerkats.",
-                "death": "{VERB/m_c/were/was} killed by meerkats while defending the fresh-kill pile"
+                "lead_death": "{VERB/m_c/were/was} killed by meerkats while defending the fresh-kill pile"
             }
         ],
         "supplies": [
