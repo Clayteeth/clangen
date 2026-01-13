@@ -696,3 +696,8 @@ def version_convert(version_info):
         # freshkill start for older clans
         add_prey = game.clan.freshkill_pile.amount_food_needed() * 2
         game.clan.freshkill_pile.add_freshkill(add_prey)
+
+    if version < 4:
+        for c in Cat.all_cats.values():
+            if len(c.history.died_by) == 1 and not c.status.is_leader:
+                c.history.died_by[0].update({"old_format": True})
