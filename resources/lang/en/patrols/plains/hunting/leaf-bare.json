@@ -376,7 +376,7 @@
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
                     "reg_death": "m_c froze to death while hunting in a storm.",
-                    "death": "froze to death while hunting"
+                    "lead_death": "froze to death while hunting"
                 },
                 "relationships": [
                     {
@@ -409,7 +409,7 @@
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
                     "reg_death": "m_c froze to death while hunting in a storm.",
-                    "death": "froze to death while hunting"
+                    "lead_death": "froze to death while hunting"
                 },
                 "frequency": 4
             }
@@ -824,7 +824,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c perished after being frostbitten on patrol.",
-                    "death": "couldn't recover after freezing on patrol",
+                    "lead_death": "couldn't recover after freezing on patrol",
                     "scar": "m_c was frostbitten as an apprentice while hunting."
                 },
                 "frequency": 3

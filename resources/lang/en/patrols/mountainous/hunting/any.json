@@ -798,7 +798,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar from a fox.",
                     "reg_death": "m_c was killed by a wolverine.",
-                    "death": "{VERB/m_c/were/was} killed by a wolverine"
+                    "lead_death": "{VERB/m_c/were/was} killed by a wolverine"
                 },
                 "frequency": 3
             },
@@ -821,7 +821,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar from a fox.",
                     "reg_death": "m_c was killed by a fox.",
-                    "death": "{VERB/m_c/were/was} killed by a fox"
+                    "lead_death": "{VERB/m_c/were/was} killed by a fox"
                 },
                 "frequency": 3
             }
@@ -893,7 +893,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar from a wolverine.",
                     "reg_death": "m_c was killed by a wolverine while patrolling alone.",
-                    "death": "{VERB/m_c/were/was} killed by a predator while patrolling alone"
+                    "lead_death": "{VERB/m_c/were/was} killed by a predator while patrolling alone"
                 },
                 "frequency": 3
             },
@@ -916,7 +916,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar from a fox.",
                     "reg_death": "m_c was killed by a fox while patrolling alone.",
-                    "death": "{VERB/m_c/were/was} killed by a predator while patrolling alone"
+                    "lead_death": "{VERB/m_c/were/was} killed by a predator while patrolling alone"
                 },
                 "frequency": 3
             }
@@ -1332,7 +1332,7 @@
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
                     "reg_death": "m_c was hit by a monster and killed.",
-                    "death": "{VERB/m_c/were/was} hit by a monster"
+                    "lead_death": "{VERB/m_c/were/was} hit by a monster"
                 },
                 "frequency": 3
             },
@@ -1355,7 +1355,7 @@
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
                     "reg_death": "m_c was hit by a monster and killed.",
-                    "death": "{VERB/m_c/were/was} hit by a monster"
+                    "lead_death": "{VERB/m_c/were/was} hit by a monster"
                 },
                 "frequency": 3
             }
@@ -1458,7 +1458,7 @@
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
                     "reg_death": "m_c was hit by a monster and killed.",
-                    "death": "{VERB/m_c/were/was} hit by a monster"
+                    "lead_death": "{VERB/m_c/were/was} hit by a monster"
                 },
                 "frequency": 3
             },
@@ -1481,7 +1481,7 @@
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
                     "reg_death": "m_c was hit by a monster and killed.",
-                    "death": "{VERB/m_c/were/was} hit by a monster"
+                    "lead_death": "{VERB/m_c/were/was} hit by a monster"
                 },
                 "frequency": 3
             }
@@ -1579,7 +1579,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was taken as the Mothman's snack.",
-                    "death": "{VERB/m_c/were/was} taken as the Mothman's snack"
+                    "lead_death": "{VERB/m_c/were/was} taken as the Mothman's snack"
                 },
                 "art": "mothman_OUTCOME",
                 "frequency": 4
@@ -1592,7 +1592,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was killed by the collapsing mountain slopes, an event predicted by the appearance of the Mothman",
-                    "death": "{VERB/m_c/were/was} killed by the collapsing mountain slopes after {PRONOUN/m_c/subject} saw the Mothman"
+                    "lead_death": "{VERB/m_c/were/was} killed by the collapsing mountain slopes after {PRONOUN/m_c/subject} saw the Mothman"
                 },
                 "art": "mothman_OUTCOME",
                 "frequency": 4
@@ -1648,7 +1648,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died from the yellowcough brought to the Clan by the Belled Buzzard.",
-                    "death": "died from the yellowcough brought by the Belled Buzzard"
+                    "lead_death": "died from the yellowcough brought by the Belled Buzzard"
                 },
                 "art": "belledbuzzard_OUTCOME",
                 "prey": [
@@ -2328,7 +2328,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat died after eating tainted prey.",
-                    "death": "after eating tainted prey"
+                    "lead_death": "after eating tainted prey"
                 },
                 "frequency": 3
             }
@@ -2436,7 +2436,7 @@
                     "history_text": {
                         "scar": "m_c was scarred after underestimating a grouse.",
                         "reg_death": "m_c died after underestimating a grouse on a hunt as a foolish apprentice.",
-                        "death": "from a grouse encountered on a hunt as a foolish apprentice"
+                        "lead_death": "from a grouse encountered on a hunt as a foolish apprentice"
                         },
                         "frequency": 1
                 }

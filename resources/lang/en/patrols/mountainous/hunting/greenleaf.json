@@ -653,7 +653,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
                     "reg_death": "m_c was killed by an eagle, scrapping over food.",
-                    "death": "{VERB/m_c/were/was} killed by an eagle"
+                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
                 },
                 "relationships": [
                     {
@@ -691,7 +691,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
                     "reg_death": "m_c was killed by an eagle, scrapping over food.",
-                    "death": "{VERB/m_c/were/was} killed by an eagle"
+                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
                 },
                 "relationships": [
                     {
@@ -732,7 +732,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
                     "reg_death": "m_c was killed by an eagle, scrapping over food.",
-                    "death": "{VERB/m_c/were/was} killed by an eagle"
+                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
                 },
                 "relationships": [
                     {
@@ -910,7 +910,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
                     "reg_death": "m_c was killed by an eagle, scrapping over food.",
-                    "death": "{VERB/m_c/were/was} killed by an eagle"
+                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
                 },
                 "relationships": [
                     {
@@ -948,7 +948,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
                     "reg_death": "m_c was killed by an eagle, scrapping over food.",
-                    "death": "{VERB/m_c/were/was} killed by an eagle"
+                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
                 },
                 "relationships": [
                     {

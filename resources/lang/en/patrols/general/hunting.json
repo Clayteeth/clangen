@@ -907,7 +907,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after tasting a tainted rat.",
-                    "death": "died after tasting a tainted rat"
+                    "lead_death": "died after tasting a tainted rat"
                 },
                 "frequency": 2
             },
@@ -928,7 +928,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after tasting a tainted rat.",
-                    "death": "died after tasting a tainted rat"
+                    "lead_death": "died after tasting a tainted rat"
                 },
                 "frequency": 4
             },
@@ -946,7 +946,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after tasting a tainted rat.",
-                    "death": "died after tasting a tainted rat"
+                    "lead_death": "died after tasting a tainted rat"
                 },
                 "frequency": 4
             },
@@ -973,7 +973,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after tasting a tainted rat.",
-                    "death": "died after tasting a tainted rat"
+                    "lead_death": "died after tasting a tainted rat"
                 },
                 "frequency": 4
             }
@@ -1062,7 +1062,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after a running nose progressed to something worse.",
-                    "death": "died after a running nose progressed to something worse"
+                    "lead_death": "died after a running nose progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1154,7 +1154,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after a running nose progressed to something worse.",
-                    "death": "died after a running nose progressed to something worse"
+                    "lead_death": "died after a running nose progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1316,7 +1316,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after a running nose progressed to something worse.",
-                    "death": "died after a running nose progressed to something worse"
+                    "lead_death": "died after a running nose progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1416,7 +1416,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after a running nose progressed to something worse.",
-                    "death": "died after a running nose progressed to something worse"
+                    "lead_death": "died after a running nose progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1516,7 +1516,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died after a running nose progressed to something worse.",
-                    "death": "died after a running nose progressed to something worse"
+                    "lead_death": "died after a running nose progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1611,7 +1611,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1706,7 +1706,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1801,7 +1801,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1896,7 +1896,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -1991,7 +1991,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -3640,7 +3640,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -3811,7 +3811,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -3992,7 +3992,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -4161,7 +4161,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -4330,7 +4330,7 @@
                 "history_text": {
                     "scar": "m_c got a bit torn up on a solo hunt as an apprentice.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }
@@ -4774,7 +4774,7 @@
                 "history_text": {
                     "scar": "m_c was scarred when a Clanmate lashed out at {PRONOUN/m_c/object} while they were bickering on patrol.",
                     "reg_death": "m_c died after a small injury progressed to something worse.",
-                    "death": "died after a small injury progressed to something worse"
+                    "lead_death": "died after a small injury progressed to something worse"
                 },
                 "frequency": 4
             }

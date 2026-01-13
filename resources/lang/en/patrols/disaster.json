@@ -124,7 +124,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "relationships": [
                     {
@@ -271,7 +271,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "relationships": [
                     {
@@ -418,7 +418,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "relationships": [
                     {
@@ -501,7 +501,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "frequency": 4
             }
@@ -568,7 +568,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "frequency": 4
             }
@@ -635,7 +635,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned in floodwaters"
+                    "lead_death": "drowned in floodwaters"
                 },
                 "frequency": 4
             }
@@ -735,7 +735,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat died from being ambushed by rogues.",
-                    "death": "{VERB/m_c/were/was} ambushed by rogues"
+                    "lead_death": "{VERB/m_c/were/was} ambushed by rogues"
                 },
                 "frequency": 4
             }
@@ -846,7 +846,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died in a rogue ambush while on a solo patrol.",
-                    "death": "{VERB/m_c/were/was} ambushed by rogues while on a solo patrol"
+                    "lead_death": "{VERB/m_c/were/was} ambushed by rogues while on a solo patrol"
                 },
                 "frequency": 4
             }
@@ -977,7 +977,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "relationships": [
                     {
@@ -1346,7 +1346,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -1413,7 +1413,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -1480,7 +1480,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -1611,7 +1611,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "relationships": [
                     {
@@ -1758,7 +1758,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "relationships": [
                     {
@@ -1905,7 +1905,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "relationships": [
                     {
@@ -1988,7 +1988,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -2055,7 +2055,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -2122,7 +2122,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -2201,7 +2201,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat died from being ambushed by rogues.",
-                    "death": "{VERB/m_c/were/was} ambushed by rogues"
+                    "lead_death": "{VERB/m_c/were/was} ambushed by rogues"
                 },
                 "frequency": 4
             }
@@ -2312,7 +2312,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died in a rogue ambush while on a solo patrol.",
-                    "death": "{VERB/m_c/were/was} ambushed by rogues while on a solo patrol"
+                    "lead_death": "{VERB/m_c/were/was} ambushed by rogues while on a solo patrol"
                 },
                 "frequency": 4
             }
@@ -2443,7 +2443,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "relationships": [
                     {
@@ -2526,7 +2526,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c was drowned by floodwaters.",
-                    "death": "drowned by floodwaters"
+                    "lead_death": "drowned by floodwaters"
                 },
                 "frequency": 4
             }
@@ -2648,7 +2648,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat was swept out to sea by a flood.",
-                    "death": "{VERB/m_c/were/was} swept out to sea by a flood"
+                    "lead_death": "{VERB/m_c/were/was} swept out to sea by a flood"
                 },
                 "relationships": [
                     {
@@ -3173,7 +3173,7 @@
                 "history_text": {
                     "scar": "This cat was badly scarred when rogues ambushed their patrol.",
                     "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             },
@@ -3227,7 +3227,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed their patrol.",
                     "reg_death": "m_c was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             }
@@ -3385,7 +3385,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             },
@@ -3439,7 +3439,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             }
@@ -3597,7 +3597,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             },
@@ -3651,7 +3651,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "m_c was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             }
@@ -3809,7 +3809,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             },
@@ -3863,7 +3863,7 @@
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "reg_death": "m_c was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "death": "{VERB/m_c/were/was} killed in a rogue ambush"
+                    "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 4
             }

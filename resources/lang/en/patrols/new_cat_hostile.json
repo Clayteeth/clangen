@@ -2338,7 +2338,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar after tussling with a rogue.",
                     "reg_death": "m_c died from injuries sustained in a fight with a rogue.",
-                    "death": "died from injuries sustained in a fight with a rogue"
+                    "lead_death": "died from injuries sustained in a fight with a rogue"
                 },
                 "frequency": 3
             },
@@ -2395,7 +2395,7 @@
                 "history_text": {
                     "scar": "m_c gained a scar after tussling with a rogue.",
                     "reg_death": "m_c was died from injuries sustained in a fight with a rogue.",
-                    "death": "died from injuries sustained in a fight with a rogue"
+                    "lead_death": "died from injuries sustained in a fight with a rogue"
                 },
                 "frequency": 3
             }

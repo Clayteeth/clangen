@@ -1545,7 +1545,7 @@
                         "reg_death": "m_c succumbed to a broken bone after falling out of a tree."
                     },
                     {
-                        "death": "fell out of a tree and died of a broken bone"
+                        "lead_death": "fell out of a tree and died of a broken bone"
                     },
                     {
                         "scar": "m_c carries a scar after falling out of a tree and breaking a bone."

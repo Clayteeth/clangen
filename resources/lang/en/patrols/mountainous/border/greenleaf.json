@@ -90,7 +90,7 @@
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
                     "reg_death": "m_c was killed by an invading rogue.",
-                    "death": "{VERB/m_c/were/was} killed by an invading rogue"
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
             },
@@ -113,7 +113,7 @@
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
                     "reg_death": "m_c was killed by an invading rogue.",
-                    "death": "{VERB/m_c/were/was} killed by an invading rogue"
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
             },
@@ -207,7 +207,7 @@
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
                     "reg_death": "m_c was killed by an invading rogue.",
-                    "death": "{VERB/m_c/were/was} killed by an invading rogue"
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
             },
@@ -230,7 +230,7 @@
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
                     "reg_death": "m_c was killed by an invading rogue.",
-                    "death": "{VERB/m_c/were/was} killed by an invading rogue"
+                    "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
             }
