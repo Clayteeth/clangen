@@ -701,3 +701,14 @@ def version_convert(version_info):
         for c in Cat.all_cats.values():
             if len(c.history.died_by) == 1 and not c.status.is_leader:
                 c.history.died_by[0].update({"old_format": True})
+            elif c.status.is_leader:
+                for death in c.history.died_by:
+                    if death["text"] == "multi_lives":
+                        # skip these as changing them will break stuff
+                        continue
+                    death["text"] = (
+                        "m_c lost a life when {PRONOUN/m_c/subject} " + death["text"]
+                    )
+                    # check if a period is present and append one if not
+                    if death["text"][-1] != ".":
+                        death["text"] += "."

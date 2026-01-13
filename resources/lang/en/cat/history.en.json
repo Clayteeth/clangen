@@ -19,8 +19,8 @@
         "leader_death_all": "lost all of {PRONOUN/m_c/poss} lives",
         "leader_death_remaining": "lost the rest of {PRONOUN/m_c/poss} lives",
         "leader_death_cardinal": {
-            "one": "lost {PRONOUN/m_c/poss} %{cardinal} life",
-            "many": "lost {PRONOUN/m_c/poss} %{cardinal} lives"
+            "one": "%{cardinal} Life:",
+            "many": "%{cardinal} Lives:"
         },
         "leader_death_retired": "lost {PRONOUN/m_c/poss} last remaining life",
         "leader_death_default": "lost a life",

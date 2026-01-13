@@ -176,7 +176,6 @@ class Condition_Events:
 
             event = event_text_adjust(Cat, event.strip(), main_cat=cat)
 
-            history_event = history_event.replace("m_c ", "").replace(".", "")
             cat.history.add_death(
                 condition="starving", death_text=history_event.strip()
             )
@@ -582,11 +581,7 @@ class Condition_Events:
                         f"WARNING: {illness} does not have an injury death string, placeholder used."
                     )
                     event = i18n.t("defaults.illness_death_event")
-                    history_event = (
-                        i18n.t("defaults.illness_death_history")
-                        if cat.status.rank != CatRank.LEADER
-                        else i18n.t("defaults.illness_death_history_leader")
-                    )
+                    history_event = i18n.t("defaults.illness_death_history")
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
                 # add life loss message
@@ -594,7 +589,6 @@ class Condition_Events:
                     event = event + " " + get_leader_life_notice()
 
                 # add death to history
-                history_event = history_event.replace("m_c ", "").replace(".", "")
                 cat.history.add_death(
                     condition=illness, death_text=history_event.strip()
                 )
@@ -691,11 +685,7 @@ class Condition_Events:
                     )
 
                     event = i18n.t("defaults.injury_death_event")
-                    history_text = (
-                        i18n.t("defaults.injury_death_history")
-                        if cat.status.rank != CatRank.LEADER
-                        else i18n.t("injury_death_history_leader")
-                    )
+                    history_text = i18n.t("defaults.injury_death_history")
 
                 event = event_text_adjust(Cat, event, main_cat=cat)
                 # add life loss message
@@ -703,7 +693,6 @@ class Condition_Events:
                     event = event + " " + get_leader_life_notice()
 
                 # add death to history
-                history_text = history_text.replace("m_c", " ").replace(".", "")
                 cat.history.add_death(condition=injury, death_text=history_text.strip())
 
                 # clear event list first to make sure any heal or risk events from other injuries are not shown
