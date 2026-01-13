@@ -884,7 +884,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c mistook deathberries for something edible.",
+                    "death": "m_c mistook deathberries for something edible.",
                     "lead_death": "after eating deathberries"
                 },
                 "frequency": 3
@@ -944,7 +944,7 @@
                     "app1"
                 ],
                 "history_text": {
-                    "reg_death": "m_c mistook deathberries for something edible.",
+                    "death": "m_c mistook deathberries for something edible.",
                     "lead_death": "after eating deathberries"
                 },
                 "frequency": 3
@@ -964,7 +964,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c mistook deathberries for something edible.",
+                    "death": "m_c mistook deathberries for something edible.",
                     "lead_death": "after eating deathberries"
                 },
                 "frequency": 3
@@ -1228,7 +1228,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died from lack of sleep, {PRONOUN/m_c/poss} vision haunted by dark shadows.",
+                    "death": "m_c died from lack of sleep, {PRONOUN/m_c/poss} vision haunted by dark shadows.",
                     "lead_death": "from lack of sleep, {PRONOUN/m_c/poss} vision haunted by dark shadows"
                 },
                 "frequency": 4

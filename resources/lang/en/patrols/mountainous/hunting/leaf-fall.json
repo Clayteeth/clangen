@@ -1542,7 +1542,7 @@
                 ],
                 "history": [
                     {
-                        "reg_death": "m_c succumbed to a broken bone after falling out of a tree."
+                        "death": "m_c succumbed to a broken bone after falling out of a tree."
                     },
                     {
                         "lead_death": "fell out of a tree and died of a broken bone"

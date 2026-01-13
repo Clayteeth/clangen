@@ -139,7 +139,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got heatstroke while on a patrol.",
-                    "reg_death": "This cat died from heat stroke.",
+                    "death": "This cat died from heat stroke.",
                     "lead_death": "died from heat stroke"
                 },
                 "frequency": 3
@@ -160,7 +160,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got heatstroke while on a patrol.",
-                    "reg_death": "This cat died from heat stroke.",
+                    "death": "This cat died from heat stroke.",
                     "lead_death": "died from heat stroke"
                 },
                 "frequency": 3

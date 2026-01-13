@@ -101,7 +101,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
+                    "death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "relationships": [
@@ -140,7 +140,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
+                    "death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "relationships": [
@@ -216,7 +216,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/object} while on a solo patrol.",
+                    "death": "This cat was killed when rogues ambushed {PRONOUN/m_c/object} while on a solo patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "frequency": 3
@@ -345,7 +345,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues attacked {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "This cat was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
+                    "death": "This cat was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue attack"
                 },
                 "frequency": 4
@@ -368,7 +368,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues attacked {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "This cat was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
+                    "death": "This cat was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue attack"
                 },
                 "frequency": 4
@@ -479,7 +479,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -502,7 +502,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -599,7 +599,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -622,7 +622,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -708,7 +708,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -731,7 +731,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c died from an injury inflicted by an invading rogue.",
+                    "death": "m_c died from an injury inflicted by an invading rogue.",
                     "lead_death": "died from an injury inflicted by an invading rogue"
                 },
                 "frequency": 3
@@ -931,7 +931,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c died from an injury inflicted by an invading rogue.",
+                    "death": "m_c died from an injury inflicted by an invading rogue.",
                     "lead_death": "died from an injury inflicted by an invading rogue"
                 },
                 "relationships": [
@@ -1147,7 +1147,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c died from an injury inflicted by an invading rogue.",
+                    "death": "m_c died from an injury inflicted by an invading rogue.",
                     "lead_death": "died from an injury inflicted by an invading rogue"
                 },
                 "relationships": [
@@ -1259,7 +1259,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c died from an injury inflicted by an invading rogue.",
+                    "death": "m_c died from an injury inflicted by an invading rogue.",
                     "lead_death": "died from an injury inflicted by an invading rogue"
                 },
                 "frequency": 3

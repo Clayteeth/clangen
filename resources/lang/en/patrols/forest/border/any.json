@@ -97,7 +97,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
+                    "death": "This cat was killed when rogues ambushed {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "rogues ambushed {PRONOUN/m_c/poss} patrol"
                 },
                 "relationships": [
@@ -136,7 +136,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues ambushed {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "m_c died of an injury sustained in a rogue ambush.",
+                    "death": "m_c died of an injury sustained in a rogue ambush.",
                     "lead_death": "died of an injury sustained in a rogue ambush"
                 },
                 "relationships": [
@@ -256,7 +256,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "reg_death": "This cat was killed when rogues ambushed {PRONOUN/m_c/object} while on a solo patrol.",
+                    "death": "This cat was killed when rogues ambushed {PRONOUN/m_c/object} while on a solo patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed in a rogue ambush"
                 },
                 "relationships": [
@@ -385,7 +385,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues attacked {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "m_c was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
+                    "death": "m_c was killed when rogues attacked {PRONOUN/m_c/poss} patrol.",
                     "lead_death": "{VERB/m_c/were/was} killed when rogues attacked {PRONOUN/m_c/poss} patrol"
                 },
                 "relationships": [
@@ -421,7 +421,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was badly scarred when rogues attacked {PRONOUN/m_c/poss} patrol.",
-                    "reg_death": "m_c died of an injury sustained in a rogue ambush.",
+                    "death": "m_c died of an injury sustained in a rogue ambush.",
                     "lead_death": "died of an injury sustained in a rogue ambush"
                 },
                 "relationships": [
@@ -579,7 +579,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a badger.",
-                    "reg_death": "m_c lost {PRONOUN/s_c/poss} life to a badger.",
+                    "death": "m_c lost {PRONOUN/s_c/poss} life to a badger.",
                     "lead_death": "{VERB/m_c/were/was} killed by a badger"
                 },
                 "frequency": 3
@@ -602,7 +602,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a badger.",
-                    "reg_death": "m_c lost {PRONOUN/s_c/poss} life to a badger.",
+                    "death": "m_c lost {PRONOUN/s_c/poss} life to a badger.",
                     "lead_death": "{VERB/m_c/were/was} killed by a badger"
                 },
                 "relationships": [
@@ -797,7 +797,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by a badger.",
-                    "reg_death": "m_c lost {PRONOUN/m_c/poss} life to a badger.",
+                    "death": "m_c lost {PRONOUN/m_c/poss} life to a badger.",
                     "lead_death": "{VERB/m_c/were/was} killed by a badger"
                 },
                 "relationships": [
@@ -968,7 +968,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -991,7 +991,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -1089,7 +1089,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -1112,7 +1112,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -1418,7 +1418,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "relationships": [
@@ -1611,7 +1611,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred by an invading rogue.",
-                    "reg_death": "m_c was killed by an invading rogue.",
+                    "death": "m_c was killed by an invading rogue.",
                     "lead_death": "{VERB/m_c/were/was} killed by an invading rogue"
                 },
                 "frequency": 3
@@ -2200,7 +2200,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep c_n safe from a large dog.",
+                    "death": "This cat died to keep c_n safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2241,7 +2241,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep c_n safe from a large dog.",
+                    "death": "This cat died to keep c_n safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2493,7 +2493,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep the Clan safe from a large dog.",
+                    "death": "This cat died to keep the Clan safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2534,7 +2534,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep the Clan safe from a large dog.",
+                    "death": "This cat died to keep the Clan safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2788,7 +2788,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep the Clan safe from a large dog.",
+                    "death": "This cat died to keep the Clan safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2829,7 +2829,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "reg_death": "This cat died to keep the Clan safe from a large dog.",
+                    "death": "This cat died to keep the Clan safe from a large dog.",
                     "lead_death": "died to keep c_n safe from a large dog"
                 },
                 "relationships": [
@@ -2932,7 +2932,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got a scar from a fight with a small dog, but {PRONOUN/m_c/subject} always {VERB/m_c/say/says} it was a huge dog.",
-                    "reg_death": "This cat was killed in a fight with a small dog, but {PRONOUN/m_c/subject} took the dog out with {PRONOUN/m_c/object}.",
+                    "death": "This cat was killed in a fight with a small dog, but {PRONOUN/m_c/subject} took the dog out with {PRONOUN/m_c/object}.",
                     "lead_death": "killed in a fight with a small dog"
                 },
                 "frequency": 3
@@ -2955,7 +2955,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got a scar from a fight with a small dog, but {PRONOUN/m_c/subject} always {VERB/m_c/say/says} it was a huge dog.",
-                    "reg_death": "This cat was killed in a fight with a small dog, but {PRONOUN/m_c/subject} took the dog out with {PRONOUN/m_c/object}.",
+                    "death": "This cat was killed in a fight with a small dog, but {PRONOUN/m_c/subject} took the dog out with {PRONOUN/m_c/object}.",
                     "lead_death": "killed in a fight with a small dog"
                 },
                 "relationships": [
@@ -3221,7 +3221,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c died of shock after {PRONOUN/m_c/poss} encounter with the Dover Demon.",
+                    "death": "m_c died of shock after {PRONOUN/m_c/poss} encounter with the Dover Demon.",
                     "lead_death": "died of shock from an encounter with the Dover Demon"
                 }
             }

@@ -1299,7 +1299,7 @@
                     "s_c"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
+                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
                     "lead_death": "fought a Rat King"
                 },
                 "frequency": 3
@@ -2783,7 +2783,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "fell from the treetops"
                 },
                 "frequency": 3
@@ -2806,7 +2806,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "falling from the treetops"
                 },
                 "frequency": 3
@@ -2891,7 +2891,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "fell from the treetops"
                 },
                 "frequency": 3
@@ -2915,7 +2915,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "falling from the treetops"
                 },
                 "frequency": 3
@@ -2936,7 +2936,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "fell from the treetops"
                 },
                 "frequency": 3
@@ -2967,7 +2967,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone.",
-                    "reg_death": "m_c died falling from the treetops, out on a solo nest raid.",
+                    "death": "m_c died falling from the treetops, out on a solo nest raid.",
                     "lead_death": "falling from the treetops"
                 },
                 "frequency": 3
@@ -3294,7 +3294,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c will always carry the scars from falling from the treetops while nest raiding alone as an apprentice.",
-                    "reg_death": "m_c died as an apprentice after going out nest raiding alone."
+                    "death": "m_c died as an apprentice after going out nest raiding alone."
                 },
                 "frequency": 3
             }
