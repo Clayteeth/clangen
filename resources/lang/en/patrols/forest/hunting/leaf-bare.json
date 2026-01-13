@@ -157,8 +157,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death after hunting in a storm.",
-                    "lead_death": "froze to death"
+                    "death": "m_c froze to death after hunting in a storm."
                 },
                 "relationships": [
                     {
@@ -258,8 +257,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death after hunting in a storm.",
-                    "lead_death": "froze to death"
+                    "death": "m_c froze to death after hunting in a storm."
                 },
                 "frequency": 4
             }
@@ -381,8 +379,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c froze to death while hunting in a storm.",
-                    "lead_death": "froze to death while hunting"
+                    "death": "m_c froze to death while hunting in a storm."
                 },
                 "relationships": [
                     {
@@ -414,8 +411,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death while hunting in a storm.",
-                    "lead_death": "froze to death while hunting"
+                    "death": "m_c froze to death while hunting in a storm."
                 },
                 "frequency": 4
             }
@@ -1602,8 +1598,7 @@
                     }
                 ],
                 "history_text": {
-                    "death": "This cat froze to death.",
-                    "lead_death": "froze to death"
+                    "death": "This cat froze to death."
                 },
                 "relationships": [
                     {
@@ -1766,8 +1761,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death after hunting in leaf-bare.",
-                    "lead_death": "froze to death while hunting"
+                    "death": "m_c froze to death after hunting in leaf-bare."
                 },
                 "prey": [
                     "very_small"
@@ -2149,8 +2143,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from fighting a swarm of rats.",
-                    "death": "m_c died after fighting a swarm of rats.",
-                    "lead_death": "fought a swarm of rats"
+                    "death": "m_c died after fighting a swarm of rats."
                 },
                 "prey": [
                     "very_small"
@@ -2275,8 +2268,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from fighting a Rat King.",
-                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
-                    "lead_death": "fought a Rat King"
+                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King."
                 },
                 "prey": [
                     "very_small"
@@ -2302,8 +2294,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from fighting a Rat King.",
-                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
-                    "lead_death": "fought a Rat King"
+                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King."
                 },
                 "prey": [
                     "very_small"
@@ -2333,8 +2324,7 @@
                     "s_c"
                 ],
                 "history_text": {
-                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
-                    "lead_death": "fought a Rat King"
+                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King."
                 },
                 "frequency": 3
             }
@@ -2679,8 +2669,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c froze to death.",
-                    "lead_death": "froze to death"
+                    "death": "m_c froze to death."
                 },
                 "frequency": 4
             },
@@ -2703,8 +2692,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred after a brush with frostbite, gotten while hunting in leaf-bare.",
-                    "death": "m_c died of frostbite.",
-                    "lead_death": "died to frostbite"
+                    "death": "m_c died of frostbite."
                 },
                 "frequency": 4
             }
@@ -3075,8 +3063,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred after a brush with frostbite, gotten while hunting in leaf-bare.",
-                    "death": "m_c died of frostbite.",
-                    "lead_death": "died to frostbite"
+                    "death": "m_c died of frostbite."
                 },
                 "frequency": 3
             },
@@ -3103,8 +3090,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred after a brush with frostbite, gotten while hunting in leaf-bare.",
-                    "death": "m_c died of frostbite.",
-                    "lead_death": "died to frostbite"
+                    "death": "m_c died of frostbite."
                 },
                 "frequency": 3
             }
@@ -4397,8 +4383,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred from the bite of the cold stream {PRONOUN/m_c/subject} fell into as an apprentice.",
-                    "death": "The viewpoint c_n thought was safe from avalanches... was not.",
-                    "lead_death": "the viewpoint c_n thought was safe from avalanches... was not"
+                    "death": "The viewpoint c_n thought was safe from avalanches... was not."
                 },
                 "frequency": 4
             }

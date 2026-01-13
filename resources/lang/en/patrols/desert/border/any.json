@@ -107,8 +107,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep c_n safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep c_n safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -146,8 +145,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep c_n safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep c_n safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -345,8 +343,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep the Clan safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep the Clan safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -384,8 +381,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep the Clan safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep the Clan safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -583,8 +579,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep the Clan safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep the Clan safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -622,8 +617,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat is scarred from bravely defending the Clan against a dog.",
-                    "death": "This cat died to keep the Clan safe from a large dog.",
-                    "lead_death": "died to keep c_n safe from a large dog"
+                    "death": "This cat died to keep the Clan safe from a large dog."
                 },
                 "relationships": [
                     {
@@ -763,8 +757,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got a scar from a fight with a small dog, but they always say it was a huge dog.",
-                    "death": "This cat was killed in a fight with a small dog, but they took the dog out with them.",
-                    "lead_death": "killed in a fight with a small dog"
+                    "death": "This cat was killed in a fight with a small dog, but they took the dog out with them."
                 },
                 "relationships": [
                     {
@@ -802,8 +795,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got a scar from a fight with a small dog, but they always say it was a huge dog.",
-                    "death": "This cat was killed in a fight with a small dog, but they took the dog out with them.",
-                    "lead_death": "killed in a fight with a small dog"
+                    "death": "This cat was killed in a fight with a small dog, but they took the dog out with them."
                 },
                 "relationships": [
                     {
@@ -1121,8 +1113,7 @@
                     "patrol"
                 ],
                 "history_text": {
-                    "death": "This cat was ambushed by a pack of wild dogs.",
-                    "lead_death": "ambushed by a pack of wild dogs"
+                    "death": "This cat was ambushed by a pack of wild dogs."
                 },
                 "frequency": 4
             }

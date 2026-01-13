@@ -1187,8 +1187,7 @@
                     "s_c"
                 ],
                 "history_text": {
-                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
-                    "lead_death": "fought a Rat King"
+                    "death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King."
                 },
                 "frequency": 3
             }

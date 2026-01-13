@@ -148,8 +148,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -189,8 +188,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -396,8 +394,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -601,8 +598,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -642,8 +638,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -689,8 +684,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -917,8 +911,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -958,8 +951,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -1005,8 +997,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -1281,8 +1272,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c died trying to provide for c_n during leaf-bare.",
-                    "lead_death": "died while hunting in the cold of leaf-bare"
+                    "death": "m_c died trying to provide for c_n during leaf-bare."
                 },
                 "frequency": 4
             },
@@ -1304,8 +1294,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c died trying to provide for c_n during leaf-bare.",
-                    "lead_death": "died while hunting in the cold of leaf-bare"
+                    "death": "m_c died trying to provide for c_n during leaf-bare."
                 },
                 "frequency": 4
             }
@@ -1419,8 +1408,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death while hunting in a storm.",
-                    "lead_death": "died while hunting in the cold of leaf-bare"
+                    "death": "m_c froze to death while hunting in a storm."
                 },
                 "relationships": [
                     {
@@ -1454,8 +1442,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c caught a chill while hunting in leaf-bare.",
-                    "death": "m_c froze to death while hunting in a storm.",
-                    "lead_death": "died while hunting in the cold of leaf-bare"
+                    "death": "m_c froze to death while hunting in a storm."
                 },
                 "frequency": 4
             }
@@ -1841,20 +1828,13 @@
                         ],
                         "injuries": [
                             "broken bone"
-                        ],
-                        "history_text": [
-                            {
-                                "death": "m_c died after falling out of a tree on a hunt."
-                            },
-                            {
-                                "lead_death": "died after falling out of a tree"
-                            },
-                            {
-                                "scar": "m_c was scarred after falling out of a tree on a hunt."
-                            }
                         ]
                     }
                 ],
+                "history_text": {
+                    "death": "m_c died after falling out of a tree on a hunt.",
+                    "scar": "m_c was scarred after falling out of a tree on a hunt."
+                },
                 "relationships": [
                     {
                         "cats_to": [
@@ -2466,8 +2446,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c mistook a buzzard for a vulture and got pecked",
-                    "death": "m_c was scared off a cliff by a large bird.",
-                    "lead_death": "fell to {PRONOUN/m_c/poss} death off of a high cliff after a run in with a large bird of prey"
+                    "death": "m_c was scared off a cliff by a large bird."
                 },
                 "frequency": 3
             },
@@ -2489,8 +2468,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c mistook a buzzard for a vulture and got pecked",
-                    "death": "m_c was scared off a cliff by a large bird.",
-                    "lead_death": "fell to {PRONOUN/m_c/poss} death off of a high cliff after a run in with a large bird of prey"
+                    "death": "m_c was scared off a cliff by a large bird."
                 },
                 "frequency": 3
             },
@@ -2513,8 +2491,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c mistook a buzzard for a vulture and got pecked",
-                    "death": "m_c was scared off a cliff by a large bird.",
-                    "lead_death": "fell to {PRONOUN/m_c/poss} death off of a high cliff after a run in with a large bird of prey"
+                    "death": "m_c was scared off a cliff by a large bird."
                 },
                 "frequency": 3
             },
@@ -2546,8 +2523,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c mistook a buzzard for a vulture and got pecked",
-                    "death": "m_c was scared off a cliff by a large bird.",
-                    "lead_death": "fell to {PRONOUN/m_c/poss} death off of a high cliff after a run in with a large bird of prey"
+                    "death": "m_c was scared off a cliff by a large bird."
                 },
                 "frequency": 3
             }

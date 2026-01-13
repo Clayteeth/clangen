@@ -51,8 +51,7 @@
                 "cats": [
                     "m_c"
                 ],
-                "death": "m_c died from water-inhalation after nearly drowning.",
-                "lead_death": "died from water-inhalation after nearly drowning"
+                "death": "m_c died from water-inhalation after nearly drowning."
             }
         ],
         "relationships": [
@@ -868,7 +867,6 @@
                     "m_c"
                 ],
                 "death": "m_c died from {PRONOUN/m_c/poss} injuries after saving a drowning enemy warrior.",
-                "lead_death": "died from {PRONOUN/m_c/poss} injuries after saving a drowning enemy warrior",
                 "scar": "m_c got a scar from a battle with a warring Clan"
             }
         ]

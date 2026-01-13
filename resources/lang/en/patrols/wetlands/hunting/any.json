@@ -1972,8 +1972,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
-                    "death": "m_c was hit by a monster and killed.",
-                    "lead_death": "hit by a monster"
+                    "death": "m_c was hit by a monster and killed."
                 },
                 "frequency": 3
             }
@@ -2076,8 +2075,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was heavily injured by a monster, and carries the scars from it.",
-                    "death": "m_c was hit by a monster and killed.",
-                    "lead_death": "deliberately hit by a monster"
+                    "death": "m_c was hit by a monster and killed."
                 },
                 "frequency": 3
             }
@@ -4500,8 +4498,7 @@
                 "dead_cats": ["r_c"],
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red vixen.",
-                    "death": "m_c fell in battle with a red fox.",
-                    "lead_death": "died while fighting a red vixen"
+                    "death": "m_c fell in battle with a red fox."
                 },
                 "relationships": [
                     {
@@ -4539,8 +4536,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red vixen.",
-                    "death": "m_c fell in battle with a red fox.",
-                    "lead_death": "died while fighting a red vixen"
+                    "death": "m_c fell in battle with a red fox."
                 },
                 "relationships": [
                     {
@@ -4573,8 +4569,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red vixen.",
-                    "death": "m_c fell in battle with a red fox.",
-                    "lead_death": "died while fighting a red vixen"
+                    "death": "m_c fell in battle with a red fox."
                 },
                 "relationships": [
                     {
@@ -5770,8 +5765,7 @@
                     }
                 ],
                 "history_text": {
-                    "death": "This cat died after eating tainted prey.",
-                    "lead_death": "after eating tainted prey"
+                    "death": "This cat died after eating tainted prey."
                 },
                 "frequency": 3
             }
@@ -5856,8 +5850,7 @@
                         }
                     ],
                     "history_text": {
-                        "death": "m_c died from the water {PRONOUN/m_c/subject} inhaled on a hunt as a foolish apprentice.",
-                        "lead_death": "from the water {PRONOUN/m_c/subject} inhaled on a hunt as a foolish apprentice"
+                        "death": "m_c died from the water {PRONOUN/m_c/subject} inhaled on a hunt as a foolish apprentice."
                         },
                     "frequency": 4
                 }

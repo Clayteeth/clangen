@@ -571,8 +571,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -609,8 +608,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -654,8 +652,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -832,8 +829,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -870,8 +866,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c carries a scar from an eagle's beak.",
-                    "death": "m_c was killed by an eagle, scrapping over food.",
-                    "lead_death": "{VERB/m_c/were/was} killed by an eagle"
+                    "death": "m_c was killed by an eagle, scrapping over food."
                 },
                 "relationships": [
                     {
@@ -1694,17 +1689,10 @@
                         ]
                     }
                 ],
-                "history": [
-                    {
-                        "death": "m_c succumbed to a broken bone after falling out of a tree."
+                "history_text": {
+                    "death": "m_c succumbed to a broken bone after falling out of a tree.",
+                    "scar": "m_c carries a scar after falling out of a tree and breaking a bone."
                     },
-                    {
-                        "lead_death": "fell out of a tree and died of a broken bone"
-                    },
-                    {
-                        "scar": "m_c carries a scar after falling out of a tree and breaking a bone."
-                    }
-                ],
                 "relationships": [
                     {
                         "cats_to": [

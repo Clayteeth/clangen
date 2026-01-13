@@ -15,8 +15,7 @@
         "history": [
             {
                 "cats": ["m_c"],
-                "death": "m_c was buried alive in an avalanche.",
-                "lead_death": "{VERB/m_c/were/was} buried alive in an avalanche"
+                "death": "m_c was buried alive in an avalanche."
             }
         ]
     },

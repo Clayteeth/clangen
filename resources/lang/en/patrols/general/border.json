@@ -769,8 +769,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c succumbed to injury after being ambushed by a rogue and abandoned on patrol.",
-                    "lead_death": "succumbed to injury after being ambushed and abandoned"
+                    "death": "m_c succumbed to injury after being ambushed by a rogue and abandoned on patrol."
                 },
                 "frequency": 2
             },
