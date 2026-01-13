@@ -27,7 +27,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was crushed by a falling branch.",
-                "lead_death": "{VERB/m_c/were/was} crushed by a falling branch.",
+                "death": "{VERB/m_c/were/was} crushed by a falling branch.",
                 "scar": ""
             }
         ]
@@ -61,7 +61,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c fell out of a tree while trying to escape from a dog.",
-                "lead_death": "fell out of a tree while trying to escape a dog"
+                "death": "fell out of a tree while trying to escape a dog"
             }
         ]
     },
@@ -85,7 +85,7 @@
                     "m_c"
                 ],
                 "reg_death": "m_c was crushed by a falling tree.",
-                "lead_death": "{VERB/m_c/were/was} crushed by a falling tree"
+                "death": "{VERB/m_c/were/was} crushed by a falling tree"
             }
         ]
     },

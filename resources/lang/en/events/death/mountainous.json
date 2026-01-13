@@ -16,7 +16,7 @@
             {
                 "cats": ["m_c"],
                 "reg_death": "m_c was buried alive in an avalanche.",
-                "lead_death": "{VERB/m_c/were/was} buried alive in an avalanche"
+                "death": "{VERB/m_c/were/was} buried alive in an avalanche"
             }
         ]
     },
