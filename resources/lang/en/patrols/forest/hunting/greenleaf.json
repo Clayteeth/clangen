@@ -1808,7 +1808,7 @@
                 "history_text": {
                     "scar": "m_c was scarred fighting a Rat King.",
                     "reg_death": "m_c died from a rat bite.",
-                    "lead_death": "died from a rat bite"
+                    "death": "died from a rat bite"
                 },
                 "prey": [
                     "very_small"
@@ -1837,7 +1837,7 @@
                 "history_text": {
                     "scar": "m_c was scarred fighting a Rat King.",
                     "reg_death": "m_c died from {PRONOUN/m_c/poss} wounds after battling a Rat King.",
-                    "lead_death": "died from wounds after battling a Rat King"
+                    "death": "died from wounds after battling a Rat King"
                 },
             "relationships": [
                 {
@@ -1864,7 +1864,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c died while battling a Rat King.",
-                    "lead_death": "died while battling a Rat King"
+                    "death": "died while battling a Rat King"
                 },
                 "frequency": 3
             }
@@ -2419,7 +2419,7 @@
                 ],
                 "history_text": {
                     "reg_death": "This cat died from heat stroke.",
-                    "lead_death": "died from heat stroke"
+                    "death": "died from heat stroke"
                 },
                 "prey": [
                     "very_small"
@@ -2666,7 +2666,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "prey": ["very_small"],
                 "frequency": 3
@@ -2699,7 +2699,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
@@ -2898,7 +2898,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "prey": ["very_small"],
                 "frequency": 3
@@ -2931,7 +2931,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
@@ -3083,7 +3083,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c fell in a solo battle with a red fox.",
-                    "lead_death": "died while fighting a red fox"
+                    "death": "died while fighting a red fox"
                 },
                 "frequency": 3
             },
@@ -3106,7 +3106,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a solo fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
@@ -3150,7 +3150,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a solo fight with a red fox.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "frequency": 3
             }
@@ -3358,7 +3358,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a gray fox.",
                     "reg_death": "m_c died from a gray fox bite.",
-                    "lead_death": "died from a gray fox bite"
+                    "death": "died from a gray fox bite"
                 },
                 "relationships": [
                     {
@@ -3705,7 +3705,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a solo fight with a gray fox.",
                     "reg_death": "m_c died from a gray fox bite.",
-                    "lead_death": "died from a gray fox bite"
+                    "death": "died from a gray fox bite"
                 },
                 "relationships": [
                     {
@@ -3756,7 +3756,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a solo fight with a gray fox.",
                     "reg_death": "m_c died from a gray fox bite.",
-                    "lead_death": "died from a gray fox bite"
+                    "death": "died from a gray fox bite"
                 },
                 "prey": [
                     "very_small"
@@ -3937,7 +3937,7 @@
                 ],
                 "history_text": {
                     "reg_death": "m_c fell in battle with a red vixen.",
-                    "lead_death": "died while fighting a red vixen"
+                    "death": "died while fighting a red vixen"
                 },
                 "frequency": 3
             },
@@ -3960,7 +3960,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red vixen.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
@@ -4006,7 +4006,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fox fight.",
                     "reg_death": "m_c fell in battle with a fox.",
-                    "lead_death": "died while fighting a fox"
+                    "death": "died while fighting a fox"
                 },
                 "relationships": [
                     {
@@ -4195,7 +4195,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from fight with a red vixen.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
@@ -4233,7 +4233,7 @@
                 "history_text": {
                     "scar": "m_c carries a scar from a fight with a red vixen.",
                     "reg_death": "m_c died from a red fox bite.",
-                    "lead_death": "died from a red fox bite"
+                    "death": "died from a red fox bite"
                 },
                 "relationships": [
                     {
