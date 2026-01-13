@@ -666,14 +666,14 @@ class ShortEvent:
                     # find history
                     if self.main_cat.status.is_leader:
                         death_history = history_text_adjust(
-                            block.get("lead_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
                         )
                     else:
                         death_history = history_text_adjust(
-                            block.get("reg_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
@@ -700,14 +700,14 @@ class ShortEvent:
                 if self.r_c["dies"]:
                     if self.random_cat.status.is_leader:
                         death_history = history_text_adjust(
-                            block.get("lead_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
                         )
                     else:
                         death_history = history_text_adjust(
-                            block.get("reg_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
@@ -733,14 +733,14 @@ class ShortEvent:
                 for cat in self.multi_cat_objects:
                     if cat.status.is_leader:
                         death_history = history_text_adjust(
-                            block.get("lead_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
                         )
                     else:
                         death_history = history_text_adjust(
-                            block.get("reg_death"),
+                            block.get("death"),
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
@@ -762,7 +762,7 @@ class ShortEvent:
                     for i, new_cat_objects in enumerate(self.new_cats):
                         if new_cat_objects[i].dead:
                             death_history = history_text_adjust(
-                                block.get("reg_death"),
+                                block.get("death"),
                                 self.other_clan_name,
                                 game.clan,
                                 self.random_cat,
@@ -849,14 +849,14 @@ class ShortEvent:
                     )
                     if cat.status.is_leader:
                         possible_death = history_text_adjust(
-                            block["lead_death"],
+                            block["death"],
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
                         )
                     else:
                         possible_death = history_text_adjust(
-                            block["reg_death"],
+                            block["death"],
                             self.other_clan_name,
                             game.clan,
                             self.random_cat,
