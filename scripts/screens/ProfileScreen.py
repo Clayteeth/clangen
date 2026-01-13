@@ -1637,9 +1637,7 @@ class ProfileScreen(Screens):
                         while multi_life_count != 0:
                             multi_life_count -= 1
                             temp_index += 1
-                            lives.append(
-                                i18n.t(f"utility.{life_names[temp_index]}").capitalize()
-                            )
+                            lives.append(i18n.t(f"utility.{life_names[temp_index]}"))
                     else:
                         lives = [i18n.t(f"utility.{life_names[index]}").capitalize()]
 

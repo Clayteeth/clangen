@@ -17,8 +17,8 @@
          "comment": "Leader live strings for history text or text where m_c is included in the area its being called to",
         "leader_death_all": "lost all of {PRONOUN/m_c/poss} lives",
         "leader_death_cardinal": {
-            "one": "%{cardinal} Life:",
-            "many": "%{cardinal} Lives:"
+            "one": "%{cardinal} life:",
+            "many": "%{cardinal} lives:"
         },
         "leader_lost_lives": {
             "one": "lost a life.",
