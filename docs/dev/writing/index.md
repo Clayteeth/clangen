@@ -210,7 +210,7 @@ Event and flavor text should always use Americanized spelling.
 - HTML tags for bolding and italicizing are usable. These tags are:
     - `<i>` and `</i>` for italicizing
     - `<b>` and `</b>` for bolding
-- Keeping a change log: as a writer, people are going to be super excited to experience what you write! Make sure to keep a rough record of what that might be, i.e A writer has no idea how many fox patrols they have added total, but does know how many species are added are in what biomes, so that when they made the PR to merge them into the game they could mention their existence in the changelog for that PR.
+- Keeping a change log: as a writer, people are going to be super excited to experience what you write! Make sure to keep a rough record of what that might be. For example, a writer may have no idea how many fox patrols they are adding total. However, they do know how many species they have added and in what biomes. So, when they make the PR to merge them into the game, they can mention their existence in the changelog for that PR.
     - An easy way to keep track of your additions is with your commit titles and descriptions.  Making commits whenever you reach a ‘milestone’ of sorts and then titling it appropriately will leave you with a nice list of commits to review for your later change log.  When I bugfix, for example, I tend to make a commit every time I fix a bug and then title that commit with a short description of the bug I fixed.
 
 
