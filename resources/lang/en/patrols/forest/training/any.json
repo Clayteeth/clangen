@@ -2960,6 +2960,18 @@
             {
                 "text": "Unsure but remembering the kitten-tales of red deathberries, r_c avoids them, and gives the rest of the patrol a heads-up about the potentially dangerous bush.",
                 "exp": 20,
+                "relationships": [
+                    {
+                        "cats_from": ["patrol"],
+                        "cats_to": ["r_c"],
+                        "values": ["respect", "trust"],
+                        "amount": 8,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "from_cat appreciated that to_cat gave {PRONOUN/from_cat/object} a heads-up about deathberries on patrol."
+                        }
+                    }
+                ],
                 "frequency": 4
             },
             {
@@ -2968,6 +2980,18 @@
                 "herbs": [
                     "raspberry"
                 ],
+                "relationships": [
+                    {
+                        "cats_from": ["patrol"],
+                        "cats_to": ["r_c"],
+                        "values": ["respect"],
+                        "amount": 8,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "from_cat was impressed that to_cat recognized raspberries on a training patrol and brought them back for the medicine cat."
+                        }
+                    }
+                ],
                 "frequency": 1
             },
             {
@@ -2975,6 +2999,18 @@
                 "exp": 20,
                 "stat_skill": [
                     "CLEVER,2"
+                ],
+                "relationships": [
+                    {
+                        "cats_from": ["patrol"],
+                        "cats_to": ["r_c"],
+                        "values": ["respect"],
+                        "amount": 10,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "from_cat was very impressed that to_cat recognized cranberries on a training patrol and brought them back for the medicine cat."
+                        }
+                    }
                 ],
                 "frequency": 4
             }
@@ -2986,7 +3022,7 @@
                 "frequency": 4
             },
             {
-                "text": "While plucking them from the bush, r_c finds them tasty, and eats a few, only for p_l to notice what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} eating. {PRONOUN/r_c/subject/CAP}{VERB/r_c/'re/'s} rushed back to camp, where the medicine cat might have a chance at saving {PRONOUN/r_c/object} from deathberry poisoning.",
+                "text": "While plucking them from the bush, r_c finds them tasty and eats a few. When p_l notices what {PRONOUN/r_c/subject}{VERB/r_c/'re/'s} eating, {PRONOUN/p_l/subject} {VERB/p_l/rush/rushes} r_c back to camp.",
                 "exp": 0,
                 "injury": [
                     {
@@ -3003,6 +3039,18 @@
                     "reg_death": "m_c mistook deathberries for something edible.",
                     "lead_death": "after eating deathberries"
                 },
+                "relationships": [
+                    {
+                        "cats_from": ["r_c"],
+                        "cats_to": ["p_l"],
+                        "values": ["trust"],
+                        "amount": 15,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "to_cat rushed from_cat back to camp when from_cat ate deathberries on patrol."
+                        }
+                    }
+                ],
                 "frequency": 3
             }
         ]
@@ -3033,6 +3081,18 @@
             {
                 "text": "Unsure but remembering the kitten-tales of red deathberries, app1 avoids them and alerts the patrol, who, extremely worried, confirm that this a deathberry bush.",
                 "exp": 20,
+                "relationships": [
+                    {
+                        "cats_from": ["patrol"],
+                        "cats_to": ["r_c"],
+                        "values": ["respect", "trust"],
+                        "amount": 8,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "from_cat appreciated that to_cat gave {PRONOUN/from_cat/object} a heads-up about deathberries on patrol."
+                        }
+                    }
+                ],
                 "frequency": 4
             },
             {
@@ -3051,7 +3111,7 @@
                 "frequency": 4
             },
             {
-                "text": "Whatever. Identifying them is a medicine cat problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/r_c/object}, having not identified deathberries before eating them.",
+                "text": "Whatever. Identifying them is a medicine cat problem. app1 plucks the berries, surprised at the pleasant taste, and swallows a few. {PRONOUN/app1/subject/CAP} {VERB/app1/collapse/collapses} on the way back to camp, and there's nothing any cat can do for {PRONOUN/r_c/object}, who failed to identify deathberries before eating them.",
                 "exp": 0,
                 "dead_cats": [
                     "app1"
