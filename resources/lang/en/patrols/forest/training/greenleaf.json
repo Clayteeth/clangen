@@ -40,12 +40,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat took a romantic stroll in the greenleaf sun together."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -62,12 +61,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat took a romantic stroll in the greenleaf sun together."
+                        }
                     }
                 ],
                 "frequency": 1
@@ -80,6 +78,7 @@
                     "MEDIATOR,1",
                     "INSIGHTFUL,1"
                 ],
+                "can_have_stat": ["p_l"],
                 "relationships": [
                     {
                         "cats_to": [
@@ -89,12 +88,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 13,
+                        "log": {
+                            "cats_from": "s_c's social adeptness made {PRONOUN/s_c/poss} romantic greenleaf stroll with r_c all the better."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -106,19 +104,24 @@
                 "exp": 0,
                 "relationships": [
                     {
-                        "cats_to": [
-                            "p_l"
-                        ],
-                        "cats_from": [
-                            "r_c"
-                        ],
+                        "cats_to": ["r_c"],
+                        "cats_from": ["p_l"],
+                        "mutual": false,
+                        "values": ["romance"],
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "p_l felt embarrassed and stung when r_c rejected {PRONOUN/p_l/poss} offer of a romantic stroll."
+                        }
+                    },
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_c"],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": -5
+                        "values": ["comfort"],
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "r_c felt awkward when p_l asked {PRONOUN/r_c/object} out on a romantic stroll, and r_c rejected the offer."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -141,10 +144,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "apprentice": [
-                1,
-                6
-            ]
+            "apprentice": [1, 1]
         },
         "frequency": 4,
         "intro_text": "app1 crouches low behind some grass, searching for the ideal prey to fall to {PRONOUN/app1/poss} deadly claws. In front of the mighty hunter, a brightly colored beetle alights on a rock.",
@@ -190,6 +190,18 @@
                         "scars": []
                     }
                 ],
+                "relationships": [
+                    {
+                        "cats_from": ["high_social"],
+                        "cats_to": ["app1"],
+                        "values": ["like"],
+                        "amount": 5,
+                        "mutual": false,
+                        "log": {
+                            "cats_from": "from_cat was amused to hear that to_cat hunted and ate a beetle, then got a stomachache from it."
+                        }
+                    }
+                ],
                 "frequency": 3
             }
         ]
@@ -216,7 +228,7 @@
         "chance_of_success": 60,
         "success_outcomes": [
             {
-                "text": "Unsure but remembering the kitten-tales of red deathberries, r_c avoids them, and gives the rest of the patrol a head's up about the potentially dangerous bush.",
+                "text": "Unsure but remembering the kitten-tales of red deathberries, r_c avoids them, and gives the rest of the patrol a heads-up about the potentially dangerous bush.",
                 "exp": 20,
                 "relationships": [
                     {
