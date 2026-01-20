@@ -1677,11 +1677,8 @@ class ProfileScreen(Screens):
                         text += f" ({i18n.t('general.moon_date', moon=death['moon'])})"
                     all_deaths.append(text)
 
-            if CatRank.LEADER in self.the_cat.status.all_ranks or number_of_deaths > 1:
-                if number_of_deaths > 1:
-                    text = str("\n").join(all_deaths)
-                else:
-                    text = all_deaths[0]
+            if number_of_deaths > 1:
+                text = str("\n").join(all_deaths)
 
                 if not text.endswith(".") and not text.endswith(") "):
                     text += "."

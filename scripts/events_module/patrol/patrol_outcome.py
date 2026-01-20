@@ -106,7 +106,7 @@ class PatrolOutcome:
         self.lost_cats = lost_cats if lost_cats else []
         self.injury = injury if injury else []
 
-        self.history_death = history_death if history_death else "died on patrol."
+        self.history_death = history_death if history_death else "m_c died on patrol."
         self.history_scar = (
             history_scar if history_scar is not None else "m_c was scarred on patrol."
         )
@@ -203,16 +203,8 @@ class PatrolOutcome:
                     dead_cats=_d.get("dead_cats"),
                     lost_cats=_d.get("lost_cats"),
                     injury=_d.get("injury"),
-                    history_death=(
-                        _d["history_text"].get("death")
-                        if isinstance(_d.get("history_text"), dict)
-                        else None
-                    ),
-                    history_scar=(
-                        _d["history_text"].get("scar")
-                        if isinstance(_d.get("history_text"), dict)
-                        else None
-                    ),
+                    history_death=_d.get("history_text", {}).get("death"),
+                    history_scar=_d.get("history_text", {}).get("scar"),
                     new_cat=_d.get("new_cat"),
                     herbs=_d.get("herbs"),
                     prey=_d.get("prey"),
@@ -677,7 +669,7 @@ class PatrolOutcome:
                 else:
                     # If no results are shown, assume the cat didn't get the patrol history. Default override.
                     self.__handle_condition_history(
-                        _cat, give_injury, patrol, default_overide=True
+                        _cat, give_injury, patrol, default_override=True
                     )
 
         return " ".join(results)
@@ -985,7 +977,7 @@ class PatrolOutcome:
         return chosen_scar
 
     def __handle_condition_history(
-        self, cat: Cat, condition: str, patrol: "Patrol", default_overide=False
+        self, cat: Cat, condition: str, patrol: "Patrol", default_override=False
     ) -> None:
         """Handles adding potential history to a cat. default_override will use the default text for the condition."""
 
@@ -997,7 +989,7 @@ class PatrolOutcome:
         final_death_history = self.history_death
         history_scar = self.history_scar
 
-        if default_overide:
+        if default_override:
             final_death_history = None
             history_scar = None
 
