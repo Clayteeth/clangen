@@ -1141,8 +1141,7 @@
                         ],
                         "history_text": {
                             "scar": "This cat was scarred by a rattlesnake while hunting.",
-                            "reg_death": "This cat was killed by a rattlesnake while hunting.",
-                            "lead_death": "a rattlesnake while hunting."
+                            "death": "This cat was killed by a rattlesnake while hunting."
                         }
                     }
                 ],
@@ -1185,8 +1184,7 @@
                         "history_text": {
                             "scar": "This cat was scarred by a rattlesnake while hunting.",
                             "condition": "this cat was blinded by a rattlesnake while hunting",
-                            "reg_death": "This cat was killed by a rattlesnake while hunting.",
-                            "lead_death": "a rattlesnake while hunting."
+                            "death": "This cat was killed by a rattlesnake while hunting."
                         }
                     }
                 ],
