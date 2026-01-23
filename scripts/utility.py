@@ -1370,7 +1370,7 @@ def filter_relationship_type(
                         allowed_levels = rel_type_tiers[rel_type][index:]
                     # if it's a neg tier, we allow that index and lower
                     elif rel_tier.is_any_neg:
-                        allowed_levels = rel_type_tiers[rel_type][0:index]
+                        allowed_levels = rel_type_tiers[rel_type][0 : index + 1]
 
                     discard = True
                     for l in tier_list:
@@ -1523,8 +1523,16 @@ def unpack_rel_block(
         to_log = None
         from_log = None
         if "log" in block:
-            to_log = block["log"].get("cats_to") + effect
-            from_log = block["log"].get("cats_from") + effect
+            to_log = (
+                block["log"].get("cats_to", "") + effect
+                if "cats_to" in block["log"]
+                else None
+            )
+            from_log = (
+                block["log"].get("cats_from", "") + effect
+                if "cats_from" in block["log"]
+                else None
+            )
             if not to_log and not from_log:
                 print(f"something is wrong with relationship log: {block['log']}")
 
@@ -1536,11 +1544,12 @@ def unpack_rel_block(
         )
 
         if block.get("mutual"):
+            # we'll default to the other log if no unique log was written
             change_relationship_values(
                 cats_from_ob,
                 cats_to_ob,
                 **value_changes,
-                log=to_log,
+                log=to_log if to_log else from_log,
             )
 
 
@@ -1612,9 +1621,26 @@ def change_relationship_values(
                   " /Respect: " + str(respect) +
                   " /Comfort: " + str(comfort) +
                   " /Trust: " + str(trust)) if changed else print("No relationship change")"""
-
+            if not log:
+                log = i18n.t("relationships.relationship_log")
             if log and isinstance(log, str):
-                log_text = log + i18n.t(
+                replace_dict = {}
+                if "from_cat" in log:
+                    replace_dict["from_cat"] = (
+                        str(single_cat_from.name),
+                        choice(single_cat_from.pronouns),
+                    )
+                if "to_cat" in log:
+                    replace_dict["to_cat"] = (
+                        str(single_cat_to.name),
+                        choice(single_cat_to.pronouns),
+                    )
+                if replace_dict:
+                    processed_log = process_text(log, replace_dict)
+                else:
+                    processed_log = log
+
+                log_text = processed_log + i18n.t(
                     "relationships.age_postscript",
                     name=str(single_cat_to.name),
                     count=single_cat_to.moons,
