@@ -312,9 +312,7 @@ def event_for_cat(
         "age": _check_cat_age,
         "status": _check_cat_status,
         "trait": _check_cat_trait,
-        "not_trait": _check_cat_not_trait,
         "skill": _check_cat_skills,
-        "not_skill": _check_cat_not_skills,
         "backstory": _check_cat_backstory,
         "gender": _check_cat_gender,
     }
@@ -373,7 +371,22 @@ def _check_cat_age(cat, ages: list) -> bool:
     if not ages or "any" in ages:
         return True
 
-    return cat.age.value in ages
+    if cat.age.value in ages:
+        return True
+
+    # check for exclusionary values
+    exclusionary = False
+    for age in ages:
+        if "-" in age:
+            exclusionary = True
+            age_value = age.replace("-", "")
+            if cat.age.value == age_value:
+                return False
+
+    if exclusionary:
+        return True
+    else:
+        return False
 
 
 def _check_cat_status(cat, statuses: list) -> bool:
@@ -389,7 +402,19 @@ def _check_cat_status(cat, statuses: list) -> bool:
     if "lost" in statuses and cat.status.is_lost():
         return True
 
-    return False
+    # check for exclusionary values
+    exclusionary = False
+    for status in statuses:
+        if "-" in status:
+            exclusionary = True
+            status_value = status.replace("-", "")
+            if cat.status.rank == status_value:
+                return False
+
+    if exclusionary:
+        return True
+    else:
+        return False
 
 
 def _check_cat_trait(cat, traits: list) -> bool:
@@ -399,17 +424,22 @@ def _check_cat_trait(cat, traits: list) -> bool:
     if not traits:
         return True
 
-    return cat.personality.trait in traits
-
-
-def _check_cat_not_trait(cat, traits: list) -> bool:
-    """
-    checks if cat has the excluded traits
-    """
-    if not traits:
+    if cat.personality.trait in traits:
         return True
 
-    return not cat.personality.trait in traits
+    # check for exclusionary values
+    exclusionary = False
+    for trait in traits:
+        if "-" in trait:
+            exclusionary = True
+            trait_value = trait.replace("-", "")
+            if cat.personality.trait == trait_value:
+                return False
+
+    if exclusionary:
+        return True
+    else:
+        return False
 
 
 def _check_cat_skills(cat, skills: list) -> bool:
@@ -419,6 +449,7 @@ def _check_cat_skills(cat, skills: list) -> bool:
     if not skills:
         return True
 
+    exclusionary = False
     for _skill in skills:
         skill_info = _skill.split(",")
 
@@ -426,28 +457,22 @@ def _check_cat_skills(cat, skills: list) -> bool:
             print("Cat skill incorrectly formatted", _skill)
             continue
 
-        if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
-            return True
-
-    return False
-
-
-def _check_cat_not_skills(cat, skills: list) -> bool:
-    """
-    checks if the cat has a forbidden skill
-    """
-    if not skills:
-        return True
-
-    for _skill in skills:
-        skill_info = _skill.split(",")
-        if len(skill_info) < 2:
-            print("Cat not_skill incorrectly formatted", _skill)
+        # check for exclusionary values first
+        if "-" in skill_info[0]:
+            exclusionary = True
+            skill_info[0].replace("-", "")
+            if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
+                return False
+            # continue so that we don't try to check it again
             continue
 
         if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
-            return False
-    return True
+            return True
+
+    if exclusionary:
+        return True
+    else:
+        return False
 
 
 def _check_cat_backstory(cat, backstories: list) -> bool:
