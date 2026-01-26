@@ -1370,7 +1370,7 @@ def filter_relationship_type(
                         allowed_levels = rel_type_tiers[rel_type][index:]
                     # if it's a neg tier, we allow that index and lower
                     elif rel_tier.is_any_neg:
-                        allowed_levels = rel_type_tiers[rel_type][0:index]
+                        allowed_levels = rel_type_tiers[rel_type][0 : index + 1]
 
                     discard = True
                     for l in tier_list:
@@ -1636,9 +1636,11 @@ def change_relationship_values(
                         choice(single_cat_to.pronouns),
                     )
                 if replace_dict:
-                    log = process_text(log, replace_dict)
+                    processed_log = process_text(log, replace_dict)
+                else:
+                    processed_log = log
 
-                log_text = log + i18n.t(
+                log_text = processed_log + i18n.t(
                     "relationships.age_postscript",
                     name=str(single_cat_to.name),
                     count=single_cat_to.moons,
@@ -2048,7 +2050,7 @@ def ongoing_event_text_adjust(Cat, text, clan=None, other_clan_name=None):
 
 def event_text_adjust(
     Cat: Type["Cat"],
-    text,
+    text: str,
     *,
     patrol_leader=None,
     main_cat=None,
