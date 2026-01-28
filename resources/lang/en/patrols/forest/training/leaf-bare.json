@@ -324,24 +324,14 @@
                         "cats_from": [
                             "patrol"
                         ],
-                        "mutual": true,
-                        "values": [
-                            "like"
-                        ],
-                        "amount": 5
-                    },
-                    {
-                        "cats_to": [
-                            "p_l"
-                        ],
-                        "cats_from": [
-                            "patrol"
-                        ],
                         "mutual": false,
                         "values": [
-                            "respect"
+                            "like", "respect"
                         ],
-                        "amount": 5
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat enjoyed to_cat's story about the lake cat."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -377,7 +367,10 @@
                         "values": [
                             "comfort"
                         ],
-                        "amount": -10
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "from_cat was chilled to the bone by to_cat's story of the Underwater Panther."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -400,10 +393,7 @@
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "normal adult": [
-                1,
-                6
-            ]
+            "normal adult": [1, 6]
         },
         "frequency": 3,
         "chance_of_success": 60,
@@ -430,22 +420,10 @@
                             "respect",
                             "like"
                         ],
-                        "amount": 10
-                    },
-                    {
-                        "cats_to": [
-                            "patrol"
-                        ],
-                        "cats_from": [
-                            "patrol"
-                        ],
-                        "mutual": false,
-                        "values": [
-                            "comfort",
-                            "trust",
-                            "like"
-                        ],
-                        "amount": 5
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat enjoyed to_cat's story about the gifted apprentice who created leaf-bare in anger."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -463,13 +441,30 @@
                         "cats_from": [
                             "r_c"
                         ],
-                        "mutual": true,
+                        "mutual": false,
                         "values": [
-                            "respect",
-                            "like",
-                            "comfort"
+                            "respect"
                         ],
-                        "amount": -5
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "from_cat walked off in the middle of to_cat's boring story."
+                        }
+                    },
+                    {
+                        "cats_to": [
+                            "r_c"
+                        ],
+                        "cats_from": [
+                            "p_l"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like", "trust"
+                        ],
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "to_cat walked off in the middle of from_cat's enthralling story."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -489,18 +484,19 @@
                 "relationships": [
                     {
                         "cats_to": [
-                            "p_l"
-                        ],
-                        "cats_from": [
                             "r_c"
                         ],
-                        "mutual": true,
-                        "values": [
-                            "respect",
-                            "like",
-                            "comfort"
+                        "cats_from": [
+                            "p_l"
                         ],
-                        "amount": -5
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": 5,
+                        "log": {
+                            "cats_from": "Even though to_cat interrupted, from_cat was touched by to_cat's concern for a character in {PRONOUN/from_cat/poss} story."
+                        }
                     }
                 ],
                 "frequency": 4
