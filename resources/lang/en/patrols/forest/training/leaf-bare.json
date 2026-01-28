@@ -40,12 +40,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat took a romantic stroll in the frosty leaf-bare forest together."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -62,12 +61,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat took a romantic stroll in the frosty leaf-bare forest together."
+                        }
                     }
                 ],
                 "frequency": 1
@@ -80,6 +78,7 @@
                     "MEDIATOR,1",
                     "INSIGHTFUL,1"
                 ],
+                "can_have_stat": ["p_l"],
                 "relationships": [
                     {
                         "cats_to": [
@@ -89,12 +88,11 @@
                             "r_c"
                         ],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": 5
+                        "values": ["romance", "like", "comfort"],
+                        "amount": 13,
+                        "log": {
+                            "cats_from": "s_c's social adeptness made {PRONOUN/s_c/poss} romantic leaf-bare stroll with r_c all the better."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -106,19 +104,24 @@
                 "exp": 0,
                 "relationships": [
                     {
-                        "cats_to": [
-                            "p_l"
-                        ],
-                        "cats_from": [
-                            "r_c"
-                        ],
+                        "cats_to": ["r_c"],
+                        "cats_from": ["p_l"],
+                        "mutual": false,
+                        "values": ["romance"],
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "p_l felt embarrassed when r_c rejected {PRONOUN/p_l/poss} offer of a romantic stroll."
+                        }
+                    },
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_c"],
                         "mutual": true,
-                        "values": [
-                            "romance",
-                            "like",
-                            "comfort"
-                        ],
-                        "amount": -5
+                        "values": ["comfort"],
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "r_c felt awkward when p_l asked {PRONOUN/r_c/object} out on a romantic stroll, and r_c rejected the offer."
+                        }
                     }
                 ],
                 "frequency": 4
