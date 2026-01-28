@@ -141,17 +141,11 @@
         ],
         "tags": [],
         "patrol_art": "gen_med_vision",
-        "min_cats": 3,
+        "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [
-                2,
-                6
-            ],
-            "normal adult": [
-                1,
-                6
-            ]
+            "apprentice": [2, 4],
+            "normal adult": [2, 4]
         },
         "frequency": 3,
         "chance_of_success": 60,
@@ -172,24 +166,14 @@
                         "cats_from": [
                             "patrol"
                         ],
-                        "mutual": true,
-                        "values": [
-                            "like"
-                        ],
-                        "amount": 5
-                    },
-                    {
-                        "cats_to": [
-                            "p_l"
-                        ],
-                        "cats_from": [
-                            "patrol"
-                        ],
                         "mutual": false,
                         "values": [
-                            "respect"
+                            "like", "respect"
                         ],
-                        "amount": 5
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat enjoyed to_cat's story about how StarClan cats cleaning out their nests creates snowfall"
+                        }
                     }
                 ],
                 "frequency": 4
@@ -225,20 +209,26 @@
                         "values": [
                             "respect"
                         ],
-                        "amount": -10
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "from_cat was a casualty in to_cat's snowball fight."
+                        }
                     },
                     {
                         "cats_to": [
-                            "app1"
+                            "app1", "app2", "app3", "app4"
                         ],
                         "cats_from": [
-                            "app2"
+                            "app1", "app2", "app3", "app4"
                         ],
                         "mutual": true,
                         "values": [
                             "like"
                         ],
-                        "amount": 10
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat had a snowball fight on patrol."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -247,14 +237,16 @@
                 "text": "s_c, wary of any more work, stalks off before p_l can assign {PRONOUN/s_c/object} more chores - and misses out on p_l's excellent storytelling as a result.",
                 "exp": 0,
                 "can_have_stat": [
-                    "any",
                     "app"
                 ],
                 "stat_trait": [
                     "shameless",
                     "arrogant",
                     "bold",
-                    "cold"
+                    "cold",
+                    "troublesome",
+                    "childish",
+                    "grumpy"
                 ],
                 "relationships": [
                     {
@@ -266,9 +258,28 @@
                         ],
                         "mutual": false,
                         "values": [
-                            "respect"
+                            "comfort"
                         ],
-                        "amount": -10
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "from_cat avoided to_cat to get out of more work."
+                        }
+                    },
+                    {
+                        "cats_to": [
+                            "s_c"
+                        ],
+                        "cats_from": [
+                            "p_l"
+                        ],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": -8,
+                        "log": {
+                            "cats_from": "from_cat wanted to tell to_cat and some other apprentices a story, but to_cat ran off."
+                        }
                     }
                 ],
                 "frequency": 4
@@ -291,14 +302,8 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [
-                1,
-                6
-            ],
-            "normal adult": [
-                1,
-                6
-            ]
+            "apprentice": [1, 5],
+            "normal adult": [1, 5]
         },
         "frequency": 3,
         "chance_of_success": 60,

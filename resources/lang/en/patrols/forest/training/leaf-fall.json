@@ -144,14 +144,8 @@
         "min_cats": 4,
         "max_cats": 6,
         "min_max_status": {
-            "apprentice": [
-                2,
-                4
-            ],
-            "normal adult": [
-                2,
-                4
-            ]
+            "apprentice": [2, 4],
+            "normal adult": [2, 4]
         },
         "frequency": 3,
         "intro_text": "The leaves drift high in sunset piles beneath the shedding trees, and as the patrol wanders the familiar forest paths, app1 gets swallowed up.",
