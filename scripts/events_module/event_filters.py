@@ -662,7 +662,7 @@ def _get_cats_with_rel_status(
 
 def _get_cats_with_age(cat_list: list, ages: tuple) -> list:
     """
-    checks cat_list against required ages and returns qualifying cats
+    Checks cat_list against required ages and returns qualifying cats.
     """
     if not ages or "any" in ages:
         return cat_list
@@ -688,7 +688,18 @@ def _get_cats_with_status(cat_list: list, statuses: tuple) -> list:
     if not statuses or "any" in statuses:
         return cat_list
 
-    return [kitty for kitty in cat_list if kitty.status in statuses]
+    exclusionary = False
+    for status in statuses:
+        if "-" in status:
+            exclusionary = True
+            break
+
+    statuses = [x.replace("-", " ") for x in statuses]
+
+    if exclusionary:
+        return [kitty for kitty in cat_list if kitty.age not in statuses]
+    else:
+        return [kitty for kitty in cat_list if kitty.age in statuses]
 
 
 def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
