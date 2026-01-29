@@ -204,8 +204,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -292,8 +292,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -384,8 +384,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "CLEVER,2"
+            "skill": [
+                "-CLEVER,2"
             ],
             "dies": true
         },
@@ -474,8 +474,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "CLEVER,2"
+            "skill": [
+                "-CLEVER,2"
             ],
             "dies": true
         },
@@ -564,8 +564,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "CLEVER,2"
+            "skill": [
+                "-CLEVER,2"
             ],
             "dies": true
         },
@@ -656,8 +656,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "CLEVER,2"
+            "skill": [
+                "-CLEVER,2"
             ],
             "dies": true
         },
@@ -746,8 +746,8 @@
                 "mediator",
                 "elder"
             ],
-            "not_skill": [
-                "CLEVER,2"
+            "skill": [
+                "-CLEVER,2"
             ],
             "dies": true
         },
@@ -825,8 +825,8 @@
                 "adult",
                 "senior adult"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "daring",
@@ -970,8 +970,8 @@
         "frequency": 4,
         "event_text": "m_c was found dead near the o_c_n border.",
         "m_c": {
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -1850,8 +1850,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "SWIMMER,2"
+            "skill": [
+                "-SWIMMER,2"
             ],
             "dies": true
         },
@@ -2168,8 +2168,8 @@
             "status": [
                 "deputy"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -2259,8 +2259,8 @@
             "status": [
                 "deputy"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -2436,10 +2436,10 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "PROPHET,3",
-                "OMEN,3",
-                "SWIMMER,3"
+            "skill": [
+                "-PROPHET,3",
+                "-OMEN,3",
+                "-SWIMMER,3"
             ],
             "trait": [
                 "daring",
@@ -2530,10 +2530,10 @@
                 "adult",
                 "senior adult"
             ],
-            "not_skill": [
-                "PROPHET,3",
-                "OMEN,3",
-                "SWIMMER,3"
+            "skill": [
+                "-PROPHET,3",
+                "-OMEN,3",
+                "-SWIMMER,3"
             ],
             "trait": [
                 "daring",
@@ -2554,10 +2554,10 @@
             "status": [
                 "any"
             ],
-            "not_skill": [
-                "PROPHET,3",
-                "OMEN,3",
-                "SWIMMER,3"
+            "skill": [
+                "-PROPHET,3",
+                "-OMEN,3",
+                "-SWIMMER,3"
             ],
             "trait": [
                 "daring",
@@ -2842,8 +2842,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -2967,8 +2967,8 @@
                 "mediator apprentice",
                 "mediator"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -3017,8 +3017,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "dies": true
         },
@@ -3060,8 +3060,8 @@
                 "mediator apprentice",
                 "mediator"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -3109,8 +3109,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "dies": true
         },
@@ -3152,8 +3152,8 @@
                 "mediator apprentice",
                 "mediator"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -3202,8 +3202,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -3214,8 +3214,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -3437,10 +3437,10 @@
                 "mediator",
                 "deputy"
             ],
-            "not_skill": [
-                "PROPHET,3",
-                "OMEN,3",
-                "FIGHTER,3"
+            "skill": [
+                "-PROPHET,3",
+                "-OMEN,3",
+                "-FIGHTER,3"
             ],
             "dies": true
         },
@@ -3581,8 +3581,8 @@
                 "warrior",
                 "deputy"
             ],
-            "not_skill": [
-                "RUNNER,2"
+            "skill": [
+                "-RUNNER,2"
             ]
         },
         "history": [
@@ -3615,8 +3615,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -3820,8 +3820,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "SWIMMER,2"
+            "skill": [
+                "-SWIMMER,2"
             ],
             "dies": true
         },
@@ -3867,8 +3867,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "SWIMMER,2"
+            "skill": [
+                "-SWIMMER,2"
             ],
             "dies": true
         },
@@ -4380,10 +4380,10 @@
             "status": [
                 "medicine cat"
             ],
-            "not_skill": [
-                "FIGHTER,2",
-                "OMEN,3",
-                "PROPHET,3"
+            "skill": [
+                "-FIGHTER,2",
+                "-OMEN,3",
+                "-PROPHET,3"
             ],
             "dies": true
         },
@@ -4432,10 +4432,10 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,2",
-                "OMEN,3",
-                "PROPHET,3"
+            "skill": [
+                "-FIGHTER,2",
+                "-OMEN,3",
+                "-PROPHET,3"
             ],
             "dies": true
         },
@@ -4479,8 +4479,8 @@
                 "medicine cat",
                 "apprentice"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "compassionate",
@@ -5003,8 +5003,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -5035,8 +5035,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -5067,8 +5067,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -5142,9 +5142,9 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "CLEVER,2",
-                "STAR,2"
+            "skill": [
+                "-CLEVER,2",
+                "-STAR,2"
             ],
             "dies": true
         },
@@ -5176,8 +5176,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -5247,8 +5247,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "trait": [
                 "bold",
@@ -5318,8 +5318,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -5589,8 +5589,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "trait": [
                 "bold",
@@ -5643,8 +5643,8 @@
                 "senior"
             ],
             "relationship_status": [],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "trait": [
                 "bold",
@@ -5729,8 +5729,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,1"
+            "skill": [
+                "-FIGHTER,1"
             ],
             "dies": true
         },
@@ -5768,8 +5768,8 @@
                 "senior adult",
                 "senior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "bold",
@@ -5885,8 +5885,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -5916,8 +5916,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -5990,8 +5990,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -6030,8 +6030,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "dies": true
         },
@@ -6070,8 +6070,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -6457,8 +6457,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -6555,9 +6555,9 @@
             "status": [
                 "deputy"
             ],
-            "not_skill": [
-                "CLEVER,2",
-                "CLEVER,3"
+            "skill": [
+                "-CLEVER,2",
+                "-CLEVER,3"
             ],
             "trait": [
                 "vengeful",
@@ -6644,8 +6644,8 @@
             "status": [
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "dies": true
         },
@@ -7704,8 +7704,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },
@@ -7794,8 +7794,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "dies": true
         },

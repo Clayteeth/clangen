@@ -1,7 +1,6 @@
 import re
 from random import choice, randint
 
-from scripts.cat.cats import BACKSTORIES
 from scripts.cat_relations.enums import RelType
 
 from scripts.cat.enums import CatRank, CatAge
@@ -9,6 +8,7 @@ from scripts.special_dates import get_special_date, contains_special_date_tag
 from scripts.utility import (
     find_alive_cats_with_rank,
     filter_relationship_type,
+    BACKSTORIES,
 )
 from scripts.game_structure import game
 
@@ -479,16 +479,16 @@ def _check_cat_skills(cat, skills: list) -> bool:
 
     exclusionary = False
     for _skill in skills:
+        # check for exclusionary values
+        if "-" in _skill:
+            exclusionary = True
+            _skill = _skill.replace("-", "")
+
         skill_info = _skill.split(",")
 
         if len(skill_info) < 2:
             print("Cat skill incorrectly formatted", _skill)
             continue
-
-        # check for exclusionary values
-        if "-" in skill_info[0]:
-            exclusionary = True
-            skill_info[0].replace("-", "")
 
         if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
             return False if exclusionary else True
@@ -522,9 +522,7 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
         if story in BACKSTORIES["backstory_categories"].keys():
             allowed_stories.extend(BACKSTORIES["backstory_categories"][story])
         else:
-            print(
-                f"WARNING: {story} doesn't seem to be a valid backstory category for an event."
-            )
+            allowed_stories.append(story)
 
     if cat.backstory in allowed_stories:
         return False if exclusionary else True
