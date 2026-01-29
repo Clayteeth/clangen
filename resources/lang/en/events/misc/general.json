@@ -1432,10 +1432,10 @@
                 "KIT,1",
                 "STORY,1"
             ],
-            "not_skill": [
-                "KIT,2",
-                "KIT,3",
-                "KIT,4"
+            "skill": [
+                "-KIT,2",
+                "-KIT,3",
+                "-KIT,4"
             ]
         }
     },
@@ -4125,12 +4125,12 @@
             "age": [
                 "adolescent"
             ],
-            "not_trait": [
-                "fierce",
-                "bloodthirsty",
-                "cold",
-                "ambitious",
-                "arrogant"
+            "trait": [
+                "-fierce",
+                "-bloodthirsty",
+                "-cold",
+                "-ambitious",
+                "-arrogant"
             ]
         }
     },
@@ -8250,12 +8250,12 @@
             "status": [
                 "any"
             ],
-            "not_trait": [
-                "cold",
-                "gloomy",
-                "lonesome",
-                "strict",
-                "grumpy"
+            "trait": [
+                "-cold",
+                "-gloomy",
+                "-lonesome",
+                "-strict",
+                "-grumpy"
             ]
         },
         "relationships": [
@@ -9797,7 +9797,7 @@
                 "warrior",
                 "apprentice"
             ],
-            "not_skill": ["SWIMMER,2"]
+            "skill": ["-SWIMMER,2"]
         }
     },
     {

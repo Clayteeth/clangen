@@ -2332,8 +2332,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "adventurous",
@@ -2385,8 +2385,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "compassionate",
@@ -2471,8 +2471,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "compassionate",
@@ -2550,8 +2550,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "adventurous",
@@ -2625,8 +2625,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "trait": [
                 "adventurous",
@@ -2678,8 +2678,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ],
             "trait": [
                 "compassionate",
@@ -2767,8 +2767,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "adventurous",
@@ -2820,8 +2820,8 @@
                 "deputy",
                 "leader"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "compassionate",
@@ -2900,8 +2900,8 @@
                 "warrior",
                 "deputy"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ],
             "trait": [
                 "compassionate",
@@ -2997,8 +2997,8 @@
                 "apprentice",
                 "warrior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ]
         },
         "r_c": {
@@ -3070,8 +3070,8 @@
                 "apprentice",
                 "warrior"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ]
         },
         "r_c": {
@@ -3160,8 +3160,8 @@
             "status": [
                 "any"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ]
         },
         "r_c": {
@@ -3246,8 +3246,8 @@
             "status": [
                 "any"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ]
         },
         "r_c": {
@@ -3324,8 +3324,8 @@
                 "apprentice",
                 "warrior"
             ],
-            "not_skill": [
-                "FIGHTER,3"
+            "skill": [
+                "-FIGHTER,3"
             ]
         },
         "r_c": {
@@ -5767,9 +5767,9 @@
             "status": [
                 "any"
             ],
-            "not_trait": [
-                "loyal",
-                "ambitious"
+            "trait": [
+                "-loyal",
+                "-ambitious"
             ]
         },
         "r_c": {
@@ -5852,8 +5852,8 @@
             "status": [
                 "any"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ]
         },
         "injury": [
@@ -5897,8 +5897,8 @@
                 "adult",
                 "senior adult"
             ],
-            "not_skill": [
-                "FIGHTER,2"
+            "skill": [
+                "-FIGHTER,2"
             ]
         },
         "injury": [
@@ -5943,9 +5943,9 @@
                 "medicine cat",
                 "medicine cat apprentice"
             ],
-            "not_trait": [
-                "loyal",
-                "ambitious"
+            "trait": [
+                "-loyal",
+                "-ambitious"
             ]
         },
         "r_c": {
@@ -6024,8 +6024,8 @@
                 "medicine cat",
                 "medicine cat apprentice"
             ],
-            "not_trait": [
-                "loyal"
+            "trait": [
+                "-loyal"
             ]
         },
         "r_c": {
@@ -6580,8 +6580,8 @@
                 "leader",
                 "deputy"
             ],
-            "not_trait": [
-                "careful"
+            "trait": [
+                "-careful"
             ]
         },
         "injury": [
