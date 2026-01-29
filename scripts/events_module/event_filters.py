@@ -62,7 +62,7 @@ def event_for_location(locations: list) -> bool:
         # check if exclusionary
         if "-" in place:
             exclusionary = True
-            place.replace("-", "")
+            place = place.replace("-", "")
 
         # split to find req biomes and req camps
         if ":" in place:
@@ -100,8 +100,7 @@ def event_for_season(seasons: list) -> bool:
     # check if these are exclusionary values
     if "-" in seasons[0]:
         exclusionary = True
-        for season in seasons:
-            season.replace("-", "")
+        seasons = [x.replace("-", "") for x in seasons]
 
     if game.clan.current_season.lower() in seasons:
         return False if exclusionary else True
@@ -361,6 +360,7 @@ def event_for_cat(
             return False
 
     # checking relationships
+    # TODO: relationship exclusions. wait on this until utility PR is in
     if cat_info.get("relationship_status", []):
         for status in cat_info.get("relationship_status", []):
             # just some preliminary checks to see if any of these are impossible for this cat
@@ -392,7 +392,7 @@ def event_for_cat(
 
 def _check_cat_age(cat, ages: list) -> bool:
     """
-    checks if a cat's age is within ages list
+    Checks if a cat's age is within ages list.
     """
     # we only allow newborns if they are explicitly stated
     if cat.age == CatAge.NEWBORN and (not ages or CatAge.NEWBORN not in ages):
@@ -401,27 +401,23 @@ def _check_cat_age(cat, ages: list) -> bool:
     if not ages or "any" in ages:
         return True
 
-    if cat.age.value in ages:
-        return True
-
     # check for exclusionary values
     exclusionary = False
     for age in ages:
         if "-" in age:
             exclusionary = True
-            age_value = age.replace("-", "")
-            if cat.age.value == age_value:
-                return False
-
     if exclusionary:
-        return True
-    else:
-        return False
+        ages = [x.replace("-", " ") for x in ages]
+
+    if cat.age.value in ages:
+        return False if exclusionary else True
+
+    return True if exclusionary else False
 
 
 def _check_cat_status(cat, statuses: list) -> bool:
     """
-    checks if cat's status is within statuses list
+    Checks if cat's status is within statuses list.
     """
     if not statuses or "any" in statuses:
         return True
@@ -429,22 +425,21 @@ def _check_cat_status(cat, statuses: list) -> bool:
     if cat.status.rank in statuses:
         return True
 
-    if "lost" in statuses and cat.status.is_lost():
-        return True
-
     # check for exclusionary values
     exclusionary = False
     for status in statuses:
         if "-" in status:
             exclusionary = True
-            status_value = status.replace("-", "")
-            if cat.status.rank == status_value:
-                return False
-
     if exclusionary:
-        return True
-    else:
-        return False
+        statuses = [x.replace("-", " ") for x in statuses]
+
+    if cat.status.rank in statuses:
+        return False if exclusionary else True
+
+    if "lost" in statuses and cat.status.is_lost():
+        return False if exclusionary else True
+
+    return True if exclusionary else False
 
 
 def _check_cat_trait(cat, traits: list) -> bool:
