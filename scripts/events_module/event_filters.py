@@ -444,7 +444,7 @@ def _check_cat_status(cat, statuses: list) -> bool:
 
 def _check_cat_trait(cat, traits: list) -> bool:
     """
-    checks if cat has required trait
+    Checks if cat has required trait.
     """
     if not traits or "any" in traits:
         return True
@@ -463,11 +463,12 @@ def _check_cat_trait(cat, traits: list) -> bool:
 
     return True if exclusionary else False
 
+
 def _check_cat_skills(cat, skills: list) -> bool:
     """
-    checks if the cat has all required skills
+    Checks if the cat has all required skills.
     """
-    if not skills:
+    if not skills or "any" in skills:
         return True
 
     exclusionary = False
@@ -478,22 +479,15 @@ def _check_cat_skills(cat, skills: list) -> bool:
             print("Cat skill incorrectly formatted", _skill)
             continue
 
-        # check for exclusionary values first
+        # check for exclusionary values
         if "-" in skill_info[0]:
             exclusionary = True
             skill_info[0].replace("-", "")
-            if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
-                return False
-            # continue so that we don't try to check it again
-            continue
 
         if cat.skills.meets_skill_requirement(skill_info[0], int(skill_info[1])):
-            return True
+            return False if exclusionary else True
 
-    if exclusionary:
-        return True
-    else:
-        return False
+    return True if exclusionary else False
 
 
 def _check_cat_backstory(cat, backstories: list) -> bool:
