@@ -407,6 +407,8 @@ def _check_cat_age(cat, ages: list) -> bool:
     for age in ages:
         if "-" in age:
             exclusionary = True
+            break
+
     if exclusionary:
         ages = [x.replace("-", " ") for x in ages]
 
@@ -431,6 +433,8 @@ def _check_cat_status(cat, statuses: list) -> bool:
     for status in statuses:
         if "-" in status:
             exclusionary = True
+            break
+
     if exclusionary:
         statuses = [x.replace("-", " ") for x in statuses]
 
@@ -455,6 +459,7 @@ def _check_cat_trait(cat, traits: list) -> bool:
     for trait in traits:
         if "-" in trait:
             exclusionary = True
+            break
 
     if exclusionary:
         traits = [x.replace("-", " ") for x in traits]
@@ -502,6 +507,7 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
     for story in backstories:
         if "-" in story:
             exclusionary = True
+            break
 
     if exclusionary:
         backstories = [x.replace("-", " ") for x in backstories]
@@ -562,10 +568,8 @@ def cat_for_event(
     func_dict = {
         "age": _get_cats_with_age,
         "status": _get_cats_with_status,
-        "skill": _get_cats_without_skill,
-        "not_skill": _get_cats_without_skill,
+        "skill": _get_cats_with_skill,
         "trait": _get_cats_with_trait,
-        "not_trait": _get_cats_without_trait,
         "backstory": _get_cats_with_backstory,
     }
 
@@ -748,6 +752,7 @@ def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
     for trait in traits:
         if "-" in trait:
             exclusionary = True
+            break
 
     if exclusionary:
         traits = [x.replace("-", " ") for x in traits]
