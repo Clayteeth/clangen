@@ -49,14 +49,22 @@ def find_new_frequency(used_frequencies: set) -> int:
 
 def event_for_location(locations: list) -> bool:
     """
-    checks if the clan is within the given locations
+    Checks if the clan is within the allowed locations.
     """
     if "any" in locations:
         return True
     if not game.clan:
         return False
 
+    exclusionary = False
+
     for place in locations:
+        # check if exclusionary
+        if "-" in place:
+            exclusionary = True
+            place.replace("-", "")
+
+        # split to find req biomes and req camps
         if ":" in place:
             info = place.split(":")
             req_biome = info[0]
@@ -68,26 +76,48 @@ def event_for_location(locations: list) -> bool:
         if game.clan.override_biome:
             if req_biome == game.clan.override_biome:
                 if "any" in req_camps or game.clan.camp_bg in req_camps:
-                    return True
+                    return False if exclusionary else True
+
         elif req_biome == game.clan.biome.lower():
             if "any" in req_camps or game.clan.camp_bg in req_camps:
-                return True
-    return False
+                return False if exclusionary else True
+
+    return True if exclusionary else False
 
 
 def event_for_season(seasons: list) -> bool:
     """
-    checks if the clan is within the given seasons
+    Checks if the clan is within the given seasons.
     """
-    if "any" in seasons or game.clan.current_season.lower() in seasons:
+    if not seasons:
         return True
 
-    return False
+    if "any" in seasons:
+        # "any" will never be exclusionary, so we check for it first
+        return True
+
+    exclusionary = False
+    # check if these are exclusionary values
+    if "-" in seasons[0]:
+        exclusionary = True
+        for season in seasons:
+            season.replace("-", "")
+
+    if game.clan.current_season.lower() in seasons:
+        return False if exclusionary else True
+
+    return True if exclusionary else False
 
 
-def event_for_tags(tags: list, cat, other_cat=None, mentor_tags_fulfilled=None) -> bool:
+def event_for_tags(
+    tags: list, cat, other_cat=None, mentor_tags_fulfilled: dict = None
+) -> bool:
     """
-    checks if current tags disqualify the event
+    Checks if current tags disqualify the event.
+    :param tags: Tags to check validity for.
+    :param cat: Main cat to compare against tags.
+    :param other_cat: Secondary cat to compare against tags.
+    :param mentor_tags_fulfilled: Dict of mentor values used to validate mentor tags. Only utilized by patrols.
     """
     if not tags:
         return True
