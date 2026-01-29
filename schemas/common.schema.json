@@ -593,7 +593,7 @@
       "type": "string"
     },
     "Skill": {
-      "pattern": "^[A-Z]+|-[A-Z]+,\\s*[0-4]$",
+      "pattern": "^-?[A-Z]+,\\s*[0-4]$",
       "title": "Skill",
       "type": "string"
     },
