@@ -1,6 +1,7 @@
 import re
 from random import choice, randint
 
+from scripts.cat.cats import BACKSTORIES
 from scripts.cat_relations.enums import RelType
 
 from scripts.cat.enums import CatRank, CatAge
@@ -492,15 +493,37 @@ def _check_cat_skills(cat, skills: list) -> bool:
 
 def _check_cat_backstory(cat, backstories: list) -> bool:
     """
-    checks if cat has the correct backstory
+    Checks if cat has the correct backstory.
     """
     if not backstories:
         return True
 
-    if cat.backstory in backstories:
-        return True
+    exclusionary = False
+    for story in backstories:
+        if "-" in story:
+            exclusionary = True
 
-    return False
+    if exclusionary:
+        backstories = [x.replace("-", " ") for x in backstories]
+
+    # do the real simple test first
+    if cat.backstory in backstories:
+        return False if exclusionary else True
+
+    # now we look for backstory categories
+    allowed_stories = []
+    for story in backstories:
+        if story in BACKSTORIES["backstory_categories"].keys():
+            allowed_stories.extend(BACKSTORIES["backstory_categories"][story])
+        else:
+            print(
+                f"WARNING: {story} doesn't seem to be a valid backstory category for an event."
+            )
+
+    if cat.backstory in allowed_stories:
+        return False if exclusionary else True
+
+    return True if exclusionary else False
 
 
 def _check_cat_gender(cat, genders: list) -> bool:
