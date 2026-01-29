@@ -20,13 +20,7 @@
         "young adult",
         "adult",
         "senior adult",
-        "senior",
-        "-kitten",
-        "-adolescent",
-        "-young adult",
-        "-adult",
-        "-senior adult",
-        "-senior"
+        "senior"
       ],
       "title": "CatAge",
       "type": "string"
@@ -184,6 +178,14 @@
           "title": "Skill",
           "type": "array"
         },
+        "not_skill": {
+          "description": "m_c cannot possess any of the skills on this list.",
+          "items": {
+            "$ref": "common.schema.json#/$defs/Skill"
+          },
+          "title": "Not Skill",
+          "type": "array"
+        },
         "trait": {
           "description": "m_c must possess at least one trait from this list. If they can be anything, use \"any\".",
           "items": {
@@ -198,6 +200,14 @@
             ]
           },
           "title": "Trait",
+          "type": "array"
+        },
+        "not_trait": {
+          "description": "m_c cannot possess any of the traits on this list.",
+          "items": {
+            "$ref": "common.schema.json#/$defs/AllTrait"
+          },
+          "title": "Not Trait",
           "type": "array"
         },
         "backstory": {
