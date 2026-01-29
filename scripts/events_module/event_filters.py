@@ -739,7 +739,7 @@ def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
 
 def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
     """
-    checks cat_list against required traits and returns qualifying cats
+    Checks cat_list against required traits and returns qualifying cats.
     """
     if not traits:
         return cat_list
@@ -760,9 +760,28 @@ def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
 
 def _get_cats_with_backstory(cat_list: list, backstories: tuple) -> list:
     """
-    checks cat_list against required backstories and returns qualifying cats
+    Checks cat_list against required backstories and returns qualifying cats.
     """
     if not backstories:
         return cat_list
 
-    return [kitty for kitty in cat_list if kitty.backstory in backstories]
+    exclusionary = False
+    for story in backstories:
+        if "-" in story:
+            exclusionary = True
+            break
+    if exclusionary:
+        backstories = [x.replace("-", " ") for x in backstories]
+
+    # now we look for backstory categories
+    allowed_stories = []
+    for story in backstories:
+        if story in BACKSTORIES["backstory_categories"].keys():
+            allowed_stories.extend(BACKSTORIES["backstory_categories"][story])
+        else:
+            allowed_stories.append(story)
+
+    if exclusionary:
+        return [kitty for kitty in cat_list if kitty.backstory not in allowed_stories]
+    else:
+        return [kitty for kitty in cat_list if kitty.backstory in allowed_stories]
