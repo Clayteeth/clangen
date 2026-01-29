@@ -697,13 +697,13 @@ class FreshkillPile:
 
 ADDITIONAL_PREY = constants.PREY_CONFIG["additional_prey"]
 PREY_REQUIREMENT = constants.PREY_CONFIG["prey_requirement"]
-
+CONDITION_INCREASE = constants.PREY_CONFIG["condition_increase"]
+FEEDING_ORDER = constants.PREY_CONFIG["feeding_order"]
 HUNTER_BONUS = constants.PREY_CONFIG["hunter_bonus"]
 HUNTER_EXP_BONUS = constants.PREY_CONFIG["hunter_exp_bonus"]
 FRESHKILL_EVENT_TRIGGER_FACTOR = constants.PREY_CONFIG["base_event_trigger_factor"]
 MAL_PERCENTAGE = constants.PREY_CONFIG["nutrition_malnourished_percentage"]
 STARV_PERCENTAGE = constants.PREY_CONFIG["nutrition_starving_percentage"]
-CONDITION_INCREASE = constants.PREY_CONFIG["condition_increase"]
-FEEDING_ORDER = constants.PREY_CONFIG["feeding_order"]
+
 FRESHKILL_ACTIVE = constants.PREY_CONFIG["activate_death"]
 FRESHKILL_EVENT_ACTIVE = constants.PREY_CONFIG["activate_events"]
