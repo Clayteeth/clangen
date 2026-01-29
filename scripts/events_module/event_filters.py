@@ -683,7 +683,7 @@ def _get_cats_with_age(cat_list: list, ages: tuple) -> list:
 
 def _get_cats_with_status(cat_list: list, statuses: tuple) -> list:
     """
-    checks cat_list against required statuses and returns qualifying cats
+    Checks cat_list against required statuses and returns qualifying cats.
     """
     if not statuses or "any" in statuses:
         return cat_list
@@ -704,14 +704,19 @@ def _get_cats_with_status(cat_list: list, statuses: tuple) -> list:
 
 def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
     """
-    checks cat_list against required skills and returns qualifying cats
+    Checks cat_list against required skills and returns qualifying cats.
     """
     if not skills:
         return cat_list
 
+    exclusionary = False
     for kitty in cat_list.copy():
         has_skill = False
         for _skill in skills:
+            if "-" in _skill:
+                exclusionary = True
+                _skill = _skill.replace("-", " ")
+
             split_skill = _skill.split(",")
 
             if len(split_skill) < 2:
@@ -723,7 +728,10 @@ def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
             ):
                 has_skill = True
 
-        if not has_skill:
+        if has_skill and exclusionary:
+            cat_list.remove(kitty)
+
+        if not has_skill and not exclusionary:
             cat_list.remove(kitty)
 
     return cat_list
