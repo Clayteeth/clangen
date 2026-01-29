@@ -44,7 +44,13 @@
         "young adult",
         "adult",
         "senior adult",
-        "senior"
+        "senior",
+        "-kitten",
+        "-adolescent",
+        "-young adult",
+        "-adult",
+        "-senior adult",
+        "-senior"
       ],
       "title": "CatAge",
       "type": "string"
