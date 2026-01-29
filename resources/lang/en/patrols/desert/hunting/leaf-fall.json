@@ -14,10 +14,7 @@
         "min_cats": 1,
         "max_cats": 1,
         "min_max_status": {
-            "all apprentices": [
-                -1,
-                -1
-            ],
+            "all apprentices": [ -1, -1 ],
             "normal adult": [
                 1,
                 6
@@ -142,8 +139,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got heatstroke while on a patrol.",
-                    "reg_death": "This cat died from heat stroke.",
-                    "lead_death": "died from heat stroke"
+                    "death": "This cat died from heat stroke."
                 },
                 "frequency": 3
             },
@@ -163,8 +159,7 @@
                 ],
                 "history_text": {
                     "scar": "This cat got heatstroke while on a patrol.",
-                    "reg_death": "This cat died from heat stroke.",
-                    "lead_death": "died from heat stroke"
+                    "death": "This cat died from heat stroke."
                 },
                 "frequency": 3
             }

@@ -160,10 +160,7 @@
         "min_cats": 2,
         "max_cats": 6,
         "min_max_status": {
-            "all apprentices": [
-                -1,
-                -1
-            ],
+            "all apprentices": [ -1, -1 ],
             "medicine cat": [
                 1,
                 6
@@ -2613,7 +2610,7 @@
                     "p_l"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
+                    "death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
                 },
                 "frequency": 3
             },
@@ -2811,7 +2808,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
+                    "death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
                 },
                 "frequency": 3
             }
@@ -2954,7 +2951,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "reg_death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
+                    "death": "m_c died when {PRONOUN/m_c/subject} fell out of a tree, snapping {PRONOUN/m_c/poss} neck."
                 },
                 "frequency": 3
             },
@@ -4136,10 +4133,7 @@
                 1,
                 6
             ],
-            "all apprentices": [
-                -1,
-                -1
-            ]
+            "all apprentices": [ -1, -1 ]
         },
         "frequency": 4,
         "intro_text": "p_l is on a mission to find lungwort now that newleaf is here. As the only reliable cure for yellowcough, {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} determined that c_n replenish their stocks of it.",
@@ -7611,8 +7605,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was scarred from bramble thorns on a herb gathering patrol.",
-                    "reg_death": "Bramble thorns scratched up m_c, and the wounds eventually festered and killed {PRONOUN/m_c/object}.",
-                    "lead_death": "bramble thorns scratched up m_c and the wounds eventually festered and killed {PRONOUN/m_c/object}."
+                    "death": "Bramble thorns scratched up m_c, and the wounds eventually festered and killed {PRONOUN/m_c/object}."
                 },
                 "relationships": [
                     {
@@ -8088,8 +8081,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c poisoned {PRONOUN/m_c/self} collecting excessive amounts of tansy as an apprentice.",
-                    "lead_death": "after collecting excessive amounts of tansy as an apprentice"
+                    "death": "m_c poisoned {PRONOUN/m_c/self} collecting excessive amounts of tansy as an apprentice."
                 },
                 "relationships": [
                     {
@@ -8133,8 +8125,7 @@
                     }
                 ],
                 "history_text": {
-                    "reg_death": "m_c poisoned {PRONOUN/m_c/self} collecting excessive amounts of tansy as an apprentice.",
-                    "lead_death": "after collecting excessive amounts of tansy as an apprentice"
+                    "death": "m_c poisoned {PRONOUN/m_c/self} collecting excessive amounts of tansy as an apprentice."
                 },
                 "relationships": [
                     {

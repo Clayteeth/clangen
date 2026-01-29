@@ -17,10 +17,7 @@
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "all apprentices": [
-                -1,
-                -1
-            ]
+            "all apprentices": [ -1, -1 ]
         },
         "frequency": 4,
         "intro_text": "p_l thinks r_c is, well, really, just - uh, just swell, and {PRONOUN/p_l/subject} {VERB/p_l/think/thinks} r_c might like {PRONOUN/p_l/object} too. {PRONOUN/p_l/subject/CAP}{VERB/p_l/'ve/'s} been building up {PRONOUN/p_l/poss} confidence, and {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} going to ask r_c to spend some time together, just the two of them, this afternoon!",
@@ -211,8 +208,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was soaked in leaf-bare, and it progressed to scarring frostbite.",
-                    "reg_death": "m_c was soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}.",
-                    "lead_death": "soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}"
+                    "death": "m_c was soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}."
                 },
                 "relationships": [
                     {
@@ -359,8 +355,7 @@
                 ],
                 "history_text": {
                     "scar": "m_c was soaked in leaf-bare, and it progressed to scarring frostbite.",
-                    "reg_death": "m_c was soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}.",
-                    "lead_death": "soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}"
+                    "death": "m_c was soaked in leaf-bare, eventually killing {PRONOUN/m_c/object}."
                 },
                 "relationships": [
                     {
