@@ -404,7 +404,7 @@ def _check_cat_age(cat, ages: list) -> bool:
     exclusionary = __check_for_exclusionary_value(ages)
 
     if exclusionary:
-        ages = [x.replace("-", " ") for x in ages]
+        ages = [x.replace("-", "") for x in ages]
 
     if cat.age.value in ages:
         return False if exclusionary else True
@@ -426,7 +426,7 @@ def _check_cat_status(cat, statuses: list) -> bool:
     exclusionary = __check_for_exclusionary_value(statuses)
 
     if exclusionary:
-        statuses = [x.replace("-", " ") for x in statuses]
+        statuses = [x.replace("-", "") for x in statuses]
 
     if cat.status.rank in statuses:
         return False if exclusionary else True
@@ -448,7 +448,7 @@ def _check_cat_trait(cat, traits: list) -> bool:
     exclusionary = __check_for_exclusionary_value(traits)
 
     if exclusionary:
-        traits = [x.replace("-", " ") for x in traits]
+        traits = [x.replace("-", "") for x in traits]
 
     if cat.personality.trait in traits:
         return False if exclusionary else True
@@ -648,7 +648,7 @@ def _get_cats_with_age(cat_list: list, ages: tuple) -> list:
 
     exclusionary = __check_for_exclusionary_value(ages)
 
-    ages = [x.replace("-", " ") for x in ages]
+    ages = [x.replace("-", "") for x in ages]
 
     if exclusionary:
         return [kitty for kitty in cat_list if kitty.age not in ages]
@@ -665,7 +665,7 @@ def _get_cats_with_status(cat_list: list, statuses: tuple) -> list:
 
     exclusionary = __check_for_exclusionary_value(statuses)
 
-    statuses = [x.replace("-", " ") for x in statuses]
+    statuses = [x.replace("-", "") for x in statuses]
 
     if exclusionary:
         return [kitty for kitty in cat_list if kitty.age not in statuses]
@@ -714,7 +714,7 @@ def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
     exclusionary = __check_for_exclusionary_value(traits)
 
     if exclusionary:
-        traits = [x.replace("-", " ") for x in traits]
+        traits = [x.replace("-", "") for x in traits]
 
     if exclusionary:
         return [kitty for kitty in cat_list if kitty.personality.trait not in traits]
@@ -732,7 +732,7 @@ def _get_cats_with_backstory(cat_list: list, backstories: tuple) -> list:
     exclusionary = __check_for_exclusionary_value(backstories)
 
     if exclusionary:
-        backstories = [x.replace("-", " ") for x in backstories]
+        backstories = [x.replace("-", "") for x in backstories]
 
     # now we look for backstory categories
     allowed_stories = []
