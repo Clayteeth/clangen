@@ -737,30 +737,6 @@ def _get_cats_with_skill(cat_list: list, skills: tuple) -> list:
     return cat_list
 
 
-def _get_cats_without_skill(cat_list: list, skills: tuple) -> list:
-    """
-    checks cat_list against disallowed skills and returns qualifying cats
-    """
-    if not skills:
-        return cat_list
-
-    for kitty in cat_list.copy():
-        for _skill in skills:
-            split_skill = _skill.split(",")
-
-            if len(split_skill) < 2:
-                print("Cat skill incorrectly formatted", _skill)
-                continue
-
-            if kitty.skills.meets_skill_requirement(
-                split_skill[0], int(split_skill[1])
-            ):
-                cat_list.remove(kitty)
-                break
-
-    return cat_list
-
-
 def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
     """
     checks cat_list against required traits and returns qualifying cats
@@ -769,16 +745,6 @@ def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
         return cat_list
 
     return [kitty for kitty in cat_list if kitty.personality.trait in traits]
-
-
-def _get_cats_without_trait(cat_list: list, traits: tuple) -> list:
-    """
-    checks cat_list against disallowed traits and returns qualifying cats
-    """
-    if not traits:
-        return cat_list
-
-    return [kitty for kitty in cat_list if kitty.personality.trait not in traits]
 
 
 def _get_cats_with_backstory(cat_list: list, backstories: tuple) -> list:
