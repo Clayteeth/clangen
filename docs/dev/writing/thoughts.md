@@ -118,29 +118,29 @@ Constrains the thought to only occur if m_c and r_c fulfill the tags requirement
 
 
 BACKSTORY_CONSTRAINT:
-Constrains the thought to only occur if m_c or r_c has the specific listed backstory. To find what each backstory describes, you can find more by going to resources, dicts, then the backstories.json (thank you Tiri and Ryos!)
+Constrains the thought to only occur if m_c or r_c has the specific listed backstory. To find what each backstory describes, you can find more by going to resources, dicts, then the backstories.json (thank you Tiri and Ryos!)  You can utilize [exclusionary values](reference/index.md#exclusionary-values).
 
 > [Backstory Tag List](reference/tag-lists.md#backstories)
 
 STATUS_CONSTRAINT:
-Constrains the thought to only happen if m_c or r_c are in a certain role. 
+Constrains the thought to only happen if m_c or r_c are in a certain role. You can utilize [exclusionary values](reference/index.md#exclusionary-values).
 
 > [Status Tag List](reference/tag-lists.md#__tabbed_2_2)
 > 
 > You can also use the tag "any" to allow the thought to occur for all roles except "newborns", who shouldn't get any general thoughts, just the ones placed in their specific JSON.
 
 AGE_CONSTRAINT:
-Constrains the thought to only occur if m_c or r_c are within a certain age group.
+Constrains the thought to only occur if m_c or r_c are within a certain age group. You can utilize [exclusionary values](reference/index.md#exclusionary-values).
 
 > [Age Tag List](reference/tag-lists.md#__tabbed_2_1)
 
 TRAIT_CONSTRAINT:
-Constrains the thought to only occur if m_c or r_c has a specific trait.
+Constrains the thought to only occur if m_c or r_c has a specific trait. You can utilize [exclusionary values](reference/index.md#exclusionary-values).
 
 > [Trait Tag List](reference/tag-lists.md#__tabbed_3_2)
 
 **SKILL_CONSTRAINT:**
-Constrains the thought to occur only if m_c or r_c has a specific skill.
+Constrains the thought to occur only if m_c or r_c has a specific skill. You can utilize [exclusionary values](reference/index.md#exclusionary-values).
 
 > [Skill Tag List](reference/tag-lists.md#__tabbed_3_1)
 
