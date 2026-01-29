@@ -1,5 +1,25 @@
 {
   "$defs": {
+    "Age": {
+      "enum": [
+        "newborn",
+        "-newborn",
+        "kitten",
+        "-kitten",
+        "adolescent",
+        "-adolescent",
+        "young adult",
+        "-young adult",
+        "adult",
+        "-adult",
+        "senior adult",
+        "-senior adult",
+        "senior",
+        "-senior"
+      ],
+      "title": "Age",
+      "type": "string"
+    },
     "Biome": {
       "enum": [
         "mountainous",
@@ -40,19 +60,6 @@
         "camp4"
       ],
       "title": "Camp",
-      "type": "string"
-    },
-    "CatAge": {
-      "enum": [
-        "newborn",
-        "kitten",
-        "adolescent",
-        "young adult",
-        "adult",
-        "senior adult",
-        "senior"
-      ],
-      "title": "CatAge",
       "type": "string"
     },
     "HasInjuries": {
@@ -272,7 +279,7 @@
         "main_age_constraint": {
           "description": "Constrains the thought to only happen if m_c is within a certain age group.",
           "items": {
-            "$ref": "#/$defs/CatAge"
+            "$ref": "#/$defs/Age"
           },
           "title": "Main Age Constraint",
           "type": "array"
@@ -280,7 +287,7 @@
         "random_age_constraint": {
           "description": "Constrains the thought to only happen if r_c is within a certain age group.",
           "items": {
-            "$ref": "#/$defs/CatAge"
+            "$ref": "#/$defs/Age"
           },
           "title": "Random Age Constraint",
           "type": "array"

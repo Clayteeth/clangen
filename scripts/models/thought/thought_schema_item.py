@@ -6,6 +6,7 @@ from pydantic import BaseModel, Field
 from pydantic_core import MISSING
 
 from scripts.cat.enums import CatAge
+from scripts.models.common.age import Age
 from scripts.models.common.all_trait import AllTrait
 from scripts.models.common.backstory import Backstory
 from scripts.models.common.biome import Biome
@@ -70,11 +71,11 @@ class ThoughtSchemaItem(BaseModel):
         MISSING,
         description="Constrains the thought to only happen if r_c is in a certain role.",
     )
-    main_age_constraint: Union[List[CatAge], MISSING] = Field(
+    main_age_constraint: Union[List[Age], MISSING] = Field(
         MISSING,
         description="Constrains the thought to only happen if m_c is within a certain age group.",
     )
-    random_age_constraint: Union[List[CatAge], MISSING] = Field(
+    random_age_constraint: Union[List[Age], MISSING] = Field(
         MISSING,
         description="Constrains the thought to only happen if r_c is within a certain age group.",
     )
