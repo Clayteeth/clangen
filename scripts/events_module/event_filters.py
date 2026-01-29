@@ -528,7 +528,7 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
 
 def _check_cat_gender(cat, genders: list) -> bool:
     """
-    checks if cat has the correct gender
+    Checks if cat has the correct gender.
     """
     if not genders:
         return True
@@ -595,6 +595,7 @@ def cat_for_event(
             return None
 
     # rel status check
+    # TODO: set up exclusionary values
     if comparison_cat_rel_status or constraint_dict.get("relationship_status"):
         # preliminary check to see if we can just skip to gathering certain rel groups
         allowed_cats, comparison_cat_rel_status = _get_cats_with_rel_status(
@@ -666,7 +667,18 @@ def _get_cats_with_age(cat_list: list, ages: tuple) -> list:
     if not ages or "any" in ages:
         return cat_list
 
-    return [kitty for kitty in cat_list if kitty.age in ages]
+    exclusionary = False
+    for age in ages:
+        if "-" in age:
+            exclusionary = True
+            break
+
+    ages = [x.replace("-", " ") for x in ages]
+
+    if exclusionary:
+        return [kitty for kitty in cat_list if kitty.age not in ages]
+    else:
+        return [kitty for kitty in cat_list if kitty.age in ages]
 
 
 def _get_cats_with_status(cat_list: list, statuses: tuple) -> list:
