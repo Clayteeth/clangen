@@ -768,9 +768,8 @@ class PatrolOutcome:
         if not self.prey or game.clan.game_mode == "classic":
             return ""
 
-        basic_amount = PREY_REQUIREMENT[CatRank.WARRIOR]
-        if game.clan.game_mode == "expanded":
-            basic_amount += ADDITIONAL_PREY
+        basic_amount = PREY_REQUIREMENT[CatRank.WARRIOR] + ADDITIONAL_PREY
+
         prey_types = {
             "very_small": basic_amount / 2,
             "small": basic_amount,

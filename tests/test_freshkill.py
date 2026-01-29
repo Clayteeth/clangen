@@ -1,4 +1,5 @@
 import os
+import tomllib
 import unittest
 import ujson
 
@@ -17,8 +18,8 @@ from scripts.utility import get_alive_clan_queens
 class FreshkillPileTest(unittest.TestCase):
     def setUp(self) -> None:
         self.prey_config = None
-        with open("resources/prey_config.json", "r") as read_file:
-            self.prey_config = ujson.loads(read_file.read())
+        with open(f"resources/prey_config.toml", "r", encoding="utf-8") as read_file:
+            self.prey_config = tomllib.loads(read_file.read())
         self.amount = self.prey_config["start_amount"]
         self.prey_requirement = self.prey_config["prey_requirement"]
         self.condition_increase = self.prey_config["condition_increase"]
