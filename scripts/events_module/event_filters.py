@@ -744,7 +744,18 @@ def _get_cats_with_trait(cat_list: list, traits: tuple) -> list:
     if not traits:
         return cat_list
 
-    return [kitty for kitty in cat_list if kitty.personality.trait in traits]
+    exclusionary = False
+    for trait in traits:
+        if "-" in trait:
+            exclusionary = True
+
+    if exclusionary:
+        traits = [x.replace("-", " ") for x in traits]
+
+    if exclusionary:
+        return [kitty for kitty in cat_list if kitty.personality.trait not in traits]
+    else:
+        return [kitty for kitty in cat_list if kitty.personality.trait in traits]
 
 
 def _get_cats_with_backstory(cat_list: list, backstories: tuple) -> list:
