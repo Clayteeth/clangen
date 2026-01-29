@@ -1,7 +1,6 @@
 import os
 import tomllib
 import unittest
-import ujson
 
 from scripts.cat.enums import CatRank
 
