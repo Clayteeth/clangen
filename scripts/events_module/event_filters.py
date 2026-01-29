@@ -487,7 +487,7 @@ def _check_cat_backstory(cat, backstories: list) -> bool:
     exclusionary = __check_for_exclusionary_value(backstories)
 
     if exclusionary:
-        backstories = [x.replace("-", " ") for x in backstories]
+        backstories = [x.replace("-", "") for x in backstories]
 
     # do the real simple test first
     if cat.backstory in backstories:
