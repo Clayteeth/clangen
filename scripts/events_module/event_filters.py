@@ -446,10 +446,7 @@ def _check_cat_trait(cat, traits: list) -> bool:
     """
     checks if cat has required trait
     """
-    if not traits:
-        return True
-
-    if cat.personality.trait in traits:
+    if not traits or "any" in traits:
         return True
 
     # check for exclusionary values
@@ -457,15 +454,14 @@ def _check_cat_trait(cat, traits: list) -> bool:
     for trait in traits:
         if "-" in trait:
             exclusionary = True
-            trait_value = trait.replace("-", "")
-            if cat.personality.trait == trait_value:
-                return False
 
     if exclusionary:
-        return True
-    else:
-        return False
+        traits = [x.replace("-", " ") for x in traits]
 
+    if cat.personality.trait in traits:
+        return False if exclusionary else True
+
+    return True if exclusionary else False
 
 def _check_cat_skills(cat, skills: list) -> bool:
     """
