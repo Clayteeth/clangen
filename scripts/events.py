@@ -40,22 +40,24 @@ from scripts.game_structure.game.switches import (
 )
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
-from scripts.game_structure.windows import SaveError
-from scripts.utility import (
-    change_clan_relations,
-    change_clan_reputation,
-    find_alive_cats_with_rank,
-    get_living_clan_cat_count,
-    ceremony_text_adjust,
-    get_current_season,
-    adjust_list_text,
+from scripts.ui.windows.save_error import SaveErrorWindow
+from scripts.events_module.text_adjust import (
     ongoing_event_text_adjust,
     event_text_adjust,
-    get_other_clan,
+    ceremony_text_adjust,
+    adjust_list_text,
     history_text_adjust,
-    unpack_rel_block,
 )
-
+from scripts.events_module.consequences import unpack_rel_block
+from scripts.clan_package.cotc import (
+    change_clan_reputation,
+    change_clan_relations,
+    get_other_clan,
+)
+from scripts.clan_package.get_clan_cats import (
+    find_alive_cats_with_rank,
+    get_living_clan_cat_count,
+)
 
 all_events = {}
 new_cat_invited = False
@@ -94,7 +96,6 @@ def one_moon():
 
     # age up the clan, set current season
     game.clan.age += 1
-    get_current_season()
     update_afterlife_temper()
     Pregnancy_Events.handle_pregnancy_age(game.clan)
     check_war()
@@ -297,7 +298,7 @@ def one_moon():
             game.clan.save_pregnancy(game.clan)
             game.save_events()
         except:
-            SaveError(traceback.format_exc())
+            SaveErrorWindow(traceback.format_exc())
 
 
 def update_afterlife_temper():
@@ -1152,14 +1153,18 @@ def check_war():
     if not war_events or not enemy_clan:
         return
 
-    if not game.clan.leader or not game.clan.deputy or not game.clan.medicine_cat:
-        for event in war_events:
-            if not game.clan.leader and "lead_name" in event:
-                war_events.remove(event)
-            if not game.clan.deputy and "dep_name" in event:
-                war_events.remove(event)
-            if not game.clan.medicine_cat and "med_name" in event:
-                war_events.remove(event)
+    available_med = find_alive_cats_with_rank(Cat, [CatRank.MEDICINE_CAT], working=True)
+
+    for event in war_events:
+        if not game.clan.leader and "lead_name" in event:
+            war_events.remove(event)
+            continue
+        if not game.clan.deputy and "dep_name" in event:
+            war_events.remove(event)
+            continue
+        if not available_med and "med_name" in event:
+            war_events.remove(event)
+            continue
 
     # grab our war "notice" for this moon
     event = random.choice(war_events)
