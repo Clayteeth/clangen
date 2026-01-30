@@ -7,7 +7,7 @@ import i18n
 from scripts.cat.enums import CatGroup
 from scripts.events_module.event_filters import event_for_cat
 from scripts.game_structure.localization import load_lang_resource
-from scripts.utility import filter_relationship_type
+from scripts.events_module.event_filters import filter_relationship_type
 
 if TYPE_CHECKING:
     from scripts.cat.cats import Cat
