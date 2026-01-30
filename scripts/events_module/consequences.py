@@ -826,11 +826,6 @@ def unpack_rel_block(
         if None in cats_to_ob:
             cats_to_ob.remove(None)
 
-        # Check to see if value block
-        if not (cats_to_ob and cats_from_ob and values and isinstance(amount, int)):
-            print(f"Relationship block incorrectly formatted: {block}")
-            continue
-
         positive = False
 
         # grabbing values
