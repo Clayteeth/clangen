@@ -388,7 +388,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c refuses to believe their ancestors ever blotted out the sun - not that they couldn't, but that they wouldn't ever hurt the Clans, their own beloved descendants.",
+                "text": "r_c refuses to believe their ancestors ever blotted out the sun - not because they couldn't, but because they would never hurt the Clans, their own beloved descendants.",
                 "exp": 0,
                 "relationships": [
                     {
