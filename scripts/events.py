@@ -467,7 +467,9 @@ def handle_lead_den_event():
                 additional_kits = outsider_cat.add_to_clan()
 
                 if additional_kits:
-                    event_text += i18n.t("hardcoded.event_lost_kits")
+                    event_text += i18n.t(
+                        "hardcoded.event_lost_kits", count=len(additional_kits)
+                    )
 
                     for kit_ID in additional_kits:
                         # add to involved cat list
