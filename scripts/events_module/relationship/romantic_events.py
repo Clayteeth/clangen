@@ -554,7 +554,7 @@ class RomanticEvents:
         if poly and not RomanticEvents.current_mates_allow_new_mate(cat_from, cat_to):
             return False
 
-        become_mate = False
+        become_mates = False
         condition = constants.CONFIG["mates"]["confession"]["accept_confession"]
         rel_to_check = highest_romantic_relation.opposite_relationship
         if not rel_to_check:
@@ -562,7 +562,7 @@ class RomanticEvents:
             rel_to_check = highest_romantic_relation.opposite_relationship
 
         if RomanticEvents.relationship_fulfill_condition(rel_to_check, condition):
-            become_mate = True
+            become_mates = True
             if (
                 cat_from.ID in cat_to.previous_mates
                 and cat_to.ID in cat_from.previous_mates
@@ -581,7 +581,7 @@ class RomanticEvents:
             and condition[RelType.ROMANCE] > 0
             and rel_to_check.romance >= condition[RelType.ROMANCE] * 1.5
         ):
-            become_mate = True
+            become_mates = True
             if (
                 cat_from.ID in cat_to.previous_mates
                 and cat_to.ID in cat_from.previous_mates
@@ -623,7 +623,7 @@ class RomanticEvents:
             )
         )
 
-        if become_mate:
+        if become_mates:
             cat_from.set_mate(cat_to)
 
         return True
