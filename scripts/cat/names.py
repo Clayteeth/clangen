@@ -276,10 +276,8 @@ class Name:
                 CatAge.KITTEN: CatRank.KITTEN,
                 CatAge.ADOLESCENT: CatRank.APPRENTICE,
             }
-            rank = None
             if self.cat.age in age_to_rank:
                 rank = age_to_rank[self.cat.age]
-            if rank:
                 return self.prefix + self.names_dict["special_suffixes"][rank]
             else:
                 return self.prefix + self.suffix
