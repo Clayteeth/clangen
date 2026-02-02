@@ -2481,8 +2481,6 @@ class UIDropDown(UIDropDownContainer):
         if self.parent_reflect_selection and new_list:
             self.parent_button.set_text(new_list[0])
 
-
-
     def update(self, time_delta: float):
         # updates our selection list
         for name, button in self.child_button_dicts.items():
@@ -2503,6 +2501,7 @@ class UIDropDown(UIDropDownContainer):
                     button.disable()
 
                 break
+
             # single choice
             elif not self.multiple_choice:
                 if self.selected_list and self.selected_list[0] == name:
@@ -2519,7 +2518,6 @@ class UIDropDown(UIDropDownContainer):
                         other_button.enable()
                     button.disable()
                 break
-
 
         super().update(time_delta)
 
