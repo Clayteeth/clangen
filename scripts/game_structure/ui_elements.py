@@ -2302,6 +2302,7 @@ class UIDropDown(UIDropDownContainer):
         anchors: dict = None,
         child_trigger_close: bool = True,
         starting_selection: list = None,
+        open_on_hover: bool = False,
     ):
         """
         Class to handle the creation and management of non-scrolling dropdowns. It's recommended to use the on_use()
@@ -2322,6 +2323,7 @@ class UIDropDown(UIDropDownContainer):
         :param disable_selection: If the clicked child_button should be disabled, defaults to True
         :param child_trigger_close: If clicking a child_button should close the dropdown, defaults to True
         :param starting_selection: Items from item_list that should begin selected.
+        :param open_on_hover: Dropdown will open while being hovered and close once unhovered
         """
         self.selected_list = (
             [item for item in starting_selection if starting_selection]
@@ -2332,6 +2334,7 @@ class UIDropDown(UIDropDownContainer):
         self.disable_selection = disable_selection
         self.parent_text = parent_text
         self.parent_reflect_selection = parent_reflect_selection
+        self.open_on_hover = open_on_hover
 
         super().__init__(
             relative_rect=ui_scale(relative_rect.copy()),
@@ -2458,8 +2461,22 @@ class UIDropDown(UIDropDownContainer):
         if self.parent_reflect_selection and new_list:
             self.parent_button.set_text(new_list[0])
 
+    def check_if_hovering(self):
+        mouse_x, mouse_y = self.ui_manager.get_mouse_position()
+        if self.hover_point(mouse_x, mouse_y):
+            return True
+        else:
+            return False
+
     def update(self, time_delta: float):
         # updates our selection list
+        if self.open_on_hover:
+            if self.check_if_hovering():
+                if not self.is_open and self.parent_button.hovered:
+                    self.open()
+            else:
+                self.close()
+
         for name, button in self.child_button_dicts.items():
             if not button.pressed:
                 continue
