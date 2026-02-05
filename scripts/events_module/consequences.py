@@ -662,9 +662,10 @@ def create_new_cat(
             "NORIGHTEAR",
             "MANLEG",
         ]
-        for scar in new_cat.pelt.scars:
-            if scar in not_allowed:
-                new_cat.pelt.scars.remove(scar)
+
+        new_cat.pelt.scars = tuple(
+            scar for scar in new_cat.pelt.scars if scar not in not_allowed
+        )
 
         # chance to give the new cat a permanent condition, higher chance for found kits and litters
         if kit or litter:
@@ -704,10 +705,11 @@ def create_new_cat(
                         ] = -2
 
                 # assign scars
+
                 if chosen_condition in ("lost a leg", "born without a leg"):
-                    new_cat.pelt.scars.append("NOPAW")
+                    new_cat.pelt.scars = (*new_cat.pelt.scars, "NOPAW")
                 elif chosen_condition in ("lost their tail", "born without a tail"):
-                    new_cat.pelt.scars.append("NOTAIL")
+                    new_cat.pelt.scars = (*new_cat.pelt.scars, "NOTAIL")
 
         # KILL >:D only if we're sposed to tho
         if not alive:
