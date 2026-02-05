@@ -62,7 +62,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["low_lawful"],
+                "cats_from": ["clan", "low_lawful"],
                 "cats_to": ["m_c"],
                 "values": ["respect", "like"],
                 "amount": 15,
@@ -170,7 +170,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["low_lawful"],
+                "cats_from": ["clan", "low_lawful"],
                 "cats_to": ["m_c"],
                 "values": ["respect", "like"],
                 "amount": 15,
@@ -1169,7 +1169,7 @@
         },
         "relationships": [
             {
-                "cats_from": ["high_stable", "high_lawful"],
+                "cats_from": ["clan", "high_stable", "high_lawful"],
                 "cats_to": ["m_c"],
                 "values": ["respect"],
                 "amount": -5,
@@ -1230,7 +1230,7 @@
         },
         "relationships": [
             {
-                "cats_from": ["high_social"],
+                "cats_from": ["clan", "high_social"],
                 "cats_to": ["m_c"],
                 "values": ["respect", "trust"],
                 "amount": 10,
@@ -1867,7 +1867,7 @@
                 }
             },
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": [
                     "m_c"
                 ],
@@ -1924,7 +1924,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": [
                     "m_c"
                 ],
@@ -1981,7 +1981,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": [
                     "m_c"
                 ],
@@ -2245,7 +2245,7 @@
                 }
             },
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": [
                     "m_c"
                 ],
@@ -2302,7 +2302,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": [
                     "m_c"
                 ],
@@ -2648,8 +2648,7 @@
                 }
             },
             {
-                "cats_from": [
-                    "high_lawful"
+                "cats_from": ["clan", "high_lawful"
                 ],
                 "cats_to": [
                     "m_c"
@@ -2742,8 +2741,7 @@
                 }
             },
             {
-                "cats_from": [
-                    "high_lawful"
+                "cats_from": ["clan", "high_lawful"
                 ],
                 "cats_to": [
                     "m_c"
@@ -6896,7 +6894,7 @@
                 }
             },
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": ["m_c", "r_c"],
                 "values": ["respect"],
                 "amount": 8,
@@ -6955,7 +6953,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": ["m_c"],
                 "values": ["respect"],
                 "amount": 8,
@@ -7085,7 +7083,7 @@
         },
         "relationships": [
             {
-                "cats_from": ["high_social"],
+                "cats_from": ["clan", "high_social"],
                 "cats_to": ["m_c"],
                 "values": ["respect"],
                 "amount": 10,
@@ -7095,7 +7093,7 @@
                 }
             },
             {
-                "cats_from": ["low_social", "high_aggress"],
+                "cats_from": ["clan", "low_social", "high_aggress"],
                 "cats_to": ["m_c"],
                 "values": ["trust", "respect"],
                 "amount": -10,
@@ -7166,7 +7164,7 @@
         },
         "relationships": [
             {
-                "cats_from": ["high_social"],
+                "cats_from": ["clan", "high_social"],
                 "cats_to": ["m_c"],
                 "values": ["respect"],
                 "amount": 10,
@@ -7176,7 +7174,7 @@
                 }
             },
             {
-                "cats_from": ["low_social"],
+                "cats_from": ["clan", "low_social"],
                 "cats_to": ["m_c"],
                 "values": ["respect", "trust"],
                 "amount": -10,
@@ -7396,7 +7394,7 @@
         },
         "relationships": [
             {
-                "cats_from": ["high_aggress"],
+                "cats_from": ["clan", "high_aggress"],
                 "cats_to": ["m_c"],
                 "values": ["trust"],
                 "amount": -10,
