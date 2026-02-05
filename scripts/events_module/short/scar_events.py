@@ -213,7 +213,7 @@ class Scar_Events:
 
             specialty = random.choice(scar_pool)
             if specialty in ["NOTAIL", "HALFTAIL"]:
-                cat.pelt.accessory = [
+                cat.pelt.accessory = (
                     acc
                     for acc in cat.pelt.accessory
                     if acc
@@ -226,7 +226,7 @@ class Scar_Events:
                         "CLOVER",
                         "DAISY",
                     )
-                ]
+                )
 
             # combining left/right variations into the both version
             if "NOLEFTEAR" in cat.pelt.scars and specialty == "NORIGHTEAR":

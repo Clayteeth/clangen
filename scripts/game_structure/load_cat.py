@@ -502,7 +502,7 @@ def csv_load(all_cats):
                 )
                 the_cat.skill = attr[25]
                 if len(attr) > 28:
-                    the_cat.pelt.accessory = [attr[28]]
+                    the_cat.pelt.accessory = (attr[28],)
                 if len(attr) > 29:
                     the_cat.specialty2 = attr[29]
                 else:

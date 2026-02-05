@@ -615,10 +615,10 @@ def create_new_cat(
                 name = choice(names.names_dict["loner_names"])
                 # check if the kittypets come with a pretty acc
                 if bool(getrandbits(1)):
-                    # TODO: refactor this entire function to remove this call amongst other things
-                    from scripts.cat.pelts import Pelt
-
-                    new_cat.pelt.accessory.append(choice(Pelt.collar_accessories))
+                    new_cat.pelt.accessory = (
+                        *new_cat.pelt.accessory,
+                        choice(new_cat.pelt.collar_accessories),
+                    )
 
             # try to give name from full loner name list
             elif original_social in (CatSocial.LONER, CatSocial.ROGUE) and bool(

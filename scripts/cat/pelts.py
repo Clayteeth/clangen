@@ -465,9 +465,11 @@ class Pelt:
             self.tortie_marking = "MINIMALFOUR"
 
         if self.accessory is None:
-            self.accessory = []
-        elif isinstance(self.accessory, str):
-            self.accessory = [self.accessory]
+            self.accessory = tuple()
+        elif isinstance(
+            self.accessory, str
+        ):  # truly don't think this is possible any more
+            self.accessory = self.accessory
 
         new_acc_list = []
         for acc in self.accessory:
@@ -475,7 +477,7 @@ class Pelt:
                 new_acc_list.append(convert_dict["collar_map"][acc])
             else:
                 new_acc_list.append(acc)
-        self.accessory = new_acc_list
+        self.accessory = tuple(new_acc_list)
 
     def init_eyes(self, parents):
         """Sets eye color for this cat's pelt. Takes parents' eye colors into account.
@@ -862,7 +864,7 @@ class Pelt:
 
     def init_accessories(self, age):
         if age == "newborn":
-            self.accessory = []
+            self.accessory = tuple()
             return
 
         acc_display_choice = random.randint(0, 80)
@@ -872,11 +874,11 @@ class Pelt:
             acc_display_choice = random.randint(0, 100)
 
         if acc_display_choice == 1:
-            self.accessory = [
-                choice([choice(Pelt.plant_accessories), choice(Pelt.wild_accessories)])
-            ]
+            self.accessory = choice(
+                [choice(Pelt.plant_accessories), choice(Pelt.wild_accessories)]
+            )
         else:
-            self.accessory = []
+            self.accessory = tuple()
 
     def init_pattern(self):
         if self.name in Pelt.torties:
