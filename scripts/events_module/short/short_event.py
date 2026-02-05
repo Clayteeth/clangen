@@ -792,7 +792,9 @@ class ShortEvent:
                 elif "n_c" in abbr:
                     for i, new_cat_objects in enumerate(self.new_cats):
                         injury = choice(possible_injuries)
-                        new_cat_objects[i].get_injured(injury, potential_scars=potential_scars)
+                        new_cat_objects[i].get_injured(
+                            injury, potential_scars=potential_scars
+                        )
                         self.handle_injury_history(new_cat_objects[i], abbr, injury)
 
     def handle_injury_history(self, cat, cat_abbr, injury=None):

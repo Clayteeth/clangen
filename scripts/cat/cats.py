@@ -1904,7 +1904,14 @@ class Cat:
                 "event_triggered": new_illness.new,
             }
 
-    def get_injured(self, name, event_triggered=False, lethal=True, potential_scars=None, severity="default"):
+    def get_injured(
+        self,
+        name,
+        event_triggered=False,
+        lethal=True,
+        potential_scars=None,
+        severity="default",
+    ):
         """Add an injury to this cat.
 
         :param name: The injury to add
