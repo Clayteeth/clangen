@@ -140,9 +140,6 @@ class MainCatFiltering(unittest.TestCase):
             all_interactions, {"m_c": main_cat.ID}
         )
 
-        if len(filtered_interactions) == 2:
-            pass
-
         # then
         self.assertNotEqual(len(filtered_interactions), len(all_interactions))
         self.assertIn(interaction1, filtered_interactions)
