@@ -125,6 +125,7 @@ class MainCatFiltering(unittest.TestCase):
         group_events = GroupEvents()
         main_cat = Cat(moons=40)
         main_cat.skills.primary = Skill(SkillPath.HUNTER, points=9)
+        main_cat.skills.secondary = Skill(SkillPath.SWIMMER, points=9)
         group_events.abbreviations_cat_id = {"m_c": main_cat.ID}
 
         interaction1 = GroupInteraction("1")
@@ -138,6 +139,9 @@ class MainCatFiltering(unittest.TestCase):
         filtered_interactions = group_events.get_main_cat_interactions(
             all_interactions, {"m_c": main_cat.ID}
         )
+
+        if len(filtered_interactions) == 2:
+            pass
 
         # then
         self.assertNotEqual(len(filtered_interactions), len(all_interactions))
