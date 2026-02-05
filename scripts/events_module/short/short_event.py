@@ -764,7 +764,7 @@ class ShortEvent:
         # now go through each injury block
         for block in self.injury:
             cats_affected = block["cats"]
-            potential_scars = block["scars"]
+            potential_scars = block.get("scars", ())
 
             # find all possible injuries
             possible_injuries = []
