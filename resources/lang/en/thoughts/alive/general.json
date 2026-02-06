@@ -230,7 +230,7 @@
         "random_age_constraint": [
             "newborn"
         ],
-        "relationship_constraint": ["not_parent"]
+        "relationship_constraint": ["-parent/child"]
     },
     {
         "id": "gen_apprentice_to_newborn",

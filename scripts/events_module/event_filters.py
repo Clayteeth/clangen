@@ -605,29 +605,49 @@ def cat_for_event(
 def _get_cats_with_rel_status(
     cat_list: list, cat, rel_status_list: list
 ) -> tuple[list, list]:
-    # theoretically none of these should ever be used together
+    is_exclusionary = _check_for_exclusionary_value(rel_status_list)
+    rel_status_list = [x.replace("-", " ") for x in rel_status_list]
+
     if "siblings" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.get_siblings()]
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID not in cat.get_siblings()]
+        else:
+            cat_list = [c for c in cat_list if c.ID in cat.get_siblings()]
         rel_status_list.remove("siblings")
-    elif "mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.mate]
+    if "mates" in rel_status_list:
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID not in cat.mate]
+        else:
+            cat_list = [c for c in cat_list if c.ID in cat.mate]
         rel_status_list.remove("mates")
-    elif "not_mates" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID not in cat.mate]
-        rel_status_list.remove("not_mates")
-    elif "parent/child" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.get_children()]
+    if "parent/child" in rel_status_list:
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID not in cat.get_children()]
+        else:
+            cat_list = [c for c in cat_list if c.ID in cat.get_children()]
         rel_status_list.remove("parent/child")
-    elif "child/parent" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.get_parents()]
+    if "child/parent" in rel_status_list:
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID not in cat.get_parents()]
+        else:
+            cat_list = [c for c in cat_list if c.ID in cat.get_parents()]
         rel_status_list.remove("child/parent")
-    # but these could be used alongside the above tags, so they get their own if/elif
     if "mentor/app" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID in cat.apprentice]
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID not in cat.apprentice]
+        else:
+            cat_list = [c for c in cat_list if c.ID in cat.apprentice]
         rel_status_list.remove("mentor/app")
-    elif "app/mentor" in rel_status_list:
-        cat_list = [c for c in cat_list if c.ID == cat.mentor]
+    if "app/mentor" in rel_status_list:
+        if is_exclusionary:
+            cat_list = [c for c in cat_list if c.ID != cat.mentor]
+        else:
+            cat_list = [c for c in cat_list if c.ID == cat.mentor]
         rel_status_list.remove("app/mentor")
+
+    if is_exclusionary:
+        # putting indicators back for later filter funcs
+        rel_status_list = [f"-{x}" for x in rel_status_list]
 
     return cat_list, rel_status_list
 
@@ -767,6 +787,10 @@ def filter_relationship_type(
 
     filter_list = filter_types.copy()
 
+    is_exclusionary = _check_for_exclusionary_value(filter_list)
+    if is_exclusionary:
+        filter_list = [x.replace("-", "") for x in filter_list]
+
     # keeping this list here just for quick reference of what tags are handled here
     all_possible_tags = [
         "strangers",
@@ -804,33 +828,39 @@ def filter_relationship_type(
     test_cat = group[0]
     testing_cats = [cat for cat in group if cat.ID != test_cat.ID]
 
+    qualifies = False
+
     if "strangers" in filter_types:
         if not all(
             [inter_cat.ID in test_cat.relationships for inter_cat in testing_cats]
         ):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("strangers")
 
     if "siblings" in filter_types:
         if not all([test_cat.is_sibling(inter_cat) for inter_cat in testing_cats]):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("siblings")
 
-    if "not_siblings" in filter_types:
-        if any([test_cat.is_sibling(inter_cat) for inter_cat in testing_cats]):
-            return False
-        filter_list.remove("not_siblings")
-
     if "littermates" in filter_types:
         if not all([test_cat.is_littermate(inter_cat) for inter_cat in testing_cats]):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("littermates")
-
-    if "not_littermates" in filter_types:
-        if any([test_cat.is_littermate(inter_cat) for inter_cat in testing_cats]):
-            return False
-
-        filter_list.remove("not_littermates")
 
     if "mates" in filter_list:
         # first test if more than one cat
@@ -845,6 +875,11 @@ def filter_relationship_type(
         # Hopefully the cheaper tests mean this is only needed on events with a small number of cats
         for x in combinations(group, 2):
             if x[0].ID not in x[1].mate:
+                if is_exclusionary:
+                    qualifies = True
+                else:
+                    return False
+            if is_exclusionary and not qualifies:
                 return False
         filter_list.remove("mates")
 
@@ -859,16 +894,13 @@ def filter_relationship_type(
             if cat.ID == patrol_leader.ID:
                 continue
             if cat.ID not in patrol_leader.mate:
+                if is_exclusionary:
+                    qualifies = True
+                else:
+                    return False
+            if is_exclusionary and not qualifies:
                 return False
         filter_list.remove("mates_with_pl")
-
-    # Check if all cats are not mates
-    if "not_mates" in filter_list:
-        # opposite of mate check
-        for x in combinations(group, 2):
-            if x[0].ID in x[1].mate:
-                return False
-        filter_list.remove("not_mates")
 
     # Check if the cats are in a parent/child relationship
     if "parent/child" in filter_list:
@@ -877,13 +909,13 @@ def filter_relationship_type(
             return False
         # test for parentage
         if not group[0].is_parent(group[1]):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("parent/child")
-
-    if "not_parent" in filter_types:
-        if any([test_cat.is_parent(inter_cat) for inter_cat in testing_cats]):
-            return False
-        filter_list.remove("not_parent")
 
     if "child/parent" in filter_list:
         # It should be exactly two cats for a "child/parent" event
@@ -891,13 +923,13 @@ def filter_relationship_type(
             return False
         # test for parentage
         if not group[1].is_parent(group[0]):
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("child/parent")
-
-    if "not_child" in filter_types:
-        if any([inter_cat.is_parent(test_cat) for inter_cat in testing_cats]):
-            return False
-        filter_list.remove("not_child")
 
     if "mentor/app" in filter_list:
         # It should be exactly two cats for a "mentor/app" event
@@ -905,27 +937,31 @@ def filter_relationship_type(
             return False
         # test for parentage
         if not group[1].ID in group[0].apprentice:
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("mentor/app")
 
-    if "not_mentor" in filter_types:
-        if any([inter_cat in test_cat.apprentice for inter_cat in testing_cats]):
-            return False
-        filter_list.remove("not_mentor")
-
     if "app/mentor" in filter_list:
-        # It should be exactly two cats for a "app/mentor" event
+        # It should be exactly two cats for an "app/mentor" event
         if len(group) != 2:
             return False
         # test for parentage
         if not group[0].ID in group[1].apprentice:
+            if is_exclusionary:
+                qualifies = True
+            else:
+                return False
+        if is_exclusionary and not qualifies:
             return False
         filter_list.remove("app/mentor")
 
-    if "not_app" in filter_types:
-        if any([inter_cat in test_cat.mentor for inter_cat in testing_cats]):
-            return False
-        filter_list.remove("not_app")
+    # return early if there's nothing left to check
+    if not filter_list:
+        return qualifies
 
     # Filtering relationship values
     # each cat has to have relationships toward each other matching every level tag
