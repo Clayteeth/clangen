@@ -5,7 +5,6 @@ from typing import List, Union
 from pydantic import BaseModel, Field
 from pydantic_core import MISSING
 
-from scripts.cat.enums import CatAge
 from scripts.models.common.age import Age
 from scripts.models.common.all_trait import AllTrait
 from scripts.models.common.backstory import Backstory

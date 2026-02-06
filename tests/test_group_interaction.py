@@ -38,7 +38,7 @@ class MainCatFiltering(unittest.TestCase):
         interaction1.status_constraint = {"m_c": ["warrior"]}
 
         interaction2 = GroupInteraction("2")
-        interaction2.status_constraint = {"m_c": ["healer"]}
+        interaction2.status_constraint = {"m_c": ["medicine cat"]}
 
         # when
         all_interactions = [interaction1, interaction2]
