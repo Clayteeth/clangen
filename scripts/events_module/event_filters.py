@@ -355,7 +355,6 @@ def event_for_cat(
             return False
 
     # checking relationships
-    # TODO: relationship exclusions. wait on this until utility PR is in
     if cat_info.get("relationship_status", []):
         for status in cat_info.get("relationship_status", []):
             # just some preliminary checks to see if any of these are impossible for this cat
@@ -567,7 +566,6 @@ def cat_for_event(
             return None
 
     # rel status check
-    # TODO: set up exclusionary values
     if comparison_cat_rel_status or constraint_dict.get("relationship_status"):
         # preliminary check to see if we can just skip to gathering certain rel groups
         allowed_cats, comparison_cat_rel_status = _get_cats_with_rel_status(
@@ -869,18 +867,21 @@ def filter_relationship_type(
 
         # then if cats don't have the needed number of mates
         if not all(len(i.mate) >= (len(group) - 1) for i in group):
-            return False
-
-        # Now the expensive test.  We have to see if everyone is mates with each other
-        # Hopefully the cheaper tests mean this is only needed on events with a small number of cats
-        for x in combinations(group, 2):
-            if x[0].ID not in x[1].mate:
-                if is_exclusionary:
-                    qualifies = True
-                else:
-                    return False
-            if is_exclusionary and not qualifies:
+            if is_exclusionary:
+                qualifies = True
+            else:
                 return False
+        else:
+            # Now the expensive test.  We have to see if everyone is mates with each other
+            # Hopefully the cheaper tests mean this is only needed on events with a small number of cats
+            for x in combinations(group, 2):
+                if x[0].ID not in x[1].mate:
+                    if is_exclusionary:
+                        qualifies = True
+                    else:
+                        return False
+                if is_exclusionary and not qualifies:
+                    return False
         filter_list.remove("mates")
 
     # check if all cats are mates with p_l (they do not have to be mates with each other)
@@ -964,6 +965,7 @@ def filter_relationship_type(
         return qualifies
 
     # Filtering relationship values
+    # these don't get exclusionary values because it's giving me a headache
     # each cat has to have relationships toward each other matching every level tag
     for tier in filter_list:
         for inter_cat in group:
@@ -1011,21 +1013,27 @@ def filter_relationship_type(
 
                     # get the tier's index within the rel_types's list
                     index = rel_type_tiers[rel_type].index(rel_tier)
-                    allowed_levels = []
+                    allowed_tiers = []
                     # if it's a pos tier, we allow that index and higher
                     if rel_tier.is_any_pos:
-                        allowed_levels = rel_type_tiers[rel_type][index:]
+                        allowed_tiers = rel_type_tiers[rel_type][index:]
                     # if it's a neg tier, we allow that index and lower
                     elif rel_tier.is_any_neg:
-                        allowed_levels = rel_type_tiers[rel_type][0 : index + 1]
+                        allowed_tiers = rel_type_tiers[rel_type][0 : index + 1]
 
                     discard = True
-                    for l in tier_list:
-                        if l in allowed_levels:
+                    for _t in tier_list:
+                        if _t in allowed_tiers:
                             discard = False
                             break
                     if discard:
                         return False
+
+    if is_exclusionary:
+        if qualifies:
+            return True
+        else:
+            return False
 
     return True
 
