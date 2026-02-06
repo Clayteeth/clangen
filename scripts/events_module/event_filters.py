@@ -783,35 +783,6 @@ def filter_relationship_type(
     if is_exclusionary:
         filter_list = [x.replace("-", "") for x in filter_list]
 
-    # keeping this list here just for quick reference of what tags are handled here
-    all_possible_tags = [
-        "strangers",
-        "siblings",
-        "not_siblings",
-        "littermates",
-        "not_littermates",
-        "mates",
-        "mates_with_pl",
-        "not_mates",
-        "parent/child",
-        "not_parent",
-        "child/parent",
-        "not_child",
-        "mentor/app",
-        "not_mentor",
-        "app/mentor",
-        "not_app",
-    ]
-
-    for tier_list in rel_type_tiers.values():
-        all_possible_tags.extend(tier_list)
-        all_possible_tags.extend([f"{l}_only" for l in tier_list])
-
-    if not set(filter_list).issubset(set(all_possible_tags)):
-        print(
-            f"WARNING: {[tag for tag in filter_list if tag not in all_possible_tags]} is not a valid relationship_status tag!"
-        )
-
     if patrol_leader:
         if patrol_leader in group:
             group.remove(patrol_leader)
@@ -955,7 +926,7 @@ def filter_relationship_type(
         filter_list.remove("app/mentor")
 
     # return early if there's nothing left to check
-    if not filter_list:
+    if not filter_list and is_exclusionary:
         return qualifies
 
     # Filtering relationship values

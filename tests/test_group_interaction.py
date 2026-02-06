@@ -575,7 +575,7 @@ class OtherCatsFiltering(unittest.TestCase):
         interaction1.relationship_constraint = {"r_c1_to_m_c": ["hates"]}
 
         interaction2 = GroupInteraction("test")
-        interaction2.relationship_constraint = {"r_c1_to_r_c2": ["not_mates"]}
+        interaction2.relationship_constraint = {"r_c1_to_r_c2": ["-mates"]}
 
         interaction3 = GroupInteraction("test")
         interaction3.relationship_constraint = {"r_c1_to_r_c2": ["fancies_only"]}
