@@ -760,13 +760,7 @@ def _check_for_exclusionary_value(possible_values) -> bool:
     """
     Checks the given list for an exclusionary value and returns True or False
     """
-    for value in possible_values:
-        if value.find("-") == 0:
-            return True
-        else:
-            return False
-
-    return False
+    return any(value.find("-") == 0 for value in possible_values)
 
 
 def filter_relationship_type(
