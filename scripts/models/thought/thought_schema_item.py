@@ -9,6 +9,7 @@ from scripts.models.common.age import Age
 from scripts.models.common.all_trait import AllTrait
 from scripts.models.common.backstory import Backstory
 from scripts.models.common.biome import Biome
+from scripts.models.common.relationship_status import RelationshipStatus
 from scripts.models.common.skill import Skill
 from scripts.models.thought.camp import Camp
 from scripts.models.thought.has_injuries import HasInjuries
@@ -50,7 +51,7 @@ class ThoughtSchemaItem(BaseModel):
         MISSING,
         description='Constrains the thought to only occur if m_c (the cat that is thinking the thought) or r_c (the cat that is being thought about) has a certain permanent condition. Can also use "any" to allow the thought to occur if the cat has any permanent condition.',
     )
-    relationship_constraint: Union[List[RelationshipConstraint], MISSING] = Field(
+    relationship_status: Union[List[RelationshipStatus], MISSING] = Field(
         MISSING,
         description="Constrains the thought to only occur if m_c and r_c fulfill the tag requirements.",
     )
