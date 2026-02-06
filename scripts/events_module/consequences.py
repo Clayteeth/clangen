@@ -589,7 +589,9 @@ def create_new_cat(
         new_cat.status.change_current_moons_as(moons)
 
         if original_social == "former clancat":
-            new_cat.status.become_lost(CatSocial.LONER)
+            new_cat.status.leave_group(
+                choice([CatSocial.KITTYPET, CatSocial.LONER, CatSocial.ROGUE])
+            )
         # now we actually add them to the clan, if they should be joining
         if not outside and alive:
             new_cat.add_to_clan()
