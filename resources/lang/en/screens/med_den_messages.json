@@ -26,7 +26,7 @@
             "m_c knows the current sparse supply of herbs will rot soon enough. {PRONOUN/m_c/subject/CAP} {VERB/m_c/need/needs} to gather more.",
             "The herb stores will only cover the bare minimum. m_c cannot treat anything more serious than a scratch or a cough with this scarcity.",
             "c_n's current herb supply will barely last the moon.",
-            "m_c has a long list of herbs of which c_n needs more."
+            "m_c has a long list of herbs that c_n needs more of."
         ],
         "adequate": [
             "m_c is content with how many herbs the Clan has stocked up.",
