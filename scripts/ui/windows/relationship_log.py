@@ -113,5 +113,5 @@ class RelationshipLogWindow(GameWindow):
     def process_event(self, event):
         if event.type == pygame_gui.UI_BUTTON_START_PRESS:
             if event.ui_element in self.closing_buttons:
-                self.closing_process()
+                self.kill()
         return super().process_event(event)
