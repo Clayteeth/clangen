@@ -665,6 +665,9 @@ class Status:
         Returns True if the cat is considered "lost" by a group.
         :param group_ID: use this to specify a certain group to check lost status against
         """
+        if not group_ID:
+            group_ID = CatGroup.PLAYER_CLAN_ID
+
         for entry in self.standing_history:
             if group_ID and entry["group"] != group_ID:
                 continue
