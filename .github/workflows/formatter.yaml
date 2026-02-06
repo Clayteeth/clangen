@@ -12,5 +12,4 @@ jobs:
       - name: install dependencies
         run: uv sync
       - name: Run Formatter
-        id: fmt-check
         run: uv run black --check --diff .
