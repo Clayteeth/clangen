@@ -182,7 +182,10 @@ def create_new_cat_block(
         else:
             cat_group = choice([x.group_ID for x in game.clan.all_other_clans])
     else:
-        cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former clancat"])
+        if parent1:
+            cat_social = parent1.status.social
+        else:
+            cat_social = choice([CatSocial.KITTYPET, CatSocial.LONER, "former clancat"])
 
     # LITTER
     litter = False
