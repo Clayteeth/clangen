@@ -1026,7 +1026,7 @@
         ]
     },
     {
-        "patrol_id": "dst_train_glowingscorpians1",
+        "patrol_id": "dst_train_glowingscorpions1",
         "biome": [
             "desert"
         ],
@@ -1052,7 +1052,7 @@
         "chance_of_success": 70,
         "success_outcomes": [
             {
-                "text": "Watching the glowing dots scurrying around on the sand, bluer than blue, app1 purrs, telling app2 this is what {PRONOUN/app1/subject} wanted to show {PRONOUN/app2/object}. app2 can't believe that scorpions glow in the dark, how cool! They watch them together, chatting about the weird insects and having a great time.",
+                "text": "Watching the glowing dots scurrying around on the sand, bluer than blue, app1 purrs, telling app2 this is what {PRONOUN/app1/subject} wanted to show {PRONOUN/app2/object}. app2 can't believe that scorpions glow in the dark, how cool! They watch them together, chatting about the weird arachnids and having a great time.",
                 "exp": 10,
                 "relationships": [
                     {
