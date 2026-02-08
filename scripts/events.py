@@ -2122,7 +2122,6 @@ def handle_murder(cat):
         kill_chance = max(1, int(kill_chance))
 
         if not int(random.random() * kill_chance):
-            print(kill_chance)
             print(cat.name, "TARGET CHOSEN", Cat.fetch_cat(chosen_target.cat_to).name)
             print("KILL KILL KILL")
 
