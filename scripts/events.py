@@ -2109,12 +2109,12 @@ def handle_murder(cat):
 
         # little easter egg just for fun
         if (
-            cat.personality.trait == "ambitious"
-            and Cat.fetch_cat(chosen_target.cat_to).status.is_leader
+            cat.personality.trait in ("ambitious", "arrogant", "rebellious")
+            and (Cat.fetch_cat(chosen_target.cat_to).status.is_leader or Cat.fetch_cat(chosen_target.cat_to).status.rank == CatRank.DEPUTY)
         ):
             kill_chance -= 10
             if cat.status.rank == CatRank.DEPUTY:
-                kill_chance -= 10
+                kill_chance -= 15
 
         kill_chance -= cat.personality.aggression
         kill_chance -= 16 - cat.personality.stability
