@@ -2108,9 +2108,9 @@ def handle_murder(cat):
             kill_chance -= 10
 
         # little easter egg just for fun
-        if (
-            cat.personality.trait in ("ambitious", "arrogant", "rebellious")
-            and (Cat.fetch_cat(chosen_target.cat_to).status.is_leader or Cat.fetch_cat(chosen_target.cat_to).status.rank == CatRank.DEPUTY)
+        if cat.personality.trait in ("ambitious", "arrogant", "rebellious") and (
+            Cat.fetch_cat(chosen_target.cat_to).status.is_leader
+            or Cat.fetch_cat(chosen_target.cat_to).status.rank == CatRank.DEPUTY
         ):
             kill_chance -= 10
             if cat.status.rank == CatRank.DEPUTY:
