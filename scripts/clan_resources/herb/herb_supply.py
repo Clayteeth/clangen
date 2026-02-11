@@ -112,7 +112,7 @@ class HerbSupply:
     @property
     def low_qualifier(self) -> int:
         """
-        returns the lowest qualifier for a low supply
+        returns the lowest qualifier for a low supply (supply must be higher than this qualifier and lower than or equal to the adequate qualifier)
         """
         return 0
 
@@ -155,7 +155,7 @@ class HerbSupply:
         """
         takes given clan_size and multiplies it by the required_herbs_per_cat from constants.CONFIG
         """
-        self.required_herb_count = (
+        self.required_herb_count = int(
             clan_size
             * constants.CONFIG["clan_resources"]["herbs"]["required_herbs_per_cat"]
         )
@@ -502,13 +502,7 @@ class HerbSupply:
                 continue
 
             # chance to find an herb is based on it's rarity
-            if (
-                randint(
-                    1,
-                    rarity,
-                )
-                == 1
-            ):
+            if randint(1, rarity) == 1:
                 found_herbs[herb] = int(
                     choices(population=[3, 4, 5], weights=weight, k=1)[0]
                     * quantity_modifier
