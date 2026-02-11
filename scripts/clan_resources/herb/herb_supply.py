@@ -501,7 +501,7 @@ class HerbSupply:
             if not rarity:
                 continue
 
-            # chance to find an herb is based on it's rarity
+            # chance to find an herb is based on its rarity
             if randint(1, rarity) == 1:
                 if rarity in (5, 6):
                     quantity_modifier -= 0.5
