@@ -699,9 +699,9 @@
         "expiration": 12,
         "rarity": {
             "forest": {
-                "newleaf": 4,
-                "greenleaf": 3,
-                "leaf-fall": 4,
+                "newleaf": 5,
+                "greenleaf": 4,
+                "leaf-fall": 5,
                 "leaf-bare": 6
             },
             "mountainous": {
@@ -711,15 +711,15 @@
                 "leaf-bare": 6
             },
             "plains": {
-                "newleaf": 4,
-                "greenleaf": 3,
+                "newleaf": 5,
+                "greenleaf": 4,
                 "leaf-fall": 5,
                 "leaf-bare": 6
             },
             "beach": {
-                "newleaf": 3,
+                "newleaf": 4,
                 "greenleaf": 3,
-                "leaf-fall": 4,
+                "leaf-fall": 5,
                 "leaf-bare": 6
             }
         }

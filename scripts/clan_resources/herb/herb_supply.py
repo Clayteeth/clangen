@@ -1,3 +1,4 @@
+import statistics
 from random import choice, randint, choices
 from typing import Optional
 
@@ -388,7 +389,7 @@ class HerbSupply:
                 list_of_herb_strs, found_herbs = game.clan.herb_supply.get_found_herbs(
                     med,
                     general_amount_bonus=True,
-                    specific_quantity_bonus=len(assistants),
+                    specific_quantity_bonus=2,
                 )
             else:
                 list_of_herb_strs, found_herbs = game.clan.herb_supply.get_found_herbs(
@@ -503,8 +504,12 @@ class HerbSupply:
 
             # chance to find an herb is based on it's rarity
             if randint(1, rarity) == 1:
+                if rarity in (5, 6):
+                    quantity_modifier -= 0.5
+                elif rarity in (1, 2):
+                    quantity_modifier += 1
                 found_herbs[herb] = int(
-                    choices(population=[3, 4, 5], weights=weight, k=1)[0]
+                    choices(population=[2, 3, 4], weights=weight, k=1)[0]
                     * quantity_modifier
                 )
                 amount_of_herbs -= 1
