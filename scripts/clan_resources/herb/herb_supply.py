@@ -383,7 +383,6 @@ class HerbSupply:
 
         # get herbs found
         herb_list = []
-        list_of_herb_strs = []
         for med in med_cats:
             if assistants:
                 list_of_herb_strs, found_herbs = game.clan.herb_supply.get_found_herbs(
@@ -508,10 +507,10 @@ class HerbSupply:
                     quantity_modifier -= 0.5
                 elif rarity in (1, 2):
                     quantity_modifier += 1
-                found_herbs[herb] = int(
+                found_herbs[herb] = max(1, int(
                     choices(population=[2, 3, 4], weights=weight, k=1)[0]
                     * quantity_modifier
-                )
+                ))
                 amount_of_herbs -= 1
 
         return self.handle_found_herbs_outcomes(found_herbs)
