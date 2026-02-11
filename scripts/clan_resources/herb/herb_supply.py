@@ -507,10 +507,13 @@ class HerbSupply:
                     quantity_modifier -= 0.5
                 elif rarity in (1, 2):
                     quantity_modifier += 1
-                found_herbs[herb] = max(1, int(
-                    choices(population=[2, 3, 4], weights=weight, k=1)[0]
-                    * quantity_modifier
-                ))
+                found_herbs[herb] = max(
+                    1,
+                    int(
+                        choices(population=[2, 3, 4], weights=weight, k=1)[0]
+                        * quantity_modifier
+                    ),
+                )
                 amount_of_herbs -= 1
 
         return self.handle_found_herbs_outcomes(found_herbs)

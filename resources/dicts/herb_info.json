@@ -319,7 +319,7 @@
         }
     },
     "raspberry": {
-        "expiration": 12,
+        "expiration": 6,
         "rarity": {
             "forest": {
                 "newleaf": 4,
