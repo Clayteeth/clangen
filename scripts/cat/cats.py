@@ -2776,8 +2776,7 @@ class Cat:
                             respect=rel["respect"] or 0,
                             comfort=rel["comfort"] or 0,
                             trust=rel["trust"] or 0,
-                            log=rel["log"],
-                            no_longer_neutral=rel.get("no_longer_neutral", []),
+                            log=rel["log"]
                         )
                         self.relationships[rel["cat_to_id"]] = new_rel
 

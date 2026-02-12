@@ -43,7 +43,6 @@ class Relationship:
         trust: int = 0,
         comfort: int = 0,
         log: list = None,
-        no_longer_neutral: list = None,
     ) -> None:
         self.chosen_interaction = None
         self.cat_from = cat_from
@@ -60,7 +59,7 @@ class Relationship:
         else:
             self.log = []
 
-        self.no_longer_neutral = no_longer_neutral if no_longer_neutral else []
+        self.no_longer_neutral = []
         """
         List of rel types that made it out of the neutral tier (ROMANCE is not included). This list is used to indicate which types should not return to a neutral state.
         """
