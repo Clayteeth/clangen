@@ -113,7 +113,7 @@ class HerbSupply:
     @property
     def low_qualifier(self) -> int:
         """
-        returns the lowest qualifier for a low supply (supply must be higher than this qualifier and lower than or equal to the adequate qualifier)
+        returns the lowest qualifier for a low supply
         """
         return 0
 
@@ -504,7 +504,7 @@ class HerbSupply:
             # chance to find an herb is based on its rarity
             if randint(1, rarity) == 1:
                 if rarity in (5, 6):
-                    quantity_modifier -= 0.5
+                    quantity_modifier = quantity_modifier / 2
                 elif rarity in (1, 2):
                     quantity_modifier += 1
                 found_herbs[herb] = max(
