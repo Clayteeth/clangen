@@ -99,7 +99,7 @@ class PatrolOutcome:
                 self.weight += len(self.stat_trait)
             else:
                 # inclusionary values get inverse weighting
-                self.weight += int((self.NUM_OF_TRAITS - len(self.stat_trait)) / 10)
+                self.weight += int((self.NUM_OF_TRAITS - len(self.stat_trait)))
         self.stat_skill = stat_skill if stat_skill else []
         if self.stat_skill:
             # exclusionary values!
@@ -107,7 +107,7 @@ class PatrolOutcome:
                 self.weight += len(self.stat_skill)
             else:
                 # inclusionary values get inverse weighting
-                self.weight += int((self.NUM_OF_SKILLS - len(self.stat_skill)) / 5)
+                self.weight += int((self.NUM_OF_SKILLS - len(self.stat_skill)))
 
         self.can_have_stat = can_have_stat if can_have_stat else []
 
