@@ -966,7 +966,8 @@ def one_moon_cat(cat):
 
     if cat.dead:
         cat.get_new_thought(CatThought.WHILE_DEAD)
-        if cat.ID in game.just_died:
+        if cat.ID in game.just_died and cat.status.rank != CatRank.NEWBORN:
+            # newborns are exempt from this bc if we increase the moons, they become a kitten without actually gaining the kitten rank
             cat.moons += 1
         else:
             cat.status.increase_current_moons_as()
