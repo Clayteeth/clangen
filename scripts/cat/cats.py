@@ -999,6 +999,10 @@ class Cat:
             CatRank.KITTEN,
         ):  # newborn and kitten aren't really "ranks" to be promoted to
             self.get_new_thought(CatThought.ON_RANK_CHANGE)
+        # however we don't want kittens to somehow have a newborn thought, so we'll have them reset to a normal kitten thought
+        # just in case
+        if new_thought and new_rank == CatRank.KITTEN:
+            self.get_new_thought()
 
         # update class dictionary
         self.all_cats[self.ID] = self
