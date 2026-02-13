@@ -275,6 +275,8 @@ class EventsScreen(Screens):
             self.first_opened = True
             self.update_display_events_lists()
             self.display_events = self.all_events
+            for container in self.event_display_containers:
+                container.kill()
 
         self.event_screen_container = pygame_gui.core.UIContainer(
             ui_scale(pygame.Rect((0, 0), (800, 700))),
