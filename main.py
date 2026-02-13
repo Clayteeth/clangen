@@ -143,9 +143,6 @@ def load_game():
     game.dark_forest = None
     switch_set_value(Switch.switch_clan, False)
 
-    if all_screens.EventsScreen:
-        all_screens.EventsScreen.first_opened = False
-
     finished_loading = False
     loading_thread = threading.Thread(target=load_data)
     loading_thread.start()
