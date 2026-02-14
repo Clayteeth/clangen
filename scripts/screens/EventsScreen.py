@@ -269,11 +269,8 @@ class EventsScreen(Screens):
 
     def screen_switches(self):
         super().screen_switches()
-        self.show_mute_buttons()
-        if self.display_events and self.display_events[0] not in game.cur_events_list:
-            self.first_opened = False
-
         # On first open, update display events list
+        self.show_mute_buttons()
         if not self.first_opened:
             self.first_opened = True
             self.update_display_events_lists()
