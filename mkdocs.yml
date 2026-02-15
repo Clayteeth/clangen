@@ -72,7 +72,6 @@ theme:
     - navigation.indexes
     - navigation.tabs
     - navigation.path
-    - content.code.annotate
   custom_dir: docs-resources
   palette:
     - media: "(prefers-color-scheme)"
