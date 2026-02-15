@@ -2057,7 +2057,7 @@ class Cat:
 
         # remove accessories if need be
         if "NOTAIL" in self.pelt.scars or "HALFTAIL" in self.pelt.scars:
-            self.pelt.accessory = (
+            self.pelt.accessory = tuple(
                 acc
                 for acc in self.pelt.accessory
                 if acc
