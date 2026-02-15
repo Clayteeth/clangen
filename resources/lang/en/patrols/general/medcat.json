@@ -8289,13 +8289,14 @@
             }
         ]
      },
+    },
     {
-        "patrol_id": "dst_med_newleaf_exhausted",
+        "patrol_id": "gen_med_interested_mate",
         "biome": [
-            "desert"
+            "any"
         ],
         "season": [
-            "newleaf"
+            "any"
         ],
         "types": [
             "herb_gathering"
@@ -8303,21 +8304,22 @@
         "tags": [
             "romance"
         ],
-        "patrol_art": "gen_med_mates_headbump",
+        "patrol_art": "gen_flower_date_med_warrior",
         "min_cats": 2,
         "max_cats": 2,
         "min_max_status": {
-            "medicine cat": [2, 2]
+            "medicine cat": [1, 1],
+            "normal adult": [1, 1]
         },
-        "frequency": 1,
-        "intro_text": "While out on the usual daily scouting for herbs p_l suddenly collapses in the shade. r_c runs up concerned, but p_l explains {PRONOUN/p_l/subject}{VERB/p_l/'re/'s} not injured physically just burnt out. It's hard to care for a clan but even harder in the desert, and even though newleaf promises more herbs p_l worries for the future of the clan.",
-        "decline_text": "r_c decides the both of them have had enough for the day and ends the patrol early.",
+        "frequency": 4,
+        "intro_text": "p_l decides to take {PRONOUN/p_l/poss} mate out to gather herbs with {PRONOUN/p_l/object} on a day where the weathers quite nice. While walking r_c asks about a fact {PRONOUN/r_c/subject} {VERB/r_c/remember/remembers} p_l telling {PRONOUN/r_c/object} about.",
+        "decline_text": "Unfortunately p_l is distracted by a rustling in the bushes and forgets to bring the topic back up after it turns out to be nothing.",
         "chance_of_success": 50,
         "success_outcomes": [
             {
-                "text": "r_c sighs admiting {PRONOUN/r_c/subject} {VERB/r_c/aren't/isn't} sure what the future is going to look like and also can't help but be concerned for the future. Throughout it all though, the thing that always gets {PRONOUN/r_c/object} through it is the knowledge that no matter what happens p_l will always be by {PRONOUN/r_c/poss} side. p_l smiles and after a moment feels comfortable enough to continue their patrol with r_c by {PRONOUN/p_l/poss} side.",
+                "text": "p_l beams, happy {PRONOUN/p_l/poss} mate remembered something from {PRONOUN/p_l/poss} occasional ramblings about herbs. They both have a nice day out as p_l chats the time away, and r_c gets to enjoy the smile on p_l's face.",
                 "exp": 20,
-                "art": "gen_med_mates_headbump",
+                "art": "gen_med_romanticstroll_v1",
                 "herbs": [
                     "random_herbs"
                 ],
@@ -8328,25 +8330,23 @@
                         "mutual": true,
                         "values": [
                             "romance",
-                            "like",
-                            "comfort",
-                            "trust"
+                            "like"
                         ],
-                        "amount": 15,
+                        "amount": 10,
                         "log": {
-                            "cats_from": "from_cat and to_cat comforted each other during a difficult time."
+                            "cats_from": "from_cat and to_cat chatted about herbs while out on patrol."
                         }
                     }
                 ],
                 "frequency": 4
-            }
-        ],
-        "fail_outcomes": [
+            },
             {
-                "text": "r_c tries {PRONOUN/r_c/poss} best to comfort p_l but sometimes there isn't much you can do and you just have to let someone feel what they're feeling. r_c gives p_l all the time {PRONOUN/p_l/subject} to calm down before guiding {PRONOUN/p_l/object} back to camp. No herbs were gathered but sometimes that's ok.",
-                "exp": 0,
-                "art": "gen_med_mates_headbump",
-                "frequency": 4,
+                "text": "p_l giggles, explaining that r_c isn't quite right but is happy to explain what the herb actually does. r_c agrees and both cats have a nice day out with p_l chating the time away, and r_c enjoying the smile on p_l's face.",
+                "exp": 20,
+                "art": "gen_med_romanticstroll_v1",
+                "herbs": [
+                    "random_herbs"
+                ],
                 "relationships": [
                     {
                         "cats_to": ["p_l"],
@@ -8354,13 +8354,125 @@
                         "mutual": true,
                         "values": [
                             "romance",
-                            "like",
-                            "comfort",
-                            "trust"
+                            "like"
                         ],
                         "amount": 10,
                         "log": {
-                            "cats_from": "from_cat and to_cat comforted each other during a difficult time."
+                            "cats_from": "from_cat and to_cat chatted about herbs while out on patrol."
+                        }
+                    }
+                ],
+                "frequency": 3
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "p_l blinks, asking where r_c could have possibly gotten that blatantly wrong information from. When r_c insists {PRONOUN/r_c/subject} heard it from {PRONOUN/p_l/object} it doesn't end well.",
+                "exp": 10,
+                "art": "gen_train_argueMW",
+                "frequency": 4,
+                "herbs": [
+                    "random_herbs"
+                ],
+                "relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_c"],
+                        "mutual": true,
+                        "values": [
+                            "romance",
+                            "like"
+                        ],
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "from_cat and to_cat argued about herbs while out on patrol."
+                        }
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "patrol_id": "gen_med_mentors_flirting",
+        "biome": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "types": [
+            "herb_gathering"
+        ],
+        "tags": [
+            "romance"
+        ],
+        "patrol_art": "gen_train_app_medic",
+        "min_cats": 3,
+        "max_cats": 6,
+        "min_max_status": {
+            "medicine cat": [1, 2],
+            "normal adult": [1, 2],
+            "apprentice": [1, 2]
+        },
+        "frequency": 4,
+        "relationship_constraint": [
+            "mates"],
+        "intro_text": "app1 was so excited to go outside and learn some new things, that is until r_c and p_l decided this was the perfect opportunity to start flirting with each other.",
+        "decline_text": "Thankfully the topic of the patrol shifted back to normal again and app1 didn't have to put up with the flirting for too long.",
+        "chance_of_success": 20,
+        "success_outcomes": [
+            {
+                "text": "app1 raises {PRONOUN/app1/poss} voice and p_l puffs up in embarrassment, finally realizing {PRONOUN/p_l/subject} forgot app1 was there. p_l swiftly gets the patrol back on topic and app1 gets the day out {PRONOUN/app1/subject} {VERB/app1/were/was} hoping for.",
+                "exp": 20,
+                "art": "app_cat_looking_up",
+                "herbs": [
+                    "random_herbs"
+                ],
+                "frequency": 4
+            }
+        ],
+        "fail_outcomes": [
+            {
+                "text": "Unfortunately for app1, r_c and p_l have a wonderful time together completely forgetting that app1 was even there.",
+                "exp": 0,
+                "art": "app_cat_looking_up",
+                "frequency": 4,
+                "relationships": [
+                    {
+                        "cats_to": ["app1"],
+                        "cats_from": ["p_l"],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "from_cat kept flirting with their mate during a patrol while to_cat was there."
+                        }
+                    },
+                    {
+                        "cats_to": ["app1"],
+                        "cats_from": ["r_c"],
+                        "mutual": false,
+                        "values": [
+                            "like"
+                        ],
+                        "amount": -10,
+                        "log": {
+                            "cats_from": "from_cat kept flirting with {PRONOUN/from_cat/object} mate during a patrol while to_cat was there."
+                        }
+                    },
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["r_c"],
+                        "mutual": true,
+                        "values": [
+                            "like",
+                            "romance"
+                        ],
+                        "amount": 10,
+                        "log": {
+                            "cats_from": "Had a wonderful time together while on patrol"
                         }
                     }
                 ]
