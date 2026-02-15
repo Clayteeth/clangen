@@ -483,7 +483,7 @@ class Pelt:
             self.accessory = tuple()
         elif isinstance(
             self.accessory, str
-        ):  # truly don't think this is possible any more
+        ):
             self.accessory = tuple(self.accessory)
 
         new_acc_list = []
