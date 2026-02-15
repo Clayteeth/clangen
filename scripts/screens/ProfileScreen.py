@@ -1286,7 +1286,7 @@ class ProfileScreen(Screens):
                 body_history.append(death_history)
             # separate scar and death
             if body_history:
-                life_history.append("\n".join(body_history))
+                life_history.append("<br>".join(body_history))
 
             murder = self.get_murder_text()
             if murder:
@@ -1297,7 +1297,7 @@ class ProfileScreen(Screens):
                 life_history.append(afterlife_acceptance)
 
             # join together history list with line breaks
-            output = "\n\n".join(life_history)
+            output = "<br><br>".join(life_history)
         return output
 
     def get_afterlife_acceptance_text(self):
