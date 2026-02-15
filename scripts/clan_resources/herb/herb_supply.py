@@ -203,8 +203,25 @@ class HerbSupply:
             # a whole. also helps prevent death spiral when med cats aren't able to work.
             if not med_cats and not kitty.status.rank.is_any_medicine_rank():
                 break
+
             severities = []
-            conditions = kitty.permanent_condition.copy()
+
+            # we'll only add perm conditions if they seem likely to negatively affect the cat
+            conditions = {}
+            if kitty.is_disabled():
+                for condition in kitty.permanent_condition:
+                    condition_list = kitty.permanent_condition
+                    if (
+                        condition_list[condition]["mortality"]
+                        and condition_list[condition]["mortality"] < 20
+                    ):
+                        conditions.update(condition_list[condition])
+                        continue
+                    for risk in condition_list[condition]["risks"]:
+                        if risk["chance"] < 20:
+                            conditions.update(condition_list[condition])
+                            break
+
             conditions.update(kitty.injuries)
             conditions.update(kitty.illnesses)
             for con in conditions:
