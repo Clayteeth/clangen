@@ -213,7 +213,7 @@ class Scar_Events:
 
             specialty = random.choice(scar_pool)
             if specialty in ["NOTAIL", "HALFTAIL"]:
-                cat.pelt.accessory = (
+                cat.pelt.accessory = tuple(
                     acc
                     for acc in cat.pelt.accessory
                     if acc
