@@ -2037,9 +2037,9 @@ class Cat:
         new_condition = choice(possible_conditions)
 
         if new_condition == "born without a leg":
-            cat.pelt.scars = (cat.pelt.scars, "NOPAW")
+            cat.pelt.scars = (*cat.pelt.scars, "NOPAW")
         elif new_condition == "born without a tail":
-            cat.pelt.scars = (cat.pelt.scars, "NOTAIL")
+            cat.pelt.scars = (*cat.pelt.scars, "NOTAIL")
 
         self.get_permanent_condition(new_condition, born_with=True)
 
