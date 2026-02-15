@@ -484,7 +484,7 @@ class Pelt:
         elif isinstance(
             self.accessory, str
         ):  # truly don't think this is possible any more
-            self.accessory = self.accessory
+            self.accessory = tuple(self.accessory)
 
         new_acc_list = []
         for acc in self.accessory:
@@ -889,8 +889,8 @@ class Pelt:
             acc_display_choice = random.randint(0, 100)
 
         if acc_display_choice == 1:
-            self.accessory = choice(
-                [choice(Pelt.plant_accessories), choice(Pelt.wild_accessories)]
+            self.accessory = tuple(
+                choice([choice(Pelt.plant_accessories), choice(Pelt.wild_accessories)])
             )
         else:
             self.accessory = tuple()
