@@ -481,9 +481,7 @@ class Pelt:
 
         if self.accessory is None:
             self.accessory = tuple()
-        elif isinstance(
-            self.accessory, str
-        ):
+        elif isinstance(self.accessory, str):
             self.accessory = tuple(self.accessory)
 
         new_acc_list = []
