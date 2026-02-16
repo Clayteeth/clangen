@@ -209,21 +209,7 @@ class HerbSupply:
             severities = []
 
             # we'll only add perm conditions if they seem likely to negatively affect the cat
-            conditions = {}
-            if kitty.is_disabled():
-                for condition in kitty.permanent_condition:
-                    condition_list = kitty.permanent_condition
-                    if (
-                        condition_list[condition]["mortality"]
-                        and condition_list[condition]["mortality"] < 20
-                    ):
-                        conditions.update(condition_list[condition])
-                        continue
-                    for risk in condition_list[condition]["risks"]:
-                        if risk["chance"] < 20:
-                            conditions.update(condition_list[condition])
-                            break
-
+            conditions = kitty.permanent_condition.copy()
             conditions.update(kitty.injuries)
             conditions.update(kitty.illnesses)
             for con in conditions:
@@ -673,6 +659,20 @@ class HerbSupply:
                 return
 
             chosen_effect = choice(possible_effects)
+
+            if (
+                treatment_cat.is_disabled()
+                and name in treatment_cat.permanent_condition
+            ):
+                # if chance of death is already low, med cat doesn't treat
+                if condition.get("mortality") and condition.get("mortality", 0) > 20:
+                    self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
+                    return
+                # if chance of risk is already low, med cat doesn't treat
+                for risk in condition.get("risks", []):
+                    if risk["chance"] > 20:
+                        self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
+                        return
 
             if game.clan.game_mode == "classic":
                 # classic always applies basic treatment, regardless of herb supply
