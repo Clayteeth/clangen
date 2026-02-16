@@ -4,7 +4,7 @@ from pygame_gui.core import ObjectID
 from pygame_gui.core.interfaces import IUIManagerInterface
 
 from scripts.game_structure.game import game_setting_get
-from scripts.game_structure.ui_elements import CatButton
+from scripts.ui.elements.cat_button import CatButton
 from scripts.ui.scale import ui_scale_value
 
 

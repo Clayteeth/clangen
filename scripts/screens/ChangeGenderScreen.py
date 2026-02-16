@@ -11,9 +11,7 @@ from pygame_gui.core import ObjectID, UIContainer
 from scripts.cat.cats import Cat
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
-from scripts.game_structure.ui_elements import (
-    CatButton,
-)
+from ..ui.elements.cat_button import CatButton
 from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme

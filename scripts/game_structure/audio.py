@@ -7,7 +7,7 @@ import ujson
 
 from scripts.game_structure.game.settings import game_setting_get, game_setting_set
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import CatButton
+from scripts.ui.elements.cat_button import CatButton
 from scripts.ui.elements.sprite_button import UISpriteButton
 from scripts.screens.enums import GameScreen
 
