@@ -7,9 +7,9 @@ import pygame_gui.elements
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache
 from scripts.game_structure.ui_elements import (
-    UIImageButton,
     UISpriteButton,
 )
+from ..ui.elements.image_button import UIImageButton
 from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import adjust_list_text, shorten_text_to_fit
