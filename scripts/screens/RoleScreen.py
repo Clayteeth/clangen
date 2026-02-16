@@ -10,8 +10,8 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache, game
 from scripts.game_structure.ui_elements import (
     UITextBoxTweaked,
-    UISurfaceImageButton,
 )
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import adjust_list_text, shorten_text_to_fit
 from ..ui.scale import ui_scale, ui_scale_dimensions

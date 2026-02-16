@@ -10,9 +10,9 @@ from scripts.game_structure import game
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
-    UISurfaceImageButton,
     UIRelationDisplay,
 )
+from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.windows.relationship_log import RelationshipLogWindow
 from scripts.screens.Screens import Screens
 from scripts.screens.enums import GameScreen

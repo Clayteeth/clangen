@@ -11,8 +11,8 @@ from scripts.game_structure import game
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
-    UISurfaceImageButton,
 )
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import shorten_text_to_fit
 from ..ui.scale import ui_scale, ui_scale_dimensions

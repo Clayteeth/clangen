@@ -18,8 +18,8 @@ from scripts.game_structure.screen_settings import MANAGER
 from scripts.game_structure.ui_elements import (
     UIImageButton,
     UISpriteButton,
-    UISurfaceImageButton,
 )
+from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.screens.Screens import Screens
 from scripts.ui.generate_box import get_box, BoxStyles
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
