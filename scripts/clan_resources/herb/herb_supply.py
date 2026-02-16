@@ -669,10 +669,13 @@ class HerbSupply:
                     self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                     return
                 # if chance of risk is already low, med cat doesn't treat
+                no_treatment = False
                 for risk in condition.get("risks", []):
                     if risk["chance"] > 20:
                         self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
-                        return
+                        no_treatment = True
+                if no_treatment:
+                    break
 
             if game.clan.game_mode == "classic":
                 # classic always applies basic treatment, regardless of herb supply
