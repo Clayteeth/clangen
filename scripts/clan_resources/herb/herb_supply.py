@@ -674,7 +674,7 @@ class HerbSupply:
                         self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                         no_treatment = True
                 if no_treatment:
-                    break
+                    return
 
             if game.clan.game_mode == "classic":
                 # classic always applies basic treatment, regardless of herb supply
