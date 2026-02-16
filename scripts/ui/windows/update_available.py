@@ -7,9 +7,7 @@ from scripts.game_structure.game.switches import (
     switch_get_value,
     Switch,
 )
-from scripts.game_structure.ui_elements import (
-    UITextBoxTweaked,
-)
+from scripts.ui.elements.text_box_tweaked import UITextBoxTweaked
 from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.housekeeping.datadir import get_cache_dir

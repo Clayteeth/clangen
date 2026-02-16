@@ -6,7 +6,7 @@ from pygame_gui.core import IContainerLikeInterface, UIElement, ObjectID
 from pygame_gui.core.gui_type_hints import RectLike, Coordinate
 from pygame_gui.core.interfaces import IUIManagerInterface
 
-from scripts.game_structure.ui_elements import UITextBoxTweaked
+from scripts.ui.elements.text_box_tweaked import UITextBoxTweaked
 from scripts.ui.scale import ui_scale_value
 
 
