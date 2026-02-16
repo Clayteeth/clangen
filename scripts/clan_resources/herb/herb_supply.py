@@ -208,7 +208,6 @@ class HerbSupply:
 
             severities = []
 
-            # we'll only add perm conditions if they seem likely to negatively affect the cat
             conditions = kitty.permanent_condition.copy()
             conditions.update(kitty.injuries)
             conditions.update(kitty.illnesses)
