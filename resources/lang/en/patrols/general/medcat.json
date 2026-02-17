@@ -8289,8 +8289,7 @@
             }
         ]
      },
-    },
-   {
+    {
         "patrol_id": "gen_med_interested_mate",
         "biome": [
             "any"
