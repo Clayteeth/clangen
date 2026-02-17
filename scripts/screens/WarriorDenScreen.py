@@ -66,8 +66,6 @@ class WarriorDenScreen(Screens):
             if event.ui_element in self.focus_buttons.values():
                 for code, value in self.focus_buttons.items():
                     if value == event.ui_element:
-                        description = i18n.t(f"settings.{code}")
-
                         self.active_code = code
 
                         # only enable the save button if a focus switch is possible
@@ -85,26 +83,6 @@ class WarriorDenScreen(Screens):
                             and self.save_button.is_enabled
                         ):
                             self.save_button.disable()
-                        if "mediator" in description and self.save_button.is_enabled:
-                            # only create the mediator list if needed to check
-                            mediator_list = list(
-                                filter(
-                                    lambda x: x.status.rank == CatRank.MEDIATOR
-                                    and x.status.alive_in_player_clan,
-                                    Cat.all_cats_list,
-                                )
-                            )
-                            if len(mediator_list) < 1:
-                                self.save_button.disable()
-                        elif (
-                            "medicine cat" in description
-                            and self.save_button.is_enabled
-                        ):
-                            meds = find_alive_cats_with_rank(
-                                Cat, [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE]
-                            )
-                            if len(meds) < 1:
-                                self.save_button.disable()
 
                         self.update_buttons()
                         self.update_visual()
