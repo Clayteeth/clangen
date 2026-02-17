@@ -66,7 +66,7 @@ class WarriorDenScreen(Screens):
             if event.ui_element in self.focus_buttons.values():
                 for code, value in self.focus_buttons.items():
                     if value == event.ui_element:
-                        description = settings_dict["clan_focus"][code][1]
+                        description = i18n.t(f"settings.{code}")
 
                         self.active_code = code
 
@@ -193,21 +193,19 @@ class WarriorDenScreen(Screens):
         if "focus_visual" in self.focus_information:
             self.focus_information["focus_visual"].kill()
 
-            path = settings_dict["clan_focus"][self.active_code][3]
             self.focus_information["focus_visual"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((442, 84), (264, 348))),
                 pygame.image.load(
-                    f"resources/images/warrior_den/{path}.png"
+                    f"resources/images/warrior_den/{self.active_code}.png"
                 ).convert_alpha(),
                 manager=MANAGER,
             )
 
         else:
-            path = settings_dict["clan_focus"][self.original_focus_code][3]
             self.focus_information["focus_visual"] = pygame_gui.elements.UIImage(
                 ui_scale(pygame.Rect((442, 84), (264, 348))),
                 pygame.image.load(
-                    f"resources/images/warrior_den/{path}.png"
+                    f"resources/images/warrior_den/{self.original_focus_code}.png"
                 ).convert_alpha(),
                 manager=MANAGER,
             )
@@ -257,10 +255,10 @@ class WarriorDenScreen(Screens):
         # n increments the y placement
         n = 0
 
-        for i, (code, desc) in enumerate(settings_dict["clan_focus"].items()):
-            self.focus_buttons[code] = UISurfaceImageButton(
+        for name, value in settings_dict["clan_focus"].items():
+            self.focus_buttons[name] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, 2), (250, 28))),
-                f"settings.{code}",
+                f"settings.{name}",
                 get_button_dict(ButtonStyles.ROUNDED_RECT, (250, 28)),
                 object_id=ObjectID(None, "@buttonstyles_rounded_rect"),
                 container=self.focus["button_container"],
@@ -269,29 +267,24 @@ class WarriorDenScreen(Screens):
                 anchors=(
                     {
                         "top_target": self.focus_buttons[
-                            list(settings_dict["clan_focus"])[i - 1]
+                            list(settings_dict["clan_focus"])[n - 1]
                         ]
                     }
-                    if i > 0
+                    if n > 0
                     else {"top": "top"}
                 ),
             )
 
-            if get_clan_setting(code):
-                self.focus_buttons[code].disable()
-                self.original_focus_code = code
-                self.active_code = code
+            if get_clan_setting(name):
+                self.focus_buttons[name].disable()
+                self.original_focus_code = name
+                self.active_code = name
             else:
-                self.focus_buttons[code].enable()
-            if game.clan.game_mode == "classic" and code in self.not_classic_codes:
-                self.focus_buttons[code].disable()
+                self.focus_buttons[name].enable()
+            if game.clan.game_mode == "classic" and name in self.not_classic_codes:
+                self.focus_buttons[name].disable()
 
             n += 1
-
-        # # create scrollbar
-        # self.focus["button_container"].set_scrollable_area_dimensions(
-        #     ui_scale_dimensions((250, (len(settings_dict["clan_focus"]) * 30 + 100)))
-        # )
 
     def create_top_info(self):
         """
