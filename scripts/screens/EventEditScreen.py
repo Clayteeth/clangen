@@ -26,8 +26,8 @@ from scripts.game_structure.ui_elements import (
     UIScrollingButtonList,
     UIDropDown,
     UICollapsibleContainer,
-    UIScrollingDropDown,
 )
+from scripts.ui.elements.scrolling_dropdown import UIScrollingDropDown
 from scripts.ui.elements.modified_scrolling_container import (
     UIModifiedScrollingContainer,
 )
