@@ -17,7 +17,7 @@ from scripts.game_structure import game
 from scripts.game_structure.screen_settings import MANAGER
 from scripts.ui.elements.image_button import UIImageButton
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
-from scripts.game_structure.constants import DISPLAY_SETTINGS
+from scripts.game_structure.constants import DISPLAY_SETTINGS, CONFIG
 from scripts.ui.windows.select_focus_clans import SelectFocusClansWindow
 from scripts.screens.Screens import Screens
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
@@ -235,13 +235,46 @@ class WarriorDenScreen(Screens):
                 set_clan_setting(code, code == self.original_focus_code)
 
     def update_buttons(self):
-        for code, button in self.focus_buttons.items():
-            if self.active_code == code:
-                button.disable()
+        has_mediators = (
+            len(
+                find_alive_cats_with_rank(
+                    Cat, [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE], working=True
+                )
+            )
+            > 0
+        )
+        has_meddies = (
+            len(
+                find_alive_cats_with_rank(
+                    Cat,
+                    [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+                    working=True,
+                )
+            )
+            > 0
+        )
+
+        for name, button in self.focus_buttons.items():
+            # check mediator-related buttons
+            if (
+                not has_mediators
+                and name in constants.CONFIG["focus"]["requires_mediator"]
+            ):
+                self.focus_buttons[name].disable()
+                self.focus_buttons[name].set_text(f"settings.requires_mediator")
+            # check meddie related buttons
+            elif (
+                not has_meddies
+                and name in constants.CONFIG["focus"]["requires_medicine_cat"]
+            ):
+                self.focus_buttons[name].disable()
+                self.focus_buttons[name].set_text(f"settings.requires_medicine_cat")
+            # check chosen button
+            elif self.active_code == name:
+                self.focus_buttons[name].disable()
+            # enable everyone else
             else:
-                button.enable()
-            if game.clan.game_mode == "classic" and code in self.not_classic_codes:
-                button.disable()
+                self.focus_buttons[name].enable()
 
     def create_buttons(self):
         """
@@ -252,10 +285,14 @@ class WarriorDenScreen(Screens):
             manager=MANAGER,
         )
 
-        # n increments the y placement
-        n = 0
-
+        anchor = {"top": "top"}
         for name, value in settings_dict["clan_focus"].items():
+            if (
+                game.clan.game_mode == "classic"
+                and name in constants.CONFIG["focus"]["classic_disallows"]
+            ):
+                continue
+
             self.focus_buttons[name] = UISurfaceImageButton(
                 ui_scale(pygame.Rect((0, 2), (250, 28))),
                 f"settings.{name}",
@@ -264,27 +301,15 @@ class WarriorDenScreen(Screens):
                 container=self.focus["button_container"],
                 starting_height=2,
                 manager=MANAGER,
-                anchors=(
-                    {
-                        "top_target": self.focus_buttons[
-                            list(settings_dict["clan_focus"])[n - 1]
-                        ]
-                    }
-                    if n > 0
-                    else {"top": "top"}
-                ),
+                anchors=anchor,
             )
 
+            anchor = {"top_target": self.focus_buttons[name]}
             if get_clan_setting(name):
-                self.focus_buttons[name].disable()
-                self.original_focus_code = name
                 self.active_code = name
-            else:
-                self.focus_buttons[name].enable()
-            if game.clan.game_mode == "classic" and name in self.not_classic_codes:
-                self.focus_buttons[name].disable()
+                self.original_focus_code = name
 
-            n += 1
+            self.update_buttons()
 
     def create_top_info(self):
         """

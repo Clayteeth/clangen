@@ -101,6 +101,8 @@
         "raid_other_clans": "Raiding Other Clans",
         "raid_other_clans_tooltip": "Your warriors begin crossing borders for resources. Prey and herbs will greatly increase each moonskip, but injuries and illnesses will increase and the relationship with other Clans decrease. You will be able to choose which Clans you target.",
         "hoarding": "Hoarding Resources",
-        "hoarding_tooltip": "Your warriors begin stockpiling as many resources as they can get their paws on, regardless of their own safety. Prey and herbs will increase each moonskip, but injuries and illnesses will also increase."
+        "hoarding_tooltip": "Your warriors begin stockpiling as many resources as they can get their paws on, regardless of their own safety. Prey and herbs will increase each moonskip, but injuries and illnesses will also increase.",
+        "requires_mediator": "-requires mediator-",
+        "requires_medicine_cat": "-requires medicine cat-"
     }
 }
