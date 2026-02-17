@@ -1477,6 +1477,7 @@
                 "art": "gen_med_mates_headbump",
                 "frequency": 4,
                 "relationships": [
+                    {
                         "cats_to": ["p_l"],
                         "cats_from": ["r_c"],
                         "mutual": true,
