@@ -5,8 +5,8 @@ from pygame_gui.core.interfaces import IUIManagerInterface
 
 from scripts.game_structure.ui_elements import (
     UIDropDownContainer,
-    UIScrollingButtonList,
 )
+from scripts.ui.elements.scrolling_button_list import UIScrollingButtonList
 from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.generate_button import ButtonStyles, get_button_dict
 from scripts.ui.scale import ui_scale
