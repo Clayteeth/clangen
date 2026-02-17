@@ -1472,7 +1472,7 @@
         ],
         "fail_outcomes": [
             {
-                "text": "r_c tries {PRONOUN/r_c/poss} best to comfort p_l but sometimes there isn't much you can do and you just have to let someone feel what they're feeling. r_c gives p_l all the time {PRONOUN/p_l/subject} to calm down before guiding {PRONOUN/p_l/object} back to camp. No herbs were gathered but sometimes that's ok.",
+                "text": "r_c tries {PRONOUN/r_c/poss} best to comfort p_l but sometimes there isn't much you can do and you just have to let someone feel what they're feeling. r_c gives p_l all the time {PRONOUN/p_l/subject} {VERB/p_l/need/needs} to calm down before guiding {PRONOUN/p_l/object} back to camp. No herbs were gathered but sometimes that's ok.",
                 "exp": 0,
                 "art": "gen_med_mates_headbump",
                 "frequency": 4,
