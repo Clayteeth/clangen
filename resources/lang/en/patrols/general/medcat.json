@@ -8290,7 +8290,7 @@
         ]
      },
     },
-    {
+   {
         "patrol_id": "gen_med_interested_mate",
         "biome": [
             "any"
@@ -8312,7 +8312,7 @@
             "normal adult": [1, 1]
         },
         "frequency": 4,
-        "intro_text": "p_l decides to take {PRONOUN/p_l/poss} mate out to gather herbs with {PRONOUN/p_l/object} on a day where the weathers quite nice. While walking r_c asks about a fact {PRONOUN/r_c/subject} {VERB/r_c/remember/remembers} p_l telling {PRONOUN/r_c/object} about.",
+        "intro_text": "p_l decides to take r_c to gather herbs with {PRONOUN/p_l/object} on a day where the weathers quite nice. While walking r_c asks about a fact {PRONOUN/r_c/subject} {VERB/r_c/remember/remembers} p_l telling {PRONOUN/r_c/object} about.",
         "decline_text": "Unfortunately p_l is distracted by a rustling in the bushes and forgets to bring the topic back up after it turns out to be nothing.",
         "chance_of_success": 50,
         "success_outcomes": [
@@ -8341,7 +8341,7 @@
                 "frequency": 4
             },
             {
-                "text": "p_l giggles, explaining that r_c isn't quite right but is happy to explain what the herb actually does. r_c agrees and both cats have a nice day out with p_l chating the time away, and r_c enjoying the smile on p_l's face.",
+                "text": "p_l giggles, explaining that r_c isn't quite right but is happy to explain what the herb actually does. r_c agrees and both cats have a nice day out with p_l chatting the time away, and r_c enjoying the smile on p_l's face.",
                 "exp": 20,
                 "art": "gen_med_romanticstroll_v1",
                 "herbs": [
@@ -8408,16 +8408,14 @@
         ],
         "patrol_art": "gen_train_app_medic",
         "min_cats": 3,
-        "max_cats": 6,
+        "max_cats": 3,
         "min_max_status": {
             "medicine cat": [1, 2],
-            "normal adult": [1, 2],
-            "apprentice": [1, 2]
+            "normal adult": [1, 1],
+            "all apprentices": [1, 1]
         },
         "frequency": 4,
-        "relationship_constraint": [
-            "mates"],
-        "intro_text": "app1 was so excited to go outside and learn some new things, that is until r_c and p_l decided this was the perfect opportunity to start flirting with each other.",
+        "intro_text": "app1 was so excited to go outside and learn some new things, that is until p_l decided this was the perfect opportunity to start flirting with r_c rather than actually collecting any herbs.",
         "decline_text": "Thankfully the topic of the patrol shifted back to normal again and app1 didn't have to put up with the flirting for too long.",
         "chance_of_success": 20,
         "success_outcomes": [
@@ -8428,51 +8426,44 @@
                 "herbs": [
                     "random_herbs"
                 ],
-                "frequency": 4
+                "frequency": 4,
+                "relationships": [
+                    {
+                        "cats_to": ["p_l"],
+                        "cats_from": ["app1"],
+                        "mutual": false,
+                        "values": [
+                            "like",
+                            "comfort",
+                            "trust"
+                        ],
+                        "amount": -5,
+                        "log": {
+                            "cats_from": "to_cat annoyed from_cat while on patrol."
+                        }
+                    }
+                ]
             }
         ],
         "fail_outcomes": [
             {
-                "text": "Unfortunately for app1, r_c and p_l have a wonderful time together completely forgetting that app1 was even there.",
+                "text": "Unfortunately for app1, those obnoxious love birds have a wonderful time together completely forgetting that app1 was even there.",
                 "exp": 0,
                 "art": "app_cat_looking_up",
                 "frequency": 4,
                 "relationships": [
                     {
-                        "cats_to": ["app1"],
-                        "cats_from": ["p_l"],
-                        "mutual": false,
-                        "values": [
-                            "like"
-                        ],
-                        "amount": -10,
-                        "log": {
-                            "cats_from": "from_cat kept flirting with their mate during a patrol while to_cat was there."
-                        }
-                    },
-                    {
-                        "cats_to": ["app1"],
-                        "cats_from": ["r_c"],
-                        "mutual": false,
-                        "values": [
-                            "like"
-                        ],
-                        "amount": -10,
-                        "log": {
-                            "cats_from": "from_cat kept flirting with {PRONOUN/from_cat/object} mate during a patrol while to_cat was there."
-                        }
-                    },
-                    {
                         "cats_to": ["p_l"],
-                        "cats_from": ["r_c"],
-                        "mutual": true,
+                        "cats_from": ["app1"],
+                        "mutual": false,
                         "values": [
                             "like",
-                            "romance"
+                            "comfort",
+                            "trust"
                         ],
-                        "amount": 10,
+                        "amount": -5,
                         "log": {
-                            "cats_from": "Had a wonderful time together while on patrol"
+                            "cats_from": "to_cat annoyed from_cat while on patrol."
                         }
                     }
                 ]
