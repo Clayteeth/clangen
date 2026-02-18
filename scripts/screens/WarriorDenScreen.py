@@ -54,7 +54,6 @@ class WarriorDenScreen(Screens):
             "aid other clans",
             "raid other clans",
         ]
-        self.not_classic_codes = ["hunting", "raid other clans", "hoarding"]
 
     def handle_event(self, event):
         """
