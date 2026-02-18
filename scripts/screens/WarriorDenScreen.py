@@ -55,6 +55,9 @@ class WarriorDenScreen(Screens):
             "raid other clans",
         ]
 
+        self.has_mediators = True
+        self.has_meddies = True
+
     def handle_event(self, event):
         """
         Here are button presses / events are handled.
@@ -107,6 +110,26 @@ class WarriorDenScreen(Screens):
         Handle everything when it is switched to that screen.
         """
         super().screen_switches()
+
+        self.has_mediators = (
+            len(
+                find_alive_cats_with_rank(
+                    Cat, [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE], working=True
+                )
+            )
+            > 0
+        )
+        self.has_meddies = (
+            len(
+                find_alive_cats_with_rank(
+                    Cat,
+                    [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
+                    working=True,
+                )
+            )
+            > 0
+        )
+
         self.hide_menu_buttons()
         self.back_button = UISurfaceImageButton(
             ui_scale(pygame.Rect((25, 25), (105, 30))),
@@ -212,36 +235,17 @@ class WarriorDenScreen(Screens):
                 set_clan_setting(code, code == self.original_focus_code)
 
     def update_buttons(self):
-        has_mediators = (
-            len(
-                find_alive_cats_with_rank(
-                    Cat, [CatRank.MEDIATOR, CatRank.MEDIATOR_APPRENTICE], working=True
-                )
-            )
-            > 0
-        )
-        has_meddies = (
-            len(
-                find_alive_cats_with_rank(
-                    Cat,
-                    [CatRank.MEDICINE_CAT, CatRank.MEDICINE_APPRENTICE],
-                    working=True,
-                )
-            )
-            > 0
-        )
-
         for name, button in self.focus_buttons.items():
             # check mediator-related buttons
             if (
-                not has_mediators
+                not self.has_mediators
                 and name in constants.CONFIG["focus"]["requires_mediator"]
             ):
                 self.focus_buttons[name].disable()
                 self.focus_buttons[name].set_text(f"settings.requires_mediator")
             # check meddie related buttons
             elif (
-                not has_meddies
+                not self.has_meddies
                 and name in constants.CONFIG["focus"]["requires_medicine_cat"]
             ):
                 self.focus_buttons[name].disable()
