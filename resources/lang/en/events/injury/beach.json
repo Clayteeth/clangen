@@ -344,7 +344,7 @@
                     "claw-wound"
                 ],
                 "scars": [
-                    "TWO"
+                    "BACK", "TWO"
                 ]
             }
         ],
@@ -412,7 +412,7 @@
                     "claw-wound"
                 ],
                 "scars": [
-                    "TWO"
+                    "BACK", "TWO"
                 ]
             }
         ],
@@ -751,9 +751,6 @@
                 ],
                 "injuries": [
                     "snake bite"
-                ],
-                "scars": [
-                    "SNAKE"
                 ]
             }
         ],
@@ -880,8 +877,7 @@
                 ],
                 "injuries": [
                     "battle_injury"
-                ],
-                "scars": []
+                ]
             }
         ],
         "history": [
@@ -895,7 +891,7 @@
         ],
         "relationships": [
             {
-                "cats_from": ["high_aggress", "low_lawful"],
+                "cats_from": ["clan", "high_aggress", "low_lawful"],
                 "cats_to": ["m_c"],
                 "values": ["trust"],
                 "amount": -10,
