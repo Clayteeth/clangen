@@ -87,7 +87,7 @@ class Sprites:
     ) as read_file:
         WHITE_VITILIGO_DATA = ujson.loads(read_file.read())
     with open(
-        "sprites/dicts/white_patches_point_sprite_data.json", "r", encoding="utf-8"
+        "sprites/dicts/white_patches_points_sprite_data.json", "r", encoding="utf-8"
     ) as read_file:
         WHITE_POINT_DATA = ujson.loads(read_file.read())
 
