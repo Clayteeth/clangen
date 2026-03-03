@@ -675,6 +675,7 @@
                             "patrol"
                         ],
                         "cats_from": [
+                            "clan",
                             "high_social",
                             "low_lawful"
                         ],
