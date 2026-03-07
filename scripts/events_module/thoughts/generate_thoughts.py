@@ -76,9 +76,6 @@ def get_other_cat_for_thought(
 
             other_cat = choice(cat_list)
 
-    if other_cat and not main_cat.relationships.get(other_cat.ID):
-        pass
-
     return other_cat
 
 
