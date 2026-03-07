@@ -2954,7 +2954,9 @@
                 "mates"
             ]
         },
-        "r_c": {},
+        "r_c": {
+            "age": ["any"]
+        },
         "relationships": [
             {
                 "cats_to": [
