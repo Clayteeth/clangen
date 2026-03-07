@@ -121,7 +121,6 @@ class GroupEvents:
         interaction_str = GroupEvents.prepare_text(
             interaction_str, abbreviations_cat_id
         )
-        # TODO: add the interaction to the relationship log?
 
         interaction_str = interaction_str + i18n.t(
             f"relationships.{inter_type}_postscript"

@@ -982,7 +982,7 @@ def unpack_rel_block(
                     cats_to_ob,
                     **value_changes,
                     log=to_log if to_log else from_log,
-                    flip_log=True
+                    flip_log=True,
                 )
             )
 
