@@ -231,8 +231,10 @@ def generate_event_objects(event_triggered, biome, frequency) -> list:
     :param biome: The biome to pull events for
     :param frequency: The frequency to pull events for
     """
+    debug_freq = constants.CONFIG["event_generation"]["debug_override_frequency"]
+
     file_path = f"{event_triggered}/{biome}.json"
-    load_name = f"{file_path}_{frequency}"
+    load_name = f"{file_path}_{debug_freq if debug_freq else frequency}"
 
     try:
         if file_path in loaded_events:
@@ -326,25 +328,6 @@ def filter_events(
     incorrect_format = []
 
     for event in possible_events:
-        if event.history:
-            if not isinstance(event.history, list) or "cats" not in event.history[0]:
-                if (
-                    f"{event.event_id} history formatted incorrectly"
-                    not in incorrect_format
-                ):
-                    incorrect_format.append(
-                        f"{event.event_id} history formatted incorrectly"
-                    )
-        if event.injury:
-            if not isinstance(event.injury, list) or "cats" not in event.injury[0]:
-                if (
-                    f"{event.event_id} injury formatted incorrectly"
-                    not in incorrect_format
-                ):
-                    incorrect_format.append(
-                        f"{event.event_id} injury formatted incorrectly"
-                    )
-
         # check if event is in allowed or excluded
         if allowed_events and event.event_id not in allowed_events:
             continue
