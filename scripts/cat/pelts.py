@@ -1354,7 +1354,7 @@ def _describe_torties(cat, color_name, short=False) -> (str, str):
         ):
             base = f"cat.pelts.{cat.pelt.tortie_base.capitalize()}_long"  # the extra space is intentional
         else:
-            base = ""
+            base = "cat.pelts.TwoColour_long"
         return base, color_name
 
 
