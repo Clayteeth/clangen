@@ -61,6 +61,7 @@
     
     [clan.relation]
         affair = false
+        "unmated parentage" = false
         "same sex birth" = false
         "same sex adoption" = false
         "single parentage" = false
