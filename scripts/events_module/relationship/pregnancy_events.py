@@ -723,9 +723,7 @@ class Pregnancy_Events:
         affair_partner = Pregnancy_Events.determine_highest_romantic_relation(
             cat, mate, mate_relation, samesex
         )
-        if affair_partner and coparenting:
-            return affair_partner, True
-        elif affair_partner:
+        if affair_partner:
             return affair_partner, True
 
         # RANDOM AFFAIR & COPARENTING
