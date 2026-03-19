@@ -263,6 +263,7 @@ class Condition_Events:
             return triggered
 
         event_string = None
+        cat_dict = {"m_c": cat}
 
         if cat.is_ill():
             event_string, cat_dict = Condition_Events.handle_already_ill(cat)
@@ -324,7 +325,6 @@ class Condition_Events:
                 cat.get_ill(chosen_illness)
 
                 event_string = event_text_adjust(Cat, text=event_string, main_cat=cat)
-                cat_dict = {"m_c": cat}
 
         # if an event happened, then add event to cur_event_list and save death if it happened.
         if event_string:
