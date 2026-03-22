@@ -115,7 +115,10 @@ def _load_group(thought_type: CatThought, main_cat: "Cat", other_cat: "Cat"):
 
     # LIVING CATS
     elif thought_type == CatThought.WHILE_ALIVE:
-        thoughts = load_lang_resource(f"{new_path}/{rank}.json")
+        if main_cat.age == CatAge.NEWBORN:  # accounting for non-clan newborns
+            thoughts = load_lang_resource(f"{new_path}/newborn.json")
+        else:
+            thoughts = load_lang_resource(f"{new_path}/{rank}.json")
 
         # make sure lost thoughts are included
         if main_cat.status.is_lost(CatGroup.PLAYER_CLAN_ID):
