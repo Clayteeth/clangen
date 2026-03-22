@@ -1861,7 +1861,6 @@ def gain_accessories(cat):
         "daring",
         "playful",
         "attention-seeker",
-        "bouncy",
         "sweet",
         "troublesome",
         "impulsive",
