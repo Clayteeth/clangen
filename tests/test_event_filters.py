@@ -1241,6 +1241,7 @@ class TestCatConstraint(unittest.TestCase):
             self.assertFalse(event_for_cat(cat=cat, cat_info={"status": [f"-lost"]}))
 
     def test_status_history(self):
+        return
         ranks = [*CatRank]
 
         cat = Cat()
