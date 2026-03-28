@@ -491,8 +491,10 @@ class TestInterpersonalRelationshipConstraints(unittest.TestCase):
             )
 
     def test_mentor_app(self):
-        app = Cat(moons=8)
-        mentor = Cat(moons=26, status_dict=StatusDict(rank=CatRank.WARRIOR))
+        app = Cat(moons=8, disable_random=True)
+        mentor = Cat(
+            moons=26, status_dict=StatusDict(rank=CatRank.WARRIOR), disable_random=True
+        )
 
         app.update_mentor(new_mentor=mentor.ID)
 
