@@ -446,12 +446,12 @@ class SingleInteractionCatConstraints(unittest.TestCase):
 
         # when
         hunter_to_all = SingleInteraction("test")
-        hunter_to_all.main_skill_constraint = ["good hunter"]
+        hunter_to_all.main_skill_constraint = ["HUNTER,1"]
         hunter_to_all.random_skill_constraint = []
 
         all_to_hunter = SingleInteraction("test")
-        all_to_hunter.main_skill_constraint = ["good fighter", "good hunter"]
-        all_to_hunter.random_skill_constraint = ["good hunter"]
+        all_to_hunter.main_skill_constraint = ["FIGHTER,1", "HUNTER,1"]
+        all_to_hunter.random_skill_constraint = ["HUNTER,1"]
 
         # then
         self.assertTrue(
