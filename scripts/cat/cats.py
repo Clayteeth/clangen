@@ -171,6 +171,8 @@ class Cat:
 
         if disable_random is not None:
             Cat.disable_random = disable_random
+        else:
+            Cat.disable_random = False
 
         if (
             faded
