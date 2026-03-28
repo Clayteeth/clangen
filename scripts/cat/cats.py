@@ -169,7 +169,7 @@ class Cat:
 
         self._history = None
 
-Cat.disable_random = bool(disable_random)
+        Cat.disable_random = bool(disable_random)
 
         if (
             faded
