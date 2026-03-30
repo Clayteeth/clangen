@@ -432,11 +432,10 @@ class GroupEvents:
                 if cat_from.ID not in cat_to.relationships:
                     cat_to.create_one_relationship(cat_from)
 
-            fulfilled = filter_relationship_type(
+            if not filter_relationship_type(
                 group=[cat_from, cat_to],
                 filter_types=rel_constraint,
-            )
-            if not fulfilled:
+            ):
                 return False
 
         return True
