@@ -4,7 +4,6 @@
         "thoughts": [
             "Plays moss ball by {PRONOUN/m_c/self}",
             "Wants to take a nap",
-            "Tries to sneak out of camp",
             "Is rolling around on the ground",
             "Is chasing {PRONOUN/m_c/poss} tail",
             "Is playing with a stick",
@@ -15,7 +14,6 @@
             "Is whining for milk",
             "Is whimpering in {PRONOUN/m_c/poss} sleep",
             "Is trying to growl menacingly",
-            "Is adamantly refusing to take {PRONOUN/m_c/poss} nap",
             "Is batting pebbles across the camp clearing",
             "Is regretting eating the bug that {PRONOUN/m_c/subject} caught",
             "Recently took a tumble off of a log",
@@ -57,7 +55,9 @@
             "Falls asleep in the elders' den while listening to a story",
             "Wants to join the hunting patrol but can't",
             "Tried climbing r_c",
-            "Starts whining when r_c ignores {PRONOUN/m_c/object}"
+            "Starts whining when r_c ignores {PRONOUN/m_c/object}",
+            "Tries to sneak out of camp",
+            "Is adamantly refusing to take {PRONOUN/m_c/poss} nap"
         ],
         "random_living_status": [
             "living"
