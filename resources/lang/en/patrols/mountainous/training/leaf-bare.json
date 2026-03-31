@@ -151,9 +151,8 @@
                     {
                         "cats": ["app1"],
                         "injuries": [
-                            "shivering"
-                        ],
-                        "scars": []
+                            "running nose"
+                        ]
                     }
                 ],
                 "relationships": [
@@ -714,14 +713,9 @@
                         "cats": ["r_c"],
                         "injuries": [
                             "constant nightmares"
-                        ],
-                        "scars": [],
-                        "no_results": false
+                        ]
                     }
                 ],
-                "history_text": {
-                    "death": "m_c died from lack of sleep, {PRONOUN/m_c/poss} vision haunted by dark shadows."
-                },
                 "frequency": 4
             },
             {
@@ -868,9 +862,7 @@
                         "cats": ["r_c"],
                         "injuries": [
                             "shivering"
-                        ],
-                        "scars": [],
-                        "no_results": false
+                        ]
                     }
                 ],
                 "history_text": {
@@ -1279,15 +1271,13 @@
                         "cats": ["patrol"],
                         "injuries": [
                             "shivering"
-                        ],
-                        "scars": []
+                        ]
                     }
                 ],
                 "dead_cats": [
                     "multi"
                 ],
                 "history_text": {
-                    "scar": "m_c was scarred from the bite of the cold of an avalanche, though {PRONOUN/m_c/subject} escaped with {PRONOUN/m_c/poss} life.",
                     "death": "The view point c_n thought was safe from avalanches... was not."
                 },
                 "relationships": [
