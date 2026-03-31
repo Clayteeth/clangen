@@ -866,6 +866,7 @@
                     }
                 ],
                 "history_text": {
+                    "scar": "m_c got frostbite while repairing some dens.",
                     "death": "m_c died after getting too cold while repairing some dens."
                 },
                 "frequency": 4
@@ -1278,6 +1279,7 @@
                     "multi"
                 ],
                 "history_text": {
+                    "scar": "m_c was scarred from the bite of the cold of an avalanche, though {PRONOUN/m_c/subject} escaped with {PRONOUN/m_c/poss} life.",
                     "death": "The view point c_n thought was safe from avalanches... was not."
                 },
                 "relationships": [

@@ -1342,6 +1342,7 @@
                     }
                 ],
                 "history_text": {
+                    "scar": "m_c caught a chill while hunting in leaf-bare.",
                     "death": "m_c died to a chill {PRONOUN/m_c/subject} caught while hunting in leaf-fall."
                 },
                 "relationships": [
