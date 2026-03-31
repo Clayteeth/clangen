@@ -14,6 +14,9 @@
 			"m_c_to_r_c1": {
 				"comfort": "increase"
 			},
+			"r_c1_to_m_c": {
+				"comfort": "increase"
+			},
 			"m_c_to_r_c2": {
 				"respect": "decrease"
 			},
