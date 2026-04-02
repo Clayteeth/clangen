@@ -735,7 +735,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c tragically died after being trapped on patrol."
+                    "death": "m_c tragically died after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             },
@@ -756,8 +756,8 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c carries a scar from being trapped on patrol",
-                    "death": "m_c died to injuries sustained after getting trapped on patrol."
+                    "scar": "m_c carries a scar from when a scree slope collapsed beneath {PRONOUN/m_c/object}.",
+                    "death": "m_c died from {PRONOUN/m_c/poss} injuries after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             },
@@ -768,7 +768,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c tragically died after being trapped on patrol."
+                    "death": "m_c tragically died after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             },
@@ -786,8 +786,8 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c carries a scar from being trapped on patrol",
-                    "death": "m_c died to injuries sustained after getting trapped on patrol."
+                    "scar": "m_c carries a scar from when a scree slope collapsed beneath {PRONOUN/m_c/object}.",
+                    "death": "m_c died from {PRONOUN/m_c/poss} injuries after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             }
@@ -961,7 +961,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c tragically died after being trapped on patrol."
+                    "death": "m_c tragically died after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             },
@@ -979,8 +979,8 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c carries a scar from being trapped on patrol",
-                    "death": "m_c died to injuries sustained after getting trapped on patrol."
+                    "scar": "m_c carries a scar from when a scree slope collapsed beneath {PRONOUN/m_c/object}.",
+                    "death": "m_c died from {PRONOUN/m_c/poss} injuries after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             }
@@ -1034,7 +1034,7 @@
                     "r_c"
                 ],
                 "history_text": {
-                    "death": "m_c tragically died after being trapped on a solo patrol."
+                    "death": "m_c tragically died after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             },
@@ -1052,8 +1052,8 @@
                     }
                 ],
                 "history_text": {
-                    "scar": "m_c carries a scar from being trapped on a solo patrol",
-                    "death": "m_c died to injuries sustained after getting trapped on a solo patrol."
+                    "scar": "m_c carries a scar from when a scree slope collapsed beneath {PRONOUN/m_c/object}.",
+                    "death": "m_c died from {PRONOUN/m_c/poss} injuries after a scree slope collapsed beneath {PRONOUN/m_c/object}."
                 },
                 "frequency": 3
             }
