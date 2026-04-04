@@ -7796,7 +7796,7 @@
             "any"
         ],
         "frequency": 3,
-        "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, with no apparent cause for the sudden death.",
+        "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, dead without any apparent cause.",
         "m_c": {
             "age": [
                 "-senior"
