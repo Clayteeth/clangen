@@ -7786,5 +7786,61 @@
                     }
                 }
             }]
+    },
+    {
+        "event_id": "gen_death_mystery1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 3,
+        "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, with no apparent cause for the sudden death.",
+        "m_c": {
+            "age": [
+                "-senior"
+            ],
+            "dies": true
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died in {PRONOUN/m_c/poss} sleep of an unknown cause.",
+                "lead_death": "died in {PRONOUN/m_c/poss} sleep of unknown causes."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_mystery2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [
+            "all_lives",
+            "no_body"
+        ],
+        "frequency": 3,
+        "event_text": "m_c went missing this moon. Nothing can be found of {PRONOUN/m_c/object}, despite extensive searches, and c_n is left without answers or closure.",
+        "m_c": {
+            "age": [
+                "-senior"
+            ],
+            "dies": true
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died after disappearing mysteriously.",
+                "lead_death": "dissapeared and died mysteriously."
+            }
+        ]
     }
 ]
