@@ -7805,6 +7805,9 @@
             ]
         },
         "r_c": {
+            "status": [
+                "-leader"
+            ],
             "dies": true
         },
         "history": [
@@ -7873,8 +7876,7 @@
                 "cats": [
                     "m_c"
                 ],
-                "death": "m_c died in {PRONOUN/m_c/poss} sleep of an unknown cause.",
-                "lead_death": "died in {PRONOUN/m_c/poss} sleep of unknown causes."
+                "death": "m_c died in {PRONOUN/m_c/poss} sleep of an unknown cause."
             }
         ]
     },
@@ -7903,8 +7905,7 @@
                 "cats": [
                     "m_c"
                 ],
-                "death": "m_c died after disappearing mysteriously.",
-                "lead_death": "dissapeared and died mysteriously."
+                "death": "m_c died after disappearing mysteriously."
             }
         ]
     }
