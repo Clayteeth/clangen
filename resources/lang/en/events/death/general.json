@@ -7796,7 +7796,7 @@
             "any"
         ],
         "tags": [],
-        "frequency": 4,
+        "frequency": 3,
         "event_text": "m_c mixed up the herb dosages for r_c, and despite {PRONOUN/m_c/poss} desperate efforts, r_c perishes from the overdose.",
         "m_c": {
             "status": [
@@ -7863,7 +7863,7 @@
         "season": [
             "any"
         ],
-        "frequency": 3,
+        "frequency": 2,
         "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, dead without any apparent cause.",
         "m_c": {
             "age": [
@@ -7892,7 +7892,7 @@
             "all_lives",
             "no_body"
         ],
-        "frequency": 3,
+        "frequency": 2,
         "event_text": "m_c went missing this moon. Nothing can be found of {PRONOUN/m_c/object}, despite extensive searches, and c_n is left without answers or closure.",
         "m_c": {
             "age": [
