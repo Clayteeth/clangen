@@ -7423,27 +7423,19 @@
         "event_id": "gen_death_egodeath",
         "location": ["any"],
         "season": ["any"],
-        "sub_type": [],
         "tags": [],
         "frequency": 1,
         "event_text": "m_c taunted and provoked a stranger at the border into a fight. n_c:0 was the wrong cat to test; m_c never makes it back to camp.",
         "m_c": {
             "rank": [
-                "appretice",
+                "apprentice",
                 "warrior",
                 "deputy"
             ],
             "trait": ["arrogant", "competitive", "troublesome"],
+            "skill": ["-FIGHTER,2"],
             "dies": true
         },
-        "history": [
-            {
-                "cats": [
-                    "m_c"
-                ],
-                "death": "m_c was killed by a rogue that {PRONOUN/m_c/subject} taunted."
-            }
-        ],
         "new_cat": [
             [
                 "rogue",
@@ -7451,6 +7443,14 @@
                 "age:adult",
                 "meeting"
             ]
+        ],
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c was killed by a rogue that {PRONOUN/m_c/subject} taunted."
+            }
         ]
     },
     {
