@@ -31,6 +31,79 @@
         ]
     },
     {
+        "event_id": "gen_injury_medmessup1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c mixed up the herb dosages for r_c, poisoning {PRONOUN/r_c/object}.",
+        "m_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "r_c": {},
+        "history": [
+            {
+                "cats": [
+                    "r_c"
+                ],
+                "death": "m_c died after the medicine cat accidentally poisoned {PRONOUN/m_c/object}."
+            }
+        ],
+        "injury": [
+            {
+                "cats": [
+                    "r_c"
+                ],
+                "injuries": [
+                    "poisoned"
+                ]
+            }
+        ],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "trust",
+                    "comfort"
+                ],
+                "amount": -20,
+                "mutual": false,
+                "log": {
+                    "cats_from": "cat_to accidentally poisoned cat_from by mixing up the herb dosages."
+                }
+            },
+            {
+                "cats_from": [
+                    "clan"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "mutual": false,
+                "values": [
+                    "trust",
+                    "respect"
+                ],
+                "amount": -10,
+                "log": {
+                    "cats_from": "cat_from's confidence in cat_to's abilities as a medicine cat was shaken after {PRONOUN/m_c/subject} accidentally poisoned r_c."
+                }
+            }
+        ]
+    },
+    {
         "event_id": "gen_injury_bruises_anykitten2",
         "location": [
             "any"

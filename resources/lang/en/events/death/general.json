@@ -7786,5 +7786,124 @@
                     }
                 }
             }]
+    },
+    {
+        "event_id": "gen_death_medmessup1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [],
+        "frequency": 2,
+        "event_text": "m_c mixed up the herb dosages for r_c, and despite {PRONOUN/m_c/poss} desperate efforts, r_c perished from the overdose.",
+        "m_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "r_c": {
+            "dies": true
+        },
+        "history": [
+            {
+                "cats": [
+                    "r_c"
+                ],
+                "death": "m_c died after the medicine cat accidentally gave {PRONOUN/m_c/object} a fatal overdose."
+            }
+        ],
+        "relationships": [
+            {
+                "cats_from": [
+                    "r_c"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "values": [
+                    "trust",
+                    "comfort"
+                ],
+                "amount": -30,
+                "mutual": false,
+                "log": {
+                    "cats_from": "cat_to accidentally overdosed and killed cat_from."
+                }
+            },
+            {
+                "cats_from": [
+                    "clan"
+                ],
+                "cats_to": [
+                    "m_c"
+                ],
+                "mutual": false,
+                "values": [
+                    "trust",
+                    "respect"
+                ],
+                "amount": -15,
+                "log": {
+                    "cats_from": "cat_from was shocked after cat_to accidentally overdosed r_c, confidence in {PRONOUN/cat_to/poss} abilities as a medicine cat deeply shaken."
+                }
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_mystery1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 2,
+        "event_text": "m_c was found cold in {PRONOUN/m_c/poss} nest, dead without any apparent cause.",
+        "m_c": {
+            "age": [
+                "-senior"
+            ],
+            "dies": true
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died in {PRONOUN/m_c/poss} sleep of an unknown cause."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_mystery2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [
+            "all_lives",
+            "no_body"
+        ],
+        "frequency": 2,
+        "event_text": "m_c went missing this moon. Nothing could be found of {PRONOUN/m_c/object}, despite extensive searches, and c_n was left without answers or closure.",
+        "m_c": {
+            "age": [
+                "-senior"
+            ],
+            "dies": true
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c died after disappearing mysteriously."
+            }
+        ]
     }
 ]
