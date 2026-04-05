@@ -7805,9 +7805,6 @@
             ]
         },
         "r_c": {
-            "status": [
-                "-leader"
-            ],
             "dies": true
         },
         "history": [
