@@ -7893,7 +7893,7 @@
             "no_body"
         ],
         "frequency": 2,
-        "event_text": "m_c went missing this moon. Nothing can be found of {PRONOUN/m_c/object}, despite extensive searches, and c_n is left without answers or closure.",
+        "event_text": "m_c went missing this moon. Nothing could be found of {PRONOUN/m_c/object}, despite extensive searches, and c_n was left without answers or closure.",
         "m_c": {
             "age": [
                 "-senior"
