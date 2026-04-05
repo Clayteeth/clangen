@@ -7282,7 +7282,7 @@
         "frequency": 1,
         "event_text": "A thick fog descended on c_n for days. When it finally lifted, m_c's body was discovered out in the territory.",
         "m_c": {
-            "age": [
+            "status": [
                 "-kitten"
             ],
             "dies": true
@@ -7305,7 +7305,7 @@
         "frequency": 1,
         "event_text": "A thick fog descended on c_n for days. m_c vanished into it, never to be seen again.",
         "m_c": {
-            "age": [
+            "status": [
                 "-kitten"
             ],
             "dies": true
@@ -7328,7 +7328,7 @@
         "frequency": 1,
         "event_text": "m_c seemed hale and healthy on patrol until {PRONOUN/m_c/subject} had trouble speaking and began to limp. By the time {PRONOUN/m_c/poss} Clanmates came back with the medicine cat, m_c was dead.",
         "m_c": {
-            "rank": [
+            "status": [
                 "warrior",
                 "deputy",
                 "leader"
@@ -7353,7 +7353,7 @@
         "frequency": 1,
         "event_text": "m_c attacked a duck, intending to bring it back for the fresh-kill pile, but was knocked below the surface of the water and drowned.",
         "m_c": {
-            "rank": [
+            "status": [
                 "apprentice",
                 "warrior",
                 "deputy",
@@ -7379,7 +7379,7 @@
         "frequency": 1,
         "event_text": "m_c ventured too far out into a boggy area and drowned.",
         "m_c": {
-            "rank": [
+            "status": [
                 "-kitten"
             ],
             "dies": true
@@ -7402,7 +7402,7 @@
         "frequency": 1,
         "event_text": "m_c vanished while patrolling alone. The search parties found blood and little evidence of struggle — whatever killed m_c was too big to fight.",
         "m_c": {
-            "rank": [
+            "status": [
                 "apprentice",
                 "warrior",
                 "deputy",
@@ -7427,7 +7427,7 @@
         "frequency": 1,
         "event_text": "m_c taunted and provoked a stranger at the border into a fight. n_c:0 was the wrong cat to test; m_c never makes it back to camp.",
         "m_c": {
-            "rank": [
+            "status": [
                 "apprentice",
                 "warrior",
                 "deputy"
