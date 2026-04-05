@@ -66,10 +66,10 @@
                     },
                     {
                         "cats_to": [
-                            "some_clan"
+                            "patrol"
                         ],
                         "cats_from": [
-                            "patrol"
+                            "clan", "high_social", "high_aggress"
                         ],
                         "mutual": false,
                         "values": [
