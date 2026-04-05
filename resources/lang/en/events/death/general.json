@@ -7243,7 +7243,8 @@
         "supplies": [
             {
                 "type": "freshkill",
-                "trigger": ["excess"]
+                "trigger": ["excess"],
+                "adjust": "reduce_eighth"
             }
         ]
     },
@@ -7269,7 +7270,8 @@
         "supplies": [
             {
                 "type": "freshkill",
-                "trigger": ["full"]
+                "trigger": ["full"],
+                "adjust": "reduce_eighth"
             }
         ]
     },
@@ -7425,7 +7427,7 @@
         "season": ["any"],
         "tags": [],
         "frequency": 1,
-        "event_text": "m_c taunted and provoked a stranger at the border into a fight. n_c:0 was the wrong cat to test; m_c never makes it back to camp.",
+        "event_text": "m_c taunted and provoked a stranger at the border into a fight. n_c:0 was the wrong cat to test; m_c never made it back to camp.",
         "m_c": {
             "status": [
                 "apprentice",
