@@ -663,23 +663,23 @@ class HerbSupply:
                 and name in treatment_cat.permanent_condition
             ):
                 condition_default = source_dict[name]
-                no_treatment = False
+                will_not_treat = False
                 # only treat if mortality is worse than 20 or the condition's default mortality (whichever is higher)
                 if condition.get("mortality") and condition["mortality"] > max(
                     condition_default["mortality"][treatment_cat.age], 20
                 ):
-                    no_treatment = True
+                    will_not_treat = True
                 for i, risk in enumerate(condition.get("risks", [])):
                     # only treat if risk chance is worse than 20 or the risk's default chance (whichever is higher)
                     if risk["chance"] > max(
                         condition_default["risks"][i]["chance"], 20
                     ):
-                        no_treatment = True
+                        will_not_treat = True
                     else:  # if any risk needs treatment, then we'll treat
-                        no_treatment = False
+                        will_not_treat = False
                         break
 
-                if no_treatment:
+                if will_not_treat:
                     self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                     return
 
