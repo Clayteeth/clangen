@@ -663,21 +663,24 @@ class HerbSupply:
                 and name in treatment_cat.permanent_condition
             ):
                 condition_default = source_dict[name]
+                no_treatment = False
                 # only treat if mortality is worse than 20 or the condition's default mortality (whichever is higher)
                 if condition.get("mortality") and condition["mortality"] > max(
                     condition_default["mortality"][treatment_cat.age], 20
                 ):
-                    self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
-                    return
-                no_treatment = False
+                    no_treatment = True
                 for i, risk in enumerate(condition.get("risks", [])):
                     # only treat if risk chance is worse than 20 or the risk's default chance (whichever is higher)
                     if risk["chance"] > max(
                         condition_default["risks"][i]["chance"], 20
                     ):
-                        self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                         no_treatment = True
+                    else:  # if any risk needs treatment, then we'll treat
+                        no_treatment = False
+                        break
+
                 if no_treatment:
+                    self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                     return
 
             if game.clan.game_mode == "classic":
