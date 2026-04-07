@@ -1,10 +1,8 @@
-import statistics
-from random import choice, randint, choices
+from random import choice, randint, choices, random
 from typing import Optional
 
 import i18n
 
-from scripts.cat.enums import CatRank
 from scripts.cat.skills import SkillPath
 from scripts.clan_resources.herb.herb import Herb, HERBS
 from scripts.clan_resources.herb.herb_effects import HerbEffect
@@ -659,20 +657,21 @@ class HerbSupply:
 
             chosen_effect = choice(possible_effects)
 
+            # check if perm condition gets treatment
             if (
                 treatment_cat.is_disabled()
                 and name in treatment_cat.permanent_condition
             ):
                 condition_default = source_dict[name]
-                # if chance of death is already low, med cat doesn't treat
+                # only treat if mortality is worse than 20 or the condition's default mortality (whichever is higher)
                 if condition.get("mortality") and condition["mortality"] > max(
                     condition_default["mortality"][treatment_cat.age], 20
                 ):
                     self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
                     return
-                # if chance of risk is already low, med cat doesn't treat
                 no_treatment = False
                 for i, risk in enumerate(condition.get("risks", [])):
+                    # only treat if risk chance is worse than 20 or the risk's default chance (whichever is higher)
                     if risk["chance"] > max(
                         condition_default["risks"][i]["chance"], 20
                     ):
@@ -716,7 +715,7 @@ class HerbSupply:
                     treatment_cat, name, herb_used, chosen_effect, amount_used, strength
                 )
 
-            else:
+            elif random() > 0.30:  # 70% chance that lack of treatment is detrimental
                 self.__apply_lack_of_herb(treatment_cat, name, chosen_effect)
 
     def _gather_herbs(self, med_cat):
