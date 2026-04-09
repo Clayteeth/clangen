@@ -502,21 +502,30 @@
 			]
 		},
 		"specific_reaction": {
-			"r_c1_to_m_c": {
-				"respect": "decrease"
-			},
-			"r_c1_to_r_c1": {
-				"respect": "decrease"
-			},
 			"r_c2_to_m_c": {
-				"respect": "decrease"
+				"respect": "decrease",
+				"trust": "decrease"
+			},
+			"r_c2_to_r_c1": {
+				"respect": "decrease",
+				"comfort": "decrease"
 			},
 			"r_c3_to_m_c": {
-				"respect": "decrease"
+				"respect": "decrease",
+				"trust": "decrease"
+			},
+			"r_c3_to_r_c1": {
+				"respect": "decrease",
+				"comfort": "decrease"
 			},
 			"r_c4_to_m_c": {
-				"respect": "decrease"
-			}   
+				"respect": "decrease",
+				"trust": "decrease"
+			},
+			"r_c4_to_r_c1": {
+				"respect": "decrease",
+				"comfort": "decrease"
+			}
 		}
 	}
 ]
