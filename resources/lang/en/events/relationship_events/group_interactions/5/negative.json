@@ -166,7 +166,7 @@
 			"m_c wants this training exercise to be a success, but r_c1, r_c2, r_c3, and r_c4 refuse to listen, and m_c gives up.",
 			"It is impossible to make r_c1, r_c2, r_c3, and r_c4 understand the importance of stretching properly, so m_c calls the exercise off.",
 			"r_c1, r_c2, r_c3, and r_c4 are too busy goofing off to listen to m_c's advice.",
-			"m_c tries to keep r_c1, r_c2, r_c3, and r_c4 focused during training, but the four continuously talk about unrelated topics.",
+			"m_c attempts keep r_c1, r_c2, r_c3, and r_c4 focused during training, but the four continuously talk about unrelated topics.",
 			"r_c1, r_c2, r_c3, and r_c4 pointedly ignore m_c's reminders to focus on training instead of gossiping."
 		],
 		"status_constraint": {
