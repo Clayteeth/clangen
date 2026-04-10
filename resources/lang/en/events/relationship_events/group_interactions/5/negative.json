@@ -166,7 +166,7 @@
 			"m_c wants this training exercise to be a success, but r_c1, r_c2, r_c3, and r_c4 refuse to listen, and m_c gives up.",
 			"It is impossible to make r_c1, r_c2, r_c3, and r_c4 understand the importance of stretching properly, so m_c calls the exercise off.",
 			"r_c1, r_c2, r_c3, and r_c4 are too busy goofing off to listen to m_c's advice.",
-			"m_c tries keeping r_c1, r_c2, r_c3, and r_c4 focused during training, but the four continuously get off topic.",
+			"m_c attempts to keep r_c1, r_c2, r_c3, and r_c4 focused during training, but the four continuously talk about unrelated topics.",
 			"r_c1, r_c2, r_c3, and r_c4 pointedly ignore m_c's reminders to focus on training instead of gossiping."
 		],
 		"status_constraint": {
@@ -247,8 +247,8 @@
 			"m_c calls r_c1, r_c2, r_c3, and r_c4 a bunch of wusses after a play-fight, and it escalates into a fight between the five.",
 			"m_c, r_c1, r_c2, r_c3, and r_c4 can't settle who gets a toy.",
 			"m_c won't stop instigating a fight between r_c1, r_c2, r_c3, and r_c4.",
-			"m_c orders r_c1, r_c2, r_c3, and r_c4 to fork over the toy they are playing with and starts a fight when told no.",
-			"A play-fight turns into a real scuffle between m_c, r_c1, r_c2, r_c3, and r_c4 after they couldn't decide who would be what in the next round.",
+			"m_c orders r_c1, r_c2, r_c3, and r_c4 to give {PRONOUN/m_c/object} a toy they are playing with and starts a fight when told no.",
+			"A game of make-believe turns into a real scuffle between m_c, r_c1, r_c2, r_c3, and r_c4 when they can't decide who will play what in the next round.",
 			"m_c calls everyone in the nursery is a mouse-brain. It leads to an argument between {PRONOUN/m_c/self}, r_c1, r_c2, r_c3, and r_c4.",
 			"m_c screams in r_c1 and r_c2's faces that they both suck, sparking an argument that snowballs and drags in both r_c3 and r_c4.",
 			"m_c keeps hogging being the leader during a game, causing a fight to break out between {PRONOUN/m_c/self}, r_c1, r_c2, r_c3, and r_c4 over who gets to be it next."
@@ -290,12 +290,12 @@
 		"cat_amount": 5,
 		"interactions": [
 			"m_c didn't think it would be too hard to watch the kits, but r_c1, r_c2, r_c3, and r_c4 prove that thought very, very wrong.",
-			"It hasn't been that long since m_c has begun kitsitting r_c1, r_c2, r_c3, and r_c4, but chaos is already underway.",
+			"It hasn't been that long since m_c began kitsitting r_c1, r_c2, r_c3, and r_c4, but chaos is already underway.",
 			"m_c wants to scream into {PRONOUN/m_c/poss} nest after kitsitting r_c1, r_c2, r_c3, and r_c4.",
 			"m_c doesn't have a moment to rest while kitsitting with how prone to trouble r_c1, r_c2, r_c3, and r_c4 are.",
-			"While kitsitting, m_c tries — and fails — to reign in the rambunctiousness of r_c1, r_c2, r_c3, and r_c4.",
+			"While kitsitting, m_c tries — and fails — to rein in the rambunctiousness of r_c1, r_c2, r_c3, and r_c4.",
 			"Nobody ever said kitsitting was easy, but m_c thought that r_c1, r_c2, r_c3, and r_c4 would be easier to watch than they actually are.",
-			"m_c wishes that blinking didn't mean missing a second of the next problem r_c1, r_c2, r_c3, and r_c4 will get into.",
+			"m_c wishes {PRONOUN/m_c/subject} could blink while kitsitting without missing a heartbeat of r_c1, r_c2, r_c3, and r_c4's troublemaking.",
 			"After kitsitting r_c1, r_c2, r_c3, and r_c4, m_c takes time to recover from the four kits' endless mischief."
 		],
 		"status_constraint": {
@@ -314,7 +314,7 @@
 		},
 		"skill_constraint": {
 			"m_c": [
-				"KIT,1"
+				"-KIT,1"
 			]
 		},
 		"relationship_constraint": {
