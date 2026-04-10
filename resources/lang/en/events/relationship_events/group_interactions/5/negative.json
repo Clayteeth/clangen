@@ -107,10 +107,10 @@
 		"intensity": "high",
 		"cat_amount": 5,
 		"interactions": [
-			"m_c attempts to impart {PRONOUN/m_c/poss} knowledge onto r_c1, r_c2, r_c3, and r_c4, but none of the apprentices pay an ounce of attention.",
-			"m_c tries teaching r_c1, r_c2, r_c3, and r_c4 one of {PRONOUN/m_c/poss} skills, but gives up because no apprentice listens.",
+			"m_c attempts to impart {PRONOUN/m_c/poss} knowledge onto r_c1, r_c2, r_c3, and r_c4, but none of the apprentices pays attention.",
+			"m_c tries teaching r_c1, r_c2, r_c3, and r_c4 one of {PRONOUN/m_c/poss} skills but gives up because no apprentice listens.",
 			"m_c had an informative lecture planned for r_c1, r_c2, r_c3, and r_c4, but gives up midway because the apprentices ignore {PRONOUN/m_c/object}.",
-			"r_c1, r_c2, r_c3, and r_c4 will not stop talking to each other during m_c's lesson, and leads m_c to call it off.",
+			"r_c1, r_c2, r_c3, and r_c4 will not stop talking to each other during m_c's lesson, and m_c calls it off.",
 			"m_c spent an entire day planning a lesson for r_c1, r_c2, r_c3, and r_c4, but it goes to waste as the apprentices are distracted by each other.",
 			"m_c cannot believe how disrespectful r_c1, r_c2, r_c3, and r_c4 are while {PRONOUN/m_c/subject} {VERB/m_c/try/tries} to give a lecture.",
 			"m_c wanted this training exercise to be a success, but r_c1, r_c2, r_c3, and r_c4 refuse to listen and cause m_c to give up."
@@ -159,13 +159,56 @@
 		}
 	},
 	{
+		"id": "group_5_negative_warriordisrespected_fourapprentices",
+		"intensity": "high",
+		"cat_amount": 5,
+		"interactions": [
+			"m_c wants this training exercise to be a success, but r_c1, r_c2, r_c3, and r_c4 refuse to listen, and m_c gives up.",
+			"It is impossible to make r_c1, r_c2, r_c3, and r_c4 understand the importance of stretching properly, so m_c calls the exercise off.",
+			"r_c1, r_c2, r_c3, and r_c4 are too busy goofing off to listen to m_c's advice.",
+			"m_c tries to keep r_c1, r_c2, r_c3, and r_c4 focused during training, but the four continuously talk about unrelated topics.",
+			"r_c1, r_c2, r_c3, and r_c4 pointedly ignore m_c's reminders to focus on training instead of gossiping."
+		],
+		"status_constraint": {
+			"m_c": [
+				"warrior"
+			],
+			"r_c1": [
+				"apprentice"
+			],
+			"r_c2": [
+				"apprentice"
+			],
+			"r_c3": [
+				"apprentice"
+			],
+			"r_c4": [
+				"apprentice"
+			]
+		},
+		"specific_reaction": {
+			"m_c_to_r_c1": {
+				"respect": "decrease"
+			},
+			"m_c_to_r_c2": {
+				"respect": "decrease"
+			},
+			"m_c_to_r_c3": {
+				"respect": "decrease"
+			},
+			"m_c_to_r_c4": {
+				"respect": "decrease"
+			}
+		}
+	},
+	{
 		"id": "group_5_negative_groupargument_twohates",
 		"intensity": "medium",
 		"cat_amount": 5,
 		"interactions": [
 			"What begins as a petty argument between m_c and r_c1 turns into a spat involving r_c2, r_c3, and r_c4 as well.",
 			"The argument between m_c and r_c1 spills into r_c2, r_c3, and r_c4's day, leading to the five cats hissing at each other.",
-			"Nobody is safe from m_c and r_c1's dispute, which gets r_c2, r_c3, and r_c4 dragged into it.",
+			"Nobody is safe from m_c and r_c1's dispute, and r_c2, r_c3, and r_c4 are dragged into it.",
 			"The screaming match between m_c and r_c1 soon involves r_c2, r_c3, and r_c4 as well.",
 			"r_c2, r_c3, and r_c4 wake up to m_c and r_c1's yowling, and the three cats give the snappy pair a piece of their minds.",
 			"Trying to eat while m_c and r_c1 scream at each other is impossible, so r_c2, r_c3, and r_c4 decide to chip in with their opinions."
@@ -374,9 +417,9 @@
 			"m_c is in disbelief about the techniques r_c1, r_c2, r_c3, and r_c4 suggest during a discussion about medicine.",
 			"m_c, r_c1, r_c2, r_c3, and r_c4 cannot find common ground during a discussion about new usages for herbs.",
 			"After a heated argument about herbs, m_c, r_c1, r_c2, r_c3, and r_c4 avoid each other.",
-			"m_c, r_c1, r_c2, r_c3, and r_c4 have differing opinions about how to wrap wounds, and it warps into a controversy.",
+			"m_c, r_c1, r_c2, r_c3, and r_c4 have differing opinions about how to wrap wounds, and it escalates into a controversy.",
 			"m_c refuses to listen to r_c1, r_c2, r_c3, and r_c4's opinions regarding herbs.",
-			"A fiery debate alights between m_c, r_c1, r_c2, r_c3, and r_c4 over how to get to specific herbs."
+			"A fiery debate blazes between m_c, r_c1, r_c2, r_c3, and r_c4 over how to get to specific herbs."
 		],
 		"status_constraint": {
 			"m_c": [
@@ -406,7 +449,7 @@
 		"intensity": "high",
 		"cat_amount": 5,
 		"interactions": [
-			"r_c1, r_c2, r_c3, and r_c4 come to m_c about a complaint regarding patrols, but get blown off by m_c.",
+			"r_c1, r_c2, r_c3, and r_c4 come to m_c with a complaint regarding patrols, but get blown off by m_c.",
 			"m_c refuses to understand r_c1, r_c2, r_c3, and r_c4's points about patrol organization.",
 			"m_c dismisses r_c1, r_c2, r_c3, and r_c4's arguments by reminding them who their deputy is.",
 			"When r_c1, r_c2, r_c3, and r_c4 begin an argument about hunting, m_c silences them through {PRONOUN/m_c/poss} authority.",
@@ -437,7 +480,10 @@
 				"bold",
 				"cold",
 				"fierce",
-				"shameless"
+				"shameless",
+				"confident",
+				"childish",
+				"oblivious"
 			]
 		},
 		"specific_reaction": {
@@ -468,7 +514,7 @@
 			"r_c2, r_c3, and r_c4 bring up m_c's tendency to let r_c1 take over Clan affairs, but {PRONOUN/m_c/subject} {VERB/m_c/dismiss/dismisses} the warriors' concern.",
 			"m_c gets interrupted by r_c1 during a meeting, but m_c doesn't correct {PRONOUN/r_c1/object}, and it bothers r_c2, r_c3, and r_c4.",
 			"m_c tries to say something important, but r_c1 derails the conversation. r_c2, r_c3, and r_c4 confront m_c about r_c1's actions, only for m_c to ignore the concerns.",
-			"Every meeting, r_c1 injects something into the conversation. r_c2, r_c3, and r_c4 talk to m_c about their discontent, but it goes nowhere."
+			"Every meeting, r_c1 speaks over m_c. r_c2, r_c3, and r_c4 talk to m_c about their discontent, but it goes nowhere."
 		],
 		"status_constraint": {
 			"m_c": [
