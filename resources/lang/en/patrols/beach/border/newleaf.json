@@ -89,7 +89,7 @@
         "chance_of_success": 40,
         "success_outcomes": [
             {
-                "text": "While the skua descends, r_c takes {PRONOUN/r_c/poss} chance and launches {PRONOUN/r_c/self} at the skua before it can fly away with its kill. The bird batters its wings, snaps its beak, and screams at the patrol. r_c holds firm, however, and with a lash of {PRONOUN/r_c/poss} claws, the skua finally gives up and retreats. r_c may be bruised, but the petrel is {PRONOUN/r_c/inposs}.",
+                "text": "When the skua descends, r_c takes {PRONOUN/r_c/poss} chance and launches {PRONOUN/r_c/self} at the skua before it can fly away with its kill. The bird batters its wings, snaps its beak, and screams at the patrol. r_c holds firm and lashes {PRONOUN/r_c/poss} claws across the bird's wings. The skua finally gives up and retreats. r_c may be bruised, but the petrel is {PRONOUN/r_c/inposs}.",
                 "exp": 30,
                 "prey": [
                     "small"
@@ -127,10 +127,13 @@
                 "frequency": 4
             },
             {
-                "text": "s_c darts toward the skua's fresh-kill before it can even react, snatching the petrel in {PRONOUN/s_c/poss} jaws. By the time the skua dives, s_c and the patrol are already gone. It screams at the empty rocks and flies away, reeling from the heist, while the cats swap praises over stolen prey.",
+                "text": "s_c darts toward the skua's fresh-kill before it can react, snatching the petrel in {PRONOUN/s_c/poss} jaws. By the time the skua dives, s_c and the patrol are already gone. It screams at the empty rocks and flies away, reeling from the heist, while the cats swap praises over stolen prey.",
                 "exp": 40,
                 "stat_skill": [
                     "RUNNER,0"
+                ],
+                "can_have_stat": [
+                    "any"
                 ],
                 "prey": [
                     "small"
@@ -142,7 +145,7 @@
                             "patrol"
                         ],
                         "cats_to": [
-                            "r_c"
+                            "s_c"
                         ],
                         "mutual": true,
                         "values": [
@@ -185,7 +188,7 @@
                 "frequency": 2
             },
             {
-                "text": "The skua screams and dives toward the patrol, abandoning its kill in favor of harassment. Without thinking, s_c plants {PRONOUN/s_c/poss} paws into the sand and shrieks back, stopping the bird cold. Unnerved and slightly confused, the skua turns and flies off with the petrel, leaving the cats alone. The patrol stares at s_c before erupting into triumphant laughter, praising {PRONOUN/s_c/object} on {PRONOUN/s_c/poss} quick thinking.",
+                "text": "The skua screams and dives toward the patrol, abandoning its kill in favor of harassment. Without thinking, s_c plants {PRONOUN/s_c/poss} paws into the sand and shrieks back, stopping the bird cold. Unnerved and slightly confused, the skua turns and flies off with the petrel, leaving the cats alone. The patrol stares at s_c before erupting into triumphant purrs, praising {PRONOUN/s_c/object} on {PRONOUN/s_c/poss} quick thinking.",
                 "exp": 20,
                 "stat_trait": [
                     "bold",
@@ -221,6 +224,9 @@
                     "OMEN,0",
                     "CLAIRVOYANT,0",
                     "PROPHET,2"
+                ],
+                "can_have_stat": [
+                    "any"
                 ],
                 "art": "gen_train_ghost",
                 "relationships": [
@@ -288,7 +294,7 @@
                 "frequency": 4
             },
             {
-                "text": "r_c throws {PRONOUN/r_c/self} over the petrel, intent on stopping the skua entirely. What r_c doesn't anticipate is a face full of ruffled feathers and a screeching skua to accompany, slamming itself into {PRONOUN/r_c/poss} side. A few harsh pecks later, the large bird swoops back into the air with the petrel, leaving r_c injured and the rest of the patrol unimpressed.",
+                "text": "r_c throws {PRONOUN/r_c/self} over the petrel, intent on stopping the skua entirely. What r_c doesn't anticipate is a face full of ruffled feathers and a screeching skua to go with it, slamming itself into {PRONOUN/r_c/poss} side. A few harsh pecks later, the large bird swoops back into the air with the petrel, leaving r_c injured and the rest of the patrol unimpressed.",
                 "exp": 0,
                 "art": "gen_embarrassed1",
                 "injury": [
@@ -341,7 +347,7 @@
                         ],
                         "amount": -5,
                         "log": {
-                            "cats_from": "cat_from tried not to think about how quickly a skua had outsmarted their patrol with cat_to."
+                            "cats_from": "cat_from tried not to think about how easily a skua outsmarted their patrol with cat_to."
                         }
                     }
                 ],
