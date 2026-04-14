@@ -8309,7 +8309,7 @@
       "no_body"
     ],
     "frequency": 1,
-    "event_text": "While training with m_c near the river, r_c playfully shoves m_c. However, {PRONOUN/r_c/subject} {VERB/r_c/fail/fails} to measure {PRONOUN/r_c/poss} strength, and before {PRONOUN/r_c/subject} can save {PRONOUN/m_c/object}, m_c falls into the current and is swept away, never to be seen again.",
+    "event_text": "While training with m_c near the river, r_c playfully shoves m_c. However, {PRONOUN/r_c/subject} {VERB/r_c/push/pushes} too hard and m_c loses {PRONOUN/m_c/poss} balance. Before r_c can save {PRONOUN/m_c/object}, the current sweeps m_c away.",
     "m_c": {
       "age": [
         "-kitten"
