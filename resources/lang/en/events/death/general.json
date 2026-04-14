@@ -8300,9 +8300,7 @@
       "wetlands"
     ],
     "season": [
-      "greenleaf",
-      "newleaf",
-      "leaf-fall"
+      "-leaf-bare"
     ],
     "tags": [
       "all_lives",
