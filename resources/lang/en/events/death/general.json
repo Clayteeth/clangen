@@ -8255,7 +8255,7 @@
     ],
     "tags": [],
     "frequency": 1,
-    "event_text": "There have been rumors around camp that dogs are roaming the Clan's territory. m_c, frustrated at the fact {PRONOUN/m_c/subject} {VERB/m_c/have/has}n't become a warrior yet, goes out on {PRONOUN/m_c/poss} own to investigate. The c_n search party discovers m_c's mauled body the next day.",
+    "event_text": "There have been rumors around camp that dogs are roaming the Clan's territory. m_c goes out on {PRONOUN/m_c/poss} own to investigate. The c_n search party discovers m_c's mauled body the next day.",
     "m_c": {
       "age": [
         "young adult"
