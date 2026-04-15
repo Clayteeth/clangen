@@ -919,6 +919,28 @@
       "senior adult",
       "senior"
     ],
+      "trait": [
+"unruly",
+"impulsive",
+"attention-seeker",
+"charming",
+"skittish",
+"daydreamer",
+"fearless",
+"bossy",
+"troublesome",
+"childish",
+"playful",
+"charismatic",
+"bold",
+"daring",
+"confident",
+"adventurous",
+"shameless",
+"sneaky",
+"strange",
+"rebellious"
+],
     "skill": [
       "-CLIMBER,2"
     ],
