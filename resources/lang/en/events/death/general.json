@@ -8489,7 +8489,7 @@
         },
         "history":[
             {   
-                "cats": "m_c",
+                "cats": ["m_c"],
                 "death": "m_c was swallowed by a heron."
             }
         ]
