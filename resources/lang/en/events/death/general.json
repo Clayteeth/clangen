@@ -8480,7 +8480,7 @@
             "no_body"
         ],
         "frequency": 2,
-        "event_text": "A heron snatched m_c when {PRONOUN/m_c/subject} was too close to the waters edge.",
+        "event_text": "A heron snatched m_c when {PRONOUN/m_c/subject} {VERB/m_c/were/was} too close to the water's edge.",
         "m_c": {
             "age": [
                 "kitten"
