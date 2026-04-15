@@ -1,80 +1,65 @@
 [
     {
 		"id": "much_ado_about_nothing",
+		"biome": ["any"],
+		"season": ["any"],
 		"intensity": "high",
 		"cat_amount": 5,
 		"interactions": [
 			"m_c, r_c1, and r_c2 decide they're going to get r_c3 and r_c4 together. They talk about how much r_c3 loves r_c4 in front of r_c4, and, to their pleasure, find the two talking later."
 		],
 		"status_constraint": {
-			"m_c": [
-				"warrior",
-				"elder",
-				"mediator"
-			],
-			"r_c1": [
-				"warrior",
-				"elder",
-				"mediator"
-			],
-			"r_c2": [
-				"warrior",
-				"elder",
-				"mediator"
-			]
+			"m_c": ["warrior", "elder", "mediator"],
+			"r_c1": ["warrior", "elder", "mediator"],
+			"r_c2": ["warrior", "elder", "mediator"]
 		},
 		"relationship_constraint": {
-			"m_c_to_r_c3": [
-				"enjoys"
-			],
-			"m_c_to_r_c4": [
-				"enjoys"
-			],
-			"r_c1_to_r_c3": [
-				"enjoys"
-			],
-			"r_c1_to_r_c4": [
-				"enjoys"
-			],
-			"r_c2_to_r_c3": [
-				"enjoys"
-			],
-			"r_c2_to_r_c4": [
-				"enjoys"
-			],
-			"r_c3_to_r_c4": [
-				"-mates",
-				"fancies"
-			]
+			"m_c_to_r_c3": ["enjoys"],
+	        "m_c_to_r_c4": ["enjoys"],
+	        "r_c1_to_r_c3": ["enjoys"],
+	        "r_c1_to_r_c4": ["enjoys"],
+	        "r_c2_to_r_c3": ["enjoys"],
+	        "r_c2_to_r_c4": ["enjoys"],
+			"r_c3_to_r_c4": ["not_mates", "fancies"]
 		},
 		"specific_reaction": {
 			"r_c3_to_r_c4": {
 				"romance": "increase",
-				"comfort": "increase"
+				"like": "increase",
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"r_c4_to_r_c3": {
+	        	"r_c4_to_r_c3": {
 				"romance": "increase",
-				"comfort": "increase"
+				"like": "increase",
+				"respect": "increase",
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"m_c_to_r_c1": {
-				"comfort": "increase"
+	        "m_c_to_r_c1": {
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"m_c_to_r_c2": {
-				"comfort": "increase"
+	        "m_c_to_r_c2": {
+				"comfort": "increase",
+				"trust": "increase"
 			},
 			"r_c1_to_r_c2": {
-				"comfort": "increase"
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"r_c1_to_m_c": {
-				"comfort": "increase"
+	        "r_c1_to_m_c": {
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"r_c2_to_m_c": {
-				"comfort": "increase"
+	        "r_c2_to_m_c": {
+				"comfort": "increase",
+				"trust": "increase"
 			},
-			"r_c2_to_r_c1": {
-				"comfort": "increase"
+	        "r_c2_to_r_c1": {
+				"comfort": "increase",
+				"trust": "increase"
 			}
-			
 		}
 	},
 	{
@@ -320,7 +305,7 @@
 			"m_c teaches r_c1, r_c2, r_c3, and r_c4 what to do during an emergency.",
 			"m_c teaches r_c1, r_c2, r_c3, and r_c4 about the seasons their territory experiences.",
 			"m_c spends the day teaching r_c1, r_c2, r_c3, and r_c4 {PRONOUN/m_c/poss} favorite facts.",
-			"m_c teaches r_c1, r_c2, r_c3, and r_c4 a few tricks they know."
+			"m_c teaches r_c1, r_c2, r_c3, and r_c4 a few tricks {PRONOUN/m_c/subject} {VERB/m_c/know/knows}."
 		],
 		"status_constraint": {
 			"r_c1": [
@@ -365,7 +350,7 @@
 		"intensity": "medium",
 		"cat_amount": 5,
 		"interactions": [
-			"After r_c1, r_c2, r_c3, and r_c4 are caught in a lie, m_c teaches them the importance of being honest.",
+			"After r_c1, r_c2, r_c3, and r_c4 are caught in a lie, m_c teaches them the importance of honesty.",
 			"m_c explains the importance of being honest but tactful to r_c1, r_c2, r_c3, and r_c4.",
 			"m_c helps r_c1, r_c2, r_c3, and r_c4 work through their challenging emotions.",
 			"m_c helps r_c1, r_c2, r_c3, and r_c4 cope with something difficult.",
@@ -450,7 +435,7 @@
 			"At first, m_c wasn't certain about watching r_c1, r_c2, r_c3, and r_c4. However, the kits surprise {PRONOUN/m_c/object} by being on their best behavior.",
 			"m_c doesn't think it's usually this easy to convince r_c1, r_c2, r_c3, and r_c4 to settle down, but it is today.",
 			"Shockingly, r_c1, r_c2, r_c3, and r_c4 listen to m_c with little fuss or complaint.",
-			"When m_c tells r_c1, r_c2, r_c3, and r_c4 it's time to take a nap, {PRONOUN/m_c/subject} {VERBR/m_c/expect/expects} whining. Instead, the kits obediently listen to m_c.",
+			"When m_c tells r_c1, r_c2, r_c3, and r_c4 it's time to take a nap, {PRONOUN/m_c/subject} {VERB/m_c/expect/expects} whining. Instead, the kits obediently listen to m_c.",
 			"m_c assumes that kitsitting r_c1, r_c2, r_c3, and r_c4 will be a nightmare, but it goes well!"
 		],
 		"status_constraint": {
@@ -584,15 +569,19 @@
 		"intensity": "medium",
 		"cat_amount": 5,
 		"interactions": [
-			"m_c tells r_c1, r_c2, r_c3, and r_c4 about days long passed.",
+			"m_c tells r_c1, r_c2, r_c3, and r_c4 about days long past.",
 			"m_c recalls {PRONOUN/m_c/poss} kithood to r_c1, r_c2, r_c3, and r_c4.",
 			"r_c1, r_c2, r_c3, and r_c4 fondly think about one of m_c's stories.",
 			"r_c1, r_c2, r_c3, and r_c4 think that m_c has the best stories.",
 			"m_c imparts onto r_c1, r_c2, r_c3, and r_c4 how {PRONOUN/m_c/subject} navigated the toughest moments of {PRONOUN/m_c/poss} life.",
 			"r_c1, r_c2, r_c3, and r_c4 take m_c's lesson to heart.",
-			"How m_c weaves {PRONOUN/m_c/poss} wisdom into {PRONOUN/m_c/poss} stories astounds r_c1, r_c2, r_c3, and r_c4."
+			"The way m_c weaves {PRONOUN/m_c/poss} wisdom into {PRONOUN/m_c/poss} stories astounds r_c1, r_c2, r_c3, and r_c4."
 		],
 		"age_constraint": {
+			"r_c1": [
+				"senior adult",
+				"senior"
+			],
 			"r_c1": [
 				"-senior"
 			],
@@ -730,7 +719,7 @@
 			"m_c understands r_c1, r_c2, r_c3, and r_c4's concern about a decision and explains {PRONOUN/m_c/poss} reasoning behind it.",
 			"r_c1, r_c2, r_c3, and r_c4 approach m_c about a concern and feel reassured by the end of the discussion.",
 			"While m_c doesn't change {PRONOUN/m_c/poss} mind about a decision {PRONOUN/m_c/subject} made, r_c1, r_c2, r_c3, and r_c4 appreciate m_c listening to their opinions.",
-			"m_c allows r_c1, r_c2, r_c3, and r_c4 to voice their opinions about a policy without judgment.",
+			"m_c allows r_c1, r_c2, r_c3, and r_c4 to voice their opinions about a decision without judgment.",
 			"m_c doesn't boss r_c1, r_c2, r_c3, or r_c4 around with {PRONOUN/m_c/poss} authority during a discussion about Clan policies.",
 			"r_c1, r_c2, r_c3, and r_c4 feel comfortable talking to m_c about recent events."
 		],
@@ -777,7 +766,10 @@
 				"-cold",
 				"-fierce",
 				"-shameless",
-				"-troublesome"
+				"-troublesome",
+				"-rebellious",
+				"-righteous",
+				"-strict"
 			]
 		},
 		"specific_reaction": {
