@@ -144,6 +144,10 @@
         "n_c:0"
       ],
       "mutual": true,
+		"log": {
+			"cats_to": "n_c:0 was thankful that m_c saved {PRONOUN/n_c:0/object} from falling off a cliff.",
+"cats_from": "m_c saved n_c:0 from falling off a cliff and offered {PRONOUN/n_c:0/object} a place in the Clan."
+		},
       "values": [
         "comfort",
         "like"
