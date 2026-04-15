@@ -279,7 +279,7 @@
 ],
     "fail_outcomes": [
 {
-    "text": "The water slowly returns, and in the distance, damp fur flashes at the surface. p_l decides they really should return to camp, quickly. As app1 runs for shore, honking calls fill the air behind them. Out of breath, back to dry land, p_l explains: seals. Big teeth, faster than they look.",
+    "text": "The water slowly returns, and in the distance, damp fur flashes at the surface. p_l decides they really should return to camp, quickly. As app1 runs for shore, honking calls fill the air behind them. Out of breath and back on dry land, p_l explains: seals. Big teeth. Faster than they look.",
     "exp": 0,
     "frequency": 4,
     "relationships": [
@@ -297,7 +297,7 @@
     "art": "running_warrior_app"
 },
 {
-    "text": "p_l reminds app1 not to get distracted. {PRONOUN/app1/subject/CAP} suddenly {VERB/app1/realize/realizes} there is water staining {PRONOUN/app1/poss} paws. The sea can return faster than {PRONOUN/app1/subject} think{VERB/app1//s}, p_l chides, and getting caught out by it without retreating toward shore fast enough is dangerous. Cats have been lost, getting stuck as the water rises. Tail drooping, app1 quickly trudges after {PRONOUN/app1/poss} mentor.",
+    "text": "p_l reminds app1 not to get distracted. {PRONOUN/app1/subject/CAP} suddenly {VERB/app1/realize/realizes} there is water staining {PRONOUN/app1/poss} paws. The sea can return faster than {PRONOUN/app1/subject} think{VERB/app1//s}, p_l chides, and getting caught out by the rising water is dangerous. Cats have been lost that way. Staring at the ground, app1 quickly trudges after {PRONOUN/app1/poss} mentor.",
     "exp": 0,
     "frequency": 4,
     "relationships": [
