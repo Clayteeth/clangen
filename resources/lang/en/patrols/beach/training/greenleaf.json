@@ -222,7 +222,7 @@
     "art": "bch_bord_trackrogue"
 },
 {
-    "text": "If app1 wants to catch the birds, {PRONOUN/app1/subject} mustn't stick out so much. Following p_l's lead, they both roll in the mud, let themselves dry in the sun, and wait in crouch. A seabird wades closer, but app1 pounces too early, {PRONOUN/app1/poss} paws swishing through the air as the bird flaps away in a flurry of feathers. It's a process, p_l purrs - app1 got the principle.",
+    "text": "If app1 wants to catch the birds, {PRONOUN/app1/subject} mustn't stick out so much. Following p_l's lead, they both roll in the mud, let themselves dry in the sun, and crouch in wait. A seabird wades closer, but app1 pounces too early, {PRONOUN/app1/poss} paws swishing through the air as the bird flaps away in a flurry of feathers. It's a process, p_l purrs - app1 got the principle.",
     "exp": 18,
     "frequency": 3,
     "relationships": [
@@ -240,7 +240,7 @@
     "art": "bch_train_lore1"
 },
 {
-    "text": "app1 watches the sea slowly return, rivulets turning into puddles and lapping waves as the water reclaims the land. With it, p_l explains, are traveling countless tiny mud snails - as small as a single kitten-claw, they cling to the water's surface from underneath. Moving with the tide itself, they are the fastest sealife in the mudflats.",
+    "text": "app1 watches the sea slowly return, rivulets turning into puddles and lapping waves as the water reclaims the land. With it, p_l explains, are traveling countless tiny mud snails — as small as a single kitten-claw, they cling to the underside of the water's surface. They move with the tide itself and are the fastest sealife in the mudflats.",
     "exp": 20,
     "frequency": 2,
     "relationships": [
@@ -290,7 +290,7 @@
     "values": ["trust"],
     "amount": -8,
     "log": {
-    "cats_from": "cat_from was scared by seals appearing in the mudflats, and wishes cat_to had warned {PRONOUN/cat_from/object}."
+    "cats_from": "cat_from was scared by seals appearing in the mudflats and wished cat_to had warned {PRONOUN/cat_from/object}."
 }
 }
 ],
