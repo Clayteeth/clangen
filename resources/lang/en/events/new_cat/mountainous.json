@@ -107,7 +107,67 @@
             ],
             "changed": 1
         }
+    },
+{
+  "event_id": "mtn_new_cat_cliffrescue",
+  "location": [
+    "mountainous:camp1"
+  ],
+  "season": [
+    "any"
+  ],
+  "frequency": 2,
+  "event_text": "Hearing yowls of distress, m_c rescues a loner who was close to falling off a cliff. The grateful cat decides to join the Clan.",
+  "m_c": {
+    "age": [
+      "young adult",
+      "adult",
+      "senior adult",
+      "senior"
+    ],
+    "status": [
+      "any"
+    ]
+  },
+  "new_cat": [
+    [
+      "exists",
+      "loner"
+    ]
+  ],
+  "relationships": [
+    {
+      "cats_from": [
+        "m_c"
+      ],
+      "cats_to": [
+        "n_c:0"
+      ],
+      "mutual": true,
+      "values": [
+        "comfort",
+        "like"
+      ],
+      "amount": 10
+    },
+    {
+      "cats_from": [
+        "n_c:0"
+      ],
+      "cats_to": [
+        "m_c"
+      ],
+      "values": [
+        "trust"
+      ],
+      "amount": 10
     }
-
-
+  ],
+  "outsider": {
+    "current_rep": [
+      "welcoming"
+    ],
+    "changed": 1
+  }
+}
 ]
