@@ -8531,7 +8531,13 @@
                 "cats": ["m_c"],
                 "death": "m_c was murdered by a o_c_n patrol after trespassing."
             }
-        ]
+        ],
+        "other_clan": {
+        "current_rep": [
+            "hostile",
+            "neutral"
+        ],
+        "changed": -2
     },
     {
         "event_id": "gen_death_rooster_spur",
