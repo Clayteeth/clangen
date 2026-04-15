@@ -182,7 +182,7 @@
     "any"
   ],
   "frequency": 2,
-  "event_text": "For the tiniest moment, m_c thought the reflection staring back at {PRONOUN/m_c/object} in the crystals around camp was not {PRONOUN/m_c/poss} own.",
+  "event_text": "For a heartbeat, m_c thought the reflection staring back at {PRONOUN/m_c/object} in the crystals around camp was not {PRONOUN/m_c/poss} own.",
   "m_c": {
     "age": [
       "any"
