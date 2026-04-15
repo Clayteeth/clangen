@@ -8540,7 +8540,7 @@
         "tags": [ 
         ],
         "frequency": 2,
-        "event_text": "m_c testing {PRONOUN/m_c/poss} luck entered Twoleg place and attacked a chicken - only to find a rooster eager to defend his flock.",
+        "event_text": "m_c entered a Twoleg's chicken roost and attacked the hens. {PRONOUN/m_c/subject/CAP} {VERB/m_c/were/was} killed by a rooster eager to defend his flock.",
         "m_c": {
             "age": [
                 "-kitten"
