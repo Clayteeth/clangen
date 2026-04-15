@@ -298,6 +298,9 @@
 			"After kitsitting r_c1, r_c2, r_c3, and r_c4, m_c takes time to recover from the four kits' endless mischief."
 		],
 		"status_constraint": {
+			"m_c": [
+				"-kitten"
+			],
 			"r_c1": [
 				"kitten"
 			],
