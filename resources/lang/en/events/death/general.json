@@ -8424,7 +8424,7 @@
             "no_body"
         ],
         "frequency": 1,
-        "event_text": "m_c snuck out of camp, none the wiser. Only Lynx scent is found by c_n after {PRONOUN/m_c/subject} disappeared.",
+        "event_text": "m_c snuck out of camp, none the wiser to lay outside. Only Lynx scent is found by c_n after {PRONOUN/m_c/subject} disappeared.",
         "m_c": {
             "age": [
                 "kitten"
@@ -8434,7 +8434,7 @@
         "history":[
             {   
                 "cats": "m_c",
-                "death": "m_c was eaten by a Lynx."
+                "death": "m_c was eaten by a lynx."
             }
         ]
     },
@@ -8449,10 +8449,11 @@
         ],
         "tags": [  
             "no_body",
-            "low_lives"
+            "low_lives",
+            "all_lives"
         ],
         "frequency": 2,
-        "event_text": "Whilst on a walk of the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent - and Lynx.  ",
+        "event_text": "Whilst on a walk of the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent - and lynx.  ",
         "m_c": {
             "age": [
                 "-kitten"
@@ -8462,7 +8463,7 @@
         "history":[
             {   
                 "cats": "m_c",
-                "death": "m_c was eaten by a Lynx."
+                "death": "m_c was eaten by a lynx."
             }
         ]
     },
@@ -8479,7 +8480,7 @@
             "no_body"
         ],
         "frequency": 2,
-        "event_text": "A Heron snatched m_c when {PRONOUN/m_c/subject} was too close to the water's edge.",
+        "event_text": "A heron snatched m_c when {PRONOUN/m_c/subject} was too close to the waters edge.",
         "m_c": {
             "age": [
                 "kitten"
@@ -8489,7 +8490,7 @@
         "history":[
             {   
                 "cats": "m_c",
-                "death": "m_c was swallowed by a Heron."
+                "death": "m_c was swallowed by a heron."
             }
         ]
     },
@@ -8503,7 +8504,7 @@
         ],
         "tags": [   ],
         "frequency": 1,
-        "event_text": "m_c slips out of camp on a dare - c_n finds m_c cooling body encircled by o_c_n scent.",
+        "event_text": "m_c slips out of camp on a dare - c_n finds m_c's cooling body encircled by o_c_n scent.",
         "m_c": {
             "age": [
                 "kitten"
@@ -8522,7 +8523,7 @@
         "history":[
             {   
                 "cats": "m_c",
-                "death": "m_c was murdered by a o_c_n patrol trespassing."
+                "death": "m_c was murdered by a o_c_n patrol when trespassing."
             }
         ]
     },
@@ -8539,7 +8540,7 @@
         "tags": [ 
         ],
         "frequency": 2,
-        "event_text": "m_c testing {PRONOUN/m_c/poss} luck entered Twoleg, and attacked a chicken - only to find a rooster eager to defend his flock.",
+        "event_text": "m_c testing {PRONOUN/m_c/poss} luck entered Twoleg place and attacked a chicken - only to find a rooster eager to defend his flock.",
         "m_c": {
             "age": [
                 "-kitten"
@@ -8559,7 +8560,7 @@
         "history":[
             {   
                 "cats": "m_c",
-                "death": "m_c was killed by a Rooster defending his flock."
+                "death": "m_c was killed by a rooster defending his flock."
             }
         ]
     }
