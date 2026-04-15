@@ -161,6 +161,9 @@
       "cats_to": [
         "m_c"
       ],
+		"log": {
+			"cats_from": "m_c is curious about n_c:0 now that {PRONOUN/n_c:0/subject} {VERB/n_c:0/have/has} joined the Clan."
+		},
       "values": [
         "trust"
       ],
