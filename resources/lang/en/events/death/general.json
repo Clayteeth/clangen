@@ -8424,7 +8424,7 @@
             "no_body"
         ],
         "frequency": 1,
-        "event_text": "m_c snuck out of camp, none the wiser to lay outside. Only Lynx scent is found by c_n after {PRONOUN/m_c/subject} disappeared.",
+        "event_text": "m_c sneaks out of camp. c_n's search parties find the scent of lynx and no sign of the missing kit.",
         "m_c": {
             "age": [
                 "kitten"
