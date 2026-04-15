@@ -96,7 +96,7 @@
       "greenleaf"
     ],
     "frequency": 2,
-    "event_text": "m_c hears a swallow's call only to find a loner perfectly mimicking birdsong. The strange cat chirps that {PRONOUN/m_c/subject} ruined {PRONOUN/n_c:0/poss} hunt and stalks off.",
+    "event_text": "m_c hears a swallow's call and discovers a loner perfectly mimicking birdsong. The strange cat chirps that {PRONOUN/m_c/subject} ruined {PRONOUN/n_c:0/poss} hunt and stalks off.",
     "m_c": {
       "age": [],
       "status": [
