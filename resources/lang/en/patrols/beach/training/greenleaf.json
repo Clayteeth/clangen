@@ -204,7 +204,7 @@
     "decline_text": "A sudden downpour leaves p_l and app1 drenched. They cancel training and return to camp to shelter.",
     "success_outcomes": [
 {
-    "text": "c_n never goes out onto the mudflats in fog. It's far too easy to lose your way, wander toward the ocean, and be swept away when the tide returns. But under the greenleaf sun, it's safe to frollock and train here. app1 just needs to keep an ear out for the approaching waves, and an eye on the sun's movement.",
+    "text": "c_n never goes out onto the mudflats in fog. It's far too easy to lose your way, wander toward the ocean, and be swept away when the tide returns. But under the greenleaf sun, it's safe to frolic and train here. p_l instructs app1 to keep an ear out for the approaching waves and an eye on the sun's movement.",
     "exp": 14,
     "frequency": 4,
     "relationships": [
