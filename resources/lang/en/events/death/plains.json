@@ -64,7 +64,7 @@
     ],
     "tags": [],
     "frequency": 2,
-    "event_text": "Driven to desperation by the greenleaf heat, m_c drinks from a foul tasting puddle of water. The Clan finds {PRONOUN/m_c/object} dead in {PRONOUN/m_c/poss} nest hours later.",
+    "event_text": "Driven to desperation by the greenleaf heat, m_c drinks from a foul-tasting puddle of water. The Clan finds {PRONOUN/m_c/object} dead in {PRONOUN/m_c/poss} nest hours later.",
     "m_c": {
       "age": [
         "-kitten"
