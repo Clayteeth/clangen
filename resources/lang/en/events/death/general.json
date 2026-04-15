@@ -8458,6 +8458,12 @@
             "age": [
                 "-kitten"
             ],
+            "skill": [
+                "-FIGHTER,3",
+                "-CLAIRVOYANT,1",
+                "-DREAM,1",
+                "-PROPHET,1"
+            ]
             "dies": true
         },
         "history":[
@@ -8553,7 +8559,8 @@
                 "competitive",
                 "fierce",
                 "loyal",
-                "bloodthirsty"
+                "bloodthirsty",
+                "strange"
             ],
             "dies": true
         },
