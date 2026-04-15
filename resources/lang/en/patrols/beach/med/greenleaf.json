@@ -122,7 +122,7 @@
     "success_outcomes": [
         {
     "text": "They are here for lungwort, and eventually find a small patch in a large heather shrub's shade. But no matter how small it is, a medicine cat always leaves some plants untouched, p_l teaches. They ought to be able to regenerate. Else app1 will stand there, next greenleaf, without lungwort. And c_n cannot afford to be without lungwort.",
-    "exp": 20,
+    "exp": 25,
     "frequency": 4,
     "herbs": ["lungwort"],
     

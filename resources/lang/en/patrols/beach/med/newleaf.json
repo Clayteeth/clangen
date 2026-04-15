@@ -33,7 +33,7 @@
     "success_outcomes": [
         {
     "text": "The long, pointed narrow leaves, the characteristic brown bulbs with tiny white flowers... sea plantain isn't hard to recognize, once newleaf arrives. p_l is relieved to find it nonetheless, and chews off as many leaves as {PRONOUN/p_l/subject} can fit in {PRONOUN/p_l/poss} mouth. ",
-    "exp": 15,
+    "exp": 20,
     "frequency": 4,
     "herbs": ["plantain"],
     "art": "gen_med_gatheringplantain_greenleaf1"
@@ -117,7 +117,7 @@
     "success_outcomes": [
         {
     "text": "Plantain is especially good against the insect bites common in greenleaf. The days are still lengthening, but a medicine cat always has to look toward the next season as well as the Clan's present needs. app1 can only twitch an ear in agreement, carrying the bulk of the leaves home while p_l teaches.",
-    "exp": 20,
+    "exp": 25,
     "frequency": 4,
     "herbs": ["plantain"],
     "relationships": [
