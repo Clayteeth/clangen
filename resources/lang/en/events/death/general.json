@@ -8410,5 +8410,157 @@
         "death": "m_c disappeared alongside a Clanmate, never to be seen again."
       }
     ]
-  }
+  },
+{
+        "event_id": "gen_death_lynx1",
+        "location": [
+            "forest:camp1_camp2", 
+            "plains:camp1_camp3_camp_4", 
+            "mountain:camp1_camp2_camp4"],
+        "season": [
+            "any"
+        ],
+        "tags": [  
+            "no_body"
+        ],
+        "frequency": 1,
+        "event_text": "m_c snuck out of camp, none the wiser. Only Lynx scent is found by c_n after {PRONOUN/m_c/subject} disappeared.",
+        "m_c": {
+            "age": [
+                "kitten"
+            ],
+            "dies": true
+        },
+        "history":[
+            {   
+                "cats": "m_c",
+                "death": "m_c was eaten by a Lynx."
+            }
+        ]
+    },
+        {
+        "event_id": "gen_death_lynx2",
+        "location": [
+            "forest:camp1_camp2", 
+            "plains:camp1_camp3_camp_4", 
+            "mountain:camp1_camp2_camp4"],
+        "season": [
+            "any"
+        ],
+        "tags": [  
+            "no_body",
+            "low_lives"
+        ],
+        "frequency": 2,
+        "event_text": "Whilst on a walk of the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent - and Lynx.  ",
+        "m_c": {
+            "age": [
+                "-kitten"
+            ],
+            "dies": true
+        },
+        "history":[
+            {   
+                "cats": "m_c",
+                "death": "m_c was eaten by a Lynx."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_heron",
+        "location": [
+            "forest:camp_4",
+            "wetlands"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [  
+            "no_body"
+        ],
+        "frequency": 2,
+        "event_text": "A Heron snatched m_c when {PRONOUN/m_c/subject} was too close to the water's edge.",
+        "m_c": {
+            "age": [
+                "kitten"
+            ],
+            "dies": true
+        },
+        "history":[
+            {   
+                "cats": "m_c",
+                "death": "m_c was swallowed by a Heron."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_dare_kit",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [   ],
+        "frequency": 1,
+        "event_text": "m_c slips out of camp on a dare - c_n finds m_c cooling body encircled by o_c_n scent.",
+        "m_c": {
+            "age": [
+                "kitten"
+            ],
+            "trait": [
+                "attention-seeker",
+                "self-conscious",
+                "unruly",
+                "know-it-all",
+                "noisy",
+                "fearless",
+                "daydreamer"
+            ],
+            "dies": true
+        },
+        "history":[
+            {   
+                "cats": "m_c",
+                "death": "m_c was murdered by a o_c_n patrol trespassing."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_death_rooster_spur.",
+        "location": [
+            "forest", 
+            "plains"
+            ],
+        "season": [
+            "leaf-fall",
+            "leaf-bare"
+        ],
+        "tags": [ 
+        ],
+        "frequency": 2,
+        "event_text": "m_c testing {PRONOUN/m_c/poss} luck entered Twoleg, and attacked a chicken - only to find a rooster eager to defend his flock.",
+        "m_c": {
+            "age": [
+                "-kitten"
+            ],
+            "trait": [
+                "adventurous",
+                "ambitious",
+                "bold",
+                "daring",
+                "competitive",
+                "fierce",
+                "loyal",
+                "bloodthirsty"
+            ],
+            "dies": true
+        },
+        "history":[
+            {   
+                "cats": "m_c",
+                "death": "m_c was killed by a Rooster defending his flock."
+            }
+        ]
+    }
 ]
