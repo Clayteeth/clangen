@@ -8453,7 +8453,7 @@
             "all_lives"
         ],
         "frequency": 2,
-        "event_text": "Whilst on a walk of the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent - and lynx.  ",
+        "event_text": "While out on the territory, m_c vanishes. All that can be found is {PRONOUN/m_c/poss} fading scent and the stronger scent of lynx. ",
         "m_c": {
             "age": [
                 "-kitten"
