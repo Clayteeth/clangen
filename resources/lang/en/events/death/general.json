@@ -8504,7 +8504,7 @@
         ],
         "tags": [   ],
         "frequency": 1,
-        "event_text": "m_c slips out of camp on a dare - c_n finds m_c's cooling body encircled by o_c_n scent.",
+        "event_text": "m_c slips out of camp on a dare. c_n finds m_c's cooling body encircled by o_c_n scent.",
         "m_c": {
             "age": [
                 "kitten"
