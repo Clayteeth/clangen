@@ -8522,7 +8522,7 @@
         },
         "history":[
             {   
-                "cats": "m_c",
+                "cats": ["m_c"],
                 "death": "m_c was murdered by a o_c_n patrol when trespassing."
             }
         ]
