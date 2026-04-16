@@ -43,7 +43,7 @@
     ],
     "fail_outcomes": [
     {
-    "text": "It should be here, its bright yellow flowers like little suns lightening the gloom. But Patrol Leader can't seem to find any ragwort, and the gusts of wind are whipping away any scent {PRONOUN/p_l/subject} could follow. Lightning flashes behind {PRONOUN/p_l/object} as {PRONOUN/p_l/subject} {VERB/p_l/sprint/sprints} for camp, returning half-drenched and ragwortless.",
+    "text": "It should be here, its bright yellow flowers like little suns brightening the gloom. But p_l can't seem to find any ragwort, and the gusts of wind whip away any scent {PRONOUN/p_l/subject} could follow. Lightning flashes behind {PRONOUN/p_l/object} as {PRONOUN/p_l/subject} {VERB/p_l/sprint/sprints} for camp, returning half-drenched and ragwortless.",
     "exp": 0,
     "frequency": 4,
     "art": "gen_med_rainygathering"
@@ -98,7 +98,7 @@
     "values": ["trust","respect"],
     "amount": 6,
     "log": {
-    "cats_from": "Sharing the burden of ragwort's foul taste brought cat_from and cat_to closer together, and led cat_from to make note of their apprentice's dutifulness."
+    "cats_from": "Sharing the burden of ragwort's foul taste brought cat_from and cat_to closer together, and cat_from noted {PRONOUN/cat_from/poss} apprentice's dutifulness."
     }
     }
     ],
@@ -107,7 +107,7 @@
     ],
     "fail_outcomes": [
     {
-    "text": "It should be here, its bright yellow flowers like little suns lightening the gloom. But p_l can't seem to find any ragwort, and the gusts of wind are whipping away any scent {PRONOUN/p_l/subject} could follow. Thunder growls and the first scattering of raindrops hits app1's coat. {PRONOUN/p_l/poss/CAP} eyes widen. Lightning flashes behind the two cats as they sprint for camp, returning half-drenched and ragwortless.",
+    "text": "It should be here, its bright yellow flowers like little suns brightening the gloom. But p_l can't seem to find any ragwort, and the gusts of wind whip away any scent {PRONOUN/p_l/subject} could follow. Thunder growls, and the first scattering of raindrops hits app1's coat. p_l's eyes widen. Lightning flashes behind the two cats as they sprint for camp, returning half-drenched and ragwortless.",
     "exp": 0,
     "frequency": 4,
     "art": "gen_med_rainygathering"
@@ -169,7 +169,7 @@
     ],
     "fail_outcomes": [
     {
-    "text": "It should be here, its bright yellow flowers like little suns lightening the gloom. But p_l can't seem to find any ragwort, and the gusts of wind are whipping away any scent {PRONOUN/p_l/subject} could follow. Lightning flashes behind the two of them as they sprint for camp, returning half-drenched and ragwortless.",
+    "text": "It should be here, its bright yellow flowers like little suns brightening the gloom. But p_l can't seem to find any ragwort, and the gusts of wind whip away any scent {PRONOUN/p_l/subject} could follow. Lightning flashes behind the two of them as they sprint for camp, returning half-drenched and ragwortless.",
     "exp": 0,
     "frequency": 4,
     "art": "gen_med_rainygathering"

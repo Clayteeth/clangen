@@ -28,11 +28,11 @@
     },
     "frequency": 3,
     "chance_of_success": 50,
-    "intro_text": "Sea-scented mist blows across the salt meadow in damp gusts. p_l's whiskers are beading with water as {PRONOUN/p_l/subject} stalk{VERB/p_l//s} through the growing grass, fixating plant by plant, scanning for the right herb.",
-    "decline_text": "The fog quickly gets much worse, and p_l turns right around. {PRONOUN/p_l/subject/CAP} won't find any herbs like this.",
+    "intro_text": "Sea-scented mist blows across the salt meadow in damp gusts. p_l's whiskers bead with water as {PRONOUN/p_l/subject} {VERB/p_l/stalk/stalks} through the growing grass, fixating on each plant in turn, scanning for the right herb.",
+    "decline_text": "The fog thickens, and p_l turns right around. {PRONOUN/p_l/subject/CAP} won't find any herbs like this.",
     "success_outcomes": [
         {
-    "text": "The long, pointed narrow leaves, the characteristic brown bulbs with tiny white flowers... sea plantain isn't hard to recognize, once newleaf arrives. p_l is relieved to find it nonetheless, and chews off as many leaves as {PRONOUN/p_l/subject} can fit in {PRONOUN/p_l/poss} mouth. ",
+    "text": "The long, pointed narrow leaves, the characteristic brown bulbs with tiny white flowers... Sea plantain isn't hard to recognize, once newleaf arrives. p_l is relieved to find it nonetheless and chews off as many leaves as {PRONOUN/p_l/subject} can fit in {PRONOUN/p_l/poss} mouth. ",
     "exp": 20,
     "frequency": 4,
     "herbs": ["plantain"],
@@ -112,8 +112,8 @@
     },
     "frequency": 3,
     "chance_of_success": 50,
-    "intro_text": "Sea-scented mist blows across the salt meadow in damp gusts. p_l and app1's whiskers are beading with water as they stalk through the growing grass, fixating plant by plant, scanning for the right herb.",
-    "decline_text": "The fog quickly gets much worse, and p_l turns right around. They won't find any herbs like this.",
+    "intro_text": "Sea-scented mist blows across the salt meadow in damp gusts. p_l and app1's whiskers bead with water as they stalk through the growing grass, fixating on each plant in turn, scanning for the right herb.",
+    "decline_text": "The fog thickens, and p_l turns right around. They won't find any herbs like this.",
     "success_outcomes": [
         {
     "text": "Plantain is especially good against the insect bites common in greenleaf. The days are still lengthening, but a medicine cat always has to look toward the next season as well as the Clan's present needs. app1 can only twitch an ear in agreement, carrying the bulk of the leaves home while p_l teaches.",
@@ -128,7 +128,7 @@
     "values": ["like","trust","respect"],
     "amount": 5,
     "log": {
-    "cats_from": "cat_to listened attentively to cat_from, and carried most of the plantain for {PRONOUN/cat_from/object}."
+    "cats_from": "cat_to listened attentively to cat_from and carried most of the plantain for {PRONOUN/cat_from/object}."
     }
     }
     ],
@@ -143,7 +143,7 @@
     "art": "gen_app_med_meadow"
     },
      {
-    "text": "Not long into their search, the fog thickens, obscuring their own paws and dappling their pelts. In the haze, the two of them drift apart and p_l doesn't see it coming. Hooves crunching fresh grass are the only warning before a flock of sheep push and jostle against app1 on all sides. {PRONOUN/app1/subject/CAP}{VERB/app1/'re/'s} bruised and panicked by the time {PRONOUN/app1/subject} {VERB/app1/get/gets} away.",
+    "text": "Not long into their search, the fog thickens, obscuring their own paws and dappling their pelts. In the haze, the two of them drift apart. Hooves crunching fresh grass are their only warning before a flock of sheep push and jostle against app1 on all sides. {PRONOUN/app1/subject/CAP}{VERB/app1/'re/'s} bruised and panicked by the time {PRONOUN/app1/subject} {VERB/app1/get/gets} away.",
     "exp": 0,
     "frequency": 3,
     "injury": [
