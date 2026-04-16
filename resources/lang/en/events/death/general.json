@@ -126,6 +126,74 @@
         ]
     },
     {
+        "event_id": "gen_death_murder_any2trait",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "sub_type": [
+            "murder"
+        ],
+        "tags": [],
+        "frequency": 4,
+        "event_text": "m_c was murdered. r_c stands over {PRONOUN/m_c/object}, blood dripping from {PRONOUN/r_c/poss} pelt.",
+        "m_c": {
+            "age": [
+                "any"
+            ],
+            "status": [
+                "-leader"
+            ],
+            "skill": [
+                "-FIGHTER,2"
+            ],
+            "dies": true
+        },
+        "r_c": {
+            "age": [
+                "-kitten"
+            ],
+            "trait": [
+                "bloodthirsty",
+                "fierce",
+                "arrogant"
+            ]
+        },
+        "history": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "death": "m_c was murdered by r_c."
+            }
+        ],
+        "future_event": [
+            {
+                "event_type": "misc",
+                "pool": {
+                    "sub_type": [
+                        "murder_reveal"
+                    ]
+                },
+                "moon_delay": [
+                    1,
+                    12
+                ],
+                "involved_cats": {
+                    "m_c": "r_c",
+                    "mur_c": "m_c",
+                    "r_c": {
+                        "age": [
+                            "any"
+                        ]
+                    }
+                }
+            }
+        ]
+    },
+    {
         "event_id": "gen_death_murder_any3",
         "location": [
             "any"
@@ -461,7 +529,9 @@
         "location": [
             "forest",
             "plains",
-            "beach"
+            "beach",
+            "wetlands",
+            "mountainous"
         ],
         "season": [
             "any"
@@ -636,7 +706,7 @@
             "any"
         ],
         "season": [
-            "any"
+            "-leaf-bare"
         ],
         "tags": [],
         "frequency": 3,
@@ -659,7 +729,7 @@
     {
         "event_id": "gen_death_snake_any2",
         "location": [
-            "any"
+            "-leaf-bare"
         ],
         "season": [
             "any"
@@ -873,7 +943,7 @@
                 ],
                 "amount": 40,
                 "log": {
-                    "cats_from": "cat_to died protecting cat_from from enemy warriors in the nursery."
+                    "cats_from": "cat_to died protecting cat_from from enemy warriors invading the nursery."
                 }
             }
         ],
@@ -1139,7 +1209,11 @@
                 ],
                 "death": "m_c was killed by a gang of rogues."
             }
-        ]
+        ],
+            "outsider": {
+        "current_rep": ["any"],
+        "changed": -3
+    }
     },
     {
         "event_id": "gen_death_greencough_any1",
@@ -1274,7 +1348,7 @@
         ],
         "tags": [],
         "frequency": 2,
-        "event_text": "m_c sneaked out of camp, intending to discover more about {PRONOUN/m_c/poss} origins. After a long morning search, c_n found {PRONOUN/m_c/poss} cooling body.",
+        "event_text": "m_c snuck out of camp, intending to discover more about {PRONOUN/m_c/poss} origins. After a long morning search, c_n found {PRONOUN/m_c/poss} cooling body.",
         "m_c": {
             "age": [
                 "adolescent",
@@ -1322,6 +1396,7 @@
                 "deputy",
                 "leader"
             ],
+            "relationship_status": ["knows_of_only", "likes_only", "enjoys_only", "cherishes"],
             "dies": true
         },
         "r_c": {
@@ -1383,6 +1458,7 @@
                 "deputy",
                 "leader"
             ],
+            "relationship_status": ["knows_of_only", "likes_only", "enjoys_only", "cherishes"],
             "dies": true
         },
         "r_c": {
@@ -1444,6 +1520,7 @@
                 "deputy",
                 "leader"
             ],
+            "relationship_status": ["knows_of_only", "likes_only", "enjoys_only", "cherishes"],
             "dies": true
         },
         "r_c": {
@@ -1505,7 +1582,8 @@
                 "deputy",
                 "leader"
             ],
-            "dies": true
+            "dies": true,
+            "relationship_status": ["knows_of_only", "likes_only", "enjoys_only", "cherishes"]
         },
         "r_c": {
             "age": [
