@@ -4761,7 +4761,7 @@
             "any"
         ],
         "tags": [],
-        "frequency": 4,
+        "frequency": 3,
         "event_text": "m_c failed to interpret a warning sign from StarClan and couldn't foresee the circumstances of {PRONOUN/m_c/poss} death.",
         "m_c": {
             "status": [
@@ -4771,7 +4771,7 @@
                 "-CLEVER,2",
                 "-STAR,2",
                 "-OMEN,2",
-                "-ClAIRVOYANT,2",
+                "CLAIRVOYANT",
                 "-PROPHET,2"
             ],
             "dies": true
