@@ -4819,6 +4819,182 @@
         }
     },
     {
+        "event_id": "gen_misc_any_welcoming_strangermeeting1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "A stranger limped into camp this moon, knowing c_n was friendly, and requested a few nights of shelter while {PRONOUN/n_c:0/poss} wounds healed. c_n obliged.",
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ]
+        },
+        "new_cat": [
+            [
+                "meeting",
+                "loner",
+                "rogue"
+            ]
+        ],
+        "exclude_involved": [
+            "m_c"
+        ],
+        "outsider": {},
+        "current_rep": [
+            "welcoming"
+        ],
+        "changed": 5
+    },
+    {
+        "event_id": "gen_misc_any_welcoming_strangermeeting2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "A wandering healer was found on the border, hoping to learn from Clan medicine cats. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/leave/leaves} a moon later, grateful and armed with new knowledge.",
+        "m_c": {
+            "status": [
+                "medicine cat",
+                "medicine cat apprentice"
+            ]
+        },
+        "new_cat": [
+            [
+                "meeting",
+                "loner",
+                "rogue",
+                "status:medicine cat",
+                "backstory:wandering_healer1, wandering_healer2"
+            ]
+        ],
+        "exclude_involved": [
+            "m_c"
+        ],
+        "outsider": {},
+        "current_rep": [
+            "welcoming"
+        ],
+        "changed": 5
+    },
+    {
+        "event_id": "gen_misc_any_nothostile_strangermeeting1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "A stranger requested a few days of shelter in c_n’s sturdy camp while the incoming storm blew over. c_n obliged.",
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ]
+        },
+        "new_cat": [
+            [
+                "meeting",
+                "loner",
+                "rogue"
+            ]
+        ],
+        "exclude_involved": [
+            "m_c"
+        ],
+        "outsider": {},
+        "current_rep": [
+            "welcoming",
+            "neutral"
+        ],
+        "changed": 5
+    },
+    {
+        "event_id": "gen_misc_any_nothostile_strangermeeting2",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "A kittypet was found on the border, hoping to join c_n. {PRONOUN/n_c:0/subject/CAP} soon realized {PRONOUN/n_c:0/subject} {VERB/n_c:0/weren't/wasn't} cut out for outdoor living, though, and sheepishly returned home before the moon's end.",
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ]
+        },
+        "new_cat": [
+            [
+                "meeting",
+                "kittypet"
+            ]
+        ],
+        "exclude_involved": [
+            "m_c"
+        ],
+        "outsider": {},
+        "current_rep": [
+            "welcoming",
+            "neutral"
+        ],
+        "changed": 5
+    },
+    {
+        "event_id": "gen_misc_any_nothostile_otherclanapp1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "A spirited o_c_n apprentice was found on the border, hoping to join c_n after having apparently forsaken {PRONOUN/n_c:0/poss} original Clan loyalties. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/stay/stays} for only a few days before very sheepishly requesting to return home.",
+        "m_c": {
+            "age": [
+                "adolescent",
+                "young adult",
+                "adult",
+                "senior adult",
+                "senior"
+            ]
+        },
+        "new_cat": [
+            [
+                "meeting",
+                "clancat",
+                "age:adolescent"
+            ]
+        ],
+        "exclude_involved": [
+            "m_c"
+        ],
+        "other_clan": {},
+        "current_rep": [
+            "welcoming",
+            "neutral"
+        ],
+        "changed": 3
+    },
+    {
         "event_id": "multi_misc_any_scandalous_kittypet1",
         "location": [
             "forest",
