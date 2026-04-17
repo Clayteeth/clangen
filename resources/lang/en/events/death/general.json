@@ -6230,7 +6230,9 @@
         "event_text": "m_c and r_c were ambushed by a pack of dogs, but r_c was nowhere to be found when m_c looked for help.",
         "m_c": {
             "status": [
-                "leader"
+                "leader",
+                "deputy",
+                "warrior"
             ],
             "skill": [
                 "-FIGHTER,3"
@@ -6711,7 +6713,7 @@
         ],
         "tags": [],
         "frequency": 4,
-        "event_text": "m_c disappeared from the nursery and was later found dead, not far from camp.",
+        "event_text": "m_c disappeared from the nursery and was later found frozen not far from camp.",
         "m_c": {
             "status": [
                 "kitten"
@@ -6869,7 +6871,7 @@
             "no_body"
         ],
         "frequency": 4,
-        "event_text": "m_c boasted about how ready {PRONOUN/m_c/subject} {VERB/m_c/were/was} for apprenticeship. {PRONOUN/m_c/subject/CAP} snuck away to prove it and the Clan finds only blood and raccoon-scent in the morning.",
+        "event_text": "m_c boasted about how ready {PRONOUN/m_c/subject} {VERB/m_c/were/was} for apprenticeship. {PRONOUN/m_c/subject/CAP} snuck away to prove it, the Clan finds only blood and raccoon-scent in the morning.",
         "m_c": {
             "status": [
                 "kitten"
@@ -6890,7 +6892,8 @@
         "location": [
             "forest",
             "beach",
-            "plains"
+            "plains",
+            "wetlands"
         ],
         "season": [
             "newleaf"
@@ -6914,7 +6917,7 @@
         "event_id": "multi_death_massdeath_fire1",
         "location": [
             "forest:camp1_camp2",
-            "plains:camp1_camp3",
+            "plains:camp1_camp3_camp4",
             "beach:camp1_camp3",
             "mountainous:camp4"
         ],
@@ -7580,7 +7583,7 @@
         ],
         "tags": [],
         "frequency": 4,
-        "event_text": "r_c claimed the haze of battle and blood lust were the reason {PRONOUN/r_c/subject} killed m_c.",
+        "event_text": "r_c claimed the haze of battle and bloodlust were the reason {PRONOUN/r_c/subject} killed m_c.",
         "m_c": {
             "status": [
                 "warrior",
@@ -7900,7 +7903,9 @@
         "event_text": "A warning from StarClan gave m_c enough knowledge to survive r_c's attack. r_c could not say the same.",
         "m_c": {
             "status": [
-                "leader"
+                "leader",
+                "deputy",
+                "warrior"
             ],
             "skill": [
                 "OMEN,1",
@@ -7929,7 +7934,7 @@
                 "cats": [
                     "r_c"
                 ],
-                "death": "r_c died after launching a failed assassination attempt on the Clan's leader."
+                "death": "r_c died after launching a failed assassination attempt."
             }
         ],
         "future_event": [
@@ -7963,7 +7968,7 @@
                 "amount": -30,
                 "mutual": false,
                 "log": {
-                    "cats_from": "cat_to attempted to take all of cat_from's lives, but cat_from had forewarning."
+                    "cats_from": "cat_to attempted to take cat_from's life, but cat_from had forewarning."
                 }
             }
         ]
