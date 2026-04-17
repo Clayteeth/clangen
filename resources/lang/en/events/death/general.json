@@ -3702,9 +3702,6 @@
                 "adolescent",
                 "elder"
             ],
-            "status": [
-                "kitten"
-            ],
             "dies": true
         },
         "history": [
@@ -4771,7 +4768,7 @@
                 "-CLEVER,2",
                 "-STAR,2",
                 "-OMEN,2",
-                "-ClAIRVOYANT,2",
+                "-CLAIRVOYANT,2",
                 "-PROPHET,2"
             ],
             "dies": true
