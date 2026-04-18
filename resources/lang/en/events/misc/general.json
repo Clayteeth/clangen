@@ -4932,7 +4932,7 @@
             "any"
         ],
         "frequency": 4,
-        "event_text": "A kittypet was found on the border, hoping to join c_n. {PRONOUN/n_c:0/subject/CAP} soon realized {PRONOUN/n_c:0/subject} {VERB/n_c:0/weren't/wasn't} cut out for outdoor living, though, and sheepishly returned home before the moon's end.",
+        "event_text": "A kittypet was found on the border, hoping to join c_n. {PRONOUN/n_c:0/subject/CAP} soon realized {PRONOUN/n_c:0/subject} {VERB/n_c:0/weren't/wasn't} cut out for outdoor living and sheepishly returned home before the moon's end.",
         "m_c": {
             "age": [
                 "adolescent",
