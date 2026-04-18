@@ -4967,7 +4967,7 @@
             "any"
         ],
         "frequency": 4,
-        "event_text": "A spirited o_c_n apprentice was found on the border, hoping to join c_n after having apparently forsaken {PRONOUN/n_c:0/poss} original Clan loyalties. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/stay/stays} for only a few days before very sheepishly requesting to return home.",
+        "event_text": "A o_c_n apprentice asks to join c_n after having apparently forsaken {PRONOUN/n_c:0/poss} original Clan loyalties. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/stay/stays} for only a few days before sheepishly requesting to return home.",
         "m_c": {
             "age": [
                 "adolescent",
