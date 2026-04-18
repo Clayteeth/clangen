@@ -4862,7 +4862,7 @@
             "any"
         ],
         "frequency": 4,
-        "event_text": "A wandering healer was found on the border, hoping to learn from Clan medicine cats. {PRONOUN/n_c:0/subject/CAP} {VERB/n_c:0/leave/leaves} a moon later, grateful and armed with new knowledge.",
+        "event_text": "A wandering healer was found on the border, hoping to learn from Clan medicine cats. {PRONOUN/n_c:0/subject/CAP} left a moon later, grateful and armed with new knowledge.",
         "m_c": {
             "status": [
                 "medicine cat",
