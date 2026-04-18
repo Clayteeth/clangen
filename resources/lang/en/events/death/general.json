@@ -6868,7 +6868,7 @@
             "no_body"
         ],
         "frequency": 4,
-        "event_text": "m_c boasted about how ready {PRONOUN/m_c/subject} {VERB/m_c/were/was} for apprenticeship. {PRONOUN/m_c/subject/CAP} snuck away to prove it, the Clan finds only blood and raccoon-scent in the morning.",
+        "event_text": "m_c boasted about how ready {PRONOUN/m_c/subject} {VERB/m_c/were/was} for apprenticeship. {PRONOUN/m_c/subject/CAP} snuck away to prove it. The Clan finds only blood and raccoon-scent in the morning.",
         "m_c": {
             "status": [
                 "kitten"
