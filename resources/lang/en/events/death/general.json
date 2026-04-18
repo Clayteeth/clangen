@@ -1396,7 +1396,7 @@
                 "deputy",
                 "leader"
             ],
-            "relationship_status": ["knows_of_only", "likes_only", "enjoys_only", "cherishes"],
+            "relationship_status": ["knows_of_only", "likes"],
             "dies": true
         },
         "r_c": {
