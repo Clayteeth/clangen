@@ -4991,7 +4991,7 @@
             "any"
         ],
         "frequency": 3,
-        "event_text": "A kittypet asked to join c_n, but returned to Twolegplace in only a few days, having quickly realized {PRONOUN/n_c:0/poss} distaste for outdoor living.",
+        "event_text": "A kittypet asked to join c_n but returned to Twolegplace after only a few days, realizing {PRONOUN/n_c:0/poss} distaste for outdoor living.",
         "m_c": {
             "age": [
                 "adolescent",
