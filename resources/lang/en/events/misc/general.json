@@ -9652,7 +9652,7 @@
                 ],
                 "amount": -5,
                 "log": {
-                    "cats_from": "cat_from wished cat_to that {PRONOUN/cat_from/poss} mentor had give {PRONOUN/cat_from/object} an accessory normally instead of ambushing PPRONOUN/cat_from/object}."
+                    "cats_from": "cat_from wished that {PRONOUN/cat_from/poss} mentor, cat_to, had given {PRONOUN/cat_from/object} an accessory normally instead of ambushing {PRONOUN/cat_from/object}."
                 }
             },
             {
