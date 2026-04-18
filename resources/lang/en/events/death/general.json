@@ -4762,7 +4762,8 @@
         "event_text": "m_c failed to interpret a warning sign from StarClan and couldn't foresee the circumstances of {PRONOUN/m_c/poss} death.",
         "m_c": {
             "status": [
-                "-kitten"
+                "leader",
+                "medicine cat"
             ],
             "skill": [
                 "-CLEVER,2",
@@ -7908,7 +7909,6 @@
                 "OMEN,1",
                 "DREAM,1",
                 "PROPHET,1",
-                "GHOST,2",
                 "STAR,1"
             ],
             "dies": true
