@@ -1583,7 +1583,7 @@
                 "leader"
             ],
             "dies": true,
-            "relationship_status": ["knows_of_only", "likes"],
+            "relationship_status": ["knows_of_only", "likes"]
         },
         "r_c": {
             "age": [
