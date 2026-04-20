@@ -7276,135 +7276,6 @@
         }
     },
     {
-        "event_id": "gen_injury_bruises_kittensnout",
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "frequency": 4,
-        "event_text": "While batting a shiny pebble around, m_c misjudged a pounce and smashed {PRONOUN/m_c/poss} tiny little snout into it.",
-        "m_c": {
-            "status": [
-                "kitten"
-            ],
-            "trait": [
-                "unruly",
-                "impulsive",
-                "fearless"
-            ]
-        },
-        "injury": [
-            {
-                "cats": [
-                    "m_c"
-                ],
-                "injuries": [
-                    "bruises"
-                ]
-            }
-        ]
-    },
-    {
-        "event_id": "gen_injury_bruisessore_clankits1",
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "tags": [
-            "clan:kitten"
-        ],
-        "frequency": 4,
-        "event_text": "m_c isn't as young as {PRONOUN/m_c/subject} used to be, and {PRONOUN/m_c/subject} {VERB/m_c/decline/declines} giving another badger ride to nap off the happy soreness that comes with being the kits' current favorite chew toy.",
-        "m_c": {
-            "age": [
-                "senior adult",
-                "senior"
-            ],
-            "status": [
-                "any"
-            ],
-            "skill": [
-                "KIT,1"
-            ]
-        },
-        "r_c": {
-            "status": [
-                "kitten"
-            ]
-        },
-        "injury": [
-            {
-                "cats": [
-                    "m_c"
-                ],
-                "injuries": [
-                    "bruises",
-                    "sore"
-                ]
-            }
-        ],
-        "relationships": [
-            {
-                "cats_to": [
-                    "r_c"
-                ],
-                "cats_from": [
-                    "m_c"
-                ],
-                "mutual": true,
-                "values": [
-                    "like",
-                    "trust",
-                    "comfort"
-                ],
-                "amount": 10,
-                "log": "m_c gave r_c the best badger rides as a kit."
-            }
-        ]
-    },
-    {
-        "event_id": "gen_injury_bruises_anyapprentice3",
-        "location": [
-            "any"
-        ],
-        "season": [
-            "any"
-        ],
-        "frequency": 4,
-        "event_text": "m_c claims {PRONOUN/m_c/poss} bruises are from battle training. m_c is lying; they're actually from a misjudged pounce.",
-        "m_c": {
-            "status": [
-                "apprentice"
-            ],
-            "trait": [
-                "ambitious",
-                "arrogant",
-                "charismatic",
-                "competitive",
-                "cunning",
-                "fierce",
-                "insecure",
-                "grumpy",
-                "shameless",
-                "sneaky"
-            ]
-        },
-                "injury": [
-            {
-                "cats": [
-                    "m_c"
-                ],
-                "injuries": [
-                    "bruises"
-                ]
-            }
-        ]
-    },
-    {
         "event_id": "gen_injury_mangledleg_anymultistatusnotcareful1",
         "location": [
             "any"
@@ -7544,6 +7415,135 @@
             ],
             "changed": -1
         }
+    },
+    {
+        "event_id": "gen_injury_bruises_kittensnout",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "While batting a shiny pebble around, m_c misjudged a pounce and smashed {PRONOUN/m_c/poss} tiny little snout into it.",
+        "m_c": {
+            "status": [
+                "kitten"
+            ],
+            "trait": [
+                "unruly",
+                "impulsive",
+                "fearless"
+            ]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "bruises"
+                ]
+            }
+        ]
+    },
+    {
+        "event_id": "gen_injury_bruisessore_clankits1",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "tags": [
+            "clan:kitten"
+        ],
+        "frequency": 4,
+        "event_text": "m_c isn't as young as {PRONOUN/m_c/subject} used to be, and {PRONOUN/m_c/subject} {VERB/m_c/decline/declines} giving another badger ride to nap off the happy soreness that comes with being the kits' current favorite chew toy.",
+        "m_c": {
+            "age": [
+                "senior adult",
+                "senior"
+            ],
+            "status": [
+                "any"
+            ],
+            "skill": [
+                "KIT,1"
+            ]
+        },
+        "r_c": {
+            "status": [
+                "kitten"
+            ]
+        },
+        "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "bruises",
+                    "sore"
+                ]
+            }
+        ],
+        "relationships": [
+            {
+                "cats_to": [
+                    "r_c"
+                ],
+                "cats_from": [
+                    "m_c"
+                ],
+                "mutual": true,
+                "values": [
+                    "like",
+                    "trust",
+                    "comfort"
+                ],
+                "amount": 10,
+                "log": "m_c gave r_c the best badger rides as a kit."
+            }
+        ]
+    },
+    {
+        "event_id": "gen_injury_bruises_anyapprentice3",
+        "location": [
+            "any"
+        ],
+        "season": [
+            "any"
+        ],
+        "frequency": 4,
+        "event_text": "m_c claims {PRONOUN/m_c/poss} bruises are from battle training. m_c is lying; they're actually from a misjudged pounce.",
+        "m_c": {
+            "status": [
+                "apprentice"
+            ],
+            "trait": [
+                "ambitious",
+                "arrogant",
+                "charismatic",
+                "competitive",
+                "cunning",
+                "fierce",
+                "insecure",
+                "grumpy",
+                "shameless",
+                "sneaky"
+            ]
+        },
+                "injury": [
+            {
+                "cats": [
+                    "m_c"
+                ],
+                "injuries": [
+                    "bruises"
+                ]
+            }
+        ]
     },
         {
         "event_id": "gen_injury_soreapp_clankits",
