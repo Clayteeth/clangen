@@ -7506,7 +7506,10 @@
                     "comfort"
                 ],
                 "amount": 10,
-                "log": "m_c gave r_c the best badger rides as a kit."
+                "log": 
+                {
+                    "cats_from": "m_c gave r_c the best badger rides as a kit."
+                }
             }
         ]
     },

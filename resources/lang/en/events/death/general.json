@@ -729,10 +729,9 @@
     {
         "event_id": "gen_death_snake_any2",
         "location": [
-           "any"
+            "any"
         ],
         "season": [
-            "any",
             "-leaf-bare"
         ],
         "frequency": 3,
