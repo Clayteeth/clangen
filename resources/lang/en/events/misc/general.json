@@ -12185,7 +12185,7 @@
         }
     ]
     },
-      {
+    {
     "event_id": "gen_misc_guardasleep",
     "location": [
       "any"
@@ -12249,5 +12249,61 @@
                 "adjust": "reduce_half"
             }
         ]
+    },
+    {
+        "event_id": "gen_misc_war_pitcaught",
+        "location": ["any"],
+        "season": ["any"],
+        "sub_type": ["war"],
+        "frequency": 1,
+        "event_text": "c_n catches o_c_n digging a pit trap.",
+        "other_clan": {
+            "current_rep": [
+                "any"
+            ],
+            "changed": -1
+        },
+        "exclude_involved": ["m_c"]
+    },
+      {
+    "event_id": "gen_misc_war_skirmishvictory",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["war"],
+    "frequency": 4,
+    "event_text": "c_n drove off o_c_n in their most recent skirmish with no notable injuries.",
+    "other_clan": {
+        "current_rep": ["any"],
+        "changed": -1
+    },
+     "exclude_involved": ["m_c"]
+},
+      {
+    "event_id": "multi_misc_war_ambush",
+    "location": ["forest", "wetlands"],
+    "season": ["any"],
+    "sub_type": ["war"],
+    "frequency": 3,
+    "event_text": "c_n uses the dense foliage to their favor by ambushing o_c_n from the undergrowth and forcing their scouting patrol to scatter.",
+    "other_clan": {
+        "current_rep": ["any"],
+        "changed": -1
+    },
+     "exclude_involved": ["m_c"]
+},
+      {
+    "event_id": "gen_misc_war_ocnleaddeath",
+    "location": ["any"],
+    "season": ["any"],
+    "sub_type": ["war"],
+    "frequency": 2,
+    "event_text": "m_c is confident that o_c_n's leader lost a life during the last battle.",
+    "m_c": {
+        "status": ["leader", "deputy"]
+    },
+    "other_clan": {
+        "current_rep": ["any"],
+        "changed": -1
     }
+}
 ]
