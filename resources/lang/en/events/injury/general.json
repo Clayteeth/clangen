@@ -5483,7 +5483,7 @@
             "any"
         ],
         "frequency": 4,
-        "event_text": "m_c fought a rogue and, while {PRONOUN/m_c/subject} drove the trespasser away, {PRONOUN/m_c/subject} needed to be rushed to the medicine cat den afterwards.",
+        "event_text": "m_c fought a rogue and, while {PRONOUN/m_c/subject} drove the trespasser away, {PRONOUN/m_c/subject} needed to be rushed to the medicine cat den afterward.",
         "m_c": {
             "age": [
                 "-kitten"
@@ -6215,7 +6215,7 @@
             "newleaf"
         ],
         "frequency": 4,
-        "event_text": "The day is so nice out today that m_c decided to sneak out of camp and go play in the flowers without anyone noticing. {PRONOUN/m_c/subject/CAP} come back with a swollen paw after stepping on a bee.",
+        "event_text": "The day is so nice out today that m_c decided to sneak out of camp and go play in the flowers without anyone noticing. {PRONOUN/m_c/subject/CAP} {VERB/m_c/come/comes} back with a swollen paw after stepping on a bee.",
         "m_c": {
             "age": [
                 "kitten"
