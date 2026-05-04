@@ -145,6 +145,9 @@ class Music:
         ):
             # switching music
             if self.current_track_name:
+                self.fade_out(fadeout=3000)
+                switch_timer = Timer(3, self.play)
+                switch_timer.daemon = True
                 switch_timer.start()
             else:
                 # if no track was loaded, then we just play
@@ -261,7 +264,6 @@ class Music:
 
         if not duration:
             duration = randint(30, 200)
-        print(f"silence timer: {duration} seconds")
         self._clear()
         self.silence_timer = AudioTimer(duration, self.play)
         self.silence_timer.daemon = True
