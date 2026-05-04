@@ -12946,6 +12946,150 @@
     }
   ]
 },
+	{
+    "event_id": "gen_misc_war_nightmare",
+    "location": [
+		"any"
+	],
+    "season": [
+		"any"
+	],
+    "sub_type": [
+		"war"
+	],
+    "tags": [],
+    "frequency": 1,
+    "event_text": "m_c wakes up from a nightmare, sobbing about a mysterious evil cat.",
+    "new_accessory": [],
+    "m_c": {
+        "age": [
+		"kitten"
+		]
+	}
+	},
+	{
+    "event_id": "gen_misc_war_apppractice",
+    "location": [
+		"any"
+	],
+    "season": [
+		"any"
+	],
+    "sub_type": [
+		"war"
+	],
+    "tags": [],
+    "frequency": 4,
+    "event_text": "m_c begs {PRONOUN/m_c/poss} mentor for more battle training, claiming {PRONOUN/m_c/subject} {VERB/m_c/need/needs} to be stronger to fight o_c_n.",
+    "new_accessory": [],
+    "m_c": {
+        "status": [
+			"apprentice"
+		],
+        "relationship_status": [
+			"app/mentor"
+		],
+        "trait": [
+			"-arrogant"
+		]
+    },
+    "r_c": {
+        "status": [
+			"any"
+		]
+    },
+    
+    	"relationships": [
+        {
+            "cats_from": [
+				"m_c"
+			],
+            "cats_to": [
+				"r_c"
+			],
+            "mutual": true,
+            "values": [
+				"like",
+				"trust"
+			],
+            "amount": 10,
+        "log": {
+        "cats_from": "cat_from believed that cat_to's guidance would make them strong enough to fight off any foe!",
+        "cats_to": "cat_to admired and cherished cat_from's eagerness to learn."
+      }
+        }
+    ]
+},
+	{
+    "event_id": "gen_misc_war_medstudy",
+    "location": [
+		"any"
+	],
+    "season": [
+		"any"
+	],
+    "sub_type": [
+		"war"
+	],
+    "tags": [],
+    "frequency": 3,
+    "event_text": "m_c studies herbs all night, wanting to help c_n as much as {PRONOUN/m_c/subject} can.",
+    "m_c": {
+        "status": [
+			"medicine cat apprentice"
+		]
+    },
+    "future_event": []
+},
+	{
+    "event_id": "gen_misc_war_medsort",
+    "location": [
+		"any"
+	],
+    "season": [
+		"any"
+	],
+    "sub_type": [
+		"war"
+	],
+    "tags": [],
+    "frequency": 4,
+    "event_text": "m_c spends all night sorting the herb stores, wanting to help as much as {PRONOUN/m_c/subject} can.",
+    "m_c": {
+        "status": [
+			"medicine cat apprentice",
+			"medicine cat"
+		]
+    },
+    "future_event": []
+},
+	{
+    "event_id": "gen_misc_war_appholdback",
+    "location": [
+		"any"
+	],
+    "season": [
+		"any"
+	],
+    "sub_type": [
+		"war"
+	],
+    "tags": [],
+    "frequency": 3,
+    "event_text": "m_c is caught holding back in a fight against a o_c_n apprentice. ",
+    "m_c": {
+        "status": [
+                "apprentice"
+            ],
+            "trait": [
+                "-bloodthirsty",
+				"-fierce",
+				"-arrogant",
+				"-vengeful"
+            ]
+    },
+    "future_event": []
+},
     {
         "event_id": "gen_misc_otherclannewleader1",
         "location": [
