@@ -220,7 +220,7 @@ class Music:
         :param delay: Dictates the seconds of silence between this track and the next one, including fade time. Default is random duration between 30 and 300 seconds.
         """
         if not delay:
-            delay = randint(30, 200)
+            delay = randint(30, 250)
         if self.channel and self.channel.get_busy():
             self.channel.fadeout(fadeout)
             self._start_silence_timer(max(fadeout / 100, delay))
@@ -263,7 +263,7 @@ class Music:
             return
 
         if not duration:
-            duration = randint(30, 200)
+            duration = randint(30, 250)
         self._clear()
         self.silence_timer = AudioTimer(duration, self.play)
         self.silence_timer.daemon = True
