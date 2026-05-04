@@ -1,4 +1,5 @@
 from random import choice, randint
+from threading import Timer
 
 import ujson
 import logging
@@ -143,9 +144,14 @@ class Music:
             and self.current_track_name not in self.available_music["menu_playlist"]
         ):
             # switching music
-            self.play()
+            if self.current_track_name:
+                switch_timer.start()
+            else:
+                # if no track was loaded, then we just play
+                self.play()
         elif (
             screen not in constants.MENU_SCREENS
+            and self.current_track_name
             and self.current_track_name not in self.current_playlist
         ):
             # stopping music
@@ -165,6 +171,8 @@ class Music:
         else:
             self.channel.play(self.loaded_track, fade_ms=3000)
         self._start_music_timer()
+        if self.silence_timer:
+            self.silence_timer.cancel()
 
     def stop(self):
         """
@@ -209,7 +217,7 @@ class Music:
         :param delay: Dictates the seconds of silence between this track and the next one, including fade time. Default is random duration between 30 and 300 seconds.
         """
         if not delay:
-            delay = randint(30, 300)
+            delay = randint(30, 200)
         if self.channel and self.channel.get_busy():
             self.channel.fadeout(fadeout)
             self._start_silence_timer(max(fadeout / 100, delay))
@@ -227,7 +235,8 @@ class Music:
 
         self.volume = new_volume / 100
         game_setting_set("music_volume", new_volume)
-        self.loaded_track.set_volume(self.volume)
+        if self.loaded_track:
+            self.loaded_track.set_volume(self.volume)
 
     def _start_music_timer(self, duration=None):
         """
@@ -251,7 +260,8 @@ class Music:
             return
 
         if not duration:
-            duration = randint(30, 300)
+            duration = randint(30, 200)
+        print(f"silence timer: {duration} seconds")
         self._clear()
         self.silence_timer = AudioTimer(duration, self.play)
         self.silence_timer.daemon = True
