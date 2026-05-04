@@ -142,16 +142,19 @@ class Music:
             screen in constants.MENU_SCREENS
             and self.current_track_name not in self.available_music["menu_playlist"]
         ):
+            # switching music
             self.play()
         elif (
             screen not in constants.MENU_SCREENS
             and self.current_track_name not in self.current_playlist
         ):
+            # stopping music
             self._stop_timers()
             if should_fade_out:
                 self.fade_out()
             else:
                 self.fade_out(fadeout=0)
+            self.current_track_name = None
 
     def play(self):
         """Finds and plays appropriate track"""
