@@ -10,11 +10,9 @@ from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache, constants
 from scripts.game_structure.game.settings import game_setting_get
 from scripts.game_structure import game
-from scripts.game_structure.ui_elements import (
-    UISpriteButton,
-    UIImageButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.scale import ui_scale, ui_scale_dimensions, ui_scale_value
 from .Screens import Screens
 from .enums import GameScreen
@@ -100,7 +98,9 @@ class ClanScreen(Screens):
         self.choose_cat_positions()
 
         self.set_disabled_menu_buttons(["camp_screen"])
-        self.update_heading_text(f"{game.clan.displayname}Clan")
+        self.update_heading_text(
+            "general.clan", text_kwargs={"name": game.clan.displayname}
+        )
         self.show_menu_buttons()
         Screens.menu_buttons["back_to_camp"].hide()
 

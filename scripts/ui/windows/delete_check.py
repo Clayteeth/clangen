@@ -1,13 +1,12 @@
 import os
 import shutil
 
+import i18n
 import pygame
 import pygame_gui
 
-from scripts.game_structure.ui_elements import (
-    UISurfaceImageButton,
-    UITextBoxTweaked,
-)
+from scripts.ui.elements.text_box_tweaked import UITextBoxTweaked
+from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.housekeeping.datadir import get_save_dir
 from scripts.screens.enums import GameScreen
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
@@ -16,11 +15,11 @@ from scripts.ui.scale import ui_scale
 
 
 class CheckDeletionWindow(GameWindow):
-    def __init__(self, reloadscreen, clan_name):
+    def __init__(self, reloadscreen, clan_id, clan_display_name):
         super().__init__(
-            ui_scale(pygame.Rect((250, 200), (300, 180))),
+            ui_scale(pygame.Rect((250, 200), (300, 250))),
         )
-        self.clan_name = clan_name
+        self.clan_name = clan_id
         self.reloadscreen = reloadscreen
 
         self.delete_check_message = UITextBoxTweaked(
@@ -29,18 +28,21 @@ class CheckDeletionWindow(GameWindow):
             line_spacing=1,
             object_id="#text_box_30_horizcenter",
             container=self,
-            text_kwargs={"clan": str(self.clan_name + "Clan")},
+            text_kwargs={
+                "clan": i18n.t("general.clan", name=clan_display_name),
+                "clan_id": clan_id,
+            },
         )
 
         self.delete_it_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((71, 100), (153, 30))),
+            ui_scale(pygame.Rect((71, 125), (153, 30))),
             "windows.delete_yes",
             get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
             object_id="@buttonstyles_squoval",
             container=self,
         )
         self.go_back_button = UISurfaceImageButton(
-            ui_scale(pygame.Rect((71, 145), (153, 30))),
+            ui_scale(pygame.Rect((71, 170), (153, 30))),
             "windows.delete_no",
             get_button_dict(ButtonStyles.SQUOVAL, (153, 30)),
             object_id="@buttonstyles_squoval",
