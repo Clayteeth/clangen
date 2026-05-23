@@ -7,12 +7,10 @@ import pygame_gui.elements
 
 from scripts.cat.cats import Cat
 from scripts.game_structure import image_cache, game
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-    UIRelationDisplay,
-)
+from ..ui.elements.relation_display import UIRelationDisplay
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import shorten_text_to_fit
 from ..ui.scale import ui_scale, ui_scale_dimensions
@@ -332,7 +330,11 @@ class MediationScreen(Screens):
                 object_id=get_text_box_theme(),
             )
 
-            text = mediator.personality.trait + "\n" + mediator.experience_level
+            text = (
+                i18n.t(f"cat.personality.{mediator.personality.trait}")
+                + "\n"
+                + mediator.experience_level_string
+            )
 
             if mediator.not_working():
                 text += "\n" + i18n.t("general.cant_work")

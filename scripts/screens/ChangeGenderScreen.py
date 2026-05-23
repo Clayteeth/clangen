@@ -11,11 +11,9 @@ from pygame_gui.core import ObjectID, UIContainer
 from scripts.cat.cats import Cat
 from scripts.game_structure import game
 from scripts.game_structure.localization import load_lang_resource
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    CatButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.cat_button import CatButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import shorten_text_to_fit
 from ..cat import pronouns
@@ -83,7 +81,7 @@ class ChangeGenderScreen(Screens):
                     self.selected_cat_elements[
                         "cat_gender"
                     ] = pygame_gui.elements.UITextBox(
-                        self.the_cat.get_genderalign_string(),
+                        self.the_cat.genderalign_string,
                         ui_scale(pygame.Rect((126, 250), (250, 250))),
                         object_id=get_text_box_theme(
                             "#text_box_30_horizcenter_spacing_95"
@@ -93,9 +91,6 @@ class ChangeGenderScreen(Screens):
 
             elif event.ui_element == self.buttons["add_pronouns"]:
                 PronounCreationWindow(self.the_cat)
-                self.previous_cat_button.disable()
-                self.next_cat_button.disable()
-                self.back_button.disable()
 
             elif type(event.ui_element) is CatButton:
                 if event.ui_element.cat_id == "add":
@@ -226,9 +221,9 @@ class ChangeGenderScreen(Screens):
 
         # In what case would a cat have no genderalign? -key
         if not self.the_cat.genderalign:
-            text = self.the_cat.get_gender_string()
+            text = self.the_cat.gender_string
         else:
-            text = self.the_cat.get_genderalign_string()
+            text = self.the_cat.genderalign_string
 
         self.selected_cat_elements["cat_gender"] = pygame_gui.elements.UITextBox(
             text,
@@ -269,7 +264,7 @@ class ChangeGenderScreen(Screens):
         )
         self.selected_cat_elements["gender"] = pygame_gui.elements.UITextEntryLine(
             ui_scale(pygame.Rect((350, 220), (165, 30))),
-            placeholder_text=self.the_cat.get_genderalign_string(),
+            placeholder_text=self.the_cat.genderalign_string,
             manager=MANAGER,
         )
         self.buttons["save"] = UISurfaceImageButton(

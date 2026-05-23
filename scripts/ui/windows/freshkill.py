@@ -12,14 +12,14 @@ from scripts.clan_package.settings import (
     switch_clan_setting,
 )
 from scripts.game_structure.screen_settings import MANAGER
-from scripts.game_structure.ui_elements import (
-    UISurfaceImageButton,
-    UIImageButton,
-    UICheckbox,
-    UITextBoxTweaked,
-    UICatListDisplay,
+from scripts.ui.elements.cat_list_display import UICatListDisplay
+from scripts.ui.elements.checkbox import UICheckbox
+from scripts.ui.elements.modified_scrolling_container import (
     UIModifiedScrollingContainer,
 )
+from scripts.ui.elements.text_box_tweaked import UITextBoxTweaked
+from scripts.ui.elements.image_button import UIImageButton
+from scripts.ui.elements.surface_image_button import UISurfaceImageButton
 from scripts.ui.generate_button import get_button_dict, ButtonStyles
 from scripts.ui.icon import Icon
 from scripts.ui.windows.window_base_class import GameWindow
@@ -40,8 +40,8 @@ class FreshkillManagementWindow(GameWindow):
         self.open_view = None
         self.log = None
         self.low_nutrition_cats = None
-        self.prey_requirement = constants.PREY_CONFIG["prey_requirement"]
-        self.feeding_order = constants.PREY_CONFIG["feeding_order"]
+        self.prey_requirement = constants.CONFIG["prey"]["prey_requirement"]
+        self.feeding_order = constants.CONFIG["prey"]["feeding_order"]
         self.possible_priorities = ["hunter_first", "sick_injured_first"]
         self.possible_orders = [
             "low_rank",

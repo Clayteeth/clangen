@@ -5,12 +5,11 @@ import pygame.transform
 import pygame_gui.elements
 
 from scripts.cat.cats import Cat
+from scripts.cat_relations.inheritance2 import inheritance_db
 from scripts.game_structure import image_cache
-from scripts.game_structure.ui_elements import (
-    UIImageButton,
-    UISpriteButton,
-    UISurfaceImageButton,
-)
+from ..ui.elements.sprite_button import UISpriteButton
+from ..ui.elements.image_button import UIImageButton
+from ..ui.elements.surface_image_button import UISurfaceImageButton
 from ..ui.theme import get_text_box_theme
 from ..events_module.text_adjust import shorten_text_to_fit
 from ..events_module.event_filters import get_personality_compatibility
@@ -492,7 +491,7 @@ class ChooseMateScreen(Screens):
         and the page"""
         self.all_offspring = [
             Cat.fetch_cat(i)
-            for i in list(self.the_cat.inheritance.kits)
+            for i in inheritance_db.get_children(self.the_cat.ID)
             if isinstance(Cat.fetch_cat(i), Cat)
         ]
         if self.selected_cat and self.kits_selected_pair:
@@ -798,8 +797,7 @@ class ChooseMateScreen(Screens):
         """Updates all elements with the current cat, as well as the selected cat.
         Called when the screen switched, and whenever the focused cat is switched"""
         self.the_cat = Cat.all_cats[switch_get_value(Switch.cat)]
-        if not self.the_cat.inheritance:
-            self.the_cat.create_inheritance_new_cat()
+        self.the_cat.create_inheritance_new_cat()
 
         (
             self.next_cat,

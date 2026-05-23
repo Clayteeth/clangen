@@ -1,6 +1,6 @@
 from collections import defaultdict
 from itertools import groupby
-from random import choice
+from random import choice, choices
 from typing import TypedDict, Optional, List, Dict
 
 from scripts.cat.enums import CatRank, CatSocial, CatStanding, CatAge, CatGroup
@@ -379,19 +379,23 @@ class Status:
             return (
                 CatRank.APPRENTICE
                 if disable_random
-                else choice(
+                else choices(
                     [
                         CatRank.APPRENTICE,
                         CatRank.MEDIATOR_APPRENTICE,
                         CatRank.MEDICINE_APPRENTICE,
-                    ]
-                )
+                    ],
+                    weights=[6, 1, 2],
+                )[0]
             )
         elif age in (CatAge.YOUNG_ADULT, CatAge.ADULT, CatAge.SENIOR_ADULT):
             return (
                 CatRank.WARRIOR
                 if disable_random
-                else choice([CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR])
+                else choices(
+                    [CatRank.WARRIOR, CatRank.MEDICINE_CAT, CatRank.MEDIATOR],
+                    weights=[6, 2, 1],
+                )[0]
             )
         else:
             return CatRank.ELDER
@@ -540,6 +544,8 @@ class Status:
         # adding a cat who has been in a clan in the past, they will take their old rank if possible
         elif self.is_former_clancat and not self.group.is_afterlife():
             new_rank = self.find_prior_clan_rank()
+            if new_rank == CatRank.NEWBORN and not age == CatAge.NEWBORN:
+                new_rank = CatRank.KITTEN
             # we don't need to change leaders and deps if they're going to an afterlife
             if (
                 new_rank in (CatRank.LEADER, CatRank.DEPUTY)
@@ -634,11 +640,11 @@ class Status:
                 return entry["standing"]
         return []
 
-    def find_prior_clan_rank(self, clan_ID: str = None) -> CatRank:
+    def find_prior_clan_rank(self, clan_ID: str = None) -> Optional[CatRank]:
         """
         Finds the last held clan rank of a current outsider
-        :param clan_ID: pass the ID of a clan to only return the cat's prior rank within that clan. Default is None, if
-        None then the last rank within any Clan will be returned.
+        :param clan_ID: pass the ID of a clan to only return the cat's prior rank within that Clan. Default is None, if
+        None then the last rank within any Clan will be returned. If the cat has never been in a Clan, None is returned.
         """
         if clan_ID:
             past_ranks = [
@@ -652,6 +658,8 @@ class Status:
                 for rank in self.all_ranks.keys()
                 if rank not in [CatRank.LONER, CatRank.KITTYPET, CatRank.ROGUE]
             ]
+        if not past_ranks:
+            return None
 
         return past_ranks[-1]
 
@@ -706,7 +714,7 @@ class Status:
         # if no group given
         if not group_ID:
             for entry in self.standing_history:
-                if CatStanding.EXILED in entry["standing"]:
+                if CatStanding.EXILED == entry["standing"][-1]:
                     return True
             return False
 
